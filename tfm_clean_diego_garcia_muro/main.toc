@@ -1,0 +1,33 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Resumen}{\es@scroman {iii}}{chapter*.1}%
+\contentsline {chapter}{Abstract}{\es@scroman {v}}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Introducción y antecedentes}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}De modelos secuenciales a mecanismos de atención}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Objetivos del proyecto}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Material y métodos}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Arquitectura Transformer}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Positional encoding}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Masked Multi-head Attention}{5}{subsection.3.1.2}%
+\contentsline {subsubsection}{Query (Q)}{5}{section*.4}%
+\contentsline {subsubsection}{Key (K)}{6}{section*.5}%
+\contentsline {subsubsection}{Value (V)}{6}{section*.6}%
+\contentsline {subsection}{\numberline {3.1.3}Add \& Norm}{6}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Feed Forward}{6}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Linear}{6}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Softmax}{6}{subsection.3.1.6}%
+\contentsline {chapter}{\numberline {4}Resultados}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Preparación del entorno}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Análisis de los dataset}{7}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Tiny Shakespeare}{7}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}WikiText2}{7}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Limpieza y tokenización}{8}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Implementación del tokenizador BPE}{10}{subsection.4.3.1}%
+\contentsline {paragraph}{Ejemplo:}{11}{section*.7}%
+\contentsline {paragraph}{Agrupación en lotes y padding:}{11}{section*.8}%
+\contentsline {section}{\numberline {4.4}Embeddings y Positional Encodding}{12}{section.4.4}%
+\contentsline {subsubsection}{Implementación}{13}{section*.9}%
+\contentsline {section}{\numberline {4.5}Mecanismos de atención}{13}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Implementación mecanismo de atención}{13}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Implementación de las múltiples cabezas de atención}{14}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Normalización \texttt {(Add \& Norm)}}{15}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{17}{chapter.5}%

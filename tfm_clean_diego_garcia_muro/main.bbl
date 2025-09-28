@@ -1,0 +1,1411 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global}
+    \entry{analytics2020qkv}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6c4cee405296bde9803cbd80a5263a88}{%
+           family={{Analytics Vidhya}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{fullhash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{bibnamehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{authorbibnamehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{authornamehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{authorfullhash}{6c4cee405296bde9803cbd80a5263a88}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Q, K, V in Transformer Self-Attention}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://medium.com/analytics-vidhya/understanding-q-k-v-in-transformer-self-attention-9a5eddaa5960
+      \endverb
+      \verb{url}
+      \verb https://medium.com/analytics-vidhya/understanding-q-k-v-in-transformer-self-attention-9a5eddaa5960
+      \endverb
+    \endentry
+    \entry{autonlp2020linkedwikitext}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97dfbc60309a6ae1cf0f47e563fb9170}{%
+           family={{AutoNLP}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {AutoNLP}%
+      }
+      \strng{namehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{fullhash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{bibnamehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{authorbibnamehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{authornamehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{authorfullhash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linked Wikitext-2}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://autonlp.ai/datasets/linked-wikitext-2
+      \endverb
+      \verb{url}
+      \verb https://autonlp.ai/datasets/linked-wikitext-2
+      \endverb
+    \endentry
+    \entry{bao2022embedding}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=95999793442e6efab40f03786b3fe185}{%
+           family={Bao},
+           familyi={B\bibinitperiod},
+           given={Gary},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{95999793442e6efab40f03786b3fe185}
+      \strng{fullhash}{95999793442e6efab40f03786b3fe185}
+      \strng{bibnamehash}{95999793442e6efab40f03786b3fe185}
+      \strng{authorbibnamehash}{95999793442e6efab40f03786b3fe185}
+      \strng{authornamehash}{95999793442e6efab40f03786b3fe185}
+      \strng{authorfullhash}{95999793442e6efab40f03786b3fe185}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How to use PyTorch’s nn.Embedding: A comprehensive guide with examples}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
+      \endverb
+    \endentry
+    \entry{epichka2023qkv}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a5abbc9a74c48cbb48a54ffb37c778e5}{%
+           family={{Epichka}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Epichka Blog}%
+      }
+      \strng{namehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{fullhash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{bibnamehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{authorbibnamehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{authornamehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{authorfullhash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{QKV in Transformers}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://epichka.com/blog/2023/qkv-transformer/
+      \endverb
+      \verb{url}
+      \verb https://epichka.com/blog/2023/qkv-transformer/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks_embedding}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
+           family={{GeeksforGeeks}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GeeksforGeeks}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Word Embedding in PyTorch}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+    \endentry
+    \entry{google_sentencepiece}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SentencePiece}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://github.com/google/sentencepiece
+      \endverb
+      \verb{url}
+      \verb https://github.com/google/sentencepiece
+      \endverb
+    \endentry
+    \entry{huggingface_tinyshakespeare}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0b6bb846c6a3e0649ce0e3cd9355df3}{%
+           family={{HuggingFace}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {HuggingFace}%
+      }
+      \strng{namehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{fullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{bibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorbibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authornamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorfullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \field{extraname}{1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tiny Shakespeare Dataset}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://huggingface.co/datasets/karpathy/tiny_shakespeare
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/datasets/karpathy/tiny_shakespeare
+      \endverb
+    \endentry
+    \entry{huggingface_wikitext}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0b6bb846c6a3e0649ce0e3cd9355df3}{%
+           family={{HuggingFace}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {HuggingFace}%
+      }
+      \strng{namehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{fullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{bibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorbibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authornamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorfullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \field{extraname}{2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WikiText Dataset}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://huggingface.co/datasets/Salesforce/wikitext
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/datasets/Salesforce/wikitext
+      \endverb
+    \endentry
+    \entry{huggingface_tokenizer_summary}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0b6bb846c6a3e0649ce0e3cd9355df3}{%
+           family={{HuggingFace}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {HuggingFace Docs}%
+      }
+      \strng{namehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{fullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{bibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorbibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authornamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorfullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \field{extraname}{3}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tokenizer Summary}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
+      \endverb
+    \endentry
+    \entry{lmpo2020bpe}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=543e0bb12927672afaa0a47c304adf7b}{%
+           family={LMPO},
+           familyi={L\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{fullhash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{bibnamehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{authorbibnamehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{authornamehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{authorfullhash}{543e0bb12927672afaa0a47c304adf7b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{From text to tokens: Understanding BPE, WordPiece and SentencePiece in NLP}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://medium.com/@lmpo/from-text-to-tokens-understanding-bpe-wordpiece-and-sentencepiece-in-nlp-1367d9d610af
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@lmpo/from-text-to-tokens-understanding-bpe-wordpiece-and-sentencepiece-in-nlp-1367d9d610af
+      \endverb
+    \endentry
+    \entry{neuraforge2023guide}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4e68426ac4a41b104896fa163c612033}{%
+           family={{Neuraforge}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Substack}%
+      }
+      \strng{namehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{fullhash}{4e68426ac4a41b104896fa163c612033}
+      \strng{bibnamehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{authorbibnamehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{authornamehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{authorfullhash}{4e68426ac4a41b104896fa163c612033}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Ultimate Guide to Preparing Text Data (Embeddings)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://neuraforge.substack.com/p/the-ultimate-guide-to-preparing-text
+      \endverb
+      \verb{url}
+      \verb https://neuraforge.substack.com/p/the-ultimate-guide-to-preparing-text
+      \endverb
+    \endentry
+    \entry{perez_embeddings}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=00642ae9a613f136372b373de1536de6}{%
+           family={Pérez},
+           familyi={P\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Universidad de Alicante}%
+      }
+      \strng{namehash}{00642ae9a613f136372b373de1536de6}
+      \strng{fullhash}{00642ae9a613f136372b373de1536de6}
+      \strng{bibnamehash}{00642ae9a613f136372b373de1536de6}
+      \strng{authorbibnamehash}{00642ae9a613f136372b373de1536de6}
+      \strng{authornamehash}{00642ae9a613f136372b373de1536de6}
+      \strng{authorfullhash}{00642ae9a613f136372b373de1536de6}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Embeddings en Transformers}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.dlsi.ua.es/~japerez/materials/transformers/embeddings/
+      \endverb
+      \verb{url}
+      \verb https://www.dlsi.ua.es/~japerez/materials/transformers/embeddings/
+      \endverb
+    \endentry
+    \entry{phillips2019positional}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8adf5092403beb7960c4788f1d34beaf}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Hunter\bibnamedelima J.},
+           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{fullhash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{bibnamehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{authorbibnamehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{authornamehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{authorfullhash}{8adf5092403beb7960c4788f1d34beaf}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{title}{Positional encoding}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6
+      \endverb
+    \endentry
+    \entry{plainenglish2021gpt}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c24c404c8c27a30fc189d31289a303fa}{%
+           family={{Plain English AI}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{fullhash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{bibnamehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{authorbibnamehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{authornamehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{authorfullhash}{c24c404c8c27a30fc189d31289a303fa}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The 8 mathematical operations in GPT that accidentally created consciousness}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://ai.plainenglish.io/the-8-mathematical-operations-in-gpt-that-accidentally-created-consciousness-ccaee58b241e
+      \endverb
+      \verb{url}
+      \verb https://ai.plainenglish.io/the-8-mathematical-operations-in-gpt-that-accidentally-created-consciousness-ccaee58b241e
+      \endverb
+    \endentry
+    \entry{kanaries_nnlinear}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a7cb26255f6555bf8c99529adffeffd6}{%
+           family={Popovic},
+           familyi={P\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Kanaries Docs}%
+      }
+      \strng{namehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{fullhash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{bibnamehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{authorbibnamehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{authornamehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{authorfullhash}{a7cb26255f6555bf8c99529adffeffd6}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{nn.Linear in PyTorch: Clearly Explained}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://docs.kanaries.net/topics/Python/nn-linear
+      \endverb
+      \verb{url}
+      \verb https://docs.kanaries.net/topics/Python/nn-linear
+      \endverb
+    \endentry
+    \entry{reddit2021tokenizers}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b632c55a33530d1433e29ffc09ba1151}{%
+           family={{Reddit}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Reddit r/MachineLearning}%
+      }
+      \strng{namehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{fullhash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{bibnamehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{authorbibnamehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{authornamehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{authorfullhash}{b632c55a33530d1433e29ffc09ba1151}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SentencePiece, WordPiece, BPE: which tokenizer is best?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.reddit.com/r/MachineLearning/comments/rprmq3/d_sentencepiece_wordpiece_bpe_which_tokenizer_is/?tl=es-es
+      \endverb
+      \verb{url}
+      \verb https://www.reddit.com/r/MachineLearning/comments/rprmq3/d_sentencepiece_wordpiece_bpe_which_tokenizer_is/?tl=es-es
+      \endverb
+    \endentry
+    \entry{shabbir2021cleaning}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5fadb35ecb9fc5ff347e9db5b67502a}{%
+           family={Shabbir},
+           familyi={S\bibinitperiod},
+           given={Sheeza},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{fullhash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{bibnamehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{authorbibnamehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{authornamehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{authorfullhash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Text Cleaning in NLP: Libraries, Techniques and Getting Started}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/@datascientist_SheezaShabbir/text-cleaning-in-nlp-libraries-techniques-and-how-to-get-started-8c7c7e8ba7cf
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@datascientist_SheezaShabbir/text-cleaning-in-nlp-libraries-techniques-and-how-to-get-started-8c7c7e8ba7cf
+      \endverb
+    \endentry
+    \entry{swarms_masking_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d39cb0a5ea947b9bab556bd1f02bd416}{%
+           family={{Swarms}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{fullhash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{bibnamehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{authorbibnamehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{authornamehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{authorfullhash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Masking in PyTorch for Attention Mechanisms}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+    \endentry
+    \entry{vaswani2017attention}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorbibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention Is All You Need}
+      \field{year}{2017}
+      \field{pages}{5998\bibrangedash 6008}
+      \range{pages}{11}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+      \endverb
+    \endentry
+    \entry{wolfe_llm_scaling}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a32f590057e001201c87dd619dd0e6d0}{%
+           family={Wolfe},
+           familyi={W\bibinitperiod},
+           given={Cameron\bibnamedelima R.},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Substack}%
+      }
+      \strng{namehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{fullhash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{bibnamehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{authorbibnamehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{authornamehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{authorfullhash}{a32f590057e001201c87dd619dd0e6d0}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Scaling Laws for LLMs: From GPT-3 to o3}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://cameronrwolfe.substack.com/p/llm-scaling-laws
+      \endverb
+      \verb{url}
+      \verb https://cameronrwolfe.substack.com/p/llm-scaling-laws
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global}
+    \entry{analytics2020qkv}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6c4cee405296bde9803cbd80a5263a88}{%
+           family={{Analytics Vidhya}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{fullhash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{bibnamehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{authorbibnamehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{authornamehash}{6c4cee405296bde9803cbd80a5263a88}
+      \strng{authorfullhash}{6c4cee405296bde9803cbd80a5263a88}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Q, K, V in Transformer Self-Attention}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://medium.com/analytics-vidhya/understanding-q-k-v-in-transformer-self-attention-9a5eddaa5960
+      \endverb
+      \verb{url}
+      \verb https://medium.com/analytics-vidhya/understanding-q-k-v-in-transformer-self-attention-9a5eddaa5960
+      \endverb
+    \endentry
+    \entry{autonlp2020linkedwikitext}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=97dfbc60309a6ae1cf0f47e563fb9170}{%
+           family={{AutoNLP}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {AutoNLP}%
+      }
+      \strng{namehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{fullhash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{bibnamehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{authorbibnamehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{authornamehash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \strng{authorfullhash}{97dfbc60309a6ae1cf0f47e563fb9170}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linked Wikitext-2}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://autonlp.ai/datasets/linked-wikitext-2
+      \endverb
+      \verb{url}
+      \verb https://autonlp.ai/datasets/linked-wikitext-2
+      \endverb
+    \endentry
+    \entry{bao2022embedding}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=95999793442e6efab40f03786b3fe185}{%
+           family={Bao},
+           familyi={B\bibinitperiod},
+           given={Gary},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{95999793442e6efab40f03786b3fe185}
+      \strng{fullhash}{95999793442e6efab40f03786b3fe185}
+      \strng{bibnamehash}{95999793442e6efab40f03786b3fe185}
+      \strng{authorbibnamehash}{95999793442e6efab40f03786b3fe185}
+      \strng{authornamehash}{95999793442e6efab40f03786b3fe185}
+      \strng{authorfullhash}{95999793442e6efab40f03786b3fe185}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How to use PyTorch’s nn.Embedding: A comprehensive guide with examples}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
+      \endverb
+    \endentry
+    \entry{epichka2023qkv}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a5abbc9a74c48cbb48a54ffb37c778e5}{%
+           family={{Epichka}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Epichka Blog}%
+      }
+      \strng{namehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{fullhash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{bibnamehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{authorbibnamehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{authornamehash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \strng{authorfullhash}{a5abbc9a74c48cbb48a54ffb37c778e5}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{QKV in Transformers}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://epichka.com/blog/2023/qkv-transformer/
+      \endverb
+      \verb{url}
+      \verb https://epichka.com/blog/2023/qkv-transformer/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks_embedding}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
+           family={{GeeksforGeeks}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GeeksforGeeks}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Word Embedding in PyTorch}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+    \endentry
+    \entry{google_sentencepiece}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SentencePiece}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://github.com/google/sentencepiece
+      \endverb
+      \verb{url}
+      \verb https://github.com/google/sentencepiece
+      \endverb
+    \endentry
+    \entry{huggingface_tinyshakespeare}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0b6bb846c6a3e0649ce0e3cd9355df3}{%
+           family={{HuggingFace}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {HuggingFace}%
+      }
+      \strng{namehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{fullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{bibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorbibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authornamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorfullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \field{extraname}{1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tiny Shakespeare Dataset}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://huggingface.co/datasets/karpathy/tiny_shakespeare
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/datasets/karpathy/tiny_shakespeare
+      \endverb
+    \endentry
+    \entry{huggingface_wikitext}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0b6bb846c6a3e0649ce0e3cd9355df3}{%
+           family={{HuggingFace}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {HuggingFace}%
+      }
+      \strng{namehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{fullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{bibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorbibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authornamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorfullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \field{extraname}{2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WikiText Dataset}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://huggingface.co/datasets/Salesforce/wikitext
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/datasets/Salesforce/wikitext
+      \endverb
+    \endentry
+    \entry{huggingface_tokenizer_summary}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e0b6bb846c6a3e0649ce0e3cd9355df3}{%
+           family={{HuggingFace}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {HuggingFace Docs}%
+      }
+      \strng{namehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{fullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{bibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorbibnamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authornamehash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \strng{authorfullhash}{e0b6bb846c6a3e0649ce0e3cd9355df3}
+      \field{extraname}{3}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tokenizer Summary}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
+      \endverb
+    \endentry
+    \entry{lmpo2020bpe}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=543e0bb12927672afaa0a47c304adf7b}{%
+           family={LMPO},
+           familyi={L\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{fullhash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{bibnamehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{authorbibnamehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{authornamehash}{543e0bb12927672afaa0a47c304adf7b}
+      \strng{authorfullhash}{543e0bb12927672afaa0a47c304adf7b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{From text to tokens: Understanding BPE, WordPiece and SentencePiece in NLP}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://medium.com/@lmpo/from-text-to-tokens-understanding-bpe-wordpiece-and-sentencepiece-in-nlp-1367d9d610af
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@lmpo/from-text-to-tokens-understanding-bpe-wordpiece-and-sentencepiece-in-nlp-1367d9d610af
+      \endverb
+    \endentry
+    \entry{neuraforge2023guide}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4e68426ac4a41b104896fa163c612033}{%
+           family={{Neuraforge}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Substack}%
+      }
+      \strng{namehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{fullhash}{4e68426ac4a41b104896fa163c612033}
+      \strng{bibnamehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{authorbibnamehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{authornamehash}{4e68426ac4a41b104896fa163c612033}
+      \strng{authorfullhash}{4e68426ac4a41b104896fa163c612033}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Ultimate Guide to Preparing Text Data (Embeddings)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://neuraforge.substack.com/p/the-ultimate-guide-to-preparing-text
+      \endverb
+      \verb{url}
+      \verb https://neuraforge.substack.com/p/the-ultimate-guide-to-preparing-text
+      \endverb
+    \endentry
+    \entry{perez_embeddings}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=00642ae9a613f136372b373de1536de6}{%
+           family={Pérez},
+           familyi={P\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Universidad de Alicante}%
+      }
+      \strng{namehash}{00642ae9a613f136372b373de1536de6}
+      \strng{fullhash}{00642ae9a613f136372b373de1536de6}
+      \strng{bibnamehash}{00642ae9a613f136372b373de1536de6}
+      \strng{authorbibnamehash}{00642ae9a613f136372b373de1536de6}
+      \strng{authornamehash}{00642ae9a613f136372b373de1536de6}
+      \strng{authorfullhash}{00642ae9a613f136372b373de1536de6}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Embeddings en Transformers}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.dlsi.ua.es/~japerez/materials/transformers/embeddings/
+      \endverb
+      \verb{url}
+      \verb https://www.dlsi.ua.es/~japerez/materials/transformers/embeddings/
+      \endverb
+    \endentry
+    \entry{phillips2019positional}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8adf5092403beb7960c4788f1d34beaf}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Hunter\bibnamedelima J.},
+           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{fullhash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{bibnamehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{authorbibnamehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{authornamehash}{8adf5092403beb7960c4788f1d34beaf}
+      \strng{authorfullhash}{8adf5092403beb7960c4788f1d34beaf}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{title}{Positional encoding}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6
+      \endverb
+    \endentry
+    \entry{plainenglish2021gpt}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c24c404c8c27a30fc189d31289a303fa}{%
+           family={{Plain English AI}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{fullhash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{bibnamehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{authorbibnamehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{authornamehash}{c24c404c8c27a30fc189d31289a303fa}
+      \strng{authorfullhash}{c24c404c8c27a30fc189d31289a303fa}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The 8 mathematical operations in GPT that accidentally created consciousness}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://ai.plainenglish.io/the-8-mathematical-operations-in-gpt-that-accidentally-created-consciousness-ccaee58b241e
+      \endverb
+      \verb{url}
+      \verb https://ai.plainenglish.io/the-8-mathematical-operations-in-gpt-that-accidentally-created-consciousness-ccaee58b241e
+      \endverb
+    \endentry
+    \entry{kanaries_nnlinear}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a7cb26255f6555bf8c99529adffeffd6}{%
+           family={Popovic},
+           familyi={P\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Kanaries Docs}%
+      }
+      \strng{namehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{fullhash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{bibnamehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{authorbibnamehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{authornamehash}{a7cb26255f6555bf8c99529adffeffd6}
+      \strng{authorfullhash}{a7cb26255f6555bf8c99529adffeffd6}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{nn.Linear in PyTorch: Clearly Explained}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://docs.kanaries.net/topics/Python/nn-linear
+      \endverb
+      \verb{url}
+      \verb https://docs.kanaries.net/topics/Python/nn-linear
+      \endverb
+    \endentry
+    \entry{reddit2021tokenizers}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b632c55a33530d1433e29ffc09ba1151}{%
+           family={{Reddit}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Reddit r/MachineLearning}%
+      }
+      \strng{namehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{fullhash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{bibnamehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{authorbibnamehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{authornamehash}{b632c55a33530d1433e29ffc09ba1151}
+      \strng{authorfullhash}{b632c55a33530d1433e29ffc09ba1151}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SentencePiece, WordPiece, BPE: which tokenizer is best?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.reddit.com/r/MachineLearning/comments/rprmq3/d_sentencepiece_wordpiece_bpe_which_tokenizer_is/?tl=es-es
+      \endverb
+      \verb{url}
+      \verb https://www.reddit.com/r/MachineLearning/comments/rprmq3/d_sentencepiece_wordpiece_bpe_which_tokenizer_is/?tl=es-es
+      \endverb
+    \endentry
+    \entry{shabbir2021cleaning}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5fadb35ecb9fc5ff347e9db5b67502a}{%
+           family={Shabbir},
+           familyi={S\bibinitperiod},
+           given={Sheeza},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{fullhash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{bibnamehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{authorbibnamehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{authornamehash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \strng{authorfullhash}{c5fadb35ecb9fc5ff347e9db5b67502a}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Text Cleaning in NLP: Libraries, Techniques and Getting Started}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/@datascientist_SheezaShabbir/text-cleaning-in-nlp-libraries-techniques-and-how-to-get-started-8c7c7e8ba7cf
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@datascientist_SheezaShabbir/text-cleaning-in-nlp-libraries-techniques-and-how-to-get-started-8c7c7e8ba7cf
+      \endverb
+    \endentry
+    \entry{swarms_masking_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d39cb0a5ea947b9bab556bd1f02bd416}{%
+           family={{Swarms}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{fullhash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{bibnamehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{authorbibnamehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{authornamehash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \strng{authorfullhash}{d39cb0a5ea947b9bab556bd1f02bd416}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Masking in PyTorch for Attention Mechanisms}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+    \endentry
+    \entry{vaswani2017attention}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorbibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention Is All You Need}
+      \field{year}{2017}
+      \field{pages}{5998\bibrangedash 6008}
+      \range{pages}{11}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+      \endverb
+    \endentry
+    \entry{wolfe_llm_scaling}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a32f590057e001201c87dd619dd0e6d0}{%
+           family={Wolfe},
+           familyi={W\bibinitperiod},
+           given={Cameron\bibnamedelima R.},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Substack}%
+      }
+      \strng{namehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{fullhash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{bibnamehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{authorbibnamehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{authornamehash}{a32f590057e001201c87dd619dd0e6d0}
+      \strng{authorfullhash}{a32f590057e001201c87dd619dd0e6d0}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Scaling Laws for LLMs: From GPT-3 to o3}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://cameronrwolfe.substack.com/p/llm-scaling-laws
+      \endverb
+      \verb{url}
+      \verb https://cameronrwolfe.substack.com/p/llm-scaling-laws
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
