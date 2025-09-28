@@ -12,14 +12,18 @@ import os
 from datasets import DatasetDict
 import torch
 import torch.nn as nn
-
+import torch.nn.functional as F
+import math
 ###################
 # Lectura de datasets
 ###################
 
 #wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt -O tinyshakespeare.txt
+train_path = Path("./project/resources/datasets/shakespeare_clean_train.txt")
+MODEL_PATH = "./project/resources/models/bpe_model_shakespeare.model"
 
 if not os.path.exists("./project/resources/models/shakespeare_clean_train.model"):
+    print("Carga datasets")
     dataset = load_dataset("text", data_files={"raw": "./project/resources/datasets/tinyshakespeare.txt"})
 
     # Dividir en train (90%) y test (10%)
@@ -43,7 +47,7 @@ if not os.path.exists("./project/resources/models/shakespeare_clean_train.model"
     ####################
     # Limpieza y tokenización
     #####################
-
+    print("Limpieza previa")
     def light_clean_fn(example):
         t = example["text"]
         t = ftfy.fix_text(t)
@@ -63,7 +67,6 @@ if not os.path.exists("./project/resources/models/shakespeare_clean_train.model"
 
     # Escribimos SOLO el train a un archivo para entrenar SP
 
-    train_path = Path("./project/resources/datasets/shakespeare_clean_train.txt")
     with train_path.open("w", encoding="utf-8") as f:
         for line in cleaned["train"]["text"]:
             if line.strip():
@@ -71,10 +74,11 @@ if not os.path.exists("./project/resources/models/shakespeare_clean_train.model"
 
 
 if not os.path.exists("./project/resources/models/bpe_model_shakespeare.model"):
+    print("Entrenamiento modelo BPE")
    # Aprende el vocabulario y como dividir en subpalabras
     spm.SentencePieceTrainer.Train(
-        input="./project/resources/datasets/shakespeare_clean_train.txt", # Corpus de train, se pueden pasar varios
-        model_prefix="./project/resources/models/bpe_model_shakespeare",        # generaprefijo modelos generados:  bpe_model_shakespeare.model y bpe_model_shakespeare.vocab
+        input=train_path, # Corpus de train, se pueden pasar varios
+        model_prefix="./project/resources/models/bpe_model_shakespeare",        # genera prefijo modelos generados:  bpe_model_shakespeare.model y bpe_model_shakespeare.vocab
         vocab_size=16000,                 # 8k–32k para corpora pequeños, 32 k para wikitext2
         model_type="bpe",
         character_coverage=1.0,           # inglés
@@ -86,43 +90,23 @@ if not os.path.exists("./project/resources/models/bpe_model_shakespeare.model"):
 
     )
 
+# Cargo el texto
+print("Carga dataset train")
+with open(train_path, "r", encoding="utf-8") as f:
+    train_text = f.read()
+
 
 # Carga el modelo con vocabulario, reglas de fusión y normalización. Con esto sabe como debe convertir el texto a IDs como en el train
-sp = spm.SentencePieceProcessor(model_file="./project/resources/models/bpe_model_shakespeare.model")
+sp = spm.SentencePieceProcessor(model_file=MODEL_PATH)
 
 # Tokenizaciones 
-def sp_encode_batch_train(batch):
-    ids = [
-        [sp.bos_id()] +
-        sp.encode(t, out_type=int, enable_sampling=True, nbest_size=-1, alpha=0.1) +
-        [sp.eos_id()]
-        for t in batch["text"]
-    ]
-    attn = [[1]*len(x) for x in ids]
-    return {"input_ids": ids, "attention_mask": attn}
+print("Tokenización del corpus de train")
+train_ids = sp.encode(train_text, out_type=int)
 
-def sp_encode_batch_eval(batch):
-    ids = [
-        [sp.bos_id()] + sp.encode(t, out_type=int) + [sp.eos_id()]
-        for t in batch["text"]
-    ]
-    attn = [[1]*len(x) for x in ids]
-    return {"input_ids": ids, "attention_mask": attn}
+print("Número total de tokens en el corpus:", len(train_ids))
+print("Ejemplo de tokens:", train_ids[:50])
+print("Shape tokens corpues: ", train_ids)
 
-tokenized_train = cleaned["train"].map(sp_encode_batch_train, batched=True, num_proc=4, remove_columns=["text"])
-tokenized_val   = cleaned["validation"].map(sp_encode_batch_eval, batched=True, num_proc=4, remove_columns=["text"])
-tokenized_test  = cleaned["test"].map(sp_encode_batch_eval, batched=True, num_proc=4, remove_columns=["text"])
-
-print(tokenized_train)
-print(tokenized_train["input_ids"])         # Gets the whole column
-print(tokenized_train["attention_mask"])    # Gets the whole column
-
-print(tokenized_train.shape)
-
-# Aplano el resultado
-stream = []
-for example in tokenized_train:
-    stream.extend(example["input_ids"])
 
 # Se formatiza como <input, target>
 
@@ -136,47 +120,132 @@ class LMWindowDataset(torch.utils.data.Dataset):
         x = torch.tensor(self.toks[i:i+self.ctx], dtype=torch.long)
         y = torch.tensor(self.toks[i+1:i+self.ctx+1], dtype=torch.long)
         return x, y
-
+print("Preparando DataLoader")
 print("GPU available:", torch.cuda.is_available())
-dataset = LMWindowDataset(stream, context_len=256)  # o 256
+dataset = LMWindowDataset(train_ids, context_len=256)  # o 256
 loader  = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
 
 ####################
 # Embeddings
 #####################
-
+print("Embeddings y Multi-Head Attention")
 vocab_size = sp.vocab_size()     
 embedding_dim = 512              
 context_len = 256
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Token embeddings
 embedding_layer = nn.Embedding(
     num_embeddings=vocab_size, 
-    embedding_dim=embedding_dim, 
-    padding_idx=sp.pad_id() if sp.pad_id() >= 0 else None
-)
+    embedding_dim=embedding_dim
+).to(device) 
 
 # Positional embeddings aprendidos
 pos_embedding_layer = nn.Embedding(
     num_embeddings=context_len,  
     embedding_dim=embedding_dim
-)
+).to(device) 
 
+
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, num_heads: int, d_model: int):
+       
+        super().__init__()
+        assert d_model % num_heads == 0, "d_model debe ser divisible por num_heads"
+        
+        self.num_heads = num_heads
+        self.d_model = d_model
+        self.d_k = d_model // num_heads  # dimensión por cabeza
+        
+        # Proyecciones lineales para Q, K, V
+        self.Wq = nn.Linear(d_model, d_model, bias=False)
+        self.Wk = nn.Linear(d_model, d_model, bias=False)
+        self.Wv = nn.Linear(d_model, d_model, bias=False)
+        
+        # Proyección final después de concatenar todas las cabezas
+        self.Wo = nn.Linear(d_model, d_model, bias=False)
+
+    def forward(self, x): # Que pasa con los datos al llamar al módulo 
+        """
+        x: (B, T, d_model)
+        Devuelve: (B, T, d_model)
+        """
+        B, T, _ = x.size()
+        
+        # 1. Proyecciones lineales
+        Q = self.Wq(x)  # (B, T, d_model)
+        K = self.Wk(x)  # (B, T, d_model)
+        V = self.Wv(x)  # (B, T, d_model)
+        
+        # 2. Reorganizar en múltiples cabezas
+        # (B, T, d_model) -> (B, num_heads, T, d_k)
+        Q = Q.view(B, T, self.num_heads, self.d_k).transpose(1, 2)
+        K = K.view(B, T, self.num_heads, self.d_k).transpose(1, 2)
+        V = V.view(B, T, self.num_heads, self.d_k).transpose(1, 2)
+        
+        # 3. Calcular scores de atención
+        # (B, num_heads, T, d_k) x (B, num_heads, d_k, T) -> (B, num_heads, T, T)
+        scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.d_k)
+        
+        # 4. Máscara causal (triangular superior a -inf)
+        mask = torch.triu(torch.ones(T, T, device=x.device), diagonal=1).bool()
+        scores = scores.masked_fill(mask, float('-inf'))
+        
+        # 5. Normalizar con softmax
+        attn = torch.softmax(scores, dim=-1)  # (B, num_heads, T, T)
+        
+        # 6. Aplicar atención a V
+        out = torch.matmul(attn, V)  # (B, num_heads, T, d_k)
+        
+        # 7. Recombinar heads
+        out = out.transpose(1, 2).contiguous().view(B, T, self.d_model)  # (B, T, d_model)
+        
+        # 8. Proyección final
+        out = self.Wo(out)  # (B, T, d_model)
+        return out
+    
+
+mha = MultiHeadAttention(num_heads=8, d_model=embedding_dim).to(device)
+
+# Add & norm
+class AddNorm(nn.Module):
+    """The residual connection followed by layer normalization."""
+    def __init__(self, norm_shape, dropout):
+        super().__init__()
+        self.dropout = nn.Dropout(dropout)
+        self.ln = nn.LayerNorm(norm_shape)
+
+    def forward(self, X, Y): # Y es la salida de la subcapa previa y X la entrada a la subcapa
+        return self.ln(self.dropout(Y) + X)
+
+
+# Esto es para debug
 for batch_x, batch_y in loader:
-    B, T = batch_x.shape                      
-    tok_emb = embedding_layer(batch_x)       
+    batch_x = batch_x.to(device)
+    B, T = batch_x.shape
 
-    pos_ids = torch.arange(T, device=batch_x.device).unsqueeze(0).expand(B, T)
-    pos_emb = pos_embedding_layer(pos_ids)   
+    # 1. Token + Positional embeddings
+    tok_emb = embedding_layer(batch_x)  # (B, T, d_model)
+    pos_ids = torch.arange(T, device=device).unsqueeze(0).expand(B, T)
+    pos_emb = pos_embedding_layer(pos_ids)  # (B, T, d_model)
+    x = tok_emb + pos_emb  # (B, T, d_model)
 
-    output_embeddings = tok_emb + pos_emb     
+    # 2. Multi-Head Attention con máscara causal
+    out = mha(x)  # (B, T, d_model)
 
-    print(output_embeddings.shape)           
-    print(output_embeddings)
+    print("Input embeddings:", x.shape)
+    print("Output atención:", out.shape)
     break
     '''
-    for layer in 1..N:
+    torch.Size([32, 256, 512])
+    torch.Size([32, 256, 512])
+    torch.Size([32, 256, 512])
+    '''
+    break
+    '''
+    for layer in 1..N: # Meter la conexión residual
         # (Pre-Norm) Self-Attention enmascarada
         a = SelfAttention( LayerNorm(x), mask=causal(T) )   # [B, T, D]
         x = x + a                                           # residual
@@ -204,4 +273,214 @@ for batch_x, batch_y in loader:
         pos_emb = pos_embedding_layer(pos_ids)
         out = (tok_emb + pos_emb).cpu()
         torch.save(out, f)
+'''
+
+'''
+
+
+# Masks
+def padding_mask(seq, pad_token=0):
+    mask = (seq == pad_token).unsqueeze(1).unsqueeze(2)
+    return mask  # (batch_size, 1, 1, seq_len)
+
+def sequence_mask(seq):
+    seq_len = seq.size(1)
+    mask = torch.triu(torch.ones((seq_len, seq_len)), diagonal=1)
+    return mask  # (seq_len, seq_len)
+
+def look_ahead_mask(size):
+    mask = torch.triu(torch.ones(size, size), diagonal=1)
+    return mask  # (seq_len, seq_len)
+
+# Masked self attention
+def scaled_dot_product_attention(q, k, v, mask=None):
+    matmul_qk = torch.matmul(q, k.transpose(-2, -1))
+    dk = q.size()[-1]
+    scaled_attention_logits = matmul_qk / torch.sqrt(torch.tensor(dk, dtype=torch.float32))
+
+    if mask is not None:
+        scaled_attention_logits += (mask * -1e9)
+
+    attention_weights = F.softmax(scaled_attention_logits, dim=-1)
+    output = torch.matmul(attention_weights, v)
+    return output, attention_weights
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, d_model, num_heads):
+        super(MultiHeadAttention, self).__init__()
+        self.num_heads = num_heads
+        self.d_model = d_model
+
+        assert d_model % num_heads == 0
+
+        self.depth = d_model // num_heads
+
+        self.wq = nn.Linear(d_model, d_model)
+        self.wk = nn.Linear(d_model, d_model)
+        self.wv = nn.Linear(d_model, d_model)
+
+        self.dense = nn.Linear(d_model, d_model)
+
+    def split_heads(self, x, batch_size):
+        x = x.view(batch_size, -1, self.num_heads, self.depth)
+        return x.permute(0, 2, 1, 3)
+
+    def forward(self, v, k, q, mask):
+        batch_size = q.size(0)
+
+        q = self.split_heads(self.wq(q), batch_size)
+        k = self.split_heads(self.wk(k), batch_size)
+        v = self.split_heads(self.wv(v), batch_size)
+
+        scaled_attention, _ = scaled_dot_product_attention(q, k, v, mask)
+        scaled_attention = scaled_attention.permute(0, 2, 1, 3).contiguous()
+
+        original_size_attention = scaled_attention.view(batch_size, -1, self.d_model)
+        output = self.dense(original_size_attention)
+        return output
+
+class TransformerLayer(nn.Module):
+    def __init__(self, d_model, num_heads, dff, dropout_rate=0.1):
+        super(TransformerLayer, self).__init__()
+        self.mha = MultiHeadAttention(d_model, num_heads)
+        self.ffn = nn.Sequential(
+            nn.Linear(d_model, dff),
+            nn.ReLU(),
+            nn.Linear(dff, d_model)
+        )
+
+        self.layernorm1 = nn.LayerNorm(d_model)
+        self.layernorm2 = nn.LayerNorm(d_model)
+
+        self.dropout1 = nn.Dropout(dropout_rate)
+        self.dropout2 = nn.Dropout(dropout_rate)
+
+    def forward(self, x, mask):
+        attn_output = self.mha(x, x, x, mask)
+        attn_output = self.dropout1(attn_output)
+        out1 = self.layernorm1(x + attn_output)
+
+        ffn_output = self.ffn(out1)
+        ffn_output = self.dropout2(ffn_output)
+        out2 = self.layernorm2(out1 + ffn_output)
+        return out2
+    
+##########################################################
+# SELF ATTENTION: Un unico mecanismo de atención, solo aprende un tipo de relación por así decirlo. Por 
+# ejemplo, "Fui al banco a retirar dinero" y "Pase la tarde sentado en un banco del parque" con self attention es más difícil que capture la diferencia, 
+# mientras que con multihead puede aprender una cabeza para cada significado.
+##########################################################
+class SelfAttention:
+    def __init__(self, embedding_dim):
+        
+        
+        torch.manual_seed(42)
+        self.embedding_dim = embedding_dim
+
+        # Initialize weight matrices
+        self.W_q = torch.randn(embedding_dim, embedding_dim)
+        self.W_k = torch.randn(embedding_dim, embedding_dim)
+        self.W_v = torch.randn(embedding_dim, embedding_dim)
+
+    def forward(self, embeddings):
+    
+        # Compute Query, Key, and Value matrices
+        Q = torch.matmul(embeddings, self.W_q)  
+        K = torch.matmul(embeddings, self.W_k)  
+        V = torch.matmul(embeddings, self.W_v)  
+
+        # Compute similarity (dot product attention)
+        similarity_matrix = torch.matmul(Q, K.T)  # (num_words, num_words)
+
+        # Scale by sqrt(embedding_dim)
+        similarity_matrix_scaled = similarity_matrix / torch.sqrt(
+            torch.tensor(self.embedding_dim, dtype=torch.float32)
+        )
+
+        # Apply softmax to get attention weights
+        attention_weights = F.softmax(similarity_matrix_scaled, dim=1)
+
+      
+        new_context = torch.matmul(attention_weights, V)  
+
+        return new_context, attention_weights
+############################################################################################
+#    MULTIHEAD
+############################################################################################
+
+class MultiHeadAttention(torch.nn.Module):
+    def __init__(self, num_heads, embedding_dim):
+        super(MultiHeadAttention, self).__init__()
+        
+        self.num_heads = num_heads
+        self.embedding_dim = embedding_dim
+        self.d_k = embedding_dim // num_heads
+        
+ 
+        self.Wq = torch.nn.Parameter(torch.rand(embedding_dim, embedding_dim))
+        self.Wk = torch.nn.Parameter(torch.rand(embedding_dim, embedding_dim))
+        self.Wv = torch.nn.Parameter(torch.rand(embedding_dim, embedding_dim))
+    
+    def forward(self, embeddings):
+        seq_len = embeddings.size(0)
+        
+        
+        Q = embeddings @ self.Wq  # (seq_len, embedding_dim)
+        K = embeddings @ self.Wk  
+        V = embeddings @ self.Wv  
+
+        # Converting to multiheaded attention
+        Q = Q.view(seq_len, self.num_heads, self.d_k).transpose(0, 1)  # (num_heads, seq_len, d_k)
+        K = K.view(seq_len, self.num_heads, self.d_k).transpose(0, 1)  
+        V = V.view(seq_len, self.num_heads, self.d_k).transpose(0, 1)  
+
+        # Compute attention scores
+        attention_scores = torch.matmul(Q, K.transpose(-2, -1))  # (num_heads, seq_len, seq_len)
+
+        # Apply mask (upper triangular mask for causal attention)
+        mask = torch.triu(torch.ones(seq_len, seq_len), diagonal=1).bool()
+        mask = mask.unsqueeze(0).expand_as(attention_scores)
+        attention_scores = attention_scores.masked_fill(mask, -1e11)
+
+        # Scale the attention scores
+        attention_scores = attention_scores / math.sqrt(self.d_k)
+
+        # Apply softmax to get attention weights
+        attention_weights = torch.softmax(attention_scores, dim=-1)  # (num_heads, seq_len, seq_len)
+
+        # Compute the output (weighted sum of values)
+        output = torch.matmul(attention_weights, V)  
+
+       
+        output = output.transpose(0, 1).contiguous().view(seq_len, self.embedding_dim)
+        return output
+
+#############################################################################################
+'''
+
+
+'''
+def sp_encode_batch_train(batch):
+    ids = [
+        [sp.bos_id()] + # No lo necesito si aplano y LMWindowDataset
+        sp.encode(t, out_type=int, enable_sampling=True, nbest_size=-1, alpha=0.1) + # Convierte a ids el texto y añade aleatoriedad
+        [sp.eos_id()]
+        for t in batch["text"]
+    ]
+    attn = [[1]*len(x) for x in ids] # Innecesaria pues uso ventanas fijas sin padding
+    return {"input_ids": ids, "attention_mask": attn}
+
+def sp_encode_batch_eval(batch):
+    ids = [
+        [sp.bos_id()] + sp.encode(t, out_type=int) + [sp.eos_id()]
+        for t in batch["text"]
+    ]
+    attn = [[1]*len(x) for x in ids]
+    return {"input_ids": ids, "attention_mask": attn}
+
+tokenized_train = cleaned["train"].map(sp_encode_batch_train, batched=True, num_proc=4, remove_columns=["text"])
+tokenized_val   = cleaned["validation"].map(sp_encode_batch_eval, batched=True, num_proc=4, remove_columns=["text"])
+tokenized_test  = cleaned["test"].map(sp_encode_batch_eval, batched=True, num_proc=4, remove_columns=["text"])
+
+
 '''
