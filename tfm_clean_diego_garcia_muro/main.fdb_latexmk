@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1759073730.79778 "main.bcf" "main.bbl" "main" 1759073731.34686 0
-  "main.bcf" 1759054898.95857 134514 c2fca6f20c51d44be2ef46ed7b6da668 "pdflatex"
+["biber main"] 1759254886.60209 "main.bcf" "main.bbl" "main" 1759255514.02589 0
+  "main.bcf" 1759255513.94747 134799 a114794147fafd68fe67610cd4852fd3 "pdflatex"
   "refs.bib" 1759073730.6279 9847 b6dd118402dab7f8b7024e98e2548801 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1759054858.62692 "main.idx" "main.ind" "main" 1759073731.34683 0
-  "main.idx" 1759054897.94558 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1759254411.57926 "main.idx" "main.ind" "main" 1759255514.02581 0
+  "main.idx" 1759255512.93546 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1759054897.15374 "/home/dgarciamur/root/TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759073731.34689 0
+["pdflatex"] 1759255512.18376 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759255514.0261 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/tfm_clean_diego_garcia_muro/main.tex" 1759054895.06562 41966 c39b9712ff6185083dbfb8410bc53549 ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1759255511.46245 47547 2ce71fd4d6ab06ede2e4443811c9feda ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -23,6 +23,8 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8t.tfm" 1136768653 6880 f19b8995b61c334d78fc734065f6b4d4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmbc8t.tfm" 1136768653 16820 c06a5e067b0ad78c9474777b7e2265b7 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmbi8r.tfm" 1136768653 4480 10409ed8bab5aea9ec9a78028b763919 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmbi8t.tfm" 1136768653 6784 37b32cc10800b5afa030d935c393695a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm" 1136768653 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
@@ -51,12 +53,15 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb" 1229303445 16077 4737ac34f0fb5608550f3780a0202c22 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb" 1136849748 33709 b09d2e140b7e807d3a97058263ab6693 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 a3faba884469519614ca56ba5f6b1de1 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb8t.vf" 1136768653 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmbc8t.vf" 1136768653 3604 29c743896336655d7560376b87cafe22 ""
+  "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmbi8t.vf" 1136768653 2324 51908dae6e03953a90119973962f0e4d ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf" 1136768653 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8t.vf" 1136768653 2348 91706c542228501c410c266421fbe30c ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmrc8t.vf" 1136768653 3608 78e4c999d9e69f03f448158d01821741 ""
@@ -285,8 +290,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1759053453.45959 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1759053488 8216357 81e98ac611735e96ab2bbbcd88be9df0 ""
   "img/Q_K_V.png" 1759045582 36287 b39ed6222630553a63594651a71c0191 ""
+  "img/ResNet.png" 1759252592.97142 10778 6a94d0b601f9d78699ab4404954e83a3 ""
   "img/atencion.png" 1759045584 58820 dfa704fb57a01b5a8eaddbf30f08be84 ""
   "img/ejemplo_embedding.png" 1759045582 12443 61a5f0d4d0974e2f91cb93a735f8a8fe ""
+  "img/esquema1.png" 1759255473.81302 19213 7f39c54ae9e6cd83156e62afb4fd04a8 ""
   "img/heads.png" 1759054079.88703 55123 567f851565c221ed2336f38a05cef5eb ""
   "img/heads2.png" 1759054087.77066 50052 2606c4eaa25c2d1ecbfa2e67649f3024 ""
   "img/logo_imf.png" 1759045582 4640 8f49add8f12b4837bc4126f48ab5435e ""
@@ -296,13 +303,13 @@
   "img/test_tok.png" 1759045582 81947 19b510c3619ec07dc6c8b32f3c0cf559 ""
   "img/tiny_shakespeare.png" 1759045582 104113 3098618de7d081a063133e32b4c8a229 ""
   "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
-  "main.aux" 1759054898.95557 14074 81cfb9924e052be5359cff9946a228d0 "pdflatex"
-  "main.bbl" 1759073731.32266 56544 1f82dea9b881b89117b3faca95395842 "biber main"
-  "main.ind" 1759054858.69507 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1759054898.95776 4383 430a03f93fc215e0a74621b72170223d "pdflatex"
-  "main.run.xml" 1759054898.96049 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
-  "main.tex" 1759054895.06562 41966 c39b9712ff6185083dbfb8410bc53549 ""
-  "main.toc" 1759054898.96049 2622 60d77fc08ce8608da95f510b66302e72 "pdflatex"
+  "main.aux" 1759255513.94347 16163 167009b74b7d217b1ae47993f174c2c0 "pdflatex"
+  "main.bbl" 1759254887.1315 61936 4f9f9ec1fc3459f3e643f39abfd0fcd3 "biber main"
+  "main.ind" 1759254411.66855 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1759255513.94647 4476 ed7919ad47efea898e33f418f2ea69be "pdflatex"
+  "main.run.xml" 1759255513.9488 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
+  "main.tex" 1759255511.46245 47547 2ce71fd4d6ab06ede2e4443811c9feda ""
+  "main.toc" 1759255513.9488 2846 7fff53d1471d19df090570f2418669b9 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

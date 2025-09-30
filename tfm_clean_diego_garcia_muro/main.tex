@@ -263,7 +263,83 @@ En estos mecanismos de atención se incluye habitualmente el término \textit{ma
 Entre los tipos de máscaras más comunes se encuentra la \textit{Padding Mask}, que se aplica para ignorar los tokens de relleno, que no contienen información semántica, añadidos a las secuencias con el fin de que todas tengan la misma longitud dentro de un lote de entrenamiento. También se utiliza la \textit{Sequence Mask}, que sirve para ocultar determinadas partes de la secuencia de acuerdo con un criterio específico. Por último, la \textit{Look-ahead Mask} (o \textit{Causal mask}) se emplea en modelos autoregresivos para evitar que la predicción de un token en la posición $t$ dependa de información futura, garantizando así que las predicciones en una posición concreta solo tengan en cuenta los tokens anteriores o la misma posición \parencite{swarms_masking_pytorch}.
 
 
-\subsection{Add \& Norm}
+\subsection{Add \& Norm \parencite{sharma2024addnorm}} \label{subsec:addnorm}
+
+En la arquitectura Transformer aparece reiteradamente una capa denominada \textit{Add \& Norm}. La principal finalidad de esta capa es estabilizar y mejorar el entrenamiento y se divide en dos procesos, que se explican a continaución.
+\subsubsection{Conexión Residual (\textit{Add})}
+En redes profundas con arquitecturas complejas los pesos pueden tomar valores muy pequeños, hasta el punto de desaparer (\textit{vanishing gradients}) o demasiado grandes (\textit{exploding gradients}) al retropropagar hacia atrás, lo que conlleva que la red deje de aprender o sea muy inestable. 
+
+Para solucionar estos problemas, en 2015 nace ResNet una arquitectura en la que la entrada de una capa, pasa a su salida directamente, saltándose las operciones intermedias. Es decir, a nivel simplificado se tendría: 
+
+\[
+y = F(x) + x
+\]
+
+Donde $x$ es la entrada de la capa anterior, $y$ la salida de la capa actual y $F(x)$ la función de activación correspondiente a la capa actual.
+
+Con ello, la capa ya no tiene que aprender la función completa $F(x)$, sino solo la diferencia respecto a la identidad. Esto asegura que siempre exista al menos una señal que retroceda hasta las capas iniciales durante el entrenamiento.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/ResNet.png}
+    \caption{Ejemplo gráfico conexión residual}
+    \label{fig:placeholder13}
+\end{figure}
+
+Esto se entiende mejor al calcular las derivadas parciales para actualizar los pesos en \textit{basckpropagation}. Como se observa en la siguiente expresión, el gradiente nunca se anula completamente gracias al término de identidad: 
+
+\[
+\frac{\partial \mathcal{E}}{\partial x}
+= \frac{\partial \mathcal{E}}{\partial y}
+    \frac{\partial y}{\partial x}
+= \frac{\partial \mathcal{E}}{\partial y}
+    \left( \frac{dF(x)}{dx} + 1 \right).
+\]
+
+De esta manera, incluso cuando $\frac{dF(x)}{dx}$ tiende a cero, el gradiente conserva la contribución de la identidad ($+1$). Así, la red es capaz de mantener un flujo estable de información hacia atrás, evitando que los gradientes mueran. Además, puede aprender a ignorar aquellas transformaciones que no sean beneficiosas en el entrenamiento, llevando sus pesos hacia cero y dejando pasar directamente la señal original $x$ \parencite{apxml_addnorm}. 
+
+\subsubsection{Normalización (\textit{Layer Norm})}
+
+Tras la conexión residual, se aplica una capa de normalización. A diferencia de otras capas de normalización, como la normalización por lotes (\textit{Batch Norm}), que normaliza los datos a lo largo del lote de entrenamiento, la normalización por capas (\textit{Layer Norm}) lo hace para cada muestra individual en sus características internas. Esto es especialmente importante en NLP, donde las secuencias de entrada pueden variar en longitud y contenido y no interesa que cada una se vea afectada por estadísticas de otra. Además, si se usase la normalización por lotes, se haría \textit{padding}, y los valores de relleno afectarían a las estadísticas de la normalización, especialmente en frases cortas. A continuación, se muestra un ejemplo que plasma claramente la diferencia entre ambas técnicas:
+
+Dadas las siguiente secuencias: 
+
+\[
+\text{secuencia}_1 = [2,3], \quad \text{secuencia}_2 = [4,5]
+\]
+
+La normalización por lotes se aplica a lo largo del batch:
+\[
+\mu_1 = \frac{2 + 4}{2} = 3, 
+\quad 
+\sigma_1 = \sqrt{\frac{(2-3)^2 + (4-3)^2}{2}} = 1
+\]
+
+Mientras que la normalización por capa se aplica dentro de cada secuencia considerando todas sus características, así la posición 1:
+\[
+\mu_{\text{seq1}} = \frac{2 + 3}{2} = 2.5, 
+\quad 
+\sigma_{\text{seq1}} = \sqrt{\frac{(2-2.5)^2 + (3-2.5)^2}{2}} = 0.5
+\]
+
+\[
+\mu_{\text{seq2}} = \frac{4 + 5}{2} = 4.5, 
+\quad 
+\sigma_{\text{seq2}} = \sqrt{\frac{(4-4.5)^2 + (5-4.5)^2}{2}} = 0.5
+\]
+
+
+Con ello, en base a estas dos operaciones, de media y varianza, se realzia la normalización de los valores de entrada en cada capa aplicando la siguiente expresión: 
+
+\[
+    \hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta
+    \label{eq:normalization_sigma}
+\]
+
+En dicha expresión se observan dos parámetros entrenables, $\gamma$ y $\beta$, que permiten al modelo aprender la escala y el desplazamiento óptimos para cada característica. Sin estos parámetros, la normalización es demasiado restrictiva, pues los resultados se aplanan siempre a un mismo rango. El término $\epsilon$ es un valor pequeño añadido para evitar divisiones por cero y garantizar la estabilidad numérica.
+
+Otra de las ventajas de normalizar es que mitiga el \textit{internal covariate shift} \parencite{sharma2024addnorm}. Durante el entrenamiento las distribuciones de las activaciones cambian, dado que los pesos cambian, lo que ralentiza la convergencia \parencite{apxml_addnorm}, haciendo el entrenamiento más inestable y el optimizador pierde tiempo corrigiendo desajustes. Gracias a la normalización, las variables se mantienen en una escala controlada.
+
 
 \subsection{Feed Forward}
 \subsection{Linear}
@@ -332,7 +408,7 @@ En lo referido a la limpieza del texto existen diversas técnicas, como limpiar 
     \caption{Limpieza antes de tokenizar}
     \label{fig:placeholder2}
 \end{figure}
-Como se ha mencionado, existen distintas técnicas de tokenización. A nivel más simple está la tokenización en caracteres, en palabras y en subpalabras. La primera tiene la ventaja de disminuir la complejidad, sin embargo, el modelo está más limitado a la hora de aprender representaciones significativas. Puede ser útil para idiomas como el chino, donde la morfología es compleja y no existen los espacios. La segunda es la tokenización por espacio y puntuación, es decir, la frase \textit{"Mi perro come mucho."} no se descompone en los tokens: \textit{"Mi", "perro", "come", "mucho."}, que es a lo que equivaldría hacer un split por espacios, sino que se tokenizaría como: \textit{"Mi", "perro", "come", "mucho", "."}. El problema de este método es la complejidad en memoria y tiempo, pues genera un vocabulario muy grande y con ellos una matriz de embeddings también demasiado grande. A esto hay que sumar que aparece el problema de palabras no vistas o "UNK". 
+Como se ha mencionado, existen distintas técnicas de tokenización. A nivel más simple está la tokenización en caracteres, en palabras y en subpalabras. La primera tiene la ventaja de disminuir la complejidad, sin embargo, el modelo está más limitado a la hora de aprender representaciones significativas. Puede ser útil para idiomas como el chino, donde la morfología es compleja y no existen los espacios. La segunda es la tokenización por espacio y puntuación, es decir, la frase \textit{"Mi perro come mucho."} no se descompone en los tokens: \textit{"Mi", "perro", "come", "mucho."}, que es a lo que equivaldría hacer un split por espacios, sino que se tokenizaría como: \textit{"Mi", "perro", "come", "mucho", "."}. El problema de este método es la complejidad en memoria y tiempo, pues genera un vocabulario muy grande y con ellos una matriz de embeddings también demasiado grande. A esto hay que sumar que aparece el problema de palabras no vistas o \textit{UNK}. 
 Estos problemas se resuelven con la tokenización de subpalabras. Este método se basa en la idea de que las palabras que se usan con frecuencia no deberían dividirse, mientras que las más raras sí, manteniendo así palabras más frecuentes. Por ejemplo, en un texto en inglés, la palabra \textit{"annoyingly"} no es una palabra común, mientras que las subpalabras \textit{"annoying"} y \textit{"ly"} sí. Permite, con ello, ver más vocabulario, sin perder significado de las palabras menos frecuentes \parencite{lmpo2020bpe}
 
 En este proyecto, dado que son textos en inglés y las limitaciones técnicas que existen, se ha decidido utilizar un tokenizador de subpalabras. Entre estos, destacan dos: BPE y WordPiece \parencite{huggingface_tokenizer_summary}. Ambos funcionan de forma similar, la principal diferencia radica en cómo realizan las "uniones" a partir del vocabulario base. BPE lo que hace es primeramente una pre-tokenización de los datos de entrenamiento por espacios o basada en reglas (por ejemplo, \textbf{Moses}). Con ello, obtiene un conjunto de palabras únicas y su frecuencia. Tras ello, crea un vocabulario base con los distintos símbolos que aparecen en las palabras únicas. La idea ahora es aprender reglas de unión para crear nuevos símbolos a partir de otros dos en base a la frecuencia. El proceso se repite hasta alcanzar el tamaño deseado, que se configura como hiperparámetro. \textbf{En GPT el tamaño es de 40478 tokens.} Para evitar un vocabulario base muy extenso si se quiere tener todos los caracteres con el fin de evitar palabras o tokens no vistos, se pueden usar bytes, así se tiene un tamaño fijo de 256, utilizando reglas para los caracteres de puntuación que no se puedan representar. \\
@@ -365,7 +441,8 @@ donde:
 \text{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
 
 \subsection{Implementación del tokenizador BPE}
- El primer paso es entrenar el tokenizador, de forma que aprenda el vocabulario y a dividir en subpalabras. Se establece el tipo de modelo, "bpe" en este caso, el tamaño del vocabulario final, la porción de caracteres del corpus que debe cubrir el modelo (1 para cubrir todos) y el número de hilos de CPU a usar durante el entrenamiento. Además, se utiliza el parámetro \textit{byte\_fallback} para controlar los caracteres desconocidos, tal y como se ha explicado previamente.Se aplica una normalización NFKC (descompone los caracteres en formas básicas y los recompone siguiendo una forma estándar) antes de entrenar donde se estandarizan caracteres y eliminan espacios innecesarios o múltiples. Esto es algo que conviene usar con lenguajes como el japonés que utilizan caracteres desnormalizados o textos sucios y desnormalizados; sin embargo, en este caso, los datasets empleados ya están listos para usarse y se podría evitar. Por último, se asignan los IDs especiales: \\
+El primer paso es entrenar el tokenizador, de forma que aprenda el vocabulario y a dividir en subpalabras. Se establece el tipo de modelo, "bpe" en este caso, el tamaño del vocabulario final, la porción de caracteres del corpus que debe cubrir el modelo (1 para cubrir todos) y el número de hilos de CPU a usar durante el entrenamiento. Además, se utiliza el parámetro \textit{byte\_fallback} para controlar los caracteres desconocidos, tal y como se ha explicado previamente.Se aplica una normalización NFKC (descompone los caracteres en formas básicas y los recompone siguiendo una forma estándar) antes de entrenar donde se estandarizan caracteres y eliminan espacios innecesarios o múltiples. Esto es algo que conviene usar con lenguajes como el japonés que utilizan caracteres desnormalizados o textos sucios y desnormalizados; sin embargo, en este caso, los datasets empleados ya están listos para usarse y se podría evitar. Por último, se asignan los IDs especiales:
+
  \begin{itemize}
      \item pad: token de padding para rellenar secuencias de distinta longitud.
      \item unk: Tokens desconocidos, pese a estar controlados con el parámetro mencionado.
@@ -571,6 +648,17 @@ De este modo, cada cabeza de atención opera de manera independiente sobre un su
 \end{figure}
 
 \section{Normalización \texttt{(Add \& Norm)}}
+Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos. Primero, una conexión residual que suma la entrada original a la salida del bloque de atención múltiple. En segundo lugar, una capa de normalización por capas que estabiliza y acelera el entrenamiento. En el siguiente esquema se visualiza mejor el flujo: 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/esquema1.png}
+    \caption{Flujo capa Add \& Norm}
+    \label{fig:placeholder14}
+\end{figure}
+
+
+
 
 %--- FIN DEL CAPÍTULO 4
 

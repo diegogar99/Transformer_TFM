@@ -210,16 +210,35 @@ class MultiHeadAttention(nn.Module):
 mha = MultiHeadAttention(num_heads=8, d_model=embedding_dim).to(device)
 
 # Add & norm
+
+import torch
+import torch.nn as nn
+
+class LayerNormFromScratch(nn.Module):
+    def __init__(self, normalized_shape, eps=1e-5):
+        super().__init__()
+        self.gamma = nn.Parameter(torch.ones(normalized_shape))  
+        self.beta = nn.Parameter(torch.zeros(normalized_shape))
+        self.eps = eps
+
+    def forward(self, X):
+        # X: (batch, seq_len, hidden_dim)
+        mean = X.mean(dim=-1, keepdim=True)       # media por posición
+        var = X.var(dim=-1, keepdim=True, unbiased=False)  # varianza
+        X_hat = (X - mean) / torch.sqrt(var + self.eps)    # normaliza
+        return self.gamma * X_hat + self.beta
+
+
 class AddNorm(nn.Module):
-    """The residual connection followed by layer normalization."""
     def __init__(self, norm_shape, dropout):
         super().__init__()
-        self.dropout = nn.Dropout(dropout)
-        self.ln = nn.LayerNorm(norm_shape)
+        self.dropout = nn.Dropout(dropout) # Para regularizar
+        self.ln = LayerNormFromScratch(norm_shape) # nn.LayerNorm(norm_shape)
 
     def forward(self, X, Y): # Y es la salida de la subcapa previa y X la entrada a la subcapa
-        return self.ln(self.dropout(Y) + X)
+        return self.ln(self.dropout(Y) + X) # Aplica add y luego layernorm
 
+# REVISAR: https://medium.com/@aisagescribe/pre-normalization-vs-post-normalization-in-transformers-e84872e0a3cd
 
 # Esto es para debug
 for batch_x, batch_y in loader:

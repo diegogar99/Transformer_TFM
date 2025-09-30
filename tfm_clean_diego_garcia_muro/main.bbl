@@ -50,6 +50,37 @@
       \verb https://medium.com/analytics-vidhya/understanding-q-k-v-in-transformer-self-attention-9a5eddaa5960
       \endverb
     \endentry
+    \entry{apxml_addnorm}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=35b24a69ef3a6848dac883b34a5a2af4}{%
+           family={{ApXML}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ApXML}%
+      }
+      \strng{namehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{fullhash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{bibnamehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{authorbibnamehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{authornamehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{authorfullhash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Add \& Norm Layers (Residual Connections)}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://apxml.com/courses/introduction-to-transformer-models/chapter-3-transformer-encoder-decoder-architecture/add-norm-layers
+      \endverb
+      \verb{url}
+      \verb https://apxml.com/courses/introduction-to-transformer-models/chapter-3-transformer-encoder-decoder-architecture/add-norm-layers
+      \endverb
+    \endentry
     \entry{autonlp2020linkedwikitext}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=97dfbc60309a6ae1cf0f47e563fb9170}{%
@@ -565,6 +596,40 @@
       \endverb
       \verb{url}
       \verb https://medium.com/@datascientist_SheezaShabbir/text-cleaning-in-nlp-libraries-techniques-and-how-to-get-started-8c7c7e8ba7cf
+      \endverb
+    \endentry
+    \entry{sharma2024addnorm}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a47647fce18a7deb3531bd0778268930}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Mohit},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{fullhash}{a47647fce18a7deb3531bd0778268930}
+      \strng{bibnamehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{authorbibnamehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{authornamehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{authorfullhash}{a47647fce18a7deb3531bd0778268930}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is Add \& Norm, as quick as possible?}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
+      \endverb
+      \verb{url}
+      \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
       \endverb
     \endentry
     \entry{swarms_masking_pytorch}{online}{}
@@ -744,6 +809,37 @@
       \verb https://medium.com/analytics-vidhya/understanding-q-k-v-in-transformer-self-attention-9a5eddaa5960
       \endverb
     \endentry
+    \entry{apxml_addnorm}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=35b24a69ef3a6848dac883b34a5a2af4}{%
+           family={{ApXML}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ApXML}%
+      }
+      \strng{namehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{fullhash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{bibnamehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{authorbibnamehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{authornamehash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \strng{authorfullhash}{35b24a69ef3a6848dac883b34a5a2af4}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Add \& Norm Layers (Residual Connections)}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://apxml.com/courses/introduction-to-transformer-models/chapter-3-transformer-encoder-decoder-architecture/add-norm-layers
+      \endverb
+      \verb{url}
+      \verb https://apxml.com/courses/introduction-to-transformer-models/chapter-3-transformer-encoder-decoder-architecture/add-norm-layers
+      \endverb
+    \endentry
     \entry{autonlp2020linkedwikitext}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=97dfbc60309a6ae1cf0f47e563fb9170}{%
@@ -1259,6 +1355,40 @@
       \endverb
       \verb{url}
       \verb https://medium.com/@datascientist_SheezaShabbir/text-cleaning-in-nlp-libraries-techniques-and-how-to-get-started-8c7c7e8ba7cf
+      \endverb
+    \endentry
+    \entry{sharma2024addnorm}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a47647fce18a7deb3531bd0778268930}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Mohit},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{fullhash}{a47647fce18a7deb3531bd0778268930}
+      \strng{bibnamehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{authorbibnamehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{authornamehash}{a47647fce18a7deb3531bd0778268930}
+      \strng{authorfullhash}{a47647fce18a7deb3531bd0778268930}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is Add \& Norm, as quick as possible?}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
+      \endverb
+      \verb{url}
+      \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
       \endverb
     \endentry
     \entry{swarms_masking_pytorch}{online}{}
