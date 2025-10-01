@@ -207,14 +207,11 @@ class MultiHeadAttention(nn.Module):
         return out
     
 
-mha = MultiHeadAttention(num_heads=8, d_model=embedding_dim).to(device)
 
 # Add & norm
 
-import torch
-import torch.nn as nn
 
-class LayerNormFromScratch(nn.Module):
+class NormLayer(nn.Module):
     def __init__(self, normalized_shape, eps=1e-5):
         super().__init__()
         self.gamma = nn.Parameter(torch.ones(normalized_shape))  
@@ -233,10 +230,91 @@ class AddNorm(nn.Module):
     def __init__(self, norm_shape, dropout):
         super().__init__()
         self.dropout = nn.Dropout(dropout) # Para regularizar
-        self.ln = LayerNormFromScratch(norm_shape) # nn.LayerNorm(norm_shape)
+        self.ln = NormLayer(norm_shape) # nn.LayerNorm(norm_shape)
 
     def forward(self, X, Y): # Y es la salida de la subcapa previa y X la entrada a la subcapa
         return self.ln(self.dropout(Y) + X) # Aplica add y luego layernorm
+
+# FFNN
+class FeedForward(nn.Module):
+    def __init__(self,d_model, d_ff, dropout):
+        super().__init__()
+        # Se usan 3 capas densas, con dropout y activación GELU
+        self.linear1 = nn.Linear(d_model, d_ff)
+        self.linear2 = nn.Linear(d_ff, d_ff)
+        self.linear3 = nn.Linear(d_ff, d_model) # Ver si estas capas expanden y contraen
+        self.gelu = nn.GELU()
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x): 
+       x = self.linear1(x)
+       x = self.gelu(x)
+       x = self.dropout(x)
+       x = self.linear2(x)
+       x = self.gelu(x)
+       x = self.dropout(x)
+       x = self.linear3(x)
+       return x
+
+# Bloque 1 transformer decoder-only
+class TransformerDecoderOnlyBlock(nn.Module):
+    def __init__(self, num_heads, d_model, d_ff, dropout):
+        super().__init__()
+        self.mha = MultiHeadAttention(num_heads, d_model)
+        self.addnorm1 = AddNorm(d_model, dropout)
+        self.ffn = FeedForward(d_model, d_ff, dropout)
+        self.addnorm2 = AddNorm(d_model, dropout)
+        self.apply(self._init_weights) # Recorre las capas aplicando la función
+
+    def _init_weights(m): # Inicialización de pesos: Xavier para MHA y FFNN y normal para embeddings
+        if isinstance(m, nn.Linear):
+            nn.init.xavier_uniform_(m.weight)
+            if m.bias is not None:
+                nn.init.zeros_(m.bias) # Para evitar desplazamiento inicial arbitrario
+        elif isinstance(m, nn.Embedding):
+            nn.init.normal_(m.weight, mean=0.0, std=0.02)
+
+    def forward(self,x):
+        attention = self.mha(x)
+        x = self.addnorm1(x, attention)
+        ffn_out = self.ffn(x)
+        x = self.addnorm2(x, ffn_out)
+        return x
+
+'''
+class DecoderOnlyTransformer(nn.Module):
+    def __init__(self, vocab_size, d_model=512, num_heads=8, d_ff=2048,
+                 num_layers=6, context_len=256, dropout=0.1):
+        super().__init__()
+        self.tok_emb = nn.Embedding(vocab_size, d_model)
+        self.pos_emb = nn.Embedding(context_len, d_model)
+
+        self.blocks = nn.ModuleList([
+            TransformerBlock(d_model, num_heads, d_ff, dropout)
+            for _ in range(num_layers)
+        ])
+
+        self.norm = nn.LayerNorm(d_model)
+        self.lm_head = nn.Linear(d_model, vocab_size, bias=False)
+
+    def forward(self, idx):
+        B, T = idx.shape
+        pos = torch.arange(T, device=idx.device).unsqueeze(0).expand(B, T)
+
+        x = self.tok_emb(idx) + self.pos_emb(pos)
+        for block in self.blocks:
+            x = block(x)
+        x = self.norm(x)
+        logits = self.lm_head(x)  # (B, T, vocab_size)
+        return logits
+
+'''
+
+'''
+Entrenamiento: No aplicas softmax → usas CrossEntropyLoss directamente.
+
+Generación: Sí aplicas softmax al último token → obtienes una distribución de probabilidad para muestrear el siguiente.
+'''
 
 # REVISAR: https://medium.com/@aisagescribe/pre-normalization-vs-post-normalization-in-transformers-e84872e0a3cd
 
@@ -257,6 +335,10 @@ for batch_x, batch_y in loader:
     print("Input embeddings:", x.shape)
     print("Output atención:", out.shape)
     break
+
+
+
+    
     '''
     torch.Size([32, 256, 512])
     torch.Size([32, 256, 512])

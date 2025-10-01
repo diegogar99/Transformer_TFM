@@ -3072,19 +3072,23 @@
     <bcf:citekey order="12" intorder="1">apxml_addnorm</bcf:citekey>
     <bcf:citekey order="13" intorder="1">sharma2024addnorm</bcf:citekey>
     <bcf:citekey order="14" intorder="1">apxml_addnorm</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">huggingface_tinyshakespeare</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">huggingface_wikitext</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">autonlp2020linkedwikitext</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">lmpo2020bpe</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">shabbir2021cleaning</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">kyeg_feedforward_demystified</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">gerber2025ffn</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">huggingface_tinyshakespeare</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">huggingface_wikitext</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">autonlp2020linkedwikitext</bcf:citekey>
     <bcf:citekey order="20" intorder="1">lmpo2020bpe</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">huggingface_tokenizer_summary</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">google_sentencepiece</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">reddit2021tokenizers</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">geeksforgeeks_embedding</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">perez_embeddings</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">bao2022embedding</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">kanaries_nnlinear</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">shabbir2021cleaning</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">lmpo2020bpe</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">huggingface_tokenizer_summary</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">google_sentencepiece</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">reddit2021tokenizers</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">geeksforgeeks_embedding</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">perez_embeddings</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">bao2022embedding</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">kanaries_nnlinear</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">gerber2025ffn</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">kyeg_feedforward_demystified</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

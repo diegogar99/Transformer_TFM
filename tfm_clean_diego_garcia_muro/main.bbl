@@ -208,6 +208,73 @@
       \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
       \endverb
     \endentry
+    \entry{gerber2025ffn}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cdc8561187e23dcc64c4af9d186bdb6a}{%
+           family={Gerber},
+           familyi={G\bibinitperiod},
+           given={Isaac},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{fullhash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{bibnamehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{authorbibnamehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{authornamehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{authorfullhash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2505.06633v1}
+      \field{note}{Submitted 10 May 2025}
+      \field{title}{Attention Is Not All You Need: The Importance of Feedforward Networks in Transformer Models}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://arxiv.org/html/2505.06633v1
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/html/2505.06633v1
+      \endverb
+    \endentry
+    \entry{kyeg_feedforward_demystified}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=990d53fb25aa59ff11856aaa9015365f}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Kye},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{fullhash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{bibnamehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{authorbibnamehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{authornamehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{authorfullhash}{990d53fb25aa59ff11856aaa9015365f}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Feedforward Demystified: A Core Operation of Transformers}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://medium.com/@kyeg/the-feedforward-demystified-a-core-operation-of-transformers-afcd3a136c4c
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@kyeg/the-feedforward-demystified-a-core-operation-of-transformers-afcd3a136c4c
+      \endverb
+    \endentry
     \entry{google_sentencepiece}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
@@ -965,6 +1032,73 @@
       \endverb
       \verb{url}
       \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+    \endentry
+    \entry{gerber2025ffn}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cdc8561187e23dcc64c4af9d186bdb6a}{%
+           family={Gerber},
+           familyi={G\bibinitperiod},
+           given={Isaac},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{fullhash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{bibnamehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{authorbibnamehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{authornamehash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \strng{authorfullhash}{cdc8561187e23dcc64c4af9d186bdb6a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2505.06633v1}
+      \field{note}{Submitted 10 May 2025}
+      \field{title}{Attention Is Not All You Need: The Importance of Feedforward Networks in Transformer Models}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://arxiv.org/html/2505.06633v1
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/html/2505.06633v1
+      \endverb
+    \endentry
+    \entry{kyeg_feedforward_demystified}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=990d53fb25aa59ff11856aaa9015365f}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Kye},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{fullhash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{bibnamehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{authorbibnamehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{authornamehash}{990d53fb25aa59ff11856aaa9015365f}
+      \strng{authorfullhash}{990d53fb25aa59ff11856aaa9015365f}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Feedforward Demystified: A Core Operation of Transformers}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://medium.com/@kyeg/the-feedforward-demystified-a-core-operation-of-transformers-afcd3a136c4c
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@kyeg/the-feedforward-demystified-a-core-operation-of-transformers-afcd3a136c4c
       \endverb
     \endentry
     \entry{google_sentencepiece}{online}{}

@@ -331,17 +331,25 @@ Mientras que la normalización por capa se aplica dentro de cada secuencia consi
 
 Con ello, en base a estas dos operaciones, de media y varianza, se realzia la normalización de los valores de entrada en cada capa aplicando la siguiente expresión: 
 
-\[
+\begin{equation}
     \hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta
     \label{eq:normalization_sigma}
-\]
+\end{equation}
+
 
 En dicha expresión se observan dos parámetros entrenables, $\gamma$ y $\beta$, que permiten al modelo aprender la escala y el desplazamiento óptimos para cada característica. Sin estos parámetros, la normalización es demasiado restrictiva, pues los resultados se aplanan siempre a un mismo rango. El término $\epsilon$ es un valor pequeño añadido para evitar divisiones por cero y garantizar la estabilidad numérica.
 
 Otra de las ventajas de normalizar es que mitiga el \textit{internal covariate shift} \parencite{sharma2024addnorm}. Durante el entrenamiento las distribuciones de las activaciones cambian, dado que los pesos cambian, lo que ralentiza la convergencia \parencite{apxml_addnorm}, haciendo el entrenamiento más inestable y el optimizador pierde tiempo corrigiendo desajustes. Gracias a la normalización, las variables se mantienen en una escala controlada.
 
 
-\subsection{Feed Forward}
+\subsection{Feed Forward} \label{subsec:feedforward}
+En términos generales se trata del proceso por el que la información pasa a través de una red, únicamente en sentido hacia delante, desde su entrada hasta su salida, pasando por todas las capas ocultas que hubiese. 
+
+Se define como una capa o bloque que toma la salida de la capa de atención y la procesa a través de una red neuronal densa, esto es, totalmente conectada. Esta red consta de dos capas lineales con una función de activación no lineal entre ellas, que en el paper original es ReLU. La primera capa expande la dimensionalidad del embedding, mientras que la segunda la reduce de nuevo a su tamaño original. Esto permite al modelo aprender representaciones más complejas y captar interacciones no lineales, lo cual es un factor importante pues permite, por ejemplo, que el modelo entienda el contexto y significado de una palabra en función de donde aparece en la frase \parencite{kyeg_feedforward_demystified}.
+
+Pese a que originalmente se usaban 2 capas lineales con ReLU, en la actualidad se ha demostrado una mejora significativa al aumentar el número de capas, obteniendo un entrenamiento más estable, pues se vió que el aprendizaje al inicio era mayor, y reduciendo el problema por la desaparición del gradiente. Además, se ha demostrado ampliamente que es un bloque fundamental, pues en varios experimentos, al eliminar esta capa, el rendimiento del modelo disminuye drásticamente \parencite{gerber2025ffn}.
+
+
 \subsection{Linear}
 \subsection{Softmax}
 
@@ -568,10 +576,25 @@ En modelos avanzados como los Transformers, los embeddings se combinan con codif
 
 Esta matriz contiene información semántica de las palabras, pero dado que este tipo de arquitecturas procesan las secuencias en paralelo,  falta información sobre la posición de dichas palabras. A continuación se presenta una solución a este problema, es lo que se conoce como Positional Encoding. 
 
-\subsubsection{Implementación}
+\subsubsection{Implementación embeddings}
 Para mapear los índices resultantes de la tokenización a una matriz de \textit{embeddings}, se implementará una capa de embedding utilizando \textbf{PyTorch}. Esta capa actúa como una tabla de búsqueda que asocia cada índice con un vector de características. Internamente, se trata de una matriz de pesos que se optimiza durante el proceso de entrenamiento del modelo.
 
-Cabe destacar que inicialmente la matriz de embeddings se encuentra aleatorizada. A medida que se entrena el modelo, estos vectores se ajustan mediante retropropagación, lo que reduce la función de pérdida y permite que los embeddings capturen mejor la semántica, el contexto y otras relaciones relevantes entre los tokens. El resultado final es un tensor en el que cada fila representa un vector denso asociado a un token del vocabulario, adaptado a la tarea específica. \parencite{bao2022embedding}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/embeddings1.png}
+    \caption{Embeddings}
+    \label{fig:placeholder17}
+\end{figure}
+
+Cabe destacar que inicialmente la matriz de embeddings se encuentra aleatorizada. A medida que se entrena el modelo, estos vectores se ajustan mediante retropropagación, lo que reduce la función de pérdida y permite que los embeddings capturen mejor la semántica, el contexto y otras relaciones relevantes entre los tokens. El resultado final es un tensor en el que cada fila representa un vector denso asociado a un token del vocabulario, adaptado a la tarea específica \parencite{bao2022embedding}. Se ha decidido inicializar los pesos siguiendo una inicialización Normal (ver sección \ref{sec:normal} del Anexo), lo que permite que inicialmente sean valores cercanos a 0, evitando que algunos tokens tengan valores demasiado grandes. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/normal_init.png}
+    \caption{Inicialización Normal}
+    \label{fig:placeholder18}
+\end{figure}
+
 
 \section{Mecanismos de atención}
 La base de la arquitectura Transformer es la atención. A través de la atención, cada palabra mira simultáneamente al resto y calcula una métrica de relevancia a través de la cual, se determina que fracción de la información real es relavante para cada token y cpor tanto, para el modelo. 
@@ -647,6 +670,8 @@ De este modo, cada cabeza de atención opera de manera independiente sobre un su
     \label{fig:placeholder12}
 \end{figure}
 
+Por último, mencionar que la inicialización de los pesos se realiza mediante el método \textit{Xavier Uniform} (ver sección \ref{sec:xavier} del Anexo), que estabiliza el entrenamiento en capas profundas. 
+
 \section{Normalización \texttt{(Add \& Norm)}}
 Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos. Primero, una conexión residual que suma la entrada original a la salida del bloque de atención múltiple. En segundo lugar, una capa de normalización por capas que estabiliza y acelera el entrenamiento. En el siguiente esquema se visualiza mejor el flujo: 
 
@@ -657,8 +682,38 @@ Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos.
     \label{fig:placeholder14}
 \end{figure}
 
+\subsection{Implementación Add \& Norm}
+
+Como se puede ver en la imagen \ref{fig:addnorm}, la conexión residual se realiza mediante una simple suma de tensores. La capa de normalización se ha implementado de cero, aunque \textit{PyTorch} ofrece el módulo \textit{nn.LayerNorm}, que realiza la misma función. En la implementación se calcula la media y la varianza por posición y devuelve el resultado de la expresión \eqref{eq:normalization_sigma}. 
+
+Hay que señalar aquí el uso de \textit{nn.Parameter} para los parámetros entrenables $\gamma$ y $\beta$. Se tratan como tensores especiales y se registran como parámetros entrenables del modelo, en concreto, se asocian a este módulo. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/add_norm.png}
+    \caption{Implementación Add \& Norm}
+    \label{fig:placeholder9}
+\end{figure}
+
+\section{Feed Forward} 
+Tal y como se ha explicado en la sección \ref{subsec:feedforward}, el rendimiento del transformer es significativamente mejor al ampliar el número de capas lineales. Siguiendo las recomendaciones del paper \parencite{gerber2025ffn}, se ha decidido implementar 3 capas utilizando como función de activación \textit{GELU} (ver sección \ref{sec:gelu} del Anexo), que ha demostrado ser más efectiva que ReLU en este tipo de arquitecturas. La inicialización de los pesos se realiza mediante el método \textit{Xavier Uniform} al igual que en las capas de atención, para mantener la estabilidad del entrenamiento.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/xavier_init.png}
+    \caption{Inicialización Xavier Uniform}
+    \label{fig:placeholder15}
+\end{figure}
+
+La implementación es relativamente sencilla, se haría como si se tratara de un perceptrón multicapa (\parencite{kyeg_feedforward_demystified}), donde se incluyen 3 capas lineales y dos funciones de activación GELU entre ellas. Además, se introduce \textit{dropout} para evitar sobreajuste, "apagando" aleatoriamente algunas neuronas durante el entrenamiento.
 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/ffnn.png}
+    \caption{Capa FeedForward}
+    \label{fig:placeholder16}
+\end{figure}
 
 %--- FIN DEL CAPÍTULO 4
 
@@ -673,6 +728,16 @@ Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos.
 
 \printbibliography[title={Referencias Bibliográficas}]
 
+\appendix 
+\chapter{Anexos}
+
+\section{GELU} \label{sec:gelu}
+\section{Xavier Uniform} \label{sec:xavier}
+\section{Normal uniform} \label{sec:normal}
+
+%--- FIN DE ANEXOS
+
+\clearemptydoublepage
 
 \end{document}
 

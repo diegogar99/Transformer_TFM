@@ -15,21 +15,27 @@
 \contentsline {subsubsection}{Conexión Residual (\textit {Add})}{7}{section*.7}%
 \contentsline {subsubsection}{Normalización (\textit {Layer Norm})}{8}{section*.8}%
 \contentsline {subsection}{\numberline {3.1.4}Feed Forward}{8}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Linear}{8}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Softmax}{8}{subsection.3.1.6}%
-\contentsline {chapter}{\numberline {4}Resultados}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Preparación del entorno}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Análisis de los dataset}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Tiny Shakespeare}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}WikiText2}{9}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Limpieza y tokenización}{10}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Implementación del tokenizador BPE}{12}{subsection.4.3.1}%
-\contentsline {paragraph}{Ejemplo:}{13}{section*.9}%
-\contentsline {paragraph}{Agrupación en lotes y padding:}{13}{section*.10}%
-\contentsline {section}{\numberline {4.4}Embeddings y Positional Encodding}{14}{section.4.4}%
-\contentsline {subsubsection}{Implementación}{15}{section*.11}%
-\contentsline {section}{\numberline {4.5}Mecanismos de atención}{15}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Implementación mecanismo de atención}{15}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Implementación de las múltiples cabezas de atención}{16}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Normalización \texttt {(Add \& Norm)}}{17}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{19}{chapter.5}%
+\contentsline {subsection}{\numberline {3.1.5}Linear}{9}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Softmax}{9}{subsection.3.1.6}%
+\contentsline {chapter}{\numberline {4}Resultados}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Preparación del entorno}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Análisis de los dataset}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Tiny Shakespeare}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}WikiText2}{11}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Limpieza y tokenización}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Implementación del tokenizador BPE}{14}{subsection.4.3.1}%
+\contentsline {paragraph}{Ejemplo:}{15}{section*.9}%
+\contentsline {paragraph}{Agrupación en lotes y padding:}{15}{section*.10}%
+\contentsline {section}{\numberline {4.4}Embeddings y Positional Encodding}{16}{section.4.4}%
+\contentsline {subsubsection}{Implementación embeddings}{17}{section*.11}%
+\contentsline {section}{\numberline {4.5}Mecanismos de atención}{18}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Implementación mecanismo de atención}{18}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Implementación de las múltiples cabezas de atención}{19}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Normalización \texttt {(Add \& Norm)}}{19}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Implementación Add \& Norm}{20}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}Feed Forward}{20}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{23}{chapter.5}%
+\contentsline {chapter}{\numberline {A}Anexos}{27}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}GELU}{27}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Xavier Uniform}{27}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Normal uniform}{27}{section.Alph1.3}%
