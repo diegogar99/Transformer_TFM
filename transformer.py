@@ -94,7 +94,7 @@ if not os.path.exists("./project/resources/models/bpe_model_shakespeare.model"):
 print("Carga dataset train")
 with open(train_path, "r", encoding="utf-8") as f:
     train_text = f.read()
-
+print(f"Longitud corpus train: {len(train_text)} caracteres")
 
 # Carga el modelo con vocabulario, reglas de fusión y normalización. Con esto sabe como debe convertir el texto a IDs como en el train
 sp = spm.SentencePieceProcessor(model_file=MODEL_PATH)
@@ -104,9 +104,6 @@ print("Tokenización del corpus de train")
 train_ids = sp.encode(train_text, out_type=int)
 
 print("Número total de tokens en el corpus:", len(train_ids))
-print("Ejemplo de tokens:", train_ids[:50])
-print("Shape tokens corpues: ", train_ids)
-
 
 # Se formatiza como <input, target>
 
@@ -123,13 +120,19 @@ class LMWindowDataset(torch.utils.data.Dataset):
 print("Preparando DataLoader")
 print("GPU available:", torch.cuda.is_available())
 dataset = LMWindowDataset(train_ids, context_len=256)  # o 256
-loader  = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
+x, y = dataset[0]
+print(len(dataset))
+print("x shape:", x.shape, "y shape:", y.shape)
+print("x[:10] =", x[:10])
+print("y[:10] =", y[:10])
+
+loader  = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
 ####################
 # Embeddings
 #####################
-print("Embeddings y Multi-Head Attention")
+print("Embeddings")
 vocab_size = sp.vocab_size()     
 embedding_dim = 512              
 context_len = 256
@@ -148,7 +151,7 @@ pos_embedding_layer = nn.Embedding(
 ).to(device) 
 
 
-
+print("Multi-Head Attention")
 class MultiHeadAttention(nn.Module):
     def __init__(self, num_heads: int, d_model: int):
        
@@ -210,6 +213,7 @@ class MultiHeadAttention(nn.Module):
 
 # Add & norm
 
+print("Add & Norm")
 
 class NormLayer(nn.Module):
     def __init__(self, normalized_shape, eps=1e-5):
@@ -236,6 +240,8 @@ class AddNorm(nn.Module):
         return self.ln(self.dropout(Y) + X) # Aplica add y luego layernorm
 
 # FFNN
+print("FFNN")
+
 class FeedForward(nn.Module):
     def __init__(self,d_model, d_ff, dropout):
         super().__init__()
@@ -257,6 +263,8 @@ class FeedForward(nn.Module):
        return x
 
 # Bloque 1 transformer decoder-only
+print("Bloque 1 decoder only")
+
 class TransformerDecoderOnlyBlock(nn.Module):
     def __init__(self, num_heads, d_model, d_ff, dropout):
         super().__init__()
@@ -266,7 +274,7 @@ class TransformerDecoderOnlyBlock(nn.Module):
         self.addnorm2 = AddNorm(d_model, dropout)
         self.apply(self._init_weights) # Recorre las capas aplicando la función
 
-    def _init_weights(m): # Inicialización de pesos: Xavier para MHA y FFNN y normal para embeddings
+    def _init_weights(self, m): # Inicialización de pesos: Xavier para MHA y FFNN y normal para embeddings
         if isinstance(m, nn.Linear):
             nn.init.xavier_uniform_(m.weight)
             if m.bias is not None:
@@ -280,6 +288,93 @@ class TransformerDecoderOnlyBlock(nn.Module):
         ffn_out = self.ffn(x)
         x = self.addnorm2(x, ffn_out)
         return x
+
+print("Modelo completo")
+
+class miniGPT2(nn.Module):
+    def __init__(self, vocab_size, d_model=512, num_heads=8, d_ff=2048, num_layers=6, context_len=256, dropout=0.1):
+        super().__init__()
+        self.tok_emb = nn.Embedding(vocab_size, d_model)
+        self.pos_emb = nn.Embedding(context_len, d_model)
+
+        self.blocks = nn.ModuleList([
+            TransformerDecoderOnlyBlock(num_heads, d_model, d_ff, dropout)
+            for _ in range(num_layers)
+        ])
+
+        self.norm = NormLayer(d_model)
+        self.lm_head = nn.Linear(d_model, vocab_size, bias=False)
+
+    def forward(self, idx):
+        B, T = idx.shape
+
+        pos = torch.arange(T, device=idx.device).unsqueeze(0).expand(B, T)
+
+        x = self.tok_emb(idx) + self.pos_emb(pos)
+        for block in self.blocks:
+            x = block(x)
+        x = self.norm(x)
+        logits = self.lm_head(x)  # (B, T, vocab_size)
+        return logits
+    
+print("Se invoca el modelo")
+model = miniGPT2(
+    vocab_size=sp.vocab_size(),
+    d_model=512,
+    num_heads=8,
+    d_ff=2048,
+    num_layers=6,
+    context_len=256,
+    dropout=0.1
+).to(device)
+
+print("Loss function")
+loss_fn = nn.CrossEntropyLoss()
+print("Optimizer")
+
+optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
+
+print("TRAIN")
+num_epochs = 20
+best_val_loss = float("inf")
+
+
+best_loss = float("inf")
+best_ppl = float("inf")
+
+for epoch in range(num_epochs):
+    model.train()
+    total_loss = 0
+
+    for batch_x, batch_y in loader:
+        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+
+        logits = model(batch_x)
+        loss = loss_fn(
+            logits.view(-1, logits.size(-1)),
+            batch_y.view(-1)
+        )
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        total_loss += loss.item()
+
+    avg_loss = total_loss / len(loader)
+    ppl = math.exp(avg_loss)
+
+    print(f"[Epoch {epoch+1}] Train Loss: {avg_loss:.4f} | Perplexity: {ppl:.2f}")
+
+    if avg_loss < best_loss:
+        best_loss = avg_loss
+        best_ppl = ppl
+
+print("Entrenamiento finalizado.")
+print(f"Best Train Loss: {best_loss:.4f} | Best Train PPL: {best_ppl:.2f}")
+
+
+
 
 '''
 class DecoderOnlyTransformer(nn.Module):
@@ -319,7 +414,7 @@ Generación: Sí aplicas softmax al último token → obtienes una distribución
 # REVISAR: https://medium.com/@aisagescribe/pre-normalization-vs-post-normalization-in-transformers-e84872e0a3cd
 
 # Esto es para debug
-for batch_x, batch_y in loader:
+'''for batch_x, batch_y in loader:
     batch_x = batch_x.to(device)
     B, T = batch_x.shape
 
@@ -335,17 +430,16 @@ for batch_x, batch_y in loader:
     print("Input embeddings:", x.shape)
     print("Output atención:", out.shape)
     break
-
+'''
 
 
     
-    '''
+'''
     torch.Size([32, 256, 512])
     torch.Size([32, 256, 512])
     torch.Size([32, 256, 512])
     '''
-    break
-    '''
+'''
     for layer in 1..N: # Meter la conexión residual
         # (Pre-Norm) Self-Attention enmascarada
         a = SelfAttention( LayerNorm(x), mask=causal(T) )   # [B, T, D]
