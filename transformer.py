@@ -14,6 +14,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+import torch.profiler as profiler # Ver en qué capas se consume más memoria GPU o tiempo.
+
 ###################
 # Lectura de datasets
 ###################
@@ -127,7 +129,7 @@ print("x shape:", x.shape, "y shape:", y.shape)
 print("x[:10] =", x[:10])
 print("y[:10] =", y[:10])
 
-loader  = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+loader  = torch.utils.data.DataLoader(dataset, batch_size=64, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
 ####################
 # Embeddings
@@ -197,7 +199,9 @@ class MultiHeadAttention(nn.Module):
         scores = scores.masked_fill(mask, float('-inf'))
         
         # 5. Normalizar con softmax
-        attn = torch.softmax(scores, dim=-1)  # (B, num_heads, T, T)
+        with torch.amp.autocast(enabled=False):
+            scores = scores.float()
+            attn = torch.softmax(scores, dim=-1)  # (B, num_heads, T, T)
         
         # 6. Aplicar atención a V
         out = torch.matmul(attn, V)  # (B, num_heads, T, d_k)
@@ -224,9 +228,11 @@ class NormLayer(nn.Module):
 
     def forward(self, X):
         # X: (batch, seq_len, hidden_dim)
-        mean = X.mean(dim=-1, keepdim=True)       # media por posición
-        var = X.var(dim=-1, keepdim=True, unbiased=False)  # varianza
-        X_hat = (X - mean) / torch.sqrt(var + self.eps)    # normaliza
+        with torch.amp.autocast(enabled=False): # Desactivo mixed precision manualmente pues es recomendable en la LayerNorm y como la he implementado yo, quiza no lo detecta automaticamente (solo reconoce capas nativas de pytorch) [35]
+            X = X.float()
+            mean = X.mean(dim=-1, keepdim=True)       # media por posición
+            var = X.var(dim=-1, keepdim=True, unbiased=False)  # varianza
+            X_hat = (X - mean) / torch.sqrt(var + self.eps)    # normaliza
         return self.gamma * X_hat + self.beta
 
 
@@ -342,24 +348,69 @@ best_val_loss = float("inf")
 best_loss = float("inf")
 best_ppl = float("inf")
 
+'''
+Entrenar todo en float32 (FP32) significa más memoria y más tiempo de cómputo.
+La RTX 4090 tiene Tensor Cores que aceleran mucho con FP16 o bfloat16.
+'''
+
+scaler = torch.amp.GradScaler("cuda") 
+
 for epoch in range(num_epochs):
+    '''
+    Solo para validar en uno o pocos batches
+    with profiler.profile(
+        activities=[profiler.ProfilerActivity.CPU, profiler.ProfilerActivity.CUDA],
+        profile_memory=True,
+        record_shapes=True
+    ) as prof:
+    '''
     model.train()
-    total_loss = 0
+    total_loss = 0.0
+    torch.cuda.empty_cache()            
+    batch_num = 0
+    print(f"Iteracciones: {len(loader)}")
+    for num_batch, (batch_x, batch_y) in enumerate(loader, start=1):
+        batch_x, batch_y = batch_x.to(device), batch_y.to(device) # todevice mueve a GPU si está disponible, es necesario pues le modelo está en GPU también.
+        batch_num += 1
+        optimizer.zero_grad(set_to_none=True) # Limpia los gradientes previos. Pues en pytorch se acumulan por defecto y al llamar a bckward se suman a los previos, es decir, se estarían combinando gradientes de varios batches. Lo pone a none para ahorrar memoria con set_to_none.
 
-    for batch_x, batch_y in loader:
-        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+        with torch.amp.autocast("cuda"): # Decide de forma segura que algunas operaciones se hagan en FP16 para ahorrar memoria y acelerar GPU
+            logits = model(batch_x) # Salida del modelo [batch_size, seq_len, vocab_size]. Cada posición de la secuencia tiene una distribución sobre el vocabulario.
+            # Devuelve, para cada token de entrada, un vector de tamaño vocab_size con valores reales. En PyTorch, nn.CrossEntropyLoss()  ya incluye internamente el softmax
+            loss = loss_fn(
+                logits.view(-1, logits.size(-1)),
+                batch_y.view(-1) # Batch_y tiene: [batch_size, seq_len], esto lo aplana en [batch_size * seq_len] para cross entropy
+            )
 
-        logits = model(batch_x)
-        loss = loss_fn(
-            logits.view(-1, logits.size(-1)),
-            batch_y.view(-1)
-        )
+        if torch.isnan(loss): # Al usar mixed precision puede haber underflow o overflow y dar NaN en la pérdida [35]
+            print(f"[NaN] Detectado en batch {num_batch}, reduciendo LR")
+            for g in optimizer.param_groups:
+                g['lr'] *= 0.1
+            continue
 
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+        scaler.scale(loss).backward() # Escala y calcula el gradiente de los pesos del modelo (en que dirección cambio el peso para reducir la pérdida). Scale multiplica la pérdida por un factor grande antes de hacer el backward. Los pesos aún no cambian. 
+        
+        # Gradient Clipping para estabilidad [35]: limita el tamaño máximo que puede tener el conjunto de gradientes antes de actualizar los pesos.El clipping no cambia la dirección del gradiente (sigue apuntando hacia la misma mejora), solo reduce su magnitud para que no provoque saltos gigantes en los pesos.
+        scaler.unscale_(optimizer) # En AMP, los gradientes están temporalmente amplificados (por GradScaler).Se desescalan para no recortar valores falsos.
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+
+        scaler.step(optimizer) # usa los gradientes calculados para ajustar los pesos. Sin GradScaler sería: optimizer.step(). El scaler primero desescala los gradientes si aún no se ha hecho (los divide por el mismo factor que usó en scale) y luego llama a optimizer.step().
+        scaler.update() # Se encarga de ajustar el factor de escalado de la pérdida para la próxima iteración.
 
         total_loss += loss.item()
+
+        if num_batch % 100 == 0:
+            print(f"  [Batch {num_batch}] Loss: {loss.item():.4f}")
+            for name, param in model.named_parameters(): # Estadísticas para detectar underflow en train en los gradientes
+                if param.grad is not None:
+                    grad_min = param.grad.abs().min().item()
+                    grad_max = param.grad.abs().max().item()
+                    if grad_min == 0.0:
+                        print(f"[Underflow] Gradiente nulo en {name}")
+                    elif grad_min < 1e-8:
+                        print(f"[Pequeño] {name}: grad_min={grad_min:.2e}, grad_max={grad_max:.2e}")
+
+        
 
     avg_loss = total_loss / len(loader)
     ppl = math.exp(avg_loss)
@@ -373,10 +424,41 @@ for epoch in range(num_epochs):
 print("Entrenamiento finalizado.")
 print(f"Best Train Loss: {best_loss:.4f} | Best Train PPL: {best_ppl:.2f}")
 
+##################################
+# VALIDACIÓN EFICIENTE (sin gradientes)
+##################################
+'''print("VALIDATION (no_grad)") [35]
 
+model.eval()
+val_loss = 0.0
+
+with torch.no_grad():
+    for batch_x, batch_y in val_loader:  # o val_loader si tienes dataset separado
+        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+        with torch.cuda.amp.autocast("cuda"):
+            logits = model(batch_x)
+            loss = loss_fn(logits.view(-1, logits.size(-1)), batch_y.view(-1))
+        val_loss += loss.item()
+
+val_loss /= len(loader)
+print(f"Validation Loss: {val_loss:.4f} | PPL: {math.exp(val_loss):.2f}")
+'''
+###############################
 
 
 '''
+
+with torch.no_grad():
+    model.eval()
+    total_val_loss = 0.0
+    for batch_x, batch_y in val_loader:
+        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+        with torch.cuda.amp.autocast("cuda"):
+            logits = model(batch_x)
+            loss = loss_fn(logits.view(-1, logits.size(-1)), batch_y.view(-1))
+        total_val_loss += loss.item()
+
+        
 class DecoderOnlyTransformer(nn.Module):
     def __init__(self, vocab_size, d_model=512, num_heads=8, d_ff=2048,
                  num_layers=6, context_len=256, dropout=0.1):
