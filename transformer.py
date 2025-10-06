@@ -15,6 +15,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math
 import torch.profiler as profiler # Ver en qué capas se consume más memoria GPU o tiempo.
+import matplotlib.pyplot as plt
 
 ###################
 # Lectura de datasets
@@ -22,6 +23,9 @@ import torch.profiler as profiler # Ver en qué capas se consume más memoria GP
 
 #wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt -O tinyshakespeare.txt
 train_path = Path("./project/resources/datasets/shakespeare_clean_train.txt")
+test_path = Path("./project/resources/datasets/shakespeare_clean_test.txt")
+valid_path = Path("./project/resources/datasets/shakespeare_clean_validation.txt")
+
 MODEL_PATH = "./project/resources/models/bpe_model_shakespeare.model"
 
 if not os.path.exists("./project/resources/models/shakespeare_clean_train.model"):
@@ -74,6 +78,15 @@ if not os.path.exists("./project/resources/models/shakespeare_clean_train.model"
             if line.strip():
                 f.write(line.strip() + "\n")
 
+    with valid_path.open("w", encoding="utf-8") as f:
+        for line in cleaned["validation"]["text"]:
+            if line.strip():
+                f.write(line.strip() + "\n")
+
+    with test_path.open("w", encoding="utf-8") as f:
+        for line in cleaned["test"]["text"]:
+            if line.strip():
+                f.write(line.strip() + "\n")
 
 if not os.path.exists("./project/resources/models/bpe_model_shakespeare.model"):
     print("Entrenamiento modelo BPE")
@@ -98,14 +111,28 @@ with open(train_path, "r", encoding="utf-8") as f:
     train_text = f.read()
 print(f"Longitud corpus train: {len(train_text)} caracteres")
 
+print("Carga dataset validation")
+with open(valid_path, "r", encoding="utf-8") as f:
+    valid_text = f.read()
+print(f"Longitud corpus validation: {len(valid_text)} caracteres")
+
+print("Carga dataset test")
+with open(test_path, "r", encoding="utf-8") as f:
+    test_text = f.read()
+
+print(f"Longitud corpus test: {len(test_text)} caracteres")
+
 # Carga el modelo con vocabulario, reglas de fusión y normalización. Con esto sabe como debe convertir el texto a IDs como en el train
 sp = spm.SentencePieceProcessor(model_file=MODEL_PATH)
 
 # Tokenizaciones 
-print("Tokenización del corpus de train")
+print("Tokenización del corpus de train, test y validation")
 train_ids = sp.encode(train_text, out_type=int)
-
-print("Número total de tokens en el corpus:", len(train_ids))
+val_ids = sp.encode(valid_text, out_type=int)
+test_ids = sp.encode(test_text, out_type=int)
+print("Número total de tokens en el corpus train:", len(train_ids))
+print("Número total de tokens en el corpus test:", len(test_ids))
+print("Número total de tokens en el corpus validation:", len(val_ids))
 
 # Se formatiza como <input, target>
 
@@ -119,9 +146,12 @@ class LMWindowDataset(torch.utils.data.Dataset):
         x = torch.tensor(self.toks[i:i+self.ctx], dtype=torch.long)
         y = torch.tensor(self.toks[i+1:i+self.ctx+1], dtype=torch.long)
         return x, y
+    
 print("Preparando DataLoader")
 print("GPU available:", torch.cuda.is_available())
 dataset = LMWindowDataset(train_ids, context_len=256)  # o 256
+val_dataset = LMWindowDataset(val_ids, context_len=256)  # o 256
+test_dataset = LMWindowDataset(test_ids, context_len=256)  # o 256
 
 x, y = dataset[0]
 print(len(dataset))
@@ -129,7 +159,11 @@ print("x shape:", x.shape, "y shape:", y.shape)
 print("x[:10] =", x[:10])
 print("y[:10] =", y[:10])
 
-loader  = torch.utils.data.DataLoader(dataset, batch_size=64, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+loader = torch.utils.data.DataLoader(dataset, batch_size=64, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+
+val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=False,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+
+test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=64, shuffle=False,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
 ####################
 # Embeddings
@@ -322,7 +356,21 @@ class miniGPT2(nn.Module):
         x = self.norm(x)
         logits = self.lm_head(x)  # (B, T, vocab_size)
         return logits
-    
+
+def evaluate_ppl(model, dataloader, loss_fn, device):
+    model.eval() # Le dice al modelo que se comporte como inferencia
+    total_loss = 0
+    with torch.no_grad():
+        for x, y in dataloader:
+            x, y = x.to(device), y.to(device)
+            logits = model(x)
+            loss = loss_fn(logits.view(-1, logits.size(-1)), y.view(-1))
+            total_loss += loss.item()
+    avg_loss = total_loss / len(dataloader)
+    ppl = math.exp(avg_loss)
+    return avg_loss, ppl
+
+
 print("Se invoca el modelo")
 model = miniGPT2(
     vocab_size=sp.vocab_size(),
@@ -347,6 +395,15 @@ best_val_loss = float("inf")
 
 best_loss = float("inf")
 best_ppl = float("inf")
+
+patience_limit = 5 # Para early stopping
+patience_counter = 0
+best_val_loss = float("inf")
+
+
+train_losses, val_losses = [], []
+train_ppls, val_ppls = [], []
+
 
 '''
 Entrenar todo en float32 (FP32) significa más memoria y más tiempo de cómputo.
@@ -413,20 +470,53 @@ for epoch in range(num_epochs):
         
 
     avg_loss = total_loss / len(loader)
-    ppl = math.exp(avg_loss)
+    train_ppl = math.exp(avg_loss) # Perplejidad: Si baja es que comprende mejor los datos. Es el exponente de la entropía
+    # Validación para implementar early stopping y guardar mejor modelo
 
-    print(f"[Epoch {epoch+1}] Train Loss: {avg_loss:.4f} | Perplexity: {ppl:.2f}")
+    val_loss, val_ppl = evaluate_ppl(model, val_loader, loss_fn, device)
+    print(f"[Epoch {epoch+1}] Train Loss: {avg_loss:.4f} | Train PPL: {train_ppl:.2f} | Val PPL: {val_ppl:.2f}")
+    train_losses.append(avg_loss)
+    val_losses.append(val_loss)
+    train_ppls.append(train_ppl)
+    val_ppls.append(val_ppl)
 
-    if avg_loss < best_loss:
-        best_loss = avg_loss
-        best_ppl = ppl
+
+    if val_loss < best_val_loss:
+        best_val_loss = val_loss
+        best_model_state = model.state_dict().copy()
+        torch.save(best_model_state, "./best_minigpt2.pth")
+        patience_counter = 0
+    else:
+        patience_counter += 1
+        if patience_counter >= patience_limit:
+            print(f"Early stopping at epoch {epoch+1}")
+            break
 
 print("Entrenamiento finalizado.")
 print(f"Best Train Loss: {best_loss:.4f} | Best Train PPL: {best_ppl:.2f}")
 
+plt.figure(figsize=(10,5))
+plt.plot(train_ppls, label="Train PPL")
+plt.plot(val_ppls, label="Validation PPL")
+plt.xlabel("Época")
+plt.ylabel("Perplexity")
+plt.title("Evolución de Perplexity durante entrenamiento")
+plt.legend()
+plt.grid(True)
+plt.show()
+
 ##################################
 # VALIDACIÓN EFICIENTE (sin gradientes)
 ##################################
+
+model.load_state_dict(torch.load("./best_minigpt2.pth"))
+model.to(device)
+print("Modelo recargado con los mejores pesos guardados.")
+
+test_loss, test_ppl = evaluate_ppl(model, test_loader, loss_fn, device)
+print(f"Test Loss: {test_loss:.4f} | Test Perplexity: {test_ppl:.2f}")
+
+
 '''print("VALIDATION (no_grad)") [35]
 
 model.eval()

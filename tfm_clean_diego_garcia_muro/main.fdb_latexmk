@@ -1,18 +1,18 @@
 # Fdb version 4
-["biber main"] 1759699475.12614 "main.bcf" "main.bbl" "main" 1759699476.28705 0
+["biber main"] 1759700252.75974 "main.bcf" "main.bbl" "main" 1759700253.87757 0
   "main.bcf" 1759356804.8007 135105 bba56c965230805d336ac3692f23f778 "pdflatex"
-  "refs.bib" 1759699474.89684 12060 0c1ad278d3305a8f7ddf8e6fc764de6a ""
+  "refs.bib" 1759700252.52393 12388 e7e283450c60fa5ecae721a7e71d4fe7 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1759354586.34349 "main.idx" "main.ind" "main" 1759699476.28699 0
+["makeindex main.idx"] 1759354586.34349 "main.idx" "main.ind" "main" 1759700253.87753 0
   "main.idx" 1759356803.08068 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1759356801.9604 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759699476.28709 0
+["pdflatex"] 1759356801.9604 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759700253.87762 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1759356964.49008 52273 a920eda5e46392b1b23f2d642481d989 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -309,7 +309,7 @@
   "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
   "main.aux" 1759356804.7967 19840 7bfccdbdb187ce2c4e19d5b1271f2791 "pdflatex"
-  "main.bbl" 1759699476.23629 67456 5b771d3cc05f2e8573603ce92d047a2e "biber main"
+  "main.bbl" 1759700253.82824 67456 5b771d3cc05f2e8573603ce92d047a2e "biber main"
   "main.ind" 1759354586.56608 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
   "main.out" 1759356804.7997 5233 5a27c468e509f3143d249d221ccf2443 "pdflatex"
   "main.run.xml" 1759356804.8025 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
