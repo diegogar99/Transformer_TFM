@@ -19,6 +19,41 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global}
+    \entry{amit2024mixedprecision}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=26ec69d10805df92ebbfcd7e57ed8a46}{%
+           family={Amit},
+           familyi={A\bibinitperiod},
+           given={Hey},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Data Scientist’s Diary}%
+      }
+      \strng{namehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{fullhash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{bibnamehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{authorbibnamehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{authornamehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{authorfullhash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{What Every User Should Know About Mixed Precision Training in PyTorch}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://medium.com/data-scientists-diary/what-every-user-should-know-about-mixed-precision-training-in-pytorch-63c6544e5a05
+      \endverb
+      \verb{url}
+      \verb https://medium.com/data-scientists-diary/what-every-user-should-know-about-mixed-precision-training-in-pytorch-63c6544e5a05
+      \endverb
+    \endentry
     \entry{analytics2020qkv}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6c4cee405296bde9803cbd80a5263a88}{%
@@ -697,6 +732,37 @@
       \endverb
       \verb{url}
       \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
+      \endverb
+    \endentry
+    \entry{stack_overflow_gradscaler}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
+           family={{StackOverflow users}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {StackOverflow}%
+      }
+      \strng{namehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{fullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{bibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Is GradScaler necessary with Mixed Precision training with PyTorch?}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/72534859/is-gradscaler-necessary-with-mixed-precision-training-with-pytorch
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/72534859/is-gradscaler-necessary-with-mixed-precision-training-with-pytorch
       \endverb
     \endentry
     \entry{swarms_masking_pytorch}{online}{}
@@ -845,6 +911,41 @@
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global}
+    \entry{amit2024mixedprecision}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=26ec69d10805df92ebbfcd7e57ed8a46}{%
+           family={Amit},
+           familyi={A\bibinitperiod},
+           given={Hey},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Data Scientist’s Diary}%
+      }
+      \strng{namehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{fullhash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{bibnamehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{authorbibnamehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{authornamehash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \strng{authorfullhash}{26ec69d10805df92ebbfcd7e57ed8a46}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{What Every User Should Know About Mixed Precision Training in PyTorch}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://medium.com/data-scientists-diary/what-every-user-should-know-about-mixed-precision-training-in-pytorch-63c6544e5a05
+      \endverb
+      \verb{url}
+      \verb https://medium.com/data-scientists-diary/what-every-user-should-know-about-mixed-precision-training-in-pytorch-63c6544e5a05
+      \endverb
+    \endentry
     \entry{analytics2020qkv}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6c4cee405296bde9803cbd80a5263a88}{%
@@ -1523,6 +1624,37 @@
       \endverb
       \verb{url}
       \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
+      \endverb
+    \endentry
+    \entry{stack_overflow_gradscaler}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
+           family={{StackOverflow users}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {StackOverflow}%
+      }
+      \strng{namehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{fullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{bibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Is GradScaler necessary with Mixed Precision training with PyTorch?}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/72534859/is-gradscaler-necessary-with-mixed-precision-training-with-pytorch
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/72534859/is-gradscaler-necessary-with-mixed-precision-training-with-pytorch
       \endverb
     \endentry
     \entry{swarms_masking_pytorch}{online}{}

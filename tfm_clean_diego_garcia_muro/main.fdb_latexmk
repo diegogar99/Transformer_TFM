@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1759700252.75974 "main.bcf" "main.bbl" "main" 1759700253.87757 0
-  "main.bcf" 1759356804.8007 135105 bba56c965230805d336ac3692f23f778 "pdflatex"
-  "refs.bib" 1759700252.52393 12388 e7e283450c60fa5ecae721a7e71d4fe7 ""
+["biber main"] 1759860604.23568 "main.bcf" "main.bbl" "main" 1759860664.15107 0
+  "main.bcf" 1759860664.0629 135411 05fd04bd0e99488fb176231131405e5c "pdflatex"
+  "refs.bib" 1759787837.56704 14849 7665ed591940f2eb19a3fafba9211ffe ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1759354586.34349 "main.idx" "main.ind" "main" 1759700253.87753 0
-  "main.idx" 1759356803.08068 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1759857806.51338 "main.idx" "main.ind" "main" 1759860664.15093 0
+  "main.idx" 1759860662.28798 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1759356801.9604 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759700253.87762 0
+["pdflatex"] 1759860661.29662 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759860664.15129 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1759356964.49008 52273 a920eda5e46392b1b23f2d642481d989 ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1759860657.4742 59446 63cf2ff16860d1f1b57744b59d0dcadf ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -284,11 +284,11 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1636152094 2971 def0b6c1f0b107b3b936def894055589 ""
-  "/usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb" 1759053448.93148 169670 48d12e69c9a3b23c81f6d703ccbd4554 ""
-  "/usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb" 1759053448.93273 166192 d74933432e33dffe92198fe51b7b0dcb ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb" 1759857403.56546 169670 48d12e69c9a3b23c81f6d703ccbd4554 ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb" 1759857403.56746 166192 d74933432e33dffe92198fe51b7b0dcb ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1759053453.45959 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1759053488 8216357 81e98ac611735e96ab2bbbcd88be9df0 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1759857415.3484 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1759857500 8213820 a1b1a8ddc05f8ce1d6cc6f4f42c6f111 ""
   "img/Q_K_V.png" 1759045582 36287 b39ed6222630553a63594651a71c0191 ""
   "img/ResNet.png" 1759252592.97142 10778 6a94d0b601f9d78699ab4404954e83a3 ""
   "img/add_norm.png" 1759355797.32653 313147 4814236a37611d379cc7499a0461106d ""
@@ -297,6 +297,7 @@
   "img/embeddings1.png" 1759355495.62599 88006 2b1febaa67c6d9dc5b5ab45a8ccc0d92 ""
   "img/esquema1.png" 1759255473.81302 19213 7f39c54ae9e6cd83156e62afb4fd04a8 ""
   "img/ffnn.png" 1759354810.33764 184001 0dc967bef17f6ce4bd3b7320543f9fae ""
+  "img/gpt2.png" 1759855423.21501 304963 59ef0bd1db6f17f4b262c271007f6112 ""
   "img/heads.png" 1759054079.88703 55123 567f851565c221ed2336f38a05cef5eb ""
   "img/heads2.png" 1759054087.77066 50052 2606c4eaa25c2d1ecbfa2e67649f3024 ""
   "img/logo_imf.png" 1759045582 4640 8f49add8f12b4837bc4126f48ab5435e ""
@@ -308,13 +309,13 @@
   "img/tiny_shakespeare.png" 1759045582 104113 3098618de7d081a063133e32b4c8a229 ""
   "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
-  "main.aux" 1759356804.7967 19840 7bfccdbdb187ce2c4e19d5b1271f2791 "pdflatex"
-  "main.bbl" 1759700253.82824 67456 5b771d3cc05f2e8573603ce92d047a2e "biber main"
-  "main.ind" 1759354586.56608 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1759356804.7997 5233 5a27c468e509f3143d249d221ccf2443 "pdflatex"
-  "main.run.xml" 1759356804.8025 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
-  "main.tex" 1759356964.49008 52273 a920eda5e46392b1b23f2d642481d989 ""
-  "main.toc" 1759356804.8025 3328 e031a608ea8b13efbfb3951647843e01 "pdflatex"
+  "main.aux" 1759860664.05926 21764 597b3d0b1d3164fa9b72387cfc6affb5 "pdflatex"
+  "main.bbl" 1759860605.15891 73220 17526352dfa7cbc4222929142086af84 "biber main"
+  "main.ind" 1759857806.67853 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1759860664.0619 6417 b0ada10a513415e6793056d55b12cec9 "pdflatex"
+  "main.run.xml" 1759860664.06432 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
+  "main.tex" 1759860657.4742 59446 63cf2ff16860d1f1b57744b59d0dcadf ""
+  "main.toc" 1759860664.06432 3903 651196dc70a233af017afb70d581bb8e "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

@@ -15,8 +15,7 @@
 \contentsline {subsubsection}{Conexión Residual (\textit {Add})}{7}{section*.7}%
 \contentsline {subsubsection}{Normalización (\textit {Layer Norm})}{8}{section*.8}%
 \contentsline {subsection}{\numberline {3.1.4}Feed Forward}{8}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Linear}{9}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Softmax}{9}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.5}Linear y softmax}{9}{subsection.3.1.5}%
 \contentsline {chapter}{\numberline {4}Resultados}{11}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Preparación del entorno}{11}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Análisis de los dataset}{11}{section.4.2}%
@@ -34,8 +33,15 @@
 \contentsline {section}{\numberline {4.6}Normalización \texttt {(Add \& Norm)}}{19}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Implementación Add \& Norm}{20}{subsection.4.6.1}%
 \contentsline {section}{\numberline {4.7}Feed Forward}{20}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{23}{chapter.5}%
-\contentsline {chapter}{\numberline {A}Anexos}{27}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}GELU}{27}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Xavier Uniform}{27}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Normal uniform}{27}{section.Alph1.3}%
+\contentsline {section}{\numberline {4.8}Entrenamiento}{21}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Configuración de parámetros de entrenamiento}{21}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Regulaciones}{21}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Función de pérdida}{22}{subsection.4.8.3}%
+\contentsline {subsection}{\numberline {4.8.4}Optimizadores}{22}{subsection.4.8.4}%
+\contentsline {subsection}{\numberline {4.8.5}Resumen del modelo para Tiny Shakespeare}{22}{subsection.4.8.5}%
+\contentsline {subsection}{\numberline {4.8.6}Validación}{23}{subsection.4.8.6}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{25}{chapter.5}%
+\contentsline {chapter}{\numberline {A}Anexos}{29}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}GELU}{29}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Xavier Uniform}{29}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Normal uniform}{29}{section.Alph1.3}%

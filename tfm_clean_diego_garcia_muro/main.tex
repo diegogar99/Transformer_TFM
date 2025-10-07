@@ -350,8 +350,10 @@ Se define como una capa o bloque que toma la salida de la capa de atención y la
 Pese a que originalmente se usaban 2 capas lineales con ReLU, en la actualidad se ha demostrado una mejora significativa al aumentar el número de capas, obteniendo un entrenamiento más estable, pues se vió que el aprendizaje al inicio era mayor, y reduciendo el problema por la desaparición del gradiente. Además, se ha demostrado ampliamente que es un bloque fundamental, pues en varios experimentos, al eliminar esta capa, el rendimiento del modelo disminuye drásticamente \parencite{gerber2025ffn}.
 
 
-\subsection{Linear}
-\subsection{Softmax}
+\subsection{Linear y softmax}
+Las últimas capas del modelo son una capa lineal y softmax. A través de la primera se obtienen los denominados \textit{logits}, que son puntuaciones sin normalizar sobre que tan probable es cada token para el modelo. La función de esta capa es transformar los embeddings de alta dimensión en una representación que pueda ser interpretada como una distribución de probabilidad sobre el vocabulario.
+
+A través de \textit{softmax}, se transforman estas puntuaciones en una distribución de probabilidad, donde cada valor representa la probabilidad de que un token específico sea el siguiente en la secuencia generada. 
 
 %--- FIN DEL CAPÍTULO 3
 
@@ -705,7 +707,59 @@ Tal y como se ha explicado en la sección \ref{subsec:feedforward}, el rendimien
     \label{fig:placeholder15}
 \end{figure}
 
-La implementación es relativamente sencilla, se haría como si se tratara de un perceptrón multicapa (\parencite{kyeg_feedforward_demystified}), donde se incluyen 3 capas lineales y dos funciones de activación GELU entre ellas. Además, se introduce \textit{dropout} para evitar sobreajuste, "apagando" aleatoriamente algunas neuronas durante el entrenamiento.
+La implementación es relativamente sencilla, se haría como si se tratara de un perceptrón multicapa \parencite{kyeg_feedforward_demystified}, donde se incluyen 3 capas lineales y dos funciones de activación GELU entre ellas. Además, se introduce \textit{dropout} para evitar sobreajuste, "apagando" aleatoriamente algunas neuronas durante el entrenamiento.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/gpt2.png}
+    \caption{Modelo final}
+    \label{fig:placeholder19}
+\end{figure}
+
+\section{Entrenamiento}
+
+Tras añadir la capa lineal de salida, tras el bloque \textit{transformer}, se finaliza las bases de la arquitectura Transformer \textit{decoder-only}. El siguiente paso es configurar los parámetros e implementar la infraestructura de entrenamiento del modelo. 
+
+\subsection{Configuración de parámetros de entrenamiento}
+
+En lo referido a la confirguración de párametros se han seguido las recomendaciones dadas en el \textit{paper: Attention Is Not All You Need} \parencite{gerber2025ffn}, teniendo en cuenta las características de este proyecto, tanto a nivel de  \textit{hardware} como de la arquitectura implementada.
+
+Para el protipo inicial, entrenado con el dataset \textit{Tiny Shakespeare}, se ha definido un vocabulario compuesto por $16000$ tokens, el tamaño de los embeddings es de $512$ tokens y la ventana de contexto de $256$. Se han utilizado $8$ cabezas de atención, para capturar bien distintos patrones y el número de capas del \textit{transformer} es de $6$, un número no muy elevado por las limitaciones técnicas del proyecto. En cuanto al bloque \textit{FeedForward}, se define la dimensión \textit{d\_ff} con un valor de $2048$, expandiendo cada vector de $512$ a $2048$ dimensiones. Para no saturar la memoria de la GPu el número de batches se ha mantenido en $64$, pese a incluir ciertos elementos regulatorios que se explicarán a continuación. Por último, se ha entrenado para $20$ épocas.
+
+
+\subsection{Regulaciones}
+
+Para el entrenamiento del modelo se sigue la técnica \textit{Mixed Precision Training}. Esto es porque se ha visto que reduce el uso de memoria y acelera el entrenamiento sin comprometer la precisión del modelo, lo que permite aumentar el tamaño de los bacthes y no desbordar la memoria de la GPU. En esencia, se utilizan tipos de datos de menor precisión (como \texttt{float16}) para las operaciones que no requieren alta precisión, mientras que las operaciones críticas se mantienen en \texttt{float32}. 
+
+Para la implementación se utilizan dos elementos clave. Por un lado \textit{GradScaler}, que escala los valores de la función de pérdida dinámicamente para prevenir el desbordamiento de los gradientes cuando se usan tipos de datos de menor precisión. Lo que hace es multiplicar la pérdida por un factor grande antes de calcular los gradientes. En cada iteración se decide si ese factor fue bueno o malo, en base a si ha habido desbordamiento o no. Si no hubo desbordamiento, se aumenta ligeramente el factor para aumentar la precisión, en caso contrario, se reduce el factor para la próxima iteración \parencite{amit2024mixedprecision}. Por otro lado, \textit{autocast}, que permite especificar bloques de código donde se desea utilizar precisión mixta \parencite{stack_overflow_gradscaler}. Dentro de estos bloques, las operaciones se ejecutan automáticamente en la precisión más adecuada según el hardware y la operación específica. No obstante, hay caso en los que se debe indicar a \textit{autocast} de forma manual que no modifique la precisión de los datos, por ejemplo, en la capa de normalización, donde al no ser nativa de PyTorch, pues se ha implementado desde 0, quiza no lo detecta automaticamente \parencite{amit2024mixedprecision}. También se ha desactivado en la capa de \textit{Softmax} pues son capas donde escalar puede introducir inestabilidad al modelo.
+
+En combinación con estas técnicas, se ha aplicado \textit{Gradient Clipping} para evitar que los gradientes se vuelvan demasiado grandes y provoquen actualizaciones inestables de los pesos. Lo que hace es reducir su magnitud, sin alterar la dirección.
+
+\subsection{Función de pérdida}
+
+En este tipo de modelos, las métricas tradicionales 
+\subsection{Optimizadores}
+
+
+\subsection{Resumen del modelo para Tiny Shakespeare}
+
+En primer lugar se tokeniza el dataset de entrenamiento, que contiene $896.135$ caracteres. Para ello se utiliza un tokenizador \textit{BPE} a través de \textit{SentencePiece}, que es entrenado con estos datos y aprende una reglas de segmentación y un vocabulario. A través de este tokenizador ya entrenado, se tokenizan los datos de entrenamiento, validación y test. Como el tamaño definido para el vocabulario es de $16000$ elementos, se obtiene un conjunto de números enteros que representan valores (índices) dentro de ese vocabulario con valores comprendidos entre $0$ y $15999$. En total se generan $265566$ índices para el dataset de entrenamiento. 
+
+La función del modelo es dado cada token, predecir el siguiente. Es por ello que un paso previo a transformar este vector a embeddings se crea un dataset de PyTorch que, junto con \textit{DataLoader} genera ejemplos de secuencias de entrada y objetivos (se desplaza una posición la de entrada) y se agrupan en batches, que irán alimentando las capas de Embedding del modelo. Aquí cabe resaltar que, como el tamaño del batch es de $64$, el modelo recibe como entrada tensores con tamaño $(64,256)$. Para verlo mejor, es como si el modelo recibe: \textit{[El, perro, ladra, en, el]} y busca predecir \textit{[perro, ladra, en, el,prado]}, para cada token.
+
+
+Cada uno de estos batch alimentan el modelo durante $20$ épocas. En primer lugar entran a las capas de embedding. Aquí los vectores de tamaño $(64,256)$ se convierten a vectores multidimensionales (embeddings) de tamaño $(64,256, 512)$, es decir, cada token, se convierte en un vector de $512$ elementos, y son sumados al \textit{Positional Embedding} para que el modelo sea consciente de la posición de cada token en la secuencia. 
+
+Tras esto, los embeddings avanzan a los bloques principales de la arquitectura, que se replican $6$ veces. Estos, son los bloques de atención con máscara causal y 8 cabezas, las capas de normalización y adicción y Feed Forward, quien expande la entrada de tamaño $(64,256, 512)$ para añadir no linealidad y la vuelve a comprimir a su tamaño inicial. Estos bloques se apilan a través de \textit{nn.ModuleList}. 
+
+Finalmente, tras salir del bloque principal, la salida pasa de nuevo por una capa de normalización y finalmente se obtienen los \textit{logits} gracias a una capa lineal. 
+
+El proceso se repite el número de épocas mencionado y se valida con datos de validación y \textit{CrossEntropy}, utilizando la perplejidad para determinar si el modelo aprende o no.
+
+
+\subsection{Validación}
+
 
 
 \begin{figure}[h]

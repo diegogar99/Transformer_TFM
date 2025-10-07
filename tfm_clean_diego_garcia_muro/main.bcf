@@ -3089,6 +3089,10 @@
     <bcf:citekey order="29" intorder="1">kanaries_nnlinear</bcf:citekey>
     <bcf:citekey order="30" intorder="1">gerber2025ffn</bcf:citekey>
     <bcf:citekey order="31" intorder="1">kyeg_feedforward_demystified</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">gerber2025ffn</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">amit2024mixedprecision</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">stack_overflow_gradscaler</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">amit2024mixedprecision</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.28)  2 OCT 2025 00:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  7 OCT 2025 20:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1087,7 +1087,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
 Package biblatex Info: Reference section=0 on input line 113.
 Package biblatex Info: Reference segment=0 on input line 113.
-<img/logo_imf.png, id=135, 130.98938pt x 50.43843pt>
+<img/logo_imf.png, id=159, 130.98938pt x 50.43843pt>
 File: img/logo_imf.png Graphic file (type png)
 <use img/logo_imf.png>
 Package pdftex.def Info: img/logo_imf.png  used on input line 127.
@@ -1144,7 +1144,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 34.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 33.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
@@ -1152,20 +1152,23 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-)
+ [7
+
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
- [7
-
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [8
-
-]
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
+ [8]
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 181.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [1
+
 
 
 ]
@@ -1199,7 +1202,7 @@ LaTeX Info: Redefining \% on input line 271.
 LaTeX Info: Redefining \. on input line 271.
 LaTeX Info: Redefining \% on input line 271.
 [6]
-<img/ResNet.png, id=263, 165.61874pt x 229.85875pt>
+<img/ResNet.png, id=293, 165.61874pt x 229.85875pt>
 File: img/ResNet.png Graphic file (type png)
 <use img/ResNet.png>
 Package pdftex.def Info: img/ResNet.png  used on input line 284.
@@ -1214,10 +1217,10 @@ LaTeX Info: Redefining \% on input line 350.
 LaTeX Info: Redefining \. on input line 350.
 LaTeX Info: Redefining \% on input line 350.
  [8]
-LaTeX Info: Redefining \. on input line 358.
-LaTeX Info: Redefining \% on input line 358.
-LaTeX Info: Redefining \. on input line 358.
-LaTeX Info: Redefining \% on input line 358.
+LaTeX Info: Redefining \. on input line 360.
+LaTeX Info: Redefining \% on input line 360.
+LaTeX Info: Redefining \. on input line 360.
+LaTeX Info: Redefining \% on input line 360.
  [9] [10
 
 ]
@@ -1227,21 +1230,21 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Overfull \hbox (234.61147pt too wide) in paragraph at lines 376--377
+Overfull \hbox (234.61147pt too wide) in paragraph at lines 378--379
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Overfull \hbox (313.4521pt too wide) in paragraph at lines 392--393
+Overfull \hbox (313.4521pt too wide) in paragraph at lines 394--395
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-<img/tiny_shakespeare.png, id=297, 1373.13pt x 987.69pt>
+<img/tiny_shakespeare.png, id=328, 1373.13pt x 987.69pt>
 File: img/tiny_shakespeare.png Graphic file (type png)
 <use img/tiny_shakespeare.png>
-Package pdftex.def Info: img/tiny_shakespeare.png  used on input line 396.
+Package pdftex.def Info: img/tiny_shakespeare.png  used on input line 398.
 (pdftex.def)             Requested size: 227.62206pt x 163.71536pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1249,90 +1252,90 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [11
 
 ]
-<img/preclean.png, id=329, 1415.2875pt x 752.8125pt>
+<img/preclean.png, id=359, 1415.2875pt x 752.8125pt>
 File: img/preclean.png Graphic file (type png)
 <use img/preclean.png>
-Package pdftex.def Info: img/preclean.png  used on input line 415.
+Package pdftex.def Info: img/preclean.png  used on input line 417.
 (pdftex.def)             Requested size: 227.62206pt x 121.07275pt.
-LaTeX Info: Redefining \. on input line 421.
-LaTeX Info: Redefining \% on input line 421.
-LaTeX Info: Redefining \. on input line 421.
-LaTeX Info: Redefining \% on input line 421.
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
  [12 <./img/tiny_shakespeare.png> <./img/preclean.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 422--425
+Underfull \hbox (badness 10000) in paragraph at lines 424--427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--425
+Underfull \hbox (badness 10000) in paragraph at lines 424--427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
 
  []
 
-LaTeX Info: Redefining \. on input line 453.
-LaTeX Info: Redefining \% on input line 453.
-LaTeX Info: Redefining \. on input line 453.
-LaTeX Info: Redefining \% on input line 453.
+LaTeX Info: Redefining \. on input line 455.
+LaTeX Info: Redefining \% on input line 455.
+LaTeX Info: Redefining \. on input line 455.
+LaTeX Info: Redefining \% on input line 455.
 [13]
-<img/sentence_trainer.png, id=351, 1517.67pt x 930.47626pt>
+<img/sentence_trainer.png, id=381, 1517.67pt x 930.47626pt>
 File: img/sentence_trainer.png Graphic file (type png)
 <use img/sentence_trainer.png>
-Package pdftex.def Info: img/sentence_trainer.png  used on input line 462.
+Package pdftex.def Info: img/sentence_trainer.png  used on input line 464.
 (pdftex.def)             Requested size: 227.62206pt x 139.55121pt.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 470.
-<img/train_tok.png, id=352, 1821.80624pt x 695.59875pt>
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 472.
+<img/train_tok.png, id=382, 1821.80624pt x 695.59875pt>
 File: img/train_tok.png Graphic file (type png)
 <use img/train_tok.png>
-Package pdftex.def Info: img/train_tok.png  used on input line 473.
+Package pdftex.def Info: img/train_tok.png  used on input line 475.
 (pdftex.def)             Requested size: 227.62206pt x 86.90717pt.
-<img/test_tok.png, id=353, 1457.445pt x 578.16pt>
+<img/test_tok.png, id=383, 1457.445pt x 578.16pt>
 File: img/test_tok.png Graphic file (type png)
 <use img/test_tok.png>
-Package pdftex.def Info: img/test_tok.png  used on input line 481.
+Package pdftex.def Info: img/test_tok.png  used on input line 483.
 (pdftex.def)             Requested size: 227.62206pt x 90.29317pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 488.
-LaTeX Info: Redefining \% on input line 488.
-LaTeX Info: Redefining \. on input line 488.
-LaTeX Info: Redefining \% on input line 488.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
 [14 <./img/sentence_trainer.png> <./img/train_tok.png>]
-LaTeX Info: Redefining \. on input line 554.
-LaTeX Info: Redefining \% on input line 554.
-LaTeX Info: Redefining \. on input line 554.
-LaTeX Info: Redefining \% on input line 554.
+LaTeX Info: Redefining \. on input line 556.
+LaTeX Info: Redefining \% on input line 556.
+LaTeX Info: Redefining \. on input line 556.
+LaTeX Info: Redefining \% on input line 556.
  [15 <./img/test_tok.png>]
-<img/ejemplo_embedding.png, id=371, 218.8175pt x 260.975pt>
+<img/ejemplo_embedding.png, id=401, 218.8175pt x 260.975pt>
 File: img/ejemplo_embedding.png Graphic file (type png)
 <use img/ejemplo_embedding.png>
-Package pdftex.def Info: img/ejemplo_embedding.png  used on input line 563.
+Package pdftex.def Info: img/ejemplo_embedding.png  used on input line 565.
 (pdftex.def)             Requested size: 227.62206pt x 271.47928pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--569
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
 
  []
 
-LaTeX Info: Redefining \. on input line 570.
-LaTeX Info: Redefining \% on input line 570.
-LaTeX Info: Redefining \. on input line 570.
-LaTeX Info: Redefining \% on input line 570.
+LaTeX Info: Redefining \. on input line 572.
+LaTeX Info: Redefining \% on input line 572.
+LaTeX Info: Redefining \. on input line 572.
+LaTeX Info: Redefining \% on input line 572.
 [16 <./img/ejemplo_embedding.png>]
-<img/embeddings1.png, id=381, 828.09375pt x 813.0375pt>
+<img/embeddings1.png, id=411, 828.09375pt x 813.0375pt>
 File: img/embeddings1.png Graphic file (type png)
 <use img/embeddings1.png>
-Package pdftex.def Info: img/embeddings1.png  used on input line 584.
+Package pdftex.def Info: img/embeddings1.png  used on input line 586.
 (pdftex.def)             Requested size: 227.62206pt x 223.48055pt.
-<img/normal_init.png, id=384, 1093.08376pt x 225.84375pt>
+<img/normal_init.png, id=414, 1093.08376pt x 225.84375pt>
 File: img/normal_init.png Graphic file (type png)
 <use img/normal_init.png>
-Package pdftex.def Info: img/normal_init.png  used on input line 593.
+Package pdftex.def Info: img/normal_init.png  used on input line 595.
 (pdftex.def)             Requested size: 227.62206pt x 47.02882pt.
 
 
@@ -1341,116 +1344,131 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 1097) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 601.
-LaTeX Info: Redefining \% on input line 601.
-LaTeX Info: Redefining \. on input line 601.
-LaTeX Info: Redefining \% on input line 601.
+LaTeX Info: Redefining \. on input line 603.
+LaTeX Info: Redefining \% on input line 603.
+LaTeX Info: Redefining \. on input line 603.
+LaTeX Info: Redefining \% on input line 603.
  [17 <./img/embeddings1.png>]
-<img/Q_K_V.png, id=397, 849.1725pt x 343.2825pt>
+<img/Q_K_V.png, id=427, 849.1725pt x 343.2825pt>
 File: img/Q_K_V.png Graphic file (type png)
 <use img/Q_K_V.png>
-Package pdftex.def Info: img/Q_K_V.png  used on input line 617.
+Package pdftex.def Info: img/Q_K_V.png  used on input line 619.
 (pdftex.def)             Requested size: 227.62206pt x 92.01703pt.
-<img/atencion.png, id=398, 1680.2775pt x 460.72125pt>
+<img/atencion.png, id=428, 1680.2775pt x 460.72125pt>
 File: img/atencion.png Graphic file (type png)
 <use img/atencion.png>
-Package pdftex.def Info: img/atencion.png  used on input line 626.
+Package pdftex.def Info: img/atencion.png  used on input line 628.
 (pdftex.def)             Requested size: 227.62206pt x 62.41261pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 633.
-LaTeX Info: Redefining \% on input line 633.
-LaTeX Info: Redefining \. on input line 633.
-LaTeX Info: Redefining \% on input line 633.
+LaTeX Info: Redefining \. on input line 635.
+LaTeX Info: Redefining \% on input line 635.
+LaTeX Info: Redefining \. on input line 635.
+LaTeX Info: Redefining \% on input line 635.
 [18 <./img/normal_init.png> <./img/Q_K_V.png>]
-<img/masked.png, id=408, 1556.81625pt x 283.0575pt>
+<img/masked.png, id=438, 1556.81625pt x 283.0575pt>
 File: img/masked.png Graphic file (type png)
 <use img/masked.png>
-Package pdftex.def Info: img/masked.png  used on input line 649.
+Package pdftex.def Info: img/masked.png  used on input line 651.
 (pdftex.def)             Requested size: 227.62206pt x 41.38565pt.
-<img/heads.png, id=409, 1355.0625pt x 343.2825pt>
+<img/heads.png, id=439, 1355.0625pt x 343.2825pt>
 File: img/heads.png Graphic file (type png)
 <use img/heads.png>
-Package pdftex.def Info: img/heads.png  used on input line 659.
+Package pdftex.def Info: img/heads.png  used on input line 661.
 (pdftex.def)             Requested size: 227.62206pt x 57.66058pt.
-<img/heads2.png, id=410, 1415.2875pt x 400.49625pt>
+<img/heads2.png, id=440, 1415.2875pt x 400.49625pt>
 File: img/heads2.png Graphic file (type png)
 <use img/heads2.png>
-Package pdftex.def Info: img/heads2.png  used on input line 668.
+Package pdftex.def Info: img/heads2.png  used on input line 670.
 (pdftex.def)             Requested size: 227.62206pt x 64.4107pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 675.
-LaTeX Info: Redefining \. on input line 677.
-LaTeX Info: Redefining \% on input line 677.
-LaTeX Info: Redefining \. on input line 677.
-LaTeX Info: Redefining \% on input line 677.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 677.
+LaTeX Info: Redefining \. on input line 679.
+LaTeX Info: Redefining \% on input line 679.
+LaTeX Info: Redefining \. on input line 679.
+LaTeX Info: Redefining \% on input line 679.
 [19 <./img/atencion.png> <./img/masked.png> <./img/heads.png>]
-<img/esquema1.png, id=425, 602.25pt x 108.405pt>
+<img/esquema1.png, id=455, 602.25pt x 108.405pt>
 File: img/esquema1.png Graphic file (type png)
 <use img/esquema1.png>
-Package pdftex.def Info: img/esquema1.png  used on input line 680.
+Package pdftex.def Info: img/esquema1.png  used on input line 682.
 (pdftex.def)             Requested size: 227.62206pt x 40.97267pt.
 
 
-LaTeX Warning: Reference `fig:addnorm' on page 20 undefined on input line 687.
+LaTeX Warning: Reference `fig:addnorm' on page 20 undefined on input line 689.
 
-<img/add_norm.png, id=427, 2023.56pt x 1517.67pt>
+<img/add_norm.png, id=457, 2023.56pt x 1517.67pt>
 File: img/add_norm.png Graphic file (type png)
 <use img/add_norm.png>
-Package pdftex.def Info: img/add_norm.png  used on input line 693.
+Package pdftex.def Info: img/add_norm.png  used on input line 695.
 (pdftex.def)             Requested size: 227.62206pt x 170.69577pt.
-<img/xavier_init.png, id=431, 849.1725pt x 225.84375pt>
+<img/xavier_init.png, id=461, 849.1725pt x 225.84375pt>
 File: img/xavier_init.png Graphic file (type png)
 <use img/xavier_init.png>
-Package pdftex.def Info: img/xavier_init.png  used on input line 703.
+Package pdftex.def Info: img/xavier_init.png  used on input line 705.
 (pdftex.def)             Requested size: 227.62206pt x 60.53752pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 709.
-LaTeX Info: Redefining \% on input line 709.
-LaTeX Info: Redefining \. on input line 709.
-LaTeX Info: Redefining \% on input line 709.
+LaTeX Info: Redefining \. on input line 711.
+LaTeX Info: Redefining \% on input line 711.
+LaTeX Info: Redefining \. on input line 711.
+LaTeX Info: Redefining \% on input line 711.
 [20 <./img/heads2.png> <./img/esquema1.png> <./img/add_norm.png>]
-<img/ffnn.png, id=443, 1394.20876pt x 1282.7925pt>
+<img/gpt2.png, id=474, 2469.225pt x 1635.10875pt>
+File: img/gpt2.png Graphic file (type png)
+<use img/gpt2.png>
+Package pdftex.def Info: img/gpt2.png  used on input line 715.
+(pdftex.def)             Requested size: 227.62206pt x 150.72124pt.
+LaTeX Info: Redefining \. on input line 734.
+LaTeX Info: Redefining \% on input line 734.
+LaTeX Info: Redefining \. on input line 734.
+LaTeX Info: Redefining \% on input line 734.
+ [21 <./img/xavier_init.png> <./img/gpt2.png>]
+LaTeX Info: Redefining \. on input line 758.
+LaTeX Info: Redefining \% on input line 758.
+LaTeX Info: Redefining \. on input line 758.
+LaTeX Info: Redefining \% on input line 758.
+ [22]
+<img/ffnn.png, id=493, 1394.20876pt x 1282.7925pt>
 File: img/ffnn.png Graphic file (type png)
 <use img/ffnn.png>
-Package pdftex.def Info: img/ffnn.png  used on input line 713.
+Package pdftex.def Info: img/ffnn.png  used on input line 767.
 (pdftex.def)             Requested size: 227.62206pt x 209.42021pt.
-LaTeX Info: Redefining \. on input line 720.
-LaTeX Info: Redefining \% on input line 720.
-LaTeX Info: Redefining \. on input line 720.
-LaTeX Info: Redefining \% on input line 720.
- [21 <./img/xavier_init.png> <./img/ffnn.png>] [22
+LaTeX Info: Redefining \. on input line 774.
+LaTeX Info: Redefining \% on input line 774.
+LaTeX Info: Redefining \. on input line 774.
+LaTeX Info: Redefining \% on input line 774.
+ [23 <./img/ffnn.png>] [24
 
 ]
 Cap\'{\i }tulo 5.
-[23
+[25
 
-] [24
+] [26
 
-] [25
+] [27
 
 ]
-Overfull \hbox (46.35709pt too wide) in paragraph at lines 729--729
+Overfull \hbox (46.35709pt too wide) in paragraph at lines 783--783
 \T1/ptm/m/n/10.95 (-20) 5998[]6008. [][]$https : / / proceedings . neurips . cc / paper _ ^^\les / paper / 2017 / ^^\le / 3f5ee243547dee91fbd053c1c4a845aa -[]
  []
 
-LaTeX Info: Redefining \. on input line 732.
-LaTeX Info: Redefining \% on input line 732.
-LaTeX Info: Redefining \. on input line 732.
-LaTeX Info: Redefining \% on input line 732.
-[26]
+LaTeX Info: Redefining \. on input line 786.
+LaTeX Info: Redefining \% on input line 786.
+LaTeX Info: Redefining \. on input line 786.
+LaTeX Info: Redefining \% on input line 786.
+[28]
 Ap\'{e}ndice A.
-[27
+[29
 
-] [28
+] [30
 
 ] (./main.aux
 LaTeX Info: Redefining \sptext on input line 13.
@@ -1469,24 +1487,24 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5A27C468E509F3143D249D221CCF2443;5233.
+(rerunfilecheck)             Checksum: B0ADA10A513415E6793056D55B12CEC9;6417.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48542 strings out of 474222
- 1051452 string characters out of 5748733
- 2050040 words of memory out of 5000000
- 69556 multiletter control sequences out of 15000+600000
- 666818 words of font info for 392 fonts, out of 8000000 for 9000
+ 48606 strings out of 474222
+ 1052670 string characters out of 5748733
+ 2050302 words of memory out of 5000000
+ 69585 multiletter control sequences out of 15000+600000
+ 668618 words of font info for 408 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,7n,107p,1363b,3681s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,7n,107p,1538b,3681s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (36 pages, 1126854 bytes).
+Output written on main.pdf (38 pages, 1314634 bytes).
 PDF statistics:
- 629 PDF objects out of 1000 (max. 8388607)
- 517 compressed objects within 6 object streams
- 140 named destinations out of 1000 (max. 500000)
- 112492 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 686 PDF objects out of 1000 (max. 8388607)
+ 570 compressed objects within 6 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 112545 words of extra memory for PDF output out of 128383 (max. 10000000)
 
