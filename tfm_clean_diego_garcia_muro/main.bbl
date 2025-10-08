@@ -227,6 +227,7 @@
       \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
       \strng{authornamehash}{f1e069787ece74531d112559945c6871}
       \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -241,6 +242,38 @@
       \endverb
       \verb{url}
       \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks_crossentropy}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
+           family={{GeeksforGeeks}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GeeksforGeeks}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is Cross-Entropy Loss Function?}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/machine-learning/what-is-cross-entropy-loss-function/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/machine-learning/what-is-cross-entropy-loss-function/
       \endverb
     \endentry
     \entry{gerber2025ffn}{article}{}
@@ -439,6 +472,37 @@
       \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
       \endverb
     \endentry
+    \entry{keerthanams2025evaluating}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=326d45c5e5b61fe02755e918e09bb0c1}{%
+           family={Keerthanams},
+           familyi={K\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{fullhash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{bibnamehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{authorbibnamehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{authornamehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{authorfullhash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Evaluating AI Models — Understanding Entropy, Perplexity, BPB, and BPC}
+      \field{year}{2025, May 8}
+      \verb{urlraw}
+      \verb https://medium.com/@keerthanams1208/evaluating-ai-models-understanding-entropy-perplexity-bpb-and-bpc-df816062f21a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@keerthanams1208/evaluating-ai-models-understanding-entropy-perplexity-bpb-and-bpc-df816062f21a
+      \endverb
+    \endentry
     \entry{lmpo2020bpe}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=543e0bb12927672afaa0a47c304adf7b}{%
@@ -569,6 +633,36 @@
       \verb{url}
       \verb https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6
       \endverb
+    \endentry
+    \entry{krishnap25_mauve_github}{misc}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7f6963d7d855b337412bcf9c0597fa7f}{%
+           family={Pillutla},
+           familyi={P\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b001bfffac81b7429650aa75e9f6212c}{%
+           family={colaboradores},
+           familyi={c\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{fullhash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{bibnamehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{authorbibnamehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{authornamehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{authorfullhash}{cd677b0cc40a654e538e2bad5d44d234}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/krishnap25/mauve}}
+      \field{note}{GitHub repository}
+      \field{title}{mauve: Package to compute MAUVE, a similarity score between neural text and human text}
+      \field{year}{2025}
     \endentry
     \entry{plainenglish2021gpt}{online}{}
       \name{author}{1}{}{%
@@ -734,6 +828,73 @@
       \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
       \endverb
     \endentry
+    \entry{singh2024perplexitymatters}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b287c2dc0f87808a3f3fdf0262bb1142}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Deepankar},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{fullhash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{bibnamehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{authorbibnamehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{authornamehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{authorfullhash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{Why Perplexity Matters: A Deep Dive into NLP’s Fluency Metric}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://medium.com/ai-enthusiast/why-perplexity-matters-a-deep-dive-into-nlps-fluency-metric-c3872811d598
+      \endverb
+      \verb{url}
+      \verb https://medium.com/ai-enthusiast/why-perplexity-matters-a-deep-dive-into-nlps-fluency-metric-c3872811d598
+      \endverb
+    \endentry
+    \entry{stackoverflow_perplexity_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
+           family={{StackOverflow users}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {StackOverflow}%
+      }
+      \strng{namehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{fullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{bibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Calculate perplexity in PyTorch}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/59209086/calculate-perplexity-in-pytorch
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/59209086/calculate-perplexity-in-pytorch
+      \endverb
+    \endentry
     \entry{stack_overflow_gradscaler}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
@@ -749,6 +910,7 @@
       \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
       \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
       \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -1119,6 +1281,7 @@
       \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
       \strng{authornamehash}{f1e069787ece74531d112559945c6871}
       \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -1133,6 +1296,38 @@
       \endverb
       \verb{url}
       \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks_crossentropy}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
+           family={{GeeksforGeeks}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GeeksforGeeks}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is Cross-Entropy Loss Function?}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/machine-learning/what-is-cross-entropy-loss-function/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/machine-learning/what-is-cross-entropy-loss-function/
       \endverb
     \endentry
     \entry{gerber2025ffn}{article}{}
@@ -1331,6 +1526,37 @@
       \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
       \endverb
     \endentry
+    \entry{keerthanams2025evaluating}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=326d45c5e5b61fe02755e918e09bb0c1}{%
+           family={Keerthanams},
+           familyi={K\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{fullhash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{bibnamehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{authorbibnamehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{authornamehash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \strng{authorfullhash}{326d45c5e5b61fe02755e918e09bb0c1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Evaluating AI Models — Understanding Entropy, Perplexity, BPB, and BPC}
+      \field{year}{2025, May 8}
+      \verb{urlraw}
+      \verb https://medium.com/@keerthanams1208/evaluating-ai-models-understanding-entropy-perplexity-bpb-and-bpc-df816062f21a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@keerthanams1208/evaluating-ai-models-understanding-entropy-perplexity-bpb-and-bpc-df816062f21a
+      \endverb
+    \endentry
     \entry{lmpo2020bpe}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=543e0bb12927672afaa0a47c304adf7b}{%
@@ -1461,6 +1687,36 @@
       \verb{url}
       \verb https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6
       \endverb
+    \endentry
+    \entry{krishnap25_mauve_github}{misc}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7f6963d7d855b337412bcf9c0597fa7f}{%
+           family={Pillutla},
+           familyi={P\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b001bfffac81b7429650aa75e9f6212c}{%
+           family={colaboradores},
+           familyi={c\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{fullhash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{bibnamehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{authorbibnamehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{authornamehash}{cd677b0cc40a654e538e2bad5d44d234}
+      \strng{authorfullhash}{cd677b0cc40a654e538e2bad5d44d234}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/krishnap25/mauve}}
+      \field{note}{GitHub repository}
+      \field{title}{mauve: Package to compute MAUVE, a similarity score between neural text and human text}
+      \field{year}{2025}
     \endentry
     \entry{plainenglish2021gpt}{online}{}
       \name{author}{1}{}{%
@@ -1626,6 +1882,73 @@
       \verb https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
       \endverb
     \endentry
+    \entry{singh2024perplexitymatters}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b287c2dc0f87808a3f3fdf0262bb1142}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Deepankar},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{fullhash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{bibnamehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{authorbibnamehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{authornamehash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \strng{authorfullhash}{b287c2dc0f87808a3f3fdf0262bb1142}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{Why Perplexity Matters: A Deep Dive into NLP’s Fluency Metric}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://medium.com/ai-enthusiast/why-perplexity-matters-a-deep-dive-into-nlps-fluency-metric-c3872811d598
+      \endverb
+      \verb{url}
+      \verb https://medium.com/ai-enthusiast/why-perplexity-matters-a-deep-dive-into-nlps-fluency-metric-c3872811d598
+      \endverb
+    \endentry
+    \entry{stackoverflow_perplexity_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
+           family={{StackOverflow users}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {StackOverflow}%
+      }
+      \strng{namehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{fullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{bibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Calculate perplexity in PyTorch}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/59209086/calculate-perplexity-in-pytorch
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/59209086/calculate-perplexity-in-pytorch
+      \endverb
+    \endentry
     \entry{stack_overflow_gradscaler}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
@@ -1641,6 +1964,7 @@
       \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
       \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
       \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
