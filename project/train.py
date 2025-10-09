@@ -67,11 +67,11 @@ model = miniGPT2(
 
 loss_fn = nn.CrossEntropyLoss()
 optimizer_sgd = torch.optim.SGD(model.parameters(), lr=1e-3)
-optimizer_adamw = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.1)
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.1)
 optimizer_rmsprop = torch.optim.RMSprop(model.parameters(),lr=1e-3, weight_decay=1e-2,momentum=0.9)
 
 print("TRAIN")
-num_epochs = 20
+num_epochs = 50
 best_val_loss = float("inf")
 best_loss = float("inf")
 best_ppl = float("inf")
@@ -156,13 +156,11 @@ for epoch in range(num_epochs):
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
-        best_model_state = model.state_dict().copy()
-        torch.save(best_model_state, "./best_minigpt2.pth")
         patience_counter = 0
     else:
         patience_counter += 1
         if patience_counter >= patience_limit:
-            print(f"Early stopping at epoch {epoch+1}")
+            print(f"Early stopping en epoch: {epoch+1}")
             break
 
 
@@ -179,4 +177,4 @@ plt.ylabel("Perplexity")
 plt.title("Evolución de Perplexity durante entrenamiento")
 plt.legend()
 plt.grid(True)
-plt.show()
+plt.savefig('./resources/imagenes/resultado_entrenamiento_v1.pdf')

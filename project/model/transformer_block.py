@@ -48,7 +48,7 @@ class MultiHeadAttention(nn.Module):
         scores = scores.masked_fill(mask, float('-inf'))
         
         # 5. Normalizar con softmax
-        with torch.amp.autocast(enabled=False):
+        with torch.amp.autocast(device_type="cuda",enabled=False):
             scores = scores.float()
             attn = torch.softmax(scores, dim=-1)  # (B, num_heads, T, T)
         
@@ -76,7 +76,7 @@ class NormLayer(nn.Module):
 
     def forward(self, X):
         # X: (batch, seq_len, hidden_dim)
-        with torch.amp.autocast(enabled=False): # Desactivo mixed precision manualmente pues es recomendable en la LayerNorm y como la he implementado yo, quiza no lo detecta automaticamente (solo reconoce capas nativas de pytorch) [35]
+        with torch.amp.autocast(device_type="cuda",enabled=False): # Desactivo mixed precision manualmente pues es recomendable en la LayerNorm y como la he implementado yo, quiza no lo detecta automaticamente (solo reconoce capas nativas de pytorch) [35]
             X = X.float()
             mean = X.mean(dim=-1, keepdim=True)       # media por posición
             var = X.var(dim=-1, keepdim=True, unbiased=False)  # varianza
