@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1759871334.69845 "main.bcf" "main.bbl" "main" 1759871345.9805 0
-  "main.bcf" 1759871345.81426 135823 1e3b5c387bd8c4a329e7097aa7e9d406 "pdflatex"
-  "refs.bib" 1759787837.56704 14849 7665ed591940f2eb19a3fafba9211ffe ""
+["biber main"] 1760038596.52286 "main.bcf" "main.bbl" "main" 1760038606.37669 0
+  "main.bcf" 1760038606.23313 136367 9a2ca90dc27d8356701bee98f357f41b "pdflatex"
+  "refs.bib" 1760037211.04268 17058 e99960ecb7228990eafa826a564bad3b ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1759857806.51338 "main.idx" "main.ind" "main" 1759871345.98031 0
-  "main.idx" 1759871343.28109 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1759857806.51338 "main.idx" "main.ind" "main" 1760038606.37653 0
+  "main.idx" 1760038604.26016 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1759871342.01263 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1759871345.98088 0
+["pdflatex"] 1760038603.49462 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760038606.37701 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1759871333.04239 63279 071df149e02ce381d779b128c238a681 ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760038593.17438 65724 268f253d33d543d5970b0777e5682bc0 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -308,6 +308,7 @@
   "img/logo_imf.png" 1759045582 4640 8f49add8f12b4837bc4126f48ab5435e ""
   "img/masked.png" 1759045582 45516 7906a09c682ca088c7b0f910803f9a61 ""
   "img/normal_init.png" 1759355510.72814 21709 836e7d5da7fcbdd273daf532271f1214 ""
+  "img/optimizers.png" 1760038530.80716 82671 4ef4d63efb23a40401297f50dc37bd66 ""
   "img/perplexity.png" 1759871051.36315 13875 c0ffd2d2958cb37b69c4e85c8a203678 ""
   "img/preclean.png" 1759045582 113796 a5df96910c224420f8dd66e5b6003817 ""
   "img/sentence_trainer.png" 1759045582 146929 446a9104e6f8c7b306e877e806cd420d ""
@@ -315,13 +316,13 @@
   "img/tiny_shakespeare.png" 1759045582 104113 3098618de7d081a063133e32b4c8a229 ""
   "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
-  "main.aux" 1759871345.79986 24854 e2db9abd8fd61b07b8263c0f752b6f4b "pdflatex"
-  "main.bbl" 1759871335.74124 86926 34de772702d8c3bf208e47c68b542798 "biber main"
+  "main.aux" 1760038606.22213 26934 d8e78e28ce05b5f8bbb4bbb4d5c7f7b1 "pdflatex"
+  "main.bbl" 1760038597.18404 103660 07320b0f18562385173a5fee9df38ceb "biber main"
   "main.ind" 1759857806.67853 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1759871345.81126 6727 9163f125b1777aa19e1c4cf791f19361 "pdflatex"
-  "main.run.xml" 1759871345.81569 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
-  "main.tex" 1759871333.04239 63279 071df149e02ce381d779b128c238a681 ""
-  "main.toc" 1759871345.81569 4122 9c5a2ebb395611aa932fe5aabc213dd9 "pdflatex"
+  "main.out" 1760038606.23213 6727 9163f125b1777aa19e1c4cf791f19361 "pdflatex"
+  "main.run.xml" 1760038606.23518 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
+  "main.tex" 1760038593.17438 65724 268f253d33d543d5970b0777e5682bc0 ""
+  "main.toc" 1760038606.23518 4122 711ee60b3581686c97584a1cb3e55e95 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

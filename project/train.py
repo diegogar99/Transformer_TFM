@@ -66,7 +66,9 @@ model = miniGPT2(
 ).to(device)
 
 loss_fn = nn.CrossEntropyLoss()
-optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
+optimizer_sgd = torch.optim.SGD(model.parameters(), lr=1e-3)
+optimizer_adamw = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.1)
+optimizer_rmsprop = torch.optim.RMSprop(model.parameters(),lr=1e-3, weight_decay=1e-2,momentum=0.9)
 
 print("TRAIN")
 num_epochs = 20

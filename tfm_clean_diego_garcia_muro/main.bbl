@@ -181,6 +181,37 @@
       \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
       \endverb
     \endentry
+    \entry{datacamp_adamw_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5f469db1ec04b5fb8ad05902538a7b27}{%
+           family={{DataCamp}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {DataCamp}%
+      }
+      \strng{namehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{fullhash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{bibnamehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{authorbibnamehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{authornamehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{authorfullhash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{AdamW Optimizer in PyTorch Tutorial}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.datacamp.com/tutorial/adamw-optimizer-in-pytorch
+      \endverb
+      \verb{url}
+      \verb https://www.datacamp.com/tutorial/adamw-optimizer-in-pytorch
+      \endverb
+    \endentry
     \entry{epichka2023qkv}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a5abbc9a74c48cbb48a54ffb37c778e5}{%
@@ -244,7 +275,7 @@
       \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
       \endverb
     \endentry
-    \entry{geeksforgeeks_crossentropy}{online}{}
+    \entry{geeksforgeeks_sgd}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
            family={{GeeksforGeeks}},
@@ -262,6 +293,40 @@
       \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ML – Stochastic Gradient Descent (SGD)}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks_crossentropy}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
+           family={{GeeksforGeeks}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GeeksforGeeks}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -470,6 +535,40 @@
       \endverb
       \verb{url}
       \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
+      \endverb
+    \endentry
+    \entry{kashyap2024rmsprop}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1f3310235a3072829bbee2e172b95f58}{%
+           family={Kashyap},
+           familyi={K\bibinitperiod},
+           given={Piyush},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{fullhash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{bibnamehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{authorbibnamehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{authornamehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{authorfullhash}{1f3310235a3072829bbee2e172b95f58}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding RMSProp: A Simple Guide to One of Deep Learning’s Powerful Optimizers}
+      \field{year}{2024, Nov 2}
+      \verb{urlraw}
+      \verb https://medium.com/@piyushkashyap045/understanding-rmsprop-a-simple-guide-to-one-of-deep-learnings-powerful-optimizers-403baeed9922
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@piyushkashyap045/understanding-rmsprop-a-simple-guide-to-one-of-deep-learnings-powerful-optimizers-403baeed9922
       \endverb
     \endentry
     \entry{keerthanams2025evaluating}{online}{}
@@ -913,6 +1012,7 @@
       \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -925,6 +1025,40 @@
       \endverb
       \verb{url}
       \verb https://stackoverflow.com/questions/72534859/is-gradscaler-necessary-with-mixed-precision-training-with-pytorch
+      \endverb
+    \endentry
+    \entry{stackoverflow_sgd_optimizer}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
+           family={{StackOverflow users}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {StackOverflow}%
+      }
+      \strng{namehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{fullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{bibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{extraname}{3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Answer explaining the relation between SGD, mini-batch, and full gradient descent in PyTorch}
+      \field{title}{Is SGD optimizer in PyTorch actually does Gradient Descent algorithm?}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/72496224/is-sgd-optimizer-in-pytorch-actually-does-gradient-descent-algorithm
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/72496224/is-sgd-optimizer-in-pytorch-actually-does-gradient-descent-algorithm
       \endverb
     \endentry
     \entry{swarms_masking_pytorch}{online}{}
@@ -956,6 +1090,37 @@
       \endverb
       \verb{url}
       \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+    \endentry
+    \entry{ultralytics_adam_glossary}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=88f069848482a556e416f713d2819905}{%
+           family={{Ultralytics}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Ultralytics}%
+      }
+      \strng{namehash}{88f069848482a556e416f713d2819905}
+      \strng{fullhash}{88f069848482a556e416f713d2819905}
+      \strng{bibnamehash}{88f069848482a556e416f713d2819905}
+      \strng{authorbibnamehash}{88f069848482a556e416f713d2819905}
+      \strng{authornamehash}{88f069848482a556e416f713d2819905}
+      \strng{authorfullhash}{88f069848482a556e416f713d2819905}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Optimizador Adam ‒ Glosario Ultralytics}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.ultralytics.com/es/glossary/adam-optimizer
+      \endverb
+      \verb{url}
+      \verb https://www.ultralytics.com/es/glossary/adam-optimizer
       \endverb
     \endentry
     \entry{vaswani2017attention}{article}{}
@@ -1069,6 +1234,40 @@
       \endverb
       \verb{url}
       \verb https://cameronrwolfe.substack.com/p/llm-scaling-laws
+      \endverb
+    \endentry
+    \entry{yassin2024adamvsadamw}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=538130e5152b03fd736aed9d0534ebd7}{%
+           family={Yassin},
+           familyi={Y\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{fullhash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{bibnamehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{authorbibnamehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{authornamehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{authorfullhash}{538130e5152b03fd736aed9d0534ebd7}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Adam vs. AdamW: Understanding Weight Decay and Its Impact on Model Performance}
+      \field{year}{2024, Nov 8}
+      \verb{urlraw}
+      \verb https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1
+      \endverb
+      \verb{url}
+      \verb https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1
       \endverb
     \endentry
   \enddatalist
@@ -1235,6 +1434,37 @@
       \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
       \endverb
     \endentry
+    \entry{datacamp_adamw_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5f469db1ec04b5fb8ad05902538a7b27}{%
+           family={{DataCamp}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {DataCamp}%
+      }
+      \strng{namehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{fullhash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{bibnamehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{authorbibnamehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{authornamehash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \strng{authorfullhash}{5f469db1ec04b5fb8ad05902538a7b27}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{AdamW Optimizer in PyTorch Tutorial}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.datacamp.com/tutorial/adamw-optimizer-in-pytorch
+      \endverb
+      \verb{url}
+      \verb https://www.datacamp.com/tutorial/adamw-optimizer-in-pytorch
+      \endverb
+    \endentry
     \entry{epichka2023qkv}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a5abbc9a74c48cbb48a54ffb37c778e5}{%
@@ -1298,7 +1528,7 @@
       \verb https://www.geeksforgeeks.org/deep-learning/word-embedding-in-pytorch/
       \endverb
     \endentry
-    \entry{geeksforgeeks_crossentropy}{online}{}
+    \entry{geeksforgeeks_sgd}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
            family={{GeeksforGeeks}},
@@ -1316,6 +1546,40 @@
       \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ML – Stochastic Gradient Descent (SGD)}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks_crossentropy}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1e069787ece74531d112559945c6871}{%
+           family={{GeeksforGeeks}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {GeeksforGeeks}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1524,6 +1788,40 @@
       \endverb
       \verb{url}
       \verb https://huggingface.co/docs/transformers/es/tokenizer_summary
+      \endverb
+    \endentry
+    \entry{kashyap2024rmsprop}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1f3310235a3072829bbee2e172b95f58}{%
+           family={Kashyap},
+           familyi={K\bibinitperiod},
+           given={Piyush},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{fullhash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{bibnamehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{authorbibnamehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{authornamehash}{1f3310235a3072829bbee2e172b95f58}
+      \strng{authorfullhash}{1f3310235a3072829bbee2e172b95f58}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding RMSProp: A Simple Guide to One of Deep Learning’s Powerful Optimizers}
+      \field{year}{2024, Nov 2}
+      \verb{urlraw}
+      \verb https://medium.com/@piyushkashyap045/understanding-rmsprop-a-simple-guide-to-one-of-deep-learnings-powerful-optimizers-403baeed9922
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@piyushkashyap045/understanding-rmsprop-a-simple-guide-to-one-of-deep-learnings-powerful-optimizers-403baeed9922
       \endverb
     \endentry
     \entry{keerthanams2025evaluating}{online}{}
@@ -1967,6 +2265,7 @@
       \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1979,6 +2278,40 @@
       \endverb
       \verb{url}
       \verb https://stackoverflow.com/questions/72534859/is-gradscaler-necessary-with-mixed-precision-training-with-pytorch
+      \endverb
+    \endentry
+    \entry{stackoverflow_sgd_optimizer}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=922cbc48e6e4387d2c9f4b5dbe30ee74}{%
+           family={{StackOverflow users}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {StackOverflow}%
+      }
+      \strng{namehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{fullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{bibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorbibnamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authornamehash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \strng{authorfullhash}{922cbc48e6e4387d2c9f4b5dbe30ee74}
+      \field{extraname}{3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Answer explaining the relation between SGD, mini-batch, and full gradient descent in PyTorch}
+      \field{title}{Is SGD optimizer in PyTorch actually does Gradient Descent algorithm?}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/72496224/is-sgd-optimizer-in-pytorch-actually-does-gradient-descent-algorithm
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/72496224/is-sgd-optimizer-in-pytorch-actually-does-gradient-descent-algorithm
       \endverb
     \endentry
     \entry{swarms_masking_pytorch}{online}{}
@@ -2010,6 +2343,37 @@
       \endverb
       \verb{url}
       \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+    \endentry
+    \entry{ultralytics_adam_glossary}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=88f069848482a556e416f713d2819905}{%
+           family={{Ultralytics}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Ultralytics}%
+      }
+      \strng{namehash}{88f069848482a556e416f713d2819905}
+      \strng{fullhash}{88f069848482a556e416f713d2819905}
+      \strng{bibnamehash}{88f069848482a556e416f713d2819905}
+      \strng{authorbibnamehash}{88f069848482a556e416f713d2819905}
+      \strng{authornamehash}{88f069848482a556e416f713d2819905}
+      \strng{authorfullhash}{88f069848482a556e416f713d2819905}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Optimizador Adam ‒ Glosario Ultralytics}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.ultralytics.com/es/glossary/adam-optimizer
+      \endverb
+      \verb{url}
+      \verb https://www.ultralytics.com/es/glossary/adam-optimizer
       \endverb
     \endentry
     \entry{vaswani2017attention}{article}{}
@@ -2123,6 +2487,40 @@
       \endverb
       \verb{url}
       \verb https://cameronrwolfe.substack.com/p/llm-scaling-laws
+      \endverb
+    \endentry
+    \entry{yassin2024adamvsadamw}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=538130e5152b03fd736aed9d0534ebd7}{%
+           family={Yassin},
+           familyi={Y\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{fullhash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{bibnamehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{authorbibnamehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{authornamehash}{538130e5152b03fd736aed9d0534ebd7}
+      \strng{authorfullhash}{538130e5152b03fd736aed9d0534ebd7}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Adam vs. AdamW: Understanding Weight Decay and Its Impact on Model Performance}
+      \field{year}{2024, Nov 8}
+      \verb{urlraw}
+      \verb https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1
+      \endverb
+      \verb{url}
+      \verb https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1
       \endverb
     \endentry
   \enddatalist

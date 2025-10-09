@@ -3098,6 +3098,13 @@
     <bcf:citekey order="38" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
     <bcf:citekey order="39" intorder="1">singh2024perplexitymatters</bcf:citekey>
     <bcf:citekey order="40" intorder="1">krishnap25_mauve_github</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">geeksforgeeks_sgd</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">ultralytics_adam_glossary</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">kashyap2024rmsprop</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">yassin2024adamvsadamw</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">stackoverflow_sgd_optimizer</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

@@ -698,6 +698,11 @@ INPUT ./img/perplexity.png
 INPUT ./img/perplexity.png
 INPUT ./img/perplexity.png
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT ./img/optimizers.png
+INPUT ./img/optimizers.png
+INPUT ./img/optimizers.png
+INPUT ./img/optimizers.png
+INPUT ./img/optimizers.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

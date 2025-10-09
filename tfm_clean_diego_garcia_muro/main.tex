@@ -785,6 +785,21 @@ El problema de la perplejidad \parencite{singh2024perplexitymatters} es que depe
 
 \subsection{Optimizadores}
 
+Se han probado 3 optimizadores distintos, pero a la vez altamente relacionados. En primer lugar el optimizador Stochastic Gradient Descent (SGD), quien introdujo un cambio respecto al tradicional descenso del gradiente, y es que el gradiente no se calcula sobre todo el conjunto de datos original, sino sobre una muestra aleatoria del conjunto de entrenamiento \parencite{geeksforgeeks_sgd}. Ciertas investigaciones indican que pese a utilizar un ratio de aprendizaje constante, lo que puede ocasionar una convergencia lenta, generaliza mejor que Adam y es buento evitando el sobreajuste \parencite{ultralytics_adam_glossary}. 
+
+Otro de los optimizadores es Root Mean Square Propagation (RMSProp). Este optimizador mejora su rendimiento para funciones de pérdida no convexas, ajustando el ratio de aprendizaje, dado que un solo valor no funciona igual de bien para cada parámetro, haciendo que algunos pesos apenas cambien y otros cambien demasiado. Da estabilidad \parencite{kashyap2024rmsprop}.
+
+Por último, se ha utilizado AdamW. Es un optimizador utilizado en GPT por su alta capacidad de generalización . Se diferencia de Adam en que desacopla el decaimiento del peso \textit{weight decay}, una regularización que castiga pesos grandes para evitar sobreajustes, del proceso de actualización del gradiente \parencite{datacamp_adamw_pytorch}.  Al igual que Adam, se basa en dos operaciones \parencite{yassin2024adamvsadamw}, por un lado el impulso o \textit{momentum}, y por otro lado el uso de un \textit{learning rate} adaptativo. El primer factor implica que no solo se considere el punto actual en cada paso durante el descenso por gradiente, si no que considera los pasados, así, se logran movimientos más suaves y un descenso más rápido y estable. El segundo factor hace que los ratios de aprendizaje se ajusten en base a los gradientes de los parámetros (RMSProp).
+
+La implementación es muy simple y la dificultad reside más en ajustar los hiperparámetros. En el caso de AdamW se han seguido las recomendaciones dadas en \parencite{datacamp_adamw_pytorch}, que indica partir con un \textit{learning rate} de $10^-3"$ y un \textit{weight decay} de $10^-2"$ a $10^-4"$, siendo mayor para modelos más complejos. 
+
+
+\begin{figure}[h]
+    \centering´
+    \includegraphics[width=0.5\linewidth]{img/optimizers.png}
+    \caption{Optimizadores \parencite{stackoverflow_sgd_optimizer}}
+    \label{fig:placeholder22}
+\end{figure}
 
 \subsection{Resumen del modelo para Tiny Shakespeare}
 

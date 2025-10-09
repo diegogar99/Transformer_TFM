@@ -38,13 +38,13 @@
 \contentsline {subsection}{\numberline {4.8.2}Regulaciones}{22}{subsection.4.8.2}%
 \contentsline {subsection}{\numberline {4.8.3}Función de pérdida}{22}{subsection.4.8.3}%
 \contentsline {subsection}{\numberline {4.8.4}Optimizadores}{23}{subsection.4.8.4}%
-\contentsline {subsection}{\numberline {4.8.5}Resumen del modelo para Tiny Shakespeare}{23}{subsection.4.8.5}%
-\contentsline {subsection}{\numberline {4.8.6}Validación}{24}{subsection.4.8.6}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{25}{chapter.5}%
-\contentsline {chapter}{\numberline {A}Anexos}{29}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}GELU}{29}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Xavier Uniform}{29}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Normal uniform}{29}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Entropía}{29}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}MAUVE}{29}{section.Alph1.5}%
-\contentsline {section}{\numberline {A.6}Distinct-n}{29}{section.Alph1.6}%
+\contentsline {subsection}{\numberline {4.8.5}Resumen del modelo para Tiny Shakespeare}{24}{subsection.4.8.5}%
+\contentsline {subsection}{\numberline {4.8.6}Validación}{25}{subsection.4.8.6}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{27}{chapter.5}%
+\contentsline {chapter}{\numberline {A}Anexos}{31}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}GELU}{31}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Xavier Uniform}{31}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Normal uniform}{31}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Entropía}{31}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}MAUVE}{31}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Distinct-n}{31}{section.Alph1.6}%
