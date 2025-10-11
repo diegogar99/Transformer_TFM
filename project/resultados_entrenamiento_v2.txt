@@ -1,0 +1,47 @@
+TRAIN
+Iteracciones: 4146
+  [Batch 100] Loss: 5.2556 | LR: 1.499995e-04
+  [Batch 200] Loss: 4.7147 | LR: 1.499978e-04
+  [Batch 300] Loss: 4.4966 | LR: 1.499952e-04
+  [Batch 400] Loss: 4.3720 | LR: 1.499914e-04
+  [Batch 500] Loss: 4.2226 | LR: 1.499865e-04
+  [Batch 600] Loss: 4.1129 | LR: 1.499806e-04
+  [Batch 700] Loss: 4.0243 | LR: 1.499736e-04
+  [Batch 800] Loss: 3.9263 | LR: 1.499656e-04
+  [Batch 900] Loss: 3.8310 | LR: 1.499564e-04
+  [Batch 1000] Loss: 3.7564 | LR: 1.499462e-04
+  [Batch 1100] Loss: 3.6339 | LR: 1.499349e-04
+  [Batch 1200] Loss: 3.4765 | LR: 1.499225e-04
+  [Batch 1300] Loss: 3.4031 | LR: 1.499090e-04
+  [Batch 1400] Loss: 3.2586 | LR: 1.498945e-04
+  [Batch 1500] Loss: 3.1310 | LR: 1.498789e-04
+  [Batch 1600] Loss: 3.0643 | LR: 1.498622e-04
+  [Batch 1700] Loss: 2.8639 | LR: 1.498445e-04
+  [Batch 1800] Loss: 2.7518 | LR: 1.498257e-04
+  [Batch 1900] Loss: 2.6405 | LR: 1.498058e-04
+  [Batch 2000] Loss: 2.4988 | LR: 1.497848e-04
+  [Batch 2100] Loss: 2.3567 | LR: 1.497627e-04
+  [Batch 2200] Loss: 2.2418 | LR: 1.497396e-04
+  [Batch 2300] Loss: 2.1507 | LR: 1.497154e-04
+  [Batch 2400] Loss: 1.9943 | LR: 1.496902e-04
+  [Batch 2500] Loss: 1.8171 | LR: 1.496638e-04
+  [Batch 2600] Loss: 1.7436 | LR: 1.496364e-04
+  [Batch 2700] Loss: 1.6685 | LR: 1.496079e-04
+  [Batch 2800] Loss: 1.5410 | LR: 1.495784e-04
+  [Batch 2900] Loss: 1.4244 | LR: 1.495478e-04
+  [Batch 3000] Loss: 1.3630 | LR: 1.495161e-04
+  [Batch 3100] Loss: 1.2616 | LR: 1.494833e-04
+  [Batch 3200] Loss: 1.2021 | LR: 1.494495e-04
+  [Batch 3300] Loss: 1.1494 | LR: 1.494146e-04
+  [Batch 3400] Loss: 1.0627 | LR: 1.493786e-04
+  [Batch 3500] Loss: 0.9638 | LR: 1.493416e-04
+  [Batch 3600] Loss: 0.9182 | LR: 1.493035e-04
+  [Batch 3700] Loss: 0.8601 | LR: 1.492643e-04
+  [Batch 3800] Loss: 0.8242 | LR: 1.492241e-04
+  [Batch 3900] Loss: 0.7522 | LR: 1.491828e-04
+  [Batch 4000] Loss: 0.7343 | LR: 1.491404e-04
+  [Batch 4100] Loss: 0.6888 | LR: 1.490970e-04
+[Epoch 1] Train Loss: 2.5528 | Train PPL: 12.84 | Val PPL: 1010.87
+Iteracciones: 4146
+  [Batch 100] Loss: 0.6197 | LR: 1.490316e-04
+  [Batch 200] Loss: 0.5911 | LR: 1.489856e-04

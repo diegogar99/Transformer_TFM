@@ -15,6 +15,7 @@ context_len = 256
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 MODEL_PATH = "./resources/models/gpt_model.pth"
+BEST_MODEL_PATH = "./resources/models/best_gpt_model.pth"
 ########################
 # Lectura de datasets
 ########################
@@ -59,31 +60,39 @@ model = miniGPT2(
     vocab_size=vocab_size,
     d_model=512,
     num_heads=8,
-    d_ff=2048,
+    d_ff=1024,
     num_layers=6,
     context_len=256,
     dropout=0.1
 ).to(device)
 
-loss_fn = nn.CrossEntropyLoss()
-optimizer_sgd = torch.optim.SGD(model.parameters(), lr=1e-3)
-optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.1)
-optimizer_rmsprop = torch.optim.RMSprop(model.parameters(),lr=1e-3, weight_decay=1e-2,momentum=0.9)
-
 print("TRAIN")
-num_epochs = 50
+torch.manual_seed(42)
+torch.cuda.manual_seed_all(42)
+
+num_epochs = 20
 best_val_loss = float("inf")
 best_loss = float("inf")
 best_ppl = float("inf")
 
-patience_limit = 5 # Para early stopping
+loss_fn = nn.CrossEntropyLoss()
+
+#optimizer_sgd = torch.optim.SGD(model.parameters(), lr=1e-3)
+#optimizer_rmsprop = torch.optim.RMSprop(model.parameters(),lr=1e-3, weight_decay=1e-2,momentum=0.9)
+
+optimizer = torch.optim.AdamW(model.parameters(), lr=1.5e-4, weight_decay=0.01)
+scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs*len(loader))
+
+
+
+patience_limit = 10 # Para early stopping
 patience_counter = 0
 best_val_loss = float("inf")
 
 train_losses, val_losses = [], []
 train_ppls, val_ppls = [], []
 
-scaler = torch.amp.GradScaler("cuda") 
+#scaler = torch.amp.GradScaler("cuda") 
 
 for epoch in range(num_epochs):
     '''
@@ -97,50 +106,35 @@ for epoch in range(num_epochs):
     model.train()
     total_loss = 0.0
     torch.cuda.empty_cache()            
-    batch_num = 0
     print(f"Iteracciones: {len(loader)}")
     for num_batch, (batch_x, batch_y) in enumerate(loader, start=1):
         batch_x, batch_y = batch_x.to(device), batch_y.to(device) # todevice mueve a GPU si está disponible, es necesario pues le modelo está en GPU también.
-        batch_num += 1
         optimizer.zero_grad(set_to_none=True) # Limpia los gradientes previos. Pues en pytorch se acumulan por defecto y al llamar a backward se suman a los previos, es decir, se estarían combinando gradientes de varios batches. Lo pone a none para ahorrar memoria con set_to_none.
 
-        with torch.amp.autocast("cuda"): # Decide de forma segura que algunas operaciones se hagan en FP16 para ahorrar memoria y acelerar GPU
-            logits = model(batch_x) # Salida del modelo [batch_size, seq_len, vocab_size]. Cada posición de la secuencia tiene una distribución sobre el vocabulario.
+        #with torch.amp.autocast("cuda"): # Decide de forma segura que algunas operaciones se hagan en FP16 para ahorrar memoria y acelerar GPU
+        logits = model(batch_x) # Salida del modelo [batch_size, seq_len, vocab_size]. Cada posición de la secuencia tiene una distribución sobre el vocabulario.
             # Devuelve, para cada token de entrada, un vector de tamaño vocab_size con valores reales. En PyTorch, nn.CrossEntropyLoss()  ya incluye internamente el softmax
-            loss = loss_fn(
-                logits.view(-1, logits.size(-1)),
-                batch_y.view(-1) # Batch_y tiene: [batch_size, seq_len], esto lo aplana en [batch_size * seq_len] para cross entropy
-            )
-
-        if torch.isnan(loss): # Al usar mixed precision puede haber underflow o overflow y dar NaN en la pérdida [35]
-            print(f"[NaN] Detectado en batch {num_batch}, reduciendo LR")
-            for g in optimizer.param_groups:
-                g['lr'] *= 0.1
-            continue
-
-        scaler.scale(loss).backward() # Escala y calcula el gradiente de los pesos del modelo (en que dirección cambio el peso para reducir la pérdida). Scale multiplica la pérdida por un factor grande antes de hacer el backward. Los pesos aún no cambian. 
+        loss = loss_fn(
+            logits.view(-1, logits.size(-1)),
+            batch_y.view(-1) # Batch_y tiene: [batch_size, seq_len], esto lo aplana en [batch_size * seq_len] para cross entropy
+        )
+        loss.backward()
+        #scaler.scale(loss).backward() # Escala y calcula el gradiente de los pesos del modelo (en que dirección cambio el peso para reducir la pérdida). Scale multiplica la pérdida por un factor grande antes de hacer el backward. Los pesos aún no cambian. 
         
         # Gradient Clipping para estabilidad [35]: limita el tamaño máximo que puede tener el conjunto de gradientes antes de actualizar los pesos.El clipping no cambia la dirección del gradiente (sigue apuntando hacia la misma mejora), solo reduce su magnitud para que no provoque saltos gigantes en los pesos.
-        scaler.unscale_(optimizer) # En AMP, los gradientes están temporalmente amplificados (por GradScaler).Se desescalan para no recortar valores falsos.
+        #scaler.unscale_(optimizer) # En AMP, los gradientes están temporalmente amplificados (por GradScaler).Se desescalan para no recortar valores falsos.
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+        optimizer.step()
+        scheduler.step()
 
-        scaler.step(optimizer) # usa los gradientes calculados para ajustar los pesos. Sin GradScaler sería: optimizer.step(). El scaler primero desescala los gradientes si aún no se ha hecho (los divide por el mismo factor que usó en scale) y luego llama a optimizer.step().
-        scaler.update() # Se encarga de ajustar el factor de escalado de la pérdida para la próxima iteración.
+        #scaler.step(optimizer) # usa los gradientes calculados para ajustar los pesos. Sin GradScaler sería: optimizer.step(). El scaler primero desescala los gradientes si aún no se ha hecho (los divide por el mismo factor que usó en scale) y luego llama a optimizer.step().
+        #scaler.update() # Se encarga de ajustar el factor de escalado de la pérdida para la próxima iteración.
 
         total_loss += loss.item()
 
         if num_batch % 100 == 0:
-            print(f"  [Batch {num_batch}] Loss: {loss.item():.4f}")
-            for name, param in model.named_parameters(): # Estadísticas para detectar underflow en train en los gradientes
-                if param.grad is not None:
-                    grad_min = param.grad.abs().min().item()
-                    grad_max = param.grad.abs().max().item()
-                    if grad_min == 0.0:
-                        print(f"[Underflow] Gradiente nulo en {name}")
-                    elif grad_min < 1e-8:
-                        print(f"[Pequeño] {name}: grad_min={grad_min:.2e}, grad_max={grad_max:.2e}")
-
-        
+            current_lr = scheduler.get_last_lr()[0]
+            print(f"  [Batch {num_batch}] Loss: {loss.item():.4f} | LR: {current_lr:.6e}")
 
     avg_loss = total_loss / len(loader)
     train_ppl = math.exp(avg_loss) # Perplejidad: Si baja es que comprende mejor los datos. Es el exponente de la entropía
@@ -156,7 +150,11 @@ for epoch in range(num_epochs):
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
+        best_loss = avg_loss
+        best_ppl = train_ppl
         patience_counter = 0
+        torch.save(model.state_dict(), BEST_MODEL_PATH)
+
     else:
         patience_counter += 1
         if patience_counter >= patience_limit:

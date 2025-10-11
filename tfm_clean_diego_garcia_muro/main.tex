@@ -738,11 +738,15 @@ Para el protipo inicial, entrenado con el dataset \textit{Tiny Shakespeare}, se 
 
 \subsection{Regulaciones}
 
-Para el entrenamiento del modelo se sigue la técnica \textit{Mixed Precision Training}. Esto es porque se ha visto que reduce el uso de memoria y acelera el entrenamiento sin comprometer la precisión del modelo, lo que permite aumentar el tamaño de los bacthes y no desbordar la memoria de la GPU. En esencia, se utilizan tipos de datos de menor precisión (como \texttt{float16}) para las operaciones que no requieren alta precisión, mientras que las operaciones críticas se mantienen en \texttt{float32}. 
+Para el entrenamiento del modelo se sigue la técnica \texttt{Mixed Precision Training}. Esto es porque se ha visto que reduce el uso de memoria y acelera el entrenamiento sin comprometer la precisión del modelo, lo que permite aumentar el tamaño de los bacthes y no desbordar la memoria de la GPU. En esencia, se utilizan tipos de datos de menor precisión (como \texttt{float16}) para las operaciones que no requieren alta precisión, mientras que las operaciones críticas se mantienen en \texttt{float32}. 
 
-Para la implementación se utilizan dos elementos clave. Por un lado \textit{GradScaler}, que escala los valores de la función de pérdida dinámicamente para prevenir el desbordamiento de los gradientes cuando se usan tipos de datos de menor precisión. Lo que hace es multiplicar la pérdida por un factor grande antes de calcular los gradientes. En cada iteración se decide si ese factor fue bueno o malo, en base a si ha habido desbordamiento o no. Si no hubo desbordamiento, se aumenta ligeramente el factor para aumentar la precisión, en caso contrario, se reduce el factor para la próxima iteración \parencite{amit2024mixedprecision}. Por otro lado, \textit{autocast}, que permite especificar bloques de código donde se desea utilizar precisión mixta \parencite{stack_overflow_gradscaler}. Dentro de estos bloques, las operaciones se ejecutan automáticamente en la precisión más adecuada según el hardware y la operación específica. No obstante, hay caso en los que se debe indicar a \textit{autocast} de forma manual que no modifique la precisión de los datos, por ejemplo, en la capa de normalización, donde al no ser nativa de \texttt{PyTorch}, pues se ha implementado desde 0, quiza no lo detecta automaticamente \parencite{amit2024mixedprecision}. También se ha desactivado en la capa de \textit{Softmax} pues son capas donde escalar puede introducir inestabilidad al modelo.
+Para una primera implementación se utilizan dos elementos clave. Por un lado \texttt{GradScaler}, que escala los valores de la función de pérdida dinámicamente para prevenir el desbordamiento de los gradientes cuando se usan tipos de datos de menor precisión. Lo que hace es multiplicar la pérdida por un factor grande antes de calcular los gradientes. En cada iteración se decide si ese factor fue bueno o malo, en base a si ha habido desbordamiento o no. Si no hubo desbordamiento, se aumenta ligeramente el factor para aumentar la precisión, en caso contrario, se reduce el factor para la próxima iteración \parencite{amit2024mixedprecision}. Por otro lado, \texttt{autocast}, que permite especificar bloques de código donde se desea utilizar precisión mixta \parencite{stack_overflow_gradscaler}. Dentro de estos bloques, las operaciones se ejecutan automáticamente en la precisión más adecuada según el hardware y la operación específica. No obstante, hay caso en los que se debe indicar a \texttt{autocast} de forma manual que no modifique la precisión de los datos, por ejemplo, en la capa de normalización, donde al no ser nativa de \texttt{PyTorch}, pues se ha implementado desde 0, quiza no lo detecta automaticamente \parencite{amit2024mixedprecision}. También se ha desactivado en la capa de \texttt{Softmax} pues son capas donde escalar puede introducir inestabilidad al modelo.
 
-En combinación con estas técnicas, se ha aplicado \textit{Gradient Clipping} para evitar que los gradientes se vuelvan demasiado grandes y provoquen actualizaciones inestables de los pesos. Lo que hace es reducir su magnitud, sin alterar la dirección.
+En combinación con estas técnicas, se ha aplicado \texttt{Gradient Clipping} para evitar que los gradientes se vuelvan demasiado grandes y provoquen actualizaciones inestables de los pesos. Lo que hace es reducir su magnitud, sin alterar la dirección. 
+===========================================================================================
+COMPLETAR
+
+No obstante, al ejecutar el entrenamiento, se han obtenido valores nulos en la función de pérdida, por lo que se ha decidido prescindir de \texttt{GradScaler} y \texttt{autocast}, haciendo ajustes en los hiperparámetros del optimizador e implementando \texttt{CosineAnnealingLR} \parencite{pytorch_cosineannealinglr}, con ello lo que se logra es reducir el ratio de aprendizaje por época y lote de entrenamiento. 
 
 \subsection{Función de pérdida}
 
@@ -782,6 +786,14 @@ Una perplejidad baja indica que el modelo es bueno prediciendo la siguiente pala
 
 El problema de la perplejidad \parencite{singh2024perplexitymatters} es que depende altamante del vocabulario, con lo que puede llegar a darse que un modelo bueno parezca malo debido a palabras poco comunes en vocabularios extensos. En este caso, el vocabulario no es muy extenso y al usar \texttt{BPE} se reduce el nñumero de palabras poco comunes o desconocidas, con lo que se ha considerado una métrica adecuada. Por otro lado, no valida la corrección semántica o contextual, por lo que a la hora de validar el modelo se han planteado otras técnicas como \texttt{MAUVE} \parencite{krishnap25_mauve_github} (ver sección \ref{sec:mauve} del Anexo) y \texttt{Distinct-n} (ver sección \ref{sec:distinct-n} del Anexo), además de la validación humana configurando la temperatura, como se explicará en la sección \ref{subsec:validacion}.
 
+Por último, se ha implementado un mencanismo del tipo \textit{Early Stopping} por el cual si la perplejidad en los datos de validación no mejora durante un periodo consecutivo se finaliza el entrenamiento. Con esto se pretende evitar sobreajuste y que el modelo se ajuste demasiado bien a los datos de entrenamiento respecto a los de validación.
+
+\begin{figure}[h]
+    \centering´
+    \includegraphics[width=0.5\linewidth]{img/early_stop.png}
+    \caption{Calculo de perplejidad en PyTorch \parencite{stackoverflow_perplexity_pytorch}}
+    \label{fig:placeholder23}
+\end{figure}
 
 \subsection{Optimizadores}
 
@@ -800,6 +812,7 @@ La implementación es muy simple y la dificultad reside más en ajustar los hipe
     \caption{Optimizadores \parencite{stackoverflow_sgd_optimizer}}
     \label{fig:placeholder22}
 \end{figure}
+
 
 \subsection{Resumen del modelo para Tiny Shakespeare}
 
@@ -830,6 +843,16 @@ El proceso se repite el número de épocas mencionado y se valida con datos de v
 %--- CAPÍTULO 5 DEL TFM
 \chapter{Conclusiones}
 
+%--- ADDDDDDDDDDDDDDDDDD
+Lo he lanzado en google colab
+He quitado autocast y grad search
+En optimizadores: CosineAnnealingLr, se ajustan params: optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.1)
+ => optimizer = torch.optim.AdamW(model.parameters(), lr=1.5e-4, weight_decay=0.01)
+
+Se reduce vocabsize a 10000
+Se reduce   d_ff=1024,
+
+%-------------------------------
 %--- FIN DEL CAPÍTULO 5
 
 \clearemptydoublepage

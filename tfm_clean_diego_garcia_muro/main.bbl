@@ -828,6 +828,37 @@
       \verb https://docs.kanaries.net/topics/Python/nn-linear
       \endverb
     \endentry
+    \entry{pytorch_cosineannealinglr}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=95b88f180e9eb5678e0f9ebac2cbe643}{%
+           family={{PyTorch}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch Documentation}%
+      }
+      \strng{namehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{fullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{bibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorbibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authornamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorfullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CosineAnnealingLR — torch.optim.lr_scheduler}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \endverb
+      \verb{url}
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \endverb
+    \endentry
     \entry{reddit2021tokenizers}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=b632c55a33530d1433e29ffc09ba1151}{%
@@ -2079,6 +2110,37 @@
       \endverb
       \verb{url}
       \verb https://docs.kanaries.net/topics/Python/nn-linear
+      \endverb
+    \endentry
+    \entry{pytorch_cosineannealinglr}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=95b88f180e9eb5678e0f9ebac2cbe643}{%
+           family={{PyTorch}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch Documentation}%
+      }
+      \strng{namehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{fullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{bibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorbibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authornamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorfullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CosineAnnealingLR — torch.optim.lr_scheduler}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \endverb
+      \verb{url}
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
       \endverb
     \endentry
     \entry{reddit2021tokenizers}{online}{}

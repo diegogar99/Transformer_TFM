@@ -1,0 +1,85 @@
+ GPU available: True
+Carga datasets
+	Tiny Shakespeare
+Generating raw split:  40000/0 [00:00<00:00, 862825.79 examples/s]	Wikitext-2
+Map (num_proc=4): 100% 32400/32400 [00:06<00:00, 5074.70 examples/s]Map (num_proc=4): 100% 3600/3600 [00:01<00:00, 4982.98 examples/s]Map (num_proc=4): 100% 4000/4000 [00:01<00:00, 5869.08 examples/s]Longitud corpus train: 896135 caracteres
+Longitud corpus valid: 100448 caracteres
+Longitud corpus test: 111570 caracteres
+Tokenización del corpus de train, test y validation
+Número total de tokens en el corpus: 273905
+Tokenización del corpus de train, test y validation
+Número total de tokens en el corpus: 31059
+Preparando DataLoader
+Se invoca el modelo
+TRAIN
+Iteracciones: 4276
+  [Batch 100] Loss: 6.2662
+  [Batch 200] Loss: 6.2583
+  [Batch 300] Loss: 6.2546
+  [Batch 400] Loss: 6.2612
+  [Batch 500] Loss: 6.2318
+  [Batch 600] Loss: 6.2588
+  [Batch 700] Loss: 6.2578
+  [Batch 800] Loss: 6.2651
+  [Batch 900] Loss: 6.2241
+  [Batch 1000] Loss: 6.2303
+  [Batch 1100] Loss: 6.2567
+  [Batch 1200] Loss: 6.2395
+  [Batch 1300] Loss: 6.2635
+  [Batch 1400] Loss: 6.2295
+  [Batch 1500] Loss: 6.2270
+  [Batch 1600] Loss: 6.2430
+  [Batch 1700] Loss: 6.2640
+  [Batch 1800] Loss: 6.2561
+  [Batch 1900] Loss: 6.2466
+  [Batch 2000] Loss: 6.2451
+  [Batch 2100] Loss: 6.2283
+  [Batch 2200] Loss: 6.2664
+  [Batch 2300] Loss: 6.2379
+  [Batch 2400] Loss: 6.2374
+  [Batch 2500] Loss: 6.2271
+  [Batch 2600] Loss: 6.2764
+  [Batch 2700] Loss: 6.2397
+  [Batch 2800] Loss: 6.2559
+  [Batch 2900] Loss: 6.2310
+  [Batch 3000] Loss: 6.2583
+  [Batch 3100] Loss: 6.2472
+  [Batch 3200] Loss: 6.2227
+  [Batch 3300] Loss: 6.2381
+  [Batch 3400] Loss: 6.2387
+  [Batch 3500] Loss: 6.2287
+  [Batch 3600] Loss: 6.2192
+  [Batch 3700] Loss: 6.2231
+  [Batch 3800] Loss: 6.2376
+  [Batch 3900] Loss: 6.2535
+  [Batch 4000] Loss: 6.2405
+  [Batch 4100] Loss: 6.2489
+  [Batch 4200] Loss: 6.2188
+[Epoch 1] Train Loss: 6.2523 | Train PPL: 519.21 | Val PPL: 553.66
+Iteracciones: 4276
+  [Batch 100] Loss: 6.2440
+  [Batch 200] Loss: 6.2173
+  [Batch 300] Loss: 6.2947
+  [Batch 400] Loss: 6.2500
+  [Batch 500] Loss: 6.2485
+  [Batch 600] Loss: 6.2495
+  [Batch 700] Loss: 6.2526
+  [Batch 800] Loss: 6.2413
+  [Batch 900] Loss: 6.2222
+  [Batch 1000] Loss: 6.2592
+  [Batch 1100] Loss: 6.2225
+  [Batch 1200] Loss: 6.2348
+  [Batch 1300] Loss: 6.2727
+  [Batch 1400] Loss: 6.2402
+  [Batch 1500] Loss: 6.2128
+  [Batch 1600] Loss: 6.2047
+  [Batch 1700] Loss: 6.2397
+  [Batch 1800] Loss: 6.2440
+  [Batch 1900] Loss: 6.2413
+  [Batch 2000] Loss: 6.2560
+  [Batch 2100] Loss: 6.2469
+  [Batch 2200] Loss: 6.2451
+  [Batch 2300] Loss: 6.2390
+  [Batch 2400] Loss: 6.2162
+  [Batch 2500] Loss: 6.2264
+  [Batch 2600] Loss: 6.2420
