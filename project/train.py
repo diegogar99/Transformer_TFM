@@ -12,12 +12,12 @@ print("GPU available:", torch.cuda.is_available())
 
 embedding_dim = 256              
 context_len = 128
-num_epochs = 20
+num_epochs = 40
 patience_limit = 10 # Para early stopping
 num_layers = 3
-num_heads = 4
+num_heads = 8
 d_ff = 1024
-
+dropout = 0.3
 
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -73,7 +73,7 @@ model = miniGPT2(
     d_ff=d_ff,
     num_layers=num_layers,
     context_len=context_len,
-    dropout=0.2
+    dropout=dropout
 ).to(device)
 
 print("TRAIN")
@@ -92,8 +92,8 @@ loss_fn = nn.CrossEntropyLoss()
 
 #optimizer = torch.optim.AdamW(model.parameters(), lr=5e-4, weight_decay=0.1)
 #scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs*len(loader))
-# scheduler = LambdaLR(optimizer, lr_lambda)
-optimizer = torch.optim.Adam(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
+optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
+scheduler = LambdaLR(optimizer, lr_lambda)
 
 
 
@@ -145,7 +145,7 @@ for epoch in range(num_epochs):
         #scaler.unscale_(optimizer) # En AMP, los gradientes están temporalmente amplificados (por GradScaler).Se desescalan para no recortar valores falsos.
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         optimizer.step()
-        #scheduler.step()
+        
 
         #scaler.step(optimizer) # usa los gradientes calculados para ajustar los pesos. Sin GradScaler sería: optimizer.step(). El scaler primero desescala los gradientes si aún no se ha hecho (los divide por el mismo factor que usó en scale) y luego llama a optimizer.step().
         #scaler.update() # Se encarga de ajustar el factor de escalado de la pérdida para la próxima iteración.
@@ -155,7 +155,7 @@ for epoch in range(num_epochs):
         if num_batch % 100 == 0:
             #current_lr = scheduler.get_last_lr()[0]
             print(f"  [Batch {num_batch}] Loss: {loss.item():.4f}") # | LR: {current_lr:.6e}
-
+    scheduler.step()
     avg_loss = total_loss / len(loader)
     train_ppl = math.exp(avg_loss) # Perplejidad: Si baja es que comprende mejor los datos. Es el exponente de la entropía
     # Validación para implementar early stopping y guardar mejor modelo
@@ -195,4 +195,4 @@ plt.ylabel("Perplexity")
 plt.title("Evolución de Perplexity durante entrenamiento")
 plt.legend()
 plt.grid(True)
-plt.savefig('./resources/imagenes/resultado_entrenamiento_v2.pdf')
+plt.savefig('./resources/imagenes/resultado_entrenamiento_v6.pdf')

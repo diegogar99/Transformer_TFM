@@ -96,7 +96,7 @@ def tokenizador(dataset):
         spm.SentencePieceTrainer.Train(
             input=train_path, # Corpus de train, se pueden pasar varios
             model_prefix="./resources/models/bpe_model_shakespeare",        # genera prefijo modelos generados:  bpe_model_shakespeare.model y bpe_model_shakespeare.vocab
-            vocab_size= 4000,                 # 8k–32k para corpora pequeños, 32 k para wikitext2
+            vocab_size= 8000,                 # 8k–32k para corpora pequeños, 32 k para wikitext2
             model_type="bpe",
             character_coverage=1.0,           # inglés
             byte_fallback=True,               # evita UNK en chars raros
