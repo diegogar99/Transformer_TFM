@@ -10,8 +10,16 @@ from model.final_model import *
 from utils import * 
 print("GPU available:", torch.cuda.is_available())
 
-embedding_dim = 512              
-context_len = 256
+embedding_dim = 256              
+context_len = 128
+num_epochs = 20
+patience_limit = 10 # Para early stopping
+num_layers = 3
+num_heads = 4
+d_ff = 1024
+
+
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 MODEL_PATH = "./resources/models/gpt_model.pth"
@@ -33,8 +41,10 @@ print(f"Longitud corpus train: {len(train_text)} caracteres")
 print(f"Longitud corpus valid: {len(valid_text)} caracteres")
 print(f"Longitud corpus test: {len(test_text)} caracteres")
 
-train_ids,vocab_size = tokenizador(train_text)
+train_ids,sp = tokenizador(train_text)
 val_ids,_ = tokenizador(valid_text)
+
+vocab_size = sp.vocab_size()
 
 #########################
 # Preparación de batches <input, target>
@@ -43,8 +53,8 @@ val_ids,_ = tokenizador(valid_text)
 # Se formatiza como <input, target>
  
 print("Preparando DataLoader")
-dataset = LMWindowDataset(train_ids, context_len=256)  # o 256
-val_dataset = LMWindowDataset(val_ids, context_len=256)  # o 256
+dataset = LMWindowDataset(train_ids, context_len=context_len)  # o 256
+val_dataset = LMWindowDataset(val_ids, context_len=context_len)  # o 256
 
 loader = torch.utils.data.DataLoader(dataset, batch_size=64, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
@@ -58,19 +68,19 @@ val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=Fal
 print("Se invoca el modelo")
 model = miniGPT2(
     vocab_size=vocab_size,
-    d_model=512,
-    num_heads=8,
-    d_ff=1024,
-    num_layers=6,
-    context_len=256,
-    dropout=0.1
+    d_model=embedding_dim,
+    num_heads=num_heads,
+    d_ff=d_ff,
+    num_layers=num_layers,
+    context_len=context_len,
+    dropout=0.2
 ).to(device)
 
 print("TRAIN")
 torch.manual_seed(42)
 torch.cuda.manual_seed_all(42)
 
-num_epochs = 20
+
 best_val_loss = float("inf")
 best_loss = float("inf")
 best_ppl = float("inf")
@@ -80,12 +90,13 @@ loss_fn = nn.CrossEntropyLoss()
 #optimizer_sgd = torch.optim.SGD(model.parameters(), lr=1e-3)
 #optimizer_rmsprop = torch.optim.RMSprop(model.parameters(),lr=1e-3, weight_decay=1e-2,momentum=0.9)
 
-optimizer = torch.optim.AdamW(model.parameters(), lr=1.5e-4, weight_decay=0.01)
-scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs*len(loader))
+#optimizer = torch.optim.AdamW(model.parameters(), lr=5e-4, weight_decay=0.1)
+#scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs*len(loader))
+# scheduler = LambdaLR(optimizer, lr_lambda)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
 
 
 
-patience_limit = 10 # Para early stopping
 patience_counter = 0
 best_val_loss = float("inf")
 
@@ -93,6 +104,14 @@ train_losses, val_losses = [], []
 train_ppls, val_ppls = [], []
 
 #scaler = torch.amp.GradScaler("cuda") 
+
+'''for num_batch, (batch_x, batch_y) in enumerate(loader, start=1):
+    batch_x, batch_y = batch_x.to(device), batch_y.to(device) # todevice mueve a GPU si está disponible, es necesario pues le modelo está en GPU también.
+    print(f"Batch_x: {sp.decode(batch_x[0].tolist())}")
+    print(f"Batch_y: {sp.decode(batch_y[0].tolist())}")
+    print(batch_x.shape, batch_y.shape)
+    break
+exit()'''
 
 for epoch in range(num_epochs):
     '''
@@ -109,6 +128,7 @@ for epoch in range(num_epochs):
     print(f"Iteracciones: {len(loader)}")
     for num_batch, (batch_x, batch_y) in enumerate(loader, start=1):
         batch_x, batch_y = batch_x.to(device), batch_y.to(device) # todevice mueve a GPU si está disponible, es necesario pues le modelo está en GPU también.
+      
         optimizer.zero_grad(set_to_none=True) # Limpia los gradientes previos. Pues en pytorch se acumulan por defecto y al llamar a backward se suman a los previos, es decir, se estarían combinando gradientes de varios batches. Lo pone a none para ahorrar memoria con set_to_none.
 
         #with torch.amp.autocast("cuda"): # Decide de forma segura que algunas operaciones se hagan en FP16 para ahorrar memoria y acelerar GPU
@@ -125,7 +145,7 @@ for epoch in range(num_epochs):
         #scaler.unscale_(optimizer) # En AMP, los gradientes están temporalmente amplificados (por GradScaler).Se desescalan para no recortar valores falsos.
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         optimizer.step()
-        scheduler.step()
+        #scheduler.step()
 
         #scaler.step(optimizer) # usa los gradientes calculados para ajustar los pesos. Sin GradScaler sería: optimizer.step(). El scaler primero desescala los gradientes si aún no se ha hecho (los divide por el mismo factor que usó en scale) y luego llama a optimizer.step().
         #scaler.update() # Se encarga de ajustar el factor de escalado de la pérdida para la próxima iteración.
@@ -133,8 +153,8 @@ for epoch in range(num_epochs):
         total_loss += loss.item()
 
         if num_batch % 100 == 0:
-            current_lr = scheduler.get_last_lr()[0]
-            print(f"  [Batch {num_batch}] Loss: {loss.item():.4f} | LR: {current_lr:.6e}")
+            #current_lr = scheduler.get_last_lr()[0]
+            print(f"  [Batch {num_batch}] Loss: {loss.item():.4f}") # | LR: {current_lr:.6e}
 
     avg_loss = total_loss / len(loader)
     train_ppl = math.exp(avg_loss) # Perplejidad: Si baja es que comprende mejor los datos. Es el exponente de la entropía
@@ -175,4 +195,4 @@ plt.ylabel("Perplexity")
 plt.title("Evolución de Perplexity durante entrenamiento")
 plt.legend()
 plt.grid(True)
-plt.savefig('./resources/imagenes/resultado_entrenamiento_v1.pdf')
+plt.savefig('./resources/imagenes/resultado_entrenamiento_v2.pdf')

@@ -843,6 +843,30 @@ El proceso se repite el número de épocas mencionado y se valida con datos de v
 %--- CAPÍTULO 5 DEL TFM
 \chapter{Conclusiones}
 
+\section{Primera aproximación con Tiny Shakespeare}
+
+Se ha realizado un primer entrenamiento con $20$ épocas y un \textit{Early Stopping} con paciencia igual a 10. El optimizador utilizado es \texttt{AdamW} con un ratio de aprendizaje de $1.5*10^-3$ y \textit{weight decay} igual a $0.01$. Además se ha aplicado \texttt{CosineAnnealingLR} para ir ajustando durante el entrenamiento el ratio de aprendizaje, no solo a nivel de época, sino de batch. El resto de parámetros del modelo son: 
+
+\begin{itemize}
+    \item \textbf{Tamaño vocabulario}: $10000$
+    \item \textbf{Tamaño embedding}: $512$
+    \item \textbf{Tamaño contexto}: $256$
+    \item \textbf{Tamaño de batches}: $64$
+    \item \textbf{Tamaño FFNN}: $1024$
+    \item \textbf{Número de batches por época}: $4146$
+    \item \textbf{Número de cabezas de atención}: $8$
+    \item \textbf{Número de capas}: $6$
+\end{itemize}
+
+Con ello, se han entrenado $11$ épocas antes del \textit{Early Stopping}, comenzando en la primera época con una pérdida de $6.23$ y una perplejidad de  $509.94$ para datos de entrenamiento y de $586.34$, para datos de validación y finalizando con una périda de $6.2226$ y perplejidad de $504.00$ y $598.18$ respectivamente. Se ve un descenso en los datos de entrenamiento, frente a un incremento en validación lo que suscita un sobreajuste, además no se aprecia un cambio significativo de los valores a lo largo de las épocas lo que hace intuir que el modelo no está aprendiendo nada significativo.
+
+\begin{figure}[h]
+    \centering´
+    \includegraphics[width=0.5\linewidth]{img/resultado_entrenamiento_v1.png}
+    \caption{Resultado primer entrenamiento}
+    \label{fig:placeholder23}
+\end{figure}
+
 %--- ADDDDDDDDDDDDDDDDDD
 Lo he lanzado en google colab
 He quitado autocast y grad search

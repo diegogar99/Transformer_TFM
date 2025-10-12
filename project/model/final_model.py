@@ -20,8 +20,10 @@ class miniGPT2(nn.Module):
         B, T = idx.shape
 
         pos = torch.arange(T, device=idx.device).unsqueeze(0).expand(B, T)
+        x = self.tok_emb(idx) * math.sqrt(self.tok_emb.embedding_dim)
+        x = x + self.pos_emb(pos)
 
-        x = self.tok_emb(idx) + self.pos_emb(pos)
+        #x = self.tok_emb(idx) + self.pos_emb(pos)
         for block in self.blocks:
             x = block(x)
         x = self.norm(x)

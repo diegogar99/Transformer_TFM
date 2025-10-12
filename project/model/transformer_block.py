@@ -48,9 +48,9 @@ class MultiHeadAttention(nn.Module):
         scores = scores.masked_fill(mask, float('-inf'))
         
         # 5. Normalizar con softmax
-        with torch.amp.autocast(device_type="cuda",enabled=False):
-            scores = scores.float()
-            attn = torch.softmax(scores, dim=-1)  # (B, num_heads, T, T)
+        #with torch.amp.autocast(device_type="cuda",enabled=False):
+        scores = scores.float()
+        attn = torch.softmax(scores, dim=-1)  # (B, num_heads, T, T)
         
         # 6. Aplicar atención a V
         out = torch.matmul(attn, V)  # (B, num_heads, T, d_k)
@@ -76,11 +76,11 @@ class NormLayer(nn.Module):
 
     def forward(self, X):
         # X: (batch, seq_len, hidden_dim)
-        with torch.amp.autocast(device_type="cuda",enabled=False): # Desactivo mixed precision manualmente pues es recomendable en la LayerNorm y como la he implementado yo, quiza no lo detecta automaticamente (solo reconoce capas nativas de pytorch) [35]
-            X = X.float()
-            mean = X.mean(dim=-1, keepdim=True)       # media por posición
-            var = X.var(dim=-1, keepdim=True, unbiased=False)  # varianza
-            X_hat = (X - mean) / torch.sqrt(var + self.eps)    # normaliza
+        #with torch.amp.autocast(device_type="cuda",enabled=False): # Desactivo mixed precision manualmente pues es recomendable en la LayerNorm y como la he implementado yo, quiza no lo detecta automaticamente (solo reconoce capas nativas de pytorch) [35]
+        X = X.float()
+        mean = X.mean(dim=-1, keepdim=True)       # media por posición
+        var = X.var(dim=-1, keepdim=True, unbiased=False)  # varianza
+        X_hat = (X - mean) / torch.sqrt(var + self.eps)    # normaliza
         return self.gamma * X_hat + self.beta
 
 
@@ -116,7 +116,7 @@ class FeedForward(nn.Module):
        return x
 
 # Bloque 1 transformer decoder-only
-
+'''
 class TransformerDecoderOnlyBlock(nn.Module):
     def __init__(self, num_heads, d_model, d_ff, dropout):
         super().__init__()
@@ -139,4 +139,38 @@ class TransformerDecoderOnlyBlock(nn.Module):
         x = self.addnorm1(x, attention)
         ffn_out = self.ffn(x)
         x = self.addnorm2(x, ffn_out)
+        return x
+'''
+# PRE NORM según : Transformers without Tears: Improving the Normalization of Self-Attention
+class TransformerDecoderOnlyBlock(nn.Module):
+    def __init__(self, num_heads, d_model, d_ff, dropout):
+        super().__init__()
+        self.mha = MultiHeadAttention(num_heads, d_model)
+        self.ffn = FeedForward(d_model, d_ff, dropout)  # Dropout ya está dentro de FFN
+        self.ln1 = NormLayer(d_model)
+        self.ln2 = NormLayer(d_model)
+        self.dropout = nn.Dropout(dropout)  
+        self.apply(self._init_weights)
+    
+    def _init_weights(self, m): # Inicialización de pesos: Xavier para MHA y FFNN y normal para embeddings
+        if isinstance(m, nn.Linear):
+            nn.init.xavier_uniform_(m.weight)
+            if m.bias is not None:
+                nn.init.zeros_(m.bias) # Para evitar desplazamiento inicial arbitrario
+        elif isinstance(m, nn.Embedding):
+            nn.init.normal_(m.weight, mean=0.0, std=0.02)
+
+    def forward(self, x):
+        # Pre-norm para attention
+        residual = x
+        x = self.ln1(x)  # Norm antes
+        attention = self.mha(x)
+        x = residual + self.dropout(attention)  # Add + dropout
+
+        # Pre-norm para FFN
+        residual = x
+        x = self.ln2(x)  # Norm antes
+        ffn_out = self.ffn(x)
+        x = residual + self.dropout(ffn_out)  # Add + dropout
+
         return x

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  11 OCT 2025 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  12 OCT 2025 19:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -947,8 +947,7 @@ Package csquotes Info: Redefining alias 'default' -> 'spanish'.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 113.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)
-No file main.aux.
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
@@ -969,6 +968,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
 LaTeX Font Info:    ... okay on input line 113.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
 LaTeX Font Info:    ... okay on input line 113.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1268,4 +1268,389 @@ LaTeX Info: Redefining \% on input line 455.
 <img/sentence_trainer.png, id=207, 1517.67pt x 930.47626pt>
 File: img/sentence_trainer.png Graphic file (type png)
 <use img/sentence_trainer.png>
-Package pdftex.def
+Package pdftex.def Info: img/sentence_trainer.png  used on input line 464.
+(pdftex.def)             Requested size: 227.62206pt x 139.55121pt.
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 472.
+<img/train_tok.png, id=208, 1821.80624pt x 695.59875pt>
+File: img/train_tok.png Graphic file (type png)
+<use img/train_tok.png>
+Package pdftex.def Info: img/train_tok.png  used on input line 475.
+(pdftex.def)             Requested size: 227.62206pt x 86.90717pt.
+<img/test_tok.png, id=209, 1457.445pt x 578.16pt>
+File: img/test_tok.png Graphic file (type png)
+<use img/test_tok.png>
+Package pdftex.def Info: img/test_tok.png  used on input line 483.
+(pdftex.def)             Requested size: 227.62206pt x 90.29317pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+[14 <./img/sentence_trainer.png> <./img/train_tok.png>]
+LaTeX Info: Redefining \. on input line 556.
+LaTeX Info: Redefining \% on input line 556.
+LaTeX Info: Redefining \. on input line 556.
+LaTeX Info: Redefining \% on input line 556.
+ [15 <./img/test_tok.png>]
+<img/ejemplo_embedding.png, id=228, 218.8175pt x 260.975pt>
+File: img/ejemplo_embedding.png Graphic file (type png)
+<use img/ejemplo_embedding.png>
+Package pdftex.def Info: img/ejemplo_embedding.png  used on input line 565.
+(pdftex.def)             Requested size: 227.62206pt x 271.47928pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
+
+ []
+
+LaTeX Info: Redefining \. on input line 572.
+LaTeX Info: Redefining \% on input line 572.
+LaTeX Info: Redefining \. on input line 572.
+LaTeX Info: Redefining \% on input line 572.
+[16 <./img/ejemplo_embedding.png>]
+<img/embeddings1.png, id=239, 828.09375pt x 813.0375pt>
+File: img/embeddings1.png Graphic file (type png)
+<use img/embeddings1.png>
+Package pdftex.def Info: img/embeddings1.png  used on input line 586.
+(pdftex.def)             Requested size: 227.62206pt x 223.48055pt.
+
+
+LaTeX Warning: Reference `sec:normal' on page 17 undefined on input line 591.
+
+<img/normal_init.png, id=241, 1093.08376pt x 225.84375pt>
+File: img/normal_init.png Graphic file (type png)
+<use img/normal_init.png>
+Package pdftex.def Info: img/normal_init.png  used on input line 595.
+(pdftex.def)             Requested size: 227.62206pt x 47.02882pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 603.
+LaTeX Info: Redefining \% on input line 603.
+LaTeX Info: Redefining \. on input line 603.
+LaTeX Info: Redefining \% on input line 603.
+ [17 <./img/embeddings1.png>]
+
+LaTeX Warning: Reference `subsec:multihead' on page 1 undefined on input line 604.
+
+<img/Q_K_V.png, id=253, 849.1725pt x 343.2825pt>
+File: img/Q_K_V.png Graphic file (type png)
+<use img/Q_K_V.png>
+Package pdftex.def Info: img/Q_K_V.png  used on input line 619.
+(pdftex.def)             Requested size: 227.62206pt x 92.01703pt.
+<img/atencion.png, id=254, 1680.2775pt x 460.72125pt>
+File: img/atencion.png Graphic file (type png)
+<use img/atencion.png>
+Package pdftex.def Info: img/atencion.png  used on input line 628.
+(pdftex.def)             Requested size: 227.62206pt x 62.41261pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 635.
+LaTeX Info: Redefining \% on input line 635.
+LaTeX Info: Redefining \. on input line 635.
+LaTeX Info: Redefining \% on input line 635.
+[18 <./img/normal_init.png> <./img/Q_K_V.png>]
+<img/masked.png, id=266, 1556.81625pt x 283.0575pt>
+File: img/masked.png Graphic file (type png)
+<use img/masked.png>
+Package pdftex.def Info: img/masked.png  used on input line 651.
+(pdftex.def)             Requested size: 227.62206pt x 41.38565pt.
+<img/heads.png, id=267, 1355.0625pt x 343.2825pt>
+File: img/heads.png Graphic file (type png)
+<use img/heads.png>
+Package pdftex.def Info: img/heads.png  used on input line 661.
+(pdftex.def)             Requested size: 227.62206pt x 57.66058pt.
+<img/heads2.png, id=268, 1415.2875pt x 400.49625pt>
+File: img/heads2.png Graphic file (type png)
+<use img/heads2.png>
+Package pdftex.def Info: img/heads2.png  used on input line 670.
+(pdftex.def)             Requested size: 227.62206pt x 64.4107pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `sec:xavier' on page 19 undefined on input line 675.
+
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 677.
+
+LaTeX Warning: Reference `subsec:addnorm' on page 19 undefined on input line 678.
+
+LaTeX Info: Redefining \. on input line 679.
+LaTeX Info: Redefining \% on input line 679.
+LaTeX Info: Redefining \. on input line 679.
+LaTeX Info: Redefining \% on input line 679.
+[19 <./img/atencion.png> <./img/masked.png> <./img/heads.png>]
+<img/esquema1.png, id=283, 602.25pt x 108.405pt>
+File: img/esquema1.png Graphic file (type png)
+<use img/esquema1.png>
+Package pdftex.def Info: img/esquema1.png  used on input line 682.
+(pdftex.def)             Requested size: 227.62206pt x 40.97267pt.
+
+
+LaTeX Warning: Reference `fig:placeholder9' on page 20 undefined on input line 689.
+
+
+LaTeX Warning: Reference `eq:normalization_sigma' on page 20 undefined on input line 689.
+
+<img/add_norm.png, id=284, 2023.56pt x 1517.67pt>
+File: img/add_norm.png Graphic file (type png)
+<use img/add_norm.png>
+Package pdftex.def Info: img/add_norm.png  used on input line 695.
+(pdftex.def)             Requested size: 227.62206pt x 170.69577pt.
+
+LaTeX Warning: Reference `subsec:feedforward' on page 20 undefined on input line 701.
+
+
+LaTeX Warning: Reference `sec:gelu' on page 20 undefined on input line 701.
+
+<img/xavier_init.png, id=286, 849.1725pt x 225.84375pt>
+File: img/xavier_init.png Graphic file (type png)
+<use img/xavier_init.png>
+Package pdftex.def Info: img/xavier_init.png  used on input line 705.
+(pdftex.def)             Requested size: 227.62206pt x 60.53752pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 711.
+LaTeX Info: Redefining \% on input line 711.
+LaTeX Info: Redefining \. on input line 711.
+LaTeX Info: Redefining \% on input line 711.
+[20 <./img/heads2.png> <./img/esquema1.png> <./img/add_norm.png>]
+<img/ffnn.png, id=300, 1394.20876pt x 1282.7925pt>
+File: img/ffnn.png Graphic file (type png)
+<use img/ffnn.png>
+Package pdftex.def Info: img/ffnn.png  used on input line 714.
+(pdftex.def)             Requested size: 227.62206pt x 209.42021pt.
+<img/gpt2.png, id=301, 2469.225pt x 1635.10875pt>
+File: img/gpt2.png Graphic file (type png)
+<use img/gpt2.png>
+Package pdftex.def Info: img/gpt2.png  used on input line 727.
+(pdftex.def)             Requested size: 227.62206pt x 150.72124pt.
+LaTeX Info: Redefining \. on input line 735.
+LaTeX Info: Redefining \% on input line 735.
+LaTeX Info: Redefining \. on input line 735.
+LaTeX Info: Redefining \% on input line 735.
+ [21 <./img/xavier_init.png> <./img/ffnn.png> <./img/gpt2.png>]
+Overfull \hbox (251.04256pt too wide) in paragraph at lines 745--748
+\T1/ptm/m/n/10.95 (-20) su mag-ni-tud, sin al-te-rar la di-rec-ci�n. ===========================================================================================
+ []
+
+LaTeX Info: Redefining \. on input line 762.
+LaTeX Info: Redefining \% on input line 762.
+LaTeX Info: Redefining \. on input line 762.
+LaTeX Info: Redefining \% on input line 762.
+[22]
+
+LaTeX Warning: Reference `sec:normal' on page 23 undefined on input line 762.
+
+<img/cross_entropy.png, id=329, 870.25125pt x 400.49625pt>
+File: img/cross_entropy.png Graphic file (type png)
+<use img/cross_entropy.png>
+Package pdftex.def Info: img/cross_entropy.png  used on input line 766.
+(pdftex.def)             Requested size: 227.62206pt x 104.7499pt.
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 781.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+<img/perplexity.png, id=332, 788.9475pt x 225.84375pt>
+File: img/perplexity.png Graphic file (type png)
+<use img/perplexity.png>
+Package pdftex.def Info: img/perplexity.png  used on input line 782.
+(pdftex.def)             Requested size: 227.62206pt x 65.15872pt.
+
+
+LaTeX Warning: Reference `sec:mauve' on page 23 undefined on input line 787.
+
+
+LaTeX Warning: Reference `sec:distinct-n' on page 23 undefined on input line 787.
+
+
+LaTeX Warning: Reference `subsec:validacion' on page 23 undefined on input line 787.
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 792.
+<img/early_stop.png, id=336, 1174.3875pt x 635.37375pt>
+File: img/early_stop.png Graphic file (type png)
+<use img/early_stop.png>
+Package pdftex.def Info: img/early_stop.png  used on input line 793.
+(pdftex.def)             Requested size: 227.62206pt x 123.14601pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 801.
+LaTeX Info: Redefining \% on input line 801.
+LaTeX Info: Redefining \. on input line 801.
+LaTeX Info: Redefining \% on input line 801.
+[23{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./img/cross_entropy.png> <./img/perplexity.png>]
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 810.
+<img/optimizers.png, id=359, 2186.1675pt x 343.2825pt>
+File: img/optimizers.png Graphic file (type png)
+<use img/optimizers.png>
+Package pdftex.def Info: img/optimizers.png  used on input line 811.
+(pdftex.def)             Requested size: 227.62206pt x 35.73929pt.
+LaTeX Info: Redefining \. on input line 822.
+LaTeX Info: Redefining \% on input line 822.
+LaTeX Info: Redefining \. on input line 822.
+LaTeX Info: Redefining \% on input line 822.
+ [24 <./img/early_stop.png> <./img/optimizers.png>]
+LaTeX Info: Redefining \. on input line 841.
+LaTeX Info: Redefining \% on input line 841.
+LaTeX Info: Redefining \. on input line 841.
+LaTeX Info: Redefining \% on input line 841.
+ [25] [26
+
+]
+Cap\'{\i }tulo 5.
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 864.
+<img/resultado_entrenamiento_v1.png, id=386, 998.73125pt x 491.8375pt>
+File: img/resultado_entrenamiento_v1.png Graphic file (type png)
+<use img/resultado_entrenamiento_v1.png>
+Package pdftex.def Info: img/resultado_entrenamiento_v1.png  used on input line 865.
+(pdftex.def)             Requested size: 227.62206pt x 112.09207pt.
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:873: Missing $ inserted.
+<inserted text> 
+                $
+l.873 ...damW(model.parameters(), lr=1e-3, weight_
+                                                  decay=0.1)
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:875: Missing $ inserted.
+<inserted text> 
+                $
+l.875 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[27
+
+ <./img/resultado_entrenamiento_v1.png>]
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:877: Missing $ inserted.
+<inserted text> 
+                $
+l.877 Se reduce   d_
+                    ff=1024,
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:878: Missing $ inserted.
+<inserted text> 
+                $
+l.878 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Info: Redefining \. on input line 882.
+LaTeX Info: Redefining \% on input line 882.
+LaTeX Info: Redefining \. on input line 882.
+LaTeX Info: Redefining \% on input line 882.
+[28]
+Overfull \hbox (9.11932pt too wide) in paragraph at lines 884--884
+[][]\T1/ptm/m/n/10.95 (-20) GeeksforGeeks. (2025b). \T1/ptm/m/it/10.95 (-20) What Is Cross-Entropy Loss Fun-ction? \T1/ptm/m/n/10.95 (-20) Geeks-for-Geeks. [][]$https : / / www . geeksforgeeks .
+ []
+
+[29
+
+
+]
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:884: Missing $ inserted.
+<inserted text> 
+                $
+l.884 ...aphy[title={Referencias Bibliográficas}]
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:884: Missing $ inserted.
+<inserted text> 
+                $
+l.884 ...aphy[title={Referencias Bibliográficas}]
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (46.35709pt too wide) in paragraph at lines 884--884
+\T1/ptm/m/n/10.95 (-20) 5998[]6008. [][]$https : / / proceedings . neurips . cc / paper _ ^^\les / paper / 2017 / ^^\le / 3f5ee243547dee91fbd053c1c4a845aa -[]
+ []
+
+LaTeX Info: Redefining \. on input line 887.
+LaTeX Info: Redefining \% on input line 887.
+LaTeX Info: Redefining \. on input line 887.
+LaTeX Info: Redefining \% on input line 887.
+[30]
+Ap\'{e}ndice A.
+[31
+
+] [32
+
+] (./main.aux
+LaTeX Info: Redefining \sptext on input line 13.
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
+)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  09B0F4AAEE18E3589DD13547B45D2D40;7002.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 48697 strings out of 474222
+ 1057632 string characters out of 5748733
+ 2050702 words of memory out of 5000000
+ 69667 multiletter control sequences out of 15000+600000
+ 663224 words of font info for 401 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 102i,7n,107p,1556b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (40 pages, 1492640 bytes).
+PDF statistics:
+ 608 PDF objects out of 1000 (max. 8388607)
+ 479 compressed objects within 5 object streams
+ 174 named destinations out of 1000 (max. 500000)
+ 109194 words of extra memory for PDF output out of 128383 (max. 10000000)
+
