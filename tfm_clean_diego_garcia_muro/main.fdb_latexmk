@@ -1,20 +1,20 @@
 # Fdb version 4
 ["biber main"] 0 "main.bcf" "main.bbl" "main" 0 -1
-  "main.bcf" 1760290824.31811 136535 d4c0887f638d0bb07648962147ce4628 "pdflatex"
-  "refs.bib" 1760286393.28115 19408 13417322d0b5a155721bdf83e57dc947 ""
+  "main.bcf" 1760387574.18463 136769 e8452b1fc5c6603480003b1cac28d57d "pdflatex"
+  "refs.bib" 1760382042.40889 19729 ebeec26210eb220bbc4209b39dff9d47 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
 ["makeindex main.idx"] 0 "main.idx" "main.ind" "main" 0 -1
-  "main.idx" 1760290822.13911 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.idx" 1760387571.84867 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1760290821.30403 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760290824.45417 2
+["pdflatex"] 1760387570.61514 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760387574.40526 2
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760286727.83661 68941 32ea73f071ec80f74fabdcf7eb0ee90b ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760387566.76277 71609 fec04e42cadef6c3e31cc1e8c8fe8a37 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -311,17 +311,18 @@
   "img/perplexity.png" 1759871051.36315 13875 c0ffd2d2958cb37b69c4e85c8a203678 ""
   "img/preclean.png" 1759045582 113796 a5df96910c224420f8dd66e5b6003817 ""
   "img/resultado_entrenamiento_v1.png" 1760286708.34395 42305 4d715044a4d4598ea3c0b5c13216b1f2 ""
+  "img/resultado_entrenamiento_v2.png" 1760380258.05189 32660 5cb73dc38d1dfc9b058ad432af12e8ea ""
   "img/sentence_trainer.png" 1759045582 146929 446a9104e6f8c7b306e877e806cd420d ""
   "img/test_tok.png" 1759045582 81947 19b510c3619ec07dc6c8b32f3c0cf559 ""
   "img/tiny_shakespeare.png" 1759045582 104113 3098618de7d081a063133e32b4c8a229 ""
   "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
-  "main.aux" 1760290824.31165 28177 29aad1c0f0b274751e20a60dcb6e2778 "pdflatex"
-  "main.bbl" 1760286394.70702 106300 26e66637b2ca6275c5401547e9e67587 "biber main"
+  "main.aux" 1760387574.16958 29374 947256555e4ce18ce84f242b11ca4cbb "pdflatex"
+  "main.bbl" 1760381954.39168 114488 f0fdae2ad8cdf92fa20be718468cf4c8 "biber main"
   "main.ind" 0 -1 0 "makeindex main.idx"
-  "main.out" 1760290824.31711 7002 09b0f4aaee18e3589dd13547b45d2d40 "pdflatex"
-  "main.tex" 1760286727.83661 68941 32ea73f071ec80f74fabdcf7eb0ee90b ""
-  "main.toc" 1760290824.3198 4225 3b0f32960ae20bc33aae929ec7f09e36 "pdflatex"
+  "main.out" 1760387574.18163 7110 e94ff3d889a90300bc5274459eb9ffa1 "pdflatex"
+  "main.tex" 1760387566.76277 71609 fec04e42cadef6c3e31cc1e8c8fe8a37 ""
+  "main.toc" 1760387574.18663 4297 41a4d1a6efecb598428f3984a6a99674 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

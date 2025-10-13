@@ -3107,6 +3107,9 @@
     <bcf:citekey order="46" intorder="1">yassin2024adamvsadamw</bcf:citekey>
     <bcf:citekey order="47" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
     <bcf:citekey order="48" intorder="1">stackoverflow_sgd_optimizer</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">reddit_transformer_not_learning</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">pytorch_adjust_lr</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">doherty2024_hownot</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

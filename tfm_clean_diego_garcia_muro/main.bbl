@@ -212,6 +212,40 @@
       \verb https://www.datacamp.com/tutorial/adamw-optimizer-in-pytorch
       \endverb
     \endentry
+    \entry{doherty2024_hownot}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1d5b35da5d62caa6dcc5ba7f74141507}{%
+           family={Doherty},
+           familyi={D\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{fullhash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{bibnamehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{authorbibnamehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{authornamehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{authorfullhash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How Not To Train Your Transformer}
+      \field{year}{2024, Nov 7}
+      \verb{urlraw}
+      \verb https://medium.com/@christopherdoherty14/how-not-to-train-your-transformer-7e63011a16eb
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@christopherdoherty14/how-not-to-train-your-transformer-7e63011a16eb
+      \endverb
+    \endentry
     \entry{epichka2023qkv}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a5abbc9a74c48cbb48a54ffb37c778e5}{%
@@ -843,8 +877,10 @@
       \strng{authorbibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
       \strng{authornamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
       \strng{authorfullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \field{extraname}{1}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -857,6 +893,39 @@
       \endverb
       \verb{url}
       \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \endverb
+    \endentry
+    \entry{pytorch_adjust_lr}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=95b88f180e9eb5678e0f9ebac2cbe643}{%
+           family={{PyTorch}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch Documentation}%
+      }
+      \strng{namehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{fullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{bibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorbibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authornamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorfullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How to adjust learning rate — torch.optim}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://pytorch.org/docs/stable/optim.html\#how-to-adjust-learning-rate
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/docs/stable/optim.html%5C#how-to-adjust-learning-rate
       \endverb
     \endentry
     \entry{reddit2021tokenizers}{online}{}
@@ -888,6 +957,37 @@
       \endverb
       \verb{url}
       \verb https://www.reddit.com/r/MachineLearning/comments/rprmq3/d_sentencepiece_wordpiece_bpe_which_tokenizer_is/?tl=es-es
+      \endverb
+    \endentry
+    \entry{reddit_transformer_not_learning}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=31864678a7bc9d1646a453a1657ce525}{%
+           family={{Reddit users}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Reddit r/MachineTranslation}%
+      }
+      \strng{namehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{fullhash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{bibnamehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{authorbibnamehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{authornamehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{authorfullhash}{31864678a7bc9d1646a453a1657ce525}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Why isn’t my Transformer model learning? (thread)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.reddit.com/r/machinetranslation/comments/1dmjbrj/why_isnt_my_transformer_model_learning/
+      \endverb
+      \verb{url}
+      \verb https://www.reddit.com/r/machinetranslation/comments/1dmjbrj/why_isnt_my_transformer_model_learning/
       \endverb
     \endentry
     \entry{shabbir2021cleaning}{online}{}
@@ -1496,6 +1596,40 @@
       \verb https://www.datacamp.com/tutorial/adamw-optimizer-in-pytorch
       \endverb
     \endentry
+    \entry{doherty2024_hownot}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1d5b35da5d62caa6dcc5ba7f74141507}{%
+           family={Doherty},
+           familyi={D\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{fullhash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{bibnamehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{authorbibnamehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{authornamehash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \strng{authorfullhash}{1d5b35da5d62caa6dcc5ba7f74141507}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How Not To Train Your Transformer}
+      \field{year}{2024, Nov 7}
+      \verb{urlraw}
+      \verb https://medium.com/@christopherdoherty14/how-not-to-train-your-transformer-7e63011a16eb
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@christopherdoherty14/how-not-to-train-your-transformer-7e63011a16eb
+      \endverb
+    \endentry
     \entry{epichka2023qkv}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a5abbc9a74c48cbb48a54ffb37c778e5}{%
@@ -2127,8 +2261,10 @@
       \strng{authorbibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
       \strng{authornamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
       \strng{authorfullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \field{extraname}{1}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -2141,6 +2277,39 @@
       \endverb
       \verb{url}
       \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \endverb
+    \endentry
+    \entry{pytorch_adjust_lr}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=95b88f180e9eb5678e0f9ebac2cbe643}{%
+           family={{PyTorch}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PyTorch Documentation}%
+      }
+      \strng{namehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{fullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{bibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorbibnamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authornamehash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \strng{authorfullhash}{95b88f180e9eb5678e0f9ebac2cbe643}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How to adjust learning rate — torch.optim}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://pytorch.org/docs/stable/optim.html\#how-to-adjust-learning-rate
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/docs/stable/optim.html%5C#how-to-adjust-learning-rate
       \endverb
     \endentry
     \entry{reddit2021tokenizers}{online}{}
@@ -2172,6 +2341,37 @@
       \endverb
       \verb{url}
       \verb https://www.reddit.com/r/MachineLearning/comments/rprmq3/d_sentencepiece_wordpiece_bpe_which_tokenizer_is/?tl=es-es
+      \endverb
+    \endentry
+    \entry{reddit_transformer_not_learning}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=31864678a7bc9d1646a453a1657ce525}{%
+           family={{Reddit users}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Reddit r/MachineTranslation}%
+      }
+      \strng{namehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{fullhash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{bibnamehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{authorbibnamehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{authornamehash}{31864678a7bc9d1646a453a1657ce525}
+      \strng{authorfullhash}{31864678a7bc9d1646a453a1657ce525}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Why isn’t my Transformer model learning? (thread)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.reddit.com/r/machinetranslation/comments/1dmjbrj/why_isnt_my_transformer_model_learning/
+      \endverb
+      \verb{url}
+      \verb https://www.reddit.com/r/machinetranslation/comments/1dmjbrj/why_isnt_my_transformer_model_learning/
       \endverb
     \endentry
     \entry{shabbir2021cleaning}{online}{}

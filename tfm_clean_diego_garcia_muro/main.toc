@@ -42,10 +42,11 @@
 \contentsline {subsection}{\numberline {4.8.6}Validación}{25}{subsection.4.8.6}%
 \contentsline {chapter}{\numberline {5}Conclusiones}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{27}{section.5.1}%
-\contentsline {chapter}{\numberline {A}Anexos}{31}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}GELU}{31}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Xavier Uniform}{31}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Normal uniform}{31}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Entropía}{31}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}MAUVE}{31}{section.Alph1.5}%
-\contentsline {section}{\numberline {A.6}Distinct-n}{31}{section.Alph1.6}%
+\contentsline {section}{\numberline {5.2}Validación}{29}{section.5.2}%
+\contentsline {chapter}{\numberline {A}Anexos}{35}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}GELU}{35}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Xavier Uniform}{35}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Normal uniform}{35}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Entropía}{35}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}MAUVE}{35}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Distinct-n}{35}{section.Alph1.6}%

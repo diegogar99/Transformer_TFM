@@ -618,7 +618,7 @@ posteriormente en el cálculo de la atención.
     \centering
     \includegraphics[width=0.5\linewidth]{img/Q_K_V.png}
     \caption{Proyección matrices Q, K, V}
-    \label{fig:Proyección8}
+    \label{fig:Proyeccion8}
 \end{figure}
 
 Los siguientes pasos son crear la métrica de atención, normalizar con softmax y aplicar los \textit{scores} a la información real. Con PytTorch es muy sencillo de realizar a través de las funciones \textit{matmul}, que permite multiplicar tensores, y \textbf{softmax}. 
@@ -856,6 +856,7 @@ Se ha realizado un primer entrenamiento con $20$ épocas y un \textit{Early Stop
     \item \textbf{Número de batches por época}: $4146$
     \item \textbf{Número de cabezas de atención}: $8$
     \item \textbf{Número de capas}: $6$
+    \item \item \textbf{Dropout}: $0.1$
 \end{itemize}
 
 Con ello, se han entrenado $11$ épocas antes del \textit{Early Stopping}, comenzando en la primera época con una pérdida de $6.23$ y una perplejidad de  $509.94$ para datos de entrenamiento y de $586.34$, para datos de validación y finalizando con una périda de $6.2226$ y perplejidad de $504.00$ y $598.18$ respectivamente. Se ve un descenso en los datos de entrenamiento, frente a un incremento en validación lo que suscita un sobreajuste, además no se aprecia un cambio significativo de los valores a lo largo de las épocas lo que hace intuir que el modelo no está aprendiendo nada significativo.
@@ -864,17 +865,36 @@ Con ello, se han entrenado $11$ épocas antes del \textit{Early Stopping}, comen
     \centering´
     \includegraphics[width=0.5\linewidth]{img/resultado_entrenamiento_v1.png}
     \caption{Resultado primer entrenamiento}
-    \label{fig:placeholder23}
+    \label{fig:placeholder24}
 \end{figure}
 
-%--- ADDDDDDDDDDDDDDDDDD
-Lo he lanzado en google colab
-He quitado autocast y grad search
-En optimizadores: CosineAnnealingLr, se ajustan params: optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.1)
- => optimizer = torch.optim.AdamW(model.parameters(), lr=1.5e-4, weight_decay=0.01)
+Para corregirlo se ha reducido el tamaño del vocabulario y el modelo, pues al ser un dataset pequeño, sin gran dispersión, se ha visto que esto da mejores resultados. Además, se ha ajustado el optimizador incluyendo como coeficientes de decaimiento exponencial los valores $0.9$ y $0.98$ \parencite{reddit_transformer_not_learning}. Para evitar divisiones por cero en el cálculo de los momentos, se ha añadido un valor $\epsilon$ igual a $10^-9$. A esto se ha añadido un \textit{scheduler} basado en la clase LambdaLR de PyTorch \parencite{pytorch_adjust_lr}, el cual permite modificar dinámicamente la tasa de aprendizaje en función del número de pasos de entrenamiento. En este caso, se ha definido una función que implementa una fase de warm-up de $1000$ iteraciones, durante la cual la tasa de aprendizaje aumenta linealmente desde 0 hasta su valor máximo inicial. Este procedimiento ayuda a estabilizar el entrenamiento en las primeras etapas, evitando actualizaciones abruptas de los parámetros cuando el modelo todavía no ha alcanzado una representación estable de los gradientes. Por último, otro cambio que se ha llevado a cabo ha sido cambiar el modo de normalización. Se estaba haciendo lo que se conoce como \texttt{Post-normalización}, es decir, la normalización se aplica después de cada subcapa (atención y feed-forward). Sin embargo, ciertos estudios sugieren que la \texttt{Pre-normalización}, donde la normalización se aplica antes de cada subcapa, puede mejorar la estabilidad del entrenamiento \parencite{doherty2024_hownot}.
 
-Se reduce vocabsize a 10000
-Se reduce   d_ff=1024,
+Los nuevos parámetros del modelo son:
+\begin{itemize}
+    \item \textbf{Tamaño vocabulario}: $8000$
+    \item \textbf{Tamaño embedding}: $256$
+    \item \textbf{Tamaño contexto}: $128$
+    \item \textbf{Tamaño de batches}: $64$
+    \item \textbf{Tamaño FFNN}: $1024$
+    \item \textbf{Número de batches por época}: $4146$
+    \item \textbf{Número de cabezas de atención}: $8$
+    \item \textbf{Número de capas}: $3$
+    \item \textbf{Dropout}: $0.3$
+\end{itemize}
+Con ello, manteniendo el \textit{Early Stopping} se ha logrado un decaimiento progresivo del modelo en $40$ épocas, sin aparecer sobreajuste, obteniendo una pérdida de $3.8240$ y una perplejidad de $91.41$ en datos de validación y $45.79$ en entrenamiento. En la imagen \ref{fig:placeholder25} se ven mejor los resultados.
+
+
+\begin{figure}[h]
+    \centering´
+    \includegraphics[width=0.5\linewidth]{img/resultado_entrenamiento_v2.png}
+    \caption{Resultado primer entrenamiento}
+    \label{fig:placeholder25}
+\end{figure}
+
+\section{Validación}
+Para validar se utiliza el conjunto de datos reservados para tal fin ($35327$ tokens), los cuales no han sido vistos por el modelo durante el entrenamiento. Se obtiene una pérdida de $4.5039$ y una perplejidad de $90.37$, de media para un total de 550 lotes. Es buena señal pues indica que el modelo ha aprendido patrones generales y no se ha sobreajustado a los datos de entrenamiento.
+
 
 %-------------------------------
 %--- FIN DEL CAPÍTULO 5

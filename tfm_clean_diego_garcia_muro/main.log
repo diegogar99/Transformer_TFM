@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  12 OCT 2025 19:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  13 OCT 2025 22:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1517,72 +1517,60 @@ LaTeX Info: Redefining \% on input line 841.
 Cap\'{\i }tulo 5.
 LaTeX Info: Symbol \textasciiacute not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 864.
+            Default family used instead on input line 865.
 <img/resultado_entrenamiento_v1.png, id=386, 998.73125pt x 491.8375pt>
 File: img/resultado_entrenamiento_v1.png Graphic file (type png)
 <use img/resultado_entrenamiento_v1.png>
-Package pdftex.def Info: img/resultado_entrenamiento_v1.png  used on input line 865.
+Package pdftex.def Info: img/resultado_entrenamiento_v1.png  used on input line 866.
 (pdftex.def)             Requested size: 227.62206pt x 112.09207pt.
-/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:873: Missing $ inserted.
-<inserted text> 
-                $
-l.873 ...damW(model.parameters(), lr=1e-3, weight_
-                                                  decay=0.1)
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:875: Missing $ inserted.
-<inserted text> 
-                $
-l.875 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [27
 
- <./img/resultado_entrenamiento_v1.png>]
-/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:877: Missing $ inserted.
-<inserted text> 
-                $
-l.877 Se reduce   d_
-                    ff=1024,
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+]
 
-/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:878: Missing $ inserted.
-<inserted text> 
-                $
-l.878 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: Reference `fig:placeholder25' on page 28 undefined on input line 885.
 
-LaTeX Info: Redefining \. on input line 882.
-LaTeX Info: Redefining \% on input line 882.
-LaTeX Info: Redefining \. on input line 882.
-LaTeX Info: Redefining \% on input line 882.
-[28]
-Overfull \hbox (9.11932pt too wide) in paragraph at lines 884--884
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 889.
+<img/resultado_entrenamiento_v2.png, id=398, 851.18pt x 456.70625pt>
+File: img/resultado_entrenamiento_v2.png Graphic file (type png)
+<use img/resultado_entrenamiento_v2.png>
+Package pdftex.def Info: img/resultado_entrenamiento_v2.png  used on input line 890.
+(pdftex.def)             Requested size: 227.62206pt x 122.12764pt.
+LaTeX Info: Redefining \. on input line 897.
+LaTeX Info: Redefining \% on input line 897.
+LaTeX Info: Redefining \. on input line 897.
+LaTeX Info: Redefining \% on input line 897.
+[28 <./img/resultado_entrenamiento_v1.png> <./img/resultado_entrenamiento_v2.png>]
+LaTeX Info: Redefining \. on input line 902.
+LaTeX Info: Redefining \% on input line 902.
+LaTeX Info: Redefining \. on input line 902.
+LaTeX Info: Redefining \% on input line 902.
+ [29] [30
+
+]
+Overfull \hbox (9.11932pt too wide) in paragraph at lines 904--904
 [][]\T1/ptm/m/n/10.95 (-20) GeeksforGeeks. (2025b). \T1/ptm/m/it/10.95 (-20) What Is Cross-Entropy Loss Fun-ction? \T1/ptm/m/n/10.95 (-20) Geeks-for-Geeks. [][]$https : / / www . geeksforgeeks .
  []
 
-[29
-
+[31
 
 ]
-/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:884: Missing $ inserted.
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:904: Missing $ inserted.
 <inserted text> 
                 $
-l.884 ...aphy[title={Referencias Bibliográficas}]
+l.904 ...aphy[title={Referencias Bibliográficas}]
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:884: Missing $ inserted.
+/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex:904: Missing $ inserted.
 <inserted text> 
                 $
-l.884 ...aphy[title={Referencias Bibliográficas}]
+l.904 ...aphy[title={Referencias Bibliográficas}]
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1591,19 +1579,29 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (46.35709pt too wide) in paragraph at lines 884--884
+Overfull \hbox (46.35709pt too wide) in paragraph at lines 904--904
 \T1/ptm/m/n/10.95 (-20) 5998[]6008. [][]$https : / / proceedings . neurips . cc / paper _ ^^\les / paper / 2017 / ^^\le / 3f5ee243547dee91fbd053c1c4a845aa -[]
  []
 
-LaTeX Info: Redefining \. on input line 887.
-LaTeX Info: Redefining \% on input line 887.
-LaTeX Info: Redefining \. on input line 887.
-LaTeX Info: Redefining \% on input line 887.
-[30]
-Ap\'{e}ndice A.
-[31
+LaTeX Info: Redefining \. on input line 904.
+LaTeX Info: Redefining \% on input line 904.
+LaTeX Info: Redefining \. on input line 904.
+LaTeX Info: Redefining \% on input line 904.
+[32]
+LaTeX Info: Redefining \. on input line 907.
+LaTeX Info: Redefining \% on input line 907.
+LaTeX Info: Redefining \. on input line 907.
+LaTeX Info: Redefining \% on input line 907.
+ [33]
+LaTeX Info: Redefining \. on input line 907.
+LaTeX Info: Redefining \% on input line 907.
+LaTeX Info: Redefining \. on input line 907.
+LaTeX Info: Redefining \% on input line 907.
+ [34
 
-] [32
+]
+Ap\'{e}ndice A.
+[35] [36
 
 ] (./main.aux
 LaTeX Info: Redefining \sptext on input line 13.
@@ -1628,7 +1626,7 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  09B0F4AAEE18E3589DD13547B45D2D40;7002.
+(rerunfilecheck)             After:  E94FF3D889A90300BC5274459EB9FFA1;7110.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1639,18 +1637,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48697 strings out of 474222
- 1057632 string characters out of 5748733
- 2050702 words of memory out of 5000000
- 69667 multiletter control sequences out of 15000+600000
- 663224 words of font info for 401 fonts, out of 8000000 for 9000
+ 48722 strings out of 474222
+ 1058732 string characters out of 5748733
+ 2049702 words of memory out of 5000000
+ 69686 multiletter control sequences out of 15000+600000
+ 662999 words of font info for 399 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,7n,107p,1556b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,7n,107p,1718b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (40 pages, 1492640 bytes).
+Output written on main.pdf (44 pages, 1525330 bytes).
 PDF statistics:
- 608 PDF objects out of 1000 (max. 8388607)
- 479 compressed objects within 5 object streams
- 174 named destinations out of 1000 (max. 500000)
- 109194 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 645 PDF objects out of 1000 (max. 8388607)
+ 509 compressed objects within 6 object streams
+ 183 named destinations out of 1000 (max. 500000)
+ 109199 words of extra memory for PDF output out of 128383 (max. 10000000)
 
