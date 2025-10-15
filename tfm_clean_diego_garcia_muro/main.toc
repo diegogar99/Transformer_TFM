@@ -43,6 +43,7 @@
 \contentsline {chapter}{\numberline {5}Conclusiones}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{27}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Validación}{29}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Resultados}{30}{subsection.5.2.1}%
 \contentsline {chapter}{\numberline {A}Anexos}{35}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}GELU}{35}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Xavier Uniform}{35}{section.Alph1.2}%

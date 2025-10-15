@@ -886,13 +886,13 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{CosineAnnealingLR — torch.optim.lr_scheduler}
+      \field{title}{CosineAnnealingLR --- torch.optim.lr\_scheduler}
       \field{year}{2025}
       \verb{urlraw}
-      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr\_scheduler.CosineAnnealingLR.html
       \endverb
       \verb{url}
-      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr%5C_scheduler.CosineAnnealingLR.html
       \endverb
     \endentry
     \entry{pytorch_adjust_lr}{online}{}
@@ -988,6 +988,38 @@
       \endverb
       \verb{url}
       \verb https://www.reddit.com/r/machinetranslation/comments/1dmjbrj/why_isnt_my_transformer_model_learning/
+      \endverb
+    \endentry
+    \entry{bsantraigi_topk_topp_batched}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0d6c42549aad2def14bc8d6af072bb28}{%
+           family={Santraigi},
+           familyi={S\bibinitperiod},
+           given={Bsantraigi},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{fullhash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{bibnamehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{authorbibnamehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{authornamehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{authorfullhash}{0d6c42549aad2def14bc8d6af072bb28}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Gist con implementación en PyTorch de top-k y top-p filtrado}
+      \field{title}{Batched top-k and top-p / nucleus sampling in PyTorch}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://gist.github.com/bsantraigi/5752667525d88d375207f099bd78818b
+      \endverb
+      \verb{url}
+      \verb https://gist.github.com/bsantraigi/5752667525d88d375207f099bd78818b
       \endverb
     \endentry
     \entry{shabbir2021cleaning}{online}{}
@@ -1331,6 +1363,74 @@
       \endverb
       \verb{url}
       \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+      \endverb
+    \endentry
+    \entry{vishnuraj2025temperature}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=109ba57ef20600f91735b7bb10e054ae}{%
+           family={Vishnu\bibnamedelima Raj},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Madasu},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{fullhash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{bibnamehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{authorbibnamehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{authornamehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{authorfullhash}{109ba57ef20600f91735b7bb10e054ae}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mathematics Behind the Temperature in LLM}
+      \field{year}{2025, Jul 27}
+      \verb{urlraw}
+      \verb https://medium.com/@madasuvishnuraj/mathematics-behind-the-temperature-in-llm-cfb23120ac62
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@madasuvishnuraj/mathematics-behind-the-temperature-in-llm-cfb23120ac62
+      \endverb
+    \endentry
+    \entry{vyas2025transformer_decoder_part3}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=801e70b9b9f7125dc75835916f35281c}{%
+           family={Vyas},
+           familyi={V\bibinitperiod},
+           given={Pratik},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{fullhash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{bibnamehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{authorbibnamehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{authornamehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{authorfullhash}{801e70b9b9f7125dc75835916f35281c}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Transformer: Decoder Only Generative Model (Part-3)}
+      \field{year}{2025-04-16}
+      \verb{urlraw}
+      \verb https://medium.com/@pratik.vyas\_10544/transformer-decoder-only-generative-model-part-3-0b38c10c2ae9
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@pratik.vyas%5C_10544/transformer-decoder-only-generative-model-part-3-0b38c10c2ae9
       \endverb
     \endentry
     \entry{wolfe_llm_scaling}{online}{}
@@ -2270,13 +2370,13 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{CosineAnnealingLR — torch.optim.lr_scheduler}
+      \field{title}{CosineAnnealingLR --- torch.optim.lr\_scheduler}
       \field{year}{2025}
       \verb{urlraw}
-      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr\_scheduler.CosineAnnealingLR.html
       \endverb
       \verb{url}
-      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.CosineAnnealingLR.html
+      \verb https://docs.pytorch.org/docs/stable/generated/torch.optim.lr%5C_scheduler.CosineAnnealingLR.html
       \endverb
     \endentry
     \entry{pytorch_adjust_lr}{online}{}
@@ -2372,6 +2472,38 @@
       \endverb
       \verb{url}
       \verb https://www.reddit.com/r/machinetranslation/comments/1dmjbrj/why_isnt_my_transformer_model_learning/
+      \endverb
+    \endentry
+    \entry{bsantraigi_topk_topp_batched}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0d6c42549aad2def14bc8d6af072bb28}{%
+           family={Santraigi},
+           familyi={S\bibinitperiod},
+           given={Bsantraigi},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{fullhash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{bibnamehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{authorbibnamehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{authornamehash}{0d6c42549aad2def14bc8d6af072bb28}
+      \strng{authorfullhash}{0d6c42549aad2def14bc8d6af072bb28}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Gist con implementación en PyTorch de top-k y top-p filtrado}
+      \field{title}{Batched top-k and top-p / nucleus sampling in PyTorch}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://gist.github.com/bsantraigi/5752667525d88d375207f099bd78818b
+      \endverb
+      \verb{url}
+      \verb https://gist.github.com/bsantraigi/5752667525d88d375207f099bd78818b
       \endverb
     \endentry
     \entry{shabbir2021cleaning}{online}{}
@@ -2715,6 +2847,74 @@
       \endverb
       \verb{url}
       \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+      \endverb
+    \endentry
+    \entry{vishnuraj2025temperature}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=109ba57ef20600f91735b7bb10e054ae}{%
+           family={Vishnu\bibnamedelima Raj},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Madasu},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{fullhash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{bibnamehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{authorbibnamehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{authornamehash}{109ba57ef20600f91735b7bb10e054ae}
+      \strng{authorfullhash}{109ba57ef20600f91735b7bb10e054ae}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mathematics Behind the Temperature in LLM}
+      \field{year}{2025, Jul 27}
+      \verb{urlraw}
+      \verb https://medium.com/@madasuvishnuraj/mathematics-behind-the-temperature-in-llm-cfb23120ac62
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@madasuvishnuraj/mathematics-behind-the-temperature-in-llm-cfb23120ac62
+      \endverb
+    \endentry
+    \entry{vyas2025transformer_decoder_part3}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=801e70b9b9f7125dc75835916f35281c}{%
+           family={Vyas},
+           familyi={V\bibinitperiod},
+           given={Pratik},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{fullhash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{bibnamehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{authorbibnamehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{authornamehash}{801e70b9b9f7125dc75835916f35281c}
+      \strng{authorfullhash}{801e70b9b9f7125dc75835916f35281c}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Transformer: Decoder Only Generative Model (Part-3)}
+      \field{year}{2025-04-16}
+      \verb{urlraw}
+      \verb https://medium.com/@pratik.vyas\_10544/transformer-decoder-only-generative-model-part-3-0b38c10c2ae9
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@pratik.vyas%5C_10544/transformer-decoder-only-generative-model-part-3-0b38c10c2ae9
       \endverb
     \endentry
     \entry{wolfe_llm_scaling}{online}{}

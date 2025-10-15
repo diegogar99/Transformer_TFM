@@ -19,7 +19,7 @@
 }
 
 \usepackage[utf8]{inputenc}        % para usar el teclado normalmente
-\usepackage[spanish]{babel}        % idioma español
+\usepackage[spanish,es-tabla]{babel}        % idioma español
 \usepackage[T1]{fontenc}           % gestión de fuentes con acentos
 \usepackage{csquotes}              % citas (necesario con biblatex)
 
@@ -60,6 +60,10 @@
 
 % Referencias cruzadas inteligentes
 \usepackage{cleveref}
+
+% Tabla 
+\usepackage{booktabs} % Para líneas más elegantes en la tabla
+\usepackage{siunitx}
 
 %--------------------------------------------------------------------------- 
 % Definición de estilos de página
@@ -686,7 +690,7 @@ Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos.
 
 \subsection{Implementación Add \& Norm}
 
-Como se puede ver en la imagen \ref{fig:placeholder9}, la conexión residual se realiza mediante una simple suma de tensores. La capa de normalización se ha implementado de cero, aunque \texttt{PyTorch} ofrece el módulo \texttt{nn.LayerNorm}, que realiza la misma función. En la implementación se calcula la media y la varianza por posición y devuelve el resultado de la expresión \eqref{eq:normalization_sigma}. 
+Como se puede ver en la imagen \ref{fig:placeholder26}, la conexión residual se realiza mediante una simple suma de tensores. La capa de normalización se ha implementado de cero, aunque \texttt{PyTorch} ofrece el módulo \texttt{nn.LayerNorm}, que realiza la misma función. En la implementación se calcula la media y la varianza por posición y devuelve el resultado de la expresión \eqref{eq:normalization_sigma}. 
 
 Hay que señalar aquí el uso de \texttt{nn.Parameter} para los parámetros entrenables $\gamma$ y $\beta$. Se tratan como tensores especiales y se registran como parámetros entrenables del modelo, en concreto, se asocian a este módulo. 
 
@@ -694,7 +698,7 @@ Hay que señalar aquí el uso de \texttt{nn.Parameter} para los parámetros entr
     \centering
     \includegraphics[width=0.5\linewidth]{img/add_norm.png}
     \caption{Implementación Add \& Norm}
-    \label{fig:placeholder9}
+    \label{fig:placeholder26}
 \end{figure}
 
 \section{Feed Forward} 
@@ -856,7 +860,7 @@ Se ha realizado un primer entrenamiento con $20$ épocas y un \textit{Early Stop
     \item \textbf{Número de batches por época}: $4146$
     \item \textbf{Número de cabezas de atención}: $8$
     \item \textbf{Número de capas}: $6$
-    \item \item \textbf{Dropout}: $0.1$
+    \item \textbf{Dropout}: $0.1$
 \end{itemize}
 
 Con ello, se han entrenado $11$ épocas antes del \textit{Early Stopping}, comenzando en la primera época con una pérdida de $6.23$ y una perplejidad de  $509.94$ para datos de entrenamiento y de $586.34$, para datos de validación y finalizando con una périda de $6.2226$ y perplejidad de $504.00$ y $598.18$ respectivamente. Se ve un descenso en los datos de entrenamiento, frente a un incremento en validación lo que suscita un sobreajuste, además no se aprecia un cambio significativo de los valores a lo largo de las épocas lo que hace intuir que el modelo no está aprendiendo nada significativo.
@@ -895,6 +899,53 @@ Con ello, manteniendo el \textit{Early Stopping} se ha logrado un decaimiento pr
 \section{Validación}
 Para validar se utiliza el conjunto de datos reservados para tal fin ($35327$ tokens), los cuales no han sido vistos por el modelo durante el entrenamiento. Se obtiene una pérdida de $4.5039$ y una perplejidad de $90.37$, de media para un total de 550 lotes. Es buena señal pues indica que el modelo ha aprendido patrones generales y no se ha sobreajustado a los datos de entrenamiento.
 
+Además de una validación con el conjunto de test, se ha implementado un método que consta de distintos hioerparámetros ajustables para generar texto a partir de unos tokens dados, como por ejemplo: "King Charles". Estos hiperparámetros son los siguientes \parencite{vyas2025transformer_decoder_part3}: 
+
+\begin{itemize}
+    \item Temperatura.
+La temperatura ajusta la aleatoriedad en las respuestas del modelo al generar texto. Una temperatura baja hace que el modelo sea más determinista, eligiendo las palabras con mayor probabilidad, lo que puede resultar en respuestas repetitivas o predecibles. Por otro lado, una temperatura alta introduce más aleatoriedad, permitiendo al modelo explorar opciones menos probables y generando respuestas más variadas y creativas. En sí lo que hace es escalar los logits antes de calcular la distribución de probabilidades con la función \textit{softmax} del siguiente token. Matemáticamente, se expresa como:
+    \[
+        P(z_i) = \frac{e^{(z_i / T)}}{\sum_{j} e^{(w_j/ T)}}
+    \]
+Donde cada $z_i$ es un logit. Aquí a la hora de implementarlo se ha decidido que si la temperatura es $0.0$, no se aplica ninguna transformación, pues investigando he visto que se trataría como \textit{argmax}, es decir, siempre se elegiría la palabra con mayor probabilidad \parencite{vishnuraj2025temperature}.
+
+    \item Top-k.
+En lugar de escoger siempre el token con mayor probabilidad, lo que introduce respuestas repetitivas y poco naturales, con este método se seleccionan los \textit{k} tokens más probables y se normalizan sus probabilidades. Luego, se elige aleatoriamente entre estos \textit{k} tokens, lo que permite al modelo generar respuestas más variadas y creativas. La implementación se hace a través del método de \texttt{PyTorch} \textit{topk}, que devuelve los \textit{k} valores más altos de un tensor junto con sus índices. En este caso, se utiliza para filtrar los logits, manteniendo solo los \textit{k} más altos y estableciendo el resto a $-\infty$, lo que hace que su probabilidad sea prácticamente nula tras aplicar la función \textit{softmax}.
+
+    \item Top-p (Núcleo de muestreo).
+Se trata de otro método similar a Top-k. En este caso se ordenan los tokens por probabilidad hasta que la suma acumulada sea mayor o igual a un umbral \textit{p}. Luego, se normalizan las probabilidades de estos tokens seleccionados y se elige aleatoriamente entre ellos. Para la implementación, al igual que ocurre con el método anterior se ha seguido el ejemplo dado en \parencite{bsantraigi_topk_topp_batched}. En primer lugar se ordenan los logits de mayor a menor, a continuación, se calcula la suma acumulada de las probabilidades tras aplicar \textit{softmax} mediante la función \textit{cumsum}. Finalmente, se filtran los logits, estableciendo a $-\infty$ aquellos cuya suma acumulada supere el umbral \textit{p}, lo que hace que su probabilidad sea prácticamente nula tras aplicar la función \textit{softmax}.
+
+    \item Número máximo de tokens a generar. Se establece un máximo número de tokens a generar para evitar que crezca indefinidamente la respuesta.
+    
+    \item Presence y frequency penalty \parencite{vyas2025transformer_decoder_part3}.
+Se trata de dos métodos para reduucir o evitar la repetición de frases o tokens previos. El primero penaliza en base a si ha aparecido o no un token previamente y el segundo se basa en el número de veces que ha aparecido. Matemáticamente se expresa como: 
+    \[
+        z_i = z_i(w) - \text{presence\_penalty} \cdot \alpha - \text{frequency\_penalty} \cdot \beta
+    \]
+
+    donde $\alpha$ y $\beta$ son los coeficientes de penalización para presencia y frecuencia respectivamente.
+A la hora de implementarlo se calcula esa expresión con tensores, $\alpha$ es un tensor binario que indica si el token ha aparecido o no y $\beta$ es un tensor con el número de veces que ha aparecido cada token obtenido a través del método \textit{bincount} que cuenta el número de ocurrencias de cada valor en un tensor de enteros no negativo.
+
+\subsection{Resultados}
+
+Se ha probado a generar texto con distintas combinaciones, partiendo de unos mismos tokens iniciales: \textit{"To be, or not to be"} y un número máximo de tokens a generar igual a $100$. En la tabla \ref{tab:resultados_validación_shakespeare} se muestran los resultados.
+\begin{table}[h!]
+    \centering
+    \caption{Hiperparámetros}
+    \label{tab:resultados_validación_shakespeare}
+    \begin{tabular}{cccccc}
+    \toprule
+    \textbf{Temperatura} & \textbf{Top-k} & \textbf{Top-p} & \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado}  \\
+    \midrule
+    0.2 & 50 & 0.90 & 0.0 & 0.0 \\
+    0.5 & 100 & 0.95 & 0.2 & 0.1 \\
+    0.8 & 150 & 0.98 & 0.5 & 0.3 \\
+    1.0 & 200 & 1.00 & 1.0 & 0.5 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\end{itemize}
 
 %-------------------------------
 %--- FIN DEL CAPÍTULO 5
