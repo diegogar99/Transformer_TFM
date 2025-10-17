@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1760704865.16158 "main.bcf" "main.bbl" "main" 1760711224.57644 0
-  "main.bcf" 1760711224.47516 137112 89e65613c9eaa386a5b6040d51c4fcc3 "pdflatex"
+["biber main"] 1760704865.16158 "main.bcf" "main.bbl" "main" 1760713399.54383 0
+  "main.bcf" 1760713399.39087 137112 89e65613c9eaa386a5b6040d51c4fcc3 "pdflatex"
   "refs.bib" 1760704864.8835 20826 d2b3bab5a3ebc444903cd414cd0a7a0f ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1760703701.08849 "main.idx" "main.ind" "main" 1760711224.57633 0
-  "main.idx" 1760711221.95319 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1760703701.08849 "main.idx" "main.ind" "main" 1760713399.54364 0
+  "main.idx" 1760713397.0269 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1760711220.72643 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760711224.57666 0
+["pdflatex"] 1760713396.05272 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760713399.54422 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760711216.26548 91279 867463b3d7a2e59f168eb9cbb9d7a3ff ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760713391.68446 91358 1b320d0371a871d31be591dfc05ca333 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -352,13 +352,13 @@
   "img/tiny_shakespeare.png" 1759045582 104113 3098618de7d081a063133e32b4c8a229 ""
   "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
-  "main.aux" 1760711224.46716 32016 41dc47d0508f2f18e3c5e120f9898370 "pdflatex"
+  "main.aux" 1760713399.38387 32016 f8c5adf2ee2c0756f1107cd1f78348ad "pdflatex"
   "main.bbl" 1760704866.15846 122942 f829ce89fdbc0f6449073c378772f68f "biber main"
   "main.ind" 1760703701.26794 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1760711224.47416 7493 cf95d4b2d8596c7dd052044a56df60f0 "pdflatex"
-  "main.run.xml" 1760711224.47713 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
-  "main.tex" 1760711216.26548 91279 867463b3d7a2e59f168eb9cbb9d7a3ff ""
-  "main.toc" 1760711224.47713 4718 a70fd893df08eee48baf2ef02b3f6303 "pdflatex"
+  "main.out" 1760713399.39087 7493 cf95d4b2d8596c7dd052044a56df60f0 "pdflatex"
+  "main.run.xml" 1760713399.39322 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
+  "main.tex" 1760713391.68446 91358 1b320d0371a871d31be591dfc05ca333 ""
+  "main.toc" 1760713399.39322 4718 a70fd893df08eee48baf2ef02b3f6303 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

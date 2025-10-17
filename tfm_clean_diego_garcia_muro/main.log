@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  17 OCT 2025 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.7)  17 OCT 2025 17:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1406,21 +1406,21 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Overfull \hbox (234.61147pt too wide) in paragraph at lines 395--396
+Overfull \hbox (234.61147pt too wide) in paragraph at lines 395--397
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Overfull \hbox (313.4521pt too wide) in paragraph at lines 411--412
+Overfull \hbox (313.4521pt too wide) in paragraph at lines 415--416
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 <img/tiny_shakespeare.png, id=409, 1373.13pt x 987.69pt>
 File: img/tiny_shakespeare.png Graphic file (type png)
 <use img/tiny_shakespeare.png>
-Package pdftex.def Info: img/tiny_shakespeare.png  used on input line 415.
+Package pdftex.def Info: img/tiny_shakespeare.png  used on input line 419.
 (pdftex.def)             Requested size: 227.62206pt x 163.71536pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1428,90 +1428,93 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [11
 
 ]
-<img/preclean.png, id=440, 1415.2875pt x 752.8125pt>
+<img/preclean.png, id=441, 1415.2875pt x 752.8125pt>
 File: img/preclean.png Graphic file (type png)
 <use img/preclean.png>
-Package pdftex.def Info: img/preclean.png  used on input line 434.
+Package pdftex.def Info: img/preclean.png  used on input line 438.
 (pdftex.def)             Requested size: 227.62206pt x 121.07275pt.
-LaTeX Info: Redefining \. on input line 440.
-LaTeX Info: Redefining \% on input line 440.
-LaTeX Info: Redefining \. on input line 440.
-LaTeX Info: Redefining \% on input line 440.
+LaTeX Info: Redefining \. on input line 444.
+LaTeX Info: Redefining \% on input line 444.
+LaTeX Info: Redefining \. on input line 444.
+LaTeX Info: Redefining \% on input line 444.
  [12 <./img/tiny_shakespeare.png> <./img/preclean.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 441--444
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--444
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
 
  []
 
-LaTeX Info: Redefining \. on input line 472.
-LaTeX Info: Redefining \% on input line 472.
-LaTeX Info: Redefining \. on input line 472.
-LaTeX Info: Redefining \% on input line 472.
+LaTeX Info: Redefining \. on input line 471.
+LaTeX Info: Redefining \% on input line 471.
+LaTeX Info: Redefining \. on input line 471.
+LaTeX Info: Redefining \% on input line 471.
 [13]
-<img/sentence_trainer.png, id=462, 1517.67pt x 930.47626pt>
+<img/sentence_trainer.png, id=465, 1517.67pt x 930.47626pt>
 File: img/sentence_trainer.png Graphic file (type png)
 <use img/sentence_trainer.png>
-Package pdftex.def Info: img/sentence_trainer.png  used on input line 481.
+Package pdftex.def Info: img/sentence_trainer.png  used on input line 485.
 (pdftex.def)             Requested size: 227.62206pt x 139.55121pt.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 489.
-<img/train_tok.png, id=463, 1821.80624pt x 695.59875pt>
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 493.
+<img/train_tok.png, id=466, 1821.80624pt x 695.59875pt>
 File: img/train_tok.png Graphic file (type png)
 <use img/train_tok.png>
-Package pdftex.def Info: img/train_tok.png  used on input line 492.
+Package pdftex.def Info: img/train_tok.png  used on input line 496.
 (pdftex.def)             Requested size: 227.62206pt x 86.90717pt.
-<img/test_tok.png, id=464, 1457.445pt x 578.16pt>
-File: img/test_tok.png Graphic file (type png)
-<use img/test_tok.png>
-Package pdftex.def Info: img/test_tok.png  used on input line 500.
-(pdftex.def)             Requested size: 227.62206pt x 90.29317pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 507.
-LaTeX Info: Redefining \% on input line 507.
-LaTeX Info: Redefining \. on input line 507.
-LaTeX Info: Redefining \% on input line 507.
-[14 <./img/sentence_trainer.png> <./img/train_tok.png>]
-LaTeX Info: Redefining \. on input line 573.
-LaTeX Info: Redefining \% on input line 573.
-LaTeX Info: Redefining \. on input line 573.
-LaTeX Info: Redefining \% on input line 573.
- [15 <./img/test_tok.png>]
-<img/ejemplo_embedding.png, id=483, 218.8175pt x 260.975pt>
+<img/test_tok.png, id=467, 1457.445pt x 578.16pt>
+File: img/test_tok.png Graphic file (type png)
+<use img/test_tok.png>
+Package pdftex.def Info: img/test_tok.png  used on input line 504.
+(pdftex.def)             Requested size: 227.62206pt x 90.29317pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 516.
+LaTeX Info: Redefining \% on input line 516.
+LaTeX Info: Redefining \. on input line 516.
+LaTeX Info: Redefining \% on input line 516.
+[14 <./img/sentence_trainer.png>]
+LaTeX Info: Redefining \. on input line 574.
+LaTeX Info: Redefining \% on input line 574.
+LaTeX Info: Redefining \. on input line 574.
+LaTeX Info: Redefining \% on input line 574.
+ [15 <./img/train_tok.png> <./img/test_tok.png>]
+<img/ejemplo_embedding.png, id=486, 218.8175pt x 260.975pt>
 File: img/ejemplo_embedding.png Graphic file (type png)
 <use img/ejemplo_embedding.png>
-Package pdftex.def Info: img/ejemplo_embedding.png  used on input line 582.
+Package pdftex.def Info: img/ejemplo_embedding.png  used on input line 586.
 (pdftex.def)             Requested size: 227.62206pt x 271.47928pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--588
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 
  []
 
-LaTeX Info: Redefining \. on input line 589.
-LaTeX Info: Redefining \% on input line 589.
-LaTeX Info: Redefining \. on input line 589.
-LaTeX Info: Redefining \% on input line 589.
+LaTeX Info: Redefining \. on input line 593.
+LaTeX Info: Redefining \% on input line 593.
+LaTeX Info: Redefining \. on input line 593.
+LaTeX Info: Redefining \% on input line 593.
 [16 <./img/ejemplo_embedding.png>]
-<img/embeddings1.png, id=493, 828.09375pt x 813.0375pt>
+<img/embeddings1.png, id=496, 828.09375pt x 813.0375pt>
 File: img/embeddings1.png Graphic file (type png)
 <use img/embeddings1.png>
-Package pdftex.def Info: img/embeddings1.png  used on input line 603.
+Package pdftex.def Info: img/embeddings1.png  used on input line 607.
 (pdftex.def)             Requested size: 227.62206pt x 223.48055pt.
-<img/normal_init.png, id=496, 1093.08376pt x 225.84375pt>
+<img/normal_init.png, id=499, 1093.08376pt x 225.84375pt>
 File: img/normal_init.png Graphic file (type png)
 <use img/normal_init.png>
-Package pdftex.def Info: img/normal_init.png  used on input line 612.
+Package pdftex.def Info: img/normal_init.png  used on input line 616.
 (pdftex.def)             Requested size: 227.62206pt x 47.02882pt.
 
 
@@ -1520,153 +1523,153 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 1097) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 620.
-LaTeX Info: Redefining \% on input line 620.
-LaTeX Info: Redefining \. on input line 620.
-LaTeX Info: Redefining \% on input line 620.
+LaTeX Info: Redefining \. on input line 624.
+LaTeX Info: Redefining \% on input line 624.
+LaTeX Info: Redefining \. on input line 624.
+LaTeX Info: Redefining \% on input line 624.
  [17 <./img/embeddings1.png>]
-<img/Q_K_V.png, id=509, 849.1725pt x 343.2825pt>
+<img/Q_K_V.png, id=512, 849.1725pt x 343.2825pt>
 File: img/Q_K_V.png Graphic file (type png)
 <use img/Q_K_V.png>
-Package pdftex.def Info: img/Q_K_V.png  used on input line 636.
+Package pdftex.def Info: img/Q_K_V.png  used on input line 640.
 (pdftex.def)             Requested size: 227.62206pt x 92.01703pt.
-<img/atencion.png, id=510, 1680.2775pt x 460.72125pt>
+<img/atencion.png, id=513, 1680.2775pt x 460.72125pt>
 File: img/atencion.png Graphic file (type png)
 <use img/atencion.png>
-Package pdftex.def Info: img/atencion.png  used on input line 645.
+Package pdftex.def Info: img/atencion.png  used on input line 649.
 (pdftex.def)             Requested size: 227.62206pt x 62.41261pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 652.
-LaTeX Info: Redefining \% on input line 652.
-LaTeX Info: Redefining \. on input line 652.
-LaTeX Info: Redefining \% on input line 652.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
 [18 <./img/normal_init.png> <./img/Q_K_V.png>]
-<img/masked.png, id=520, 1556.81625pt x 283.0575pt>
+<img/masked.png, id=523, 1556.81625pt x 283.0575pt>
 File: img/masked.png Graphic file (type png)
 <use img/masked.png>
-Package pdftex.def Info: img/masked.png  used on input line 668.
+Package pdftex.def Info: img/masked.png  used on input line 672.
 (pdftex.def)             Requested size: 227.62206pt x 41.38565pt.
-<img/heads.png, id=521, 1355.0625pt x 343.2825pt>
+<img/heads.png, id=524, 1355.0625pt x 343.2825pt>
 File: img/heads.png Graphic file (type png)
 <use img/heads.png>
-Package pdftex.def Info: img/heads.png  used on input line 678.
+Package pdftex.def Info: img/heads.png  used on input line 682.
 (pdftex.def)             Requested size: 227.62206pt x 57.66058pt.
-<img/heads2.png, id=522, 1415.2875pt x 400.49625pt>
+<img/heads2.png, id=525, 1415.2875pt x 400.49625pt>
 File: img/heads2.png Graphic file (type png)
 <use img/heads2.png>
-Package pdftex.def Info: img/heads2.png  used on input line 687.
+Package pdftex.def Info: img/heads2.png  used on input line 691.
 (pdftex.def)             Requested size: 227.62206pt x 64.4107pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 694.
-LaTeX Info: Redefining \. on input line 696.
-LaTeX Info: Redefining \% on input line 696.
-LaTeX Info: Redefining \. on input line 696.
-LaTeX Info: Redefining \% on input line 696.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 698.
+LaTeX Info: Redefining \. on input line 700.
+LaTeX Info: Redefining \% on input line 700.
+LaTeX Info: Redefining \. on input line 700.
+LaTeX Info: Redefining \% on input line 700.
 [19 <./img/atencion.png> <./img/masked.png> <./img/heads.png>]
-<img/esquema1.png, id=537, 602.25pt x 108.405pt>
+<img/esquema1.png, id=540, 602.25pt x 108.405pt>
 File: img/esquema1.png Graphic file (type png)
 <use img/esquema1.png>
-Package pdftex.def Info: img/esquema1.png  used on input line 699.
+Package pdftex.def Info: img/esquema1.png  used on input line 703.
 (pdftex.def)             Requested size: 227.62206pt x 40.97267pt.
-<img/add_norm.png, id=540, 2023.56pt x 1517.67pt>
+<img/add_norm.png, id=543, 2023.56pt x 1517.67pt>
 File: img/add_norm.png Graphic file (type png)
 <use img/add_norm.png>
-Package pdftex.def Info: img/add_norm.png  used on input line 712.
+Package pdftex.def Info: img/add_norm.png  used on input line 716.
 (pdftex.def)             Requested size: 227.62206pt x 170.69577pt.
-<img/xavier_init.png, id=544, 849.1725pt x 225.84375pt>
+<img/xavier_init.png, id=547, 849.1725pt x 225.84375pt>
 File: img/xavier_init.png Graphic file (type png)
 <use img/xavier_init.png>
-Package pdftex.def Info: img/xavier_init.png  used on input line 722.
+Package pdftex.def Info: img/xavier_init.png  used on input line 726.
 (pdftex.def)             Requested size: 227.62206pt x 60.53752pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 728.
-LaTeX Info: Redefining \% on input line 728.
-LaTeX Info: Redefining \. on input line 728.
-LaTeX Info: Redefining \% on input line 728.
+LaTeX Info: Redefining \. on input line 732.
+LaTeX Info: Redefining \% on input line 732.
+LaTeX Info: Redefining \. on input line 732.
+LaTeX Info: Redefining \% on input line 732.
 [20 <./img/heads2.png> <./img/esquema1.png> <./img/add_norm.png>]
-<img/ffnn.png, id=556, 1394.20876pt x 1282.7925pt>
+<img/ffnn.png, id=559, 1394.20876pt x 1282.7925pt>
 File: img/ffnn.png Graphic file (type png)
 <use img/ffnn.png>
-Package pdftex.def Info: img/ffnn.png  used on input line 731.
+Package pdftex.def Info: img/ffnn.png  used on input line 735.
 (pdftex.def)             Requested size: 227.62206pt x 209.42021pt.
-<img/gpt2.png, id=557, 2469.225pt x 1635.10875pt>
+<img/gpt2.png, id=560, 2469.225pt x 1635.10875pt>
 File: img/gpt2.png Graphic file (type png)
 <use img/gpt2.png>
-Package pdftex.def Info: img/gpt2.png  used on input line 744.
+Package pdftex.def Info: img/gpt2.png  used on input line 748.
 (pdftex.def)             Requested size: 227.62206pt x 150.72124pt.
-LaTeX Info: Redefining \. on input line 752.
-LaTeX Info: Redefining \% on input line 752.
-LaTeX Info: Redefining \. on input line 752.
-LaTeX Info: Redefining \% on input line 752.
+LaTeX Info: Redefining \. on input line 756.
+LaTeX Info: Redefining \% on input line 756.
+LaTeX Info: Redefining \. on input line 756.
+LaTeX Info: Redefining \% on input line 756.
  [21 <./img/xavier_init.png> <./img/ffnn.png> <./img/gpt2.png>]
-Overfull \hbox (251.04256pt too wide) in paragraph at lines 762--765
+Overfull \hbox (251.04256pt too wide) in paragraph at lines 766--769
 \T1/ptm/m/n/10.95 (-20) su mag-ni-tud, sin al-te-rar la di-rec-ci�n. ===========================================================================================
  []
 
-LaTeX Info: Redefining \. on input line 779.
-LaTeX Info: Redefining \% on input line 779.
-LaTeX Info: Redefining \. on input line 779.
-LaTeX Info: Redefining \% on input line 779.
+LaTeX Info: Redefining \. on input line 783.
+LaTeX Info: Redefining \% on input line 783.
+LaTeX Info: Redefining \. on input line 783.
+LaTeX Info: Redefining \% on input line 783.
 [22]
-<img/cross_entropy.png, id=581, 870.25125pt x 400.49625pt>
+<img/cross_entropy.png, id=584, 870.25125pt x 400.49625pt>
 File: img/cross_entropy.png Graphic file (type png)
 <use img/cross_entropy.png>
-Package pdftex.def Info: img/cross_entropy.png  used on input line 783.
+Package pdftex.def Info: img/cross_entropy.png  used on input line 787.
 (pdftex.def)             Requested size: 227.62206pt x 104.7499pt.
-<img/perplexity.png, id=584, 788.9475pt x 225.84375pt>
+<img/perplexity.png, id=587, 788.9475pt x 225.84375pt>
 File: img/perplexity.png Graphic file (type png)
 <use img/perplexity.png>
-Package pdftex.def Info: img/perplexity.png  used on input line 799.
+Package pdftex.def Info: img/perplexity.png  used on input line 803.
 (pdftex.def)             Requested size: 227.62206pt x 65.15872pt.
 
 
-LaTeX Warning: Reference `subsec:validacion' on page 23 undefined on input line 804.
+LaTeX Warning: Reference `subsec:validacion' on page 23 undefined on input line 808.
 
-<img/early_stop.png, id=590, 1174.3875pt x 635.37375pt>
+<img/early_stop.png, id=593, 1174.3875pt x 635.37375pt>
 File: img/early_stop.png Graphic file (type png)
 <use img/early_stop.png>
-Package pdftex.def Info: img/early_stop.png  used on input line 810.
+Package pdftex.def Info: img/early_stop.png  used on input line 814.
 (pdftex.def)             Requested size: 227.62206pt x 123.14601pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 818.
-LaTeX Info: Redefining \% on input line 818.
-LaTeX Info: Redefining \. on input line 818.
-LaTeX Info: Redefining \% on input line 818.
+LaTeX Info: Redefining \. on input line 822.
+LaTeX Info: Redefining \% on input line 822.
+LaTeX Info: Redefining \. on input line 822.
+LaTeX Info: Redefining \% on input line 822.
 [23 <./img/cross_entropy.png> <./img/perplexity.png>]
-<img/optimizers.png, id=612, 2186.1675pt x 343.2825pt>
+<img/optimizers.png, id=615, 2186.1675pt x 343.2825pt>
 File: img/optimizers.png Graphic file (type png)
 <use img/optimizers.png>
-Package pdftex.def Info: img/optimizers.png  used on input line 828.
+Package pdftex.def Info: img/optimizers.png  used on input line 832.
 (pdftex.def)             Requested size: 227.62206pt x 35.73929pt.
-LaTeX Info: Redefining \. on input line 839.
-LaTeX Info: Redefining \% on input line 839.
-LaTeX Info: Redefining \. on input line 839.
-LaTeX Info: Redefining \% on input line 839.
+LaTeX Info: Redefining \. on input line 843.
+LaTeX Info: Redefining \% on input line 843.
+LaTeX Info: Redefining \. on input line 843.
+LaTeX Info: Redefining \% on input line 843.
  [24 <./img/early_stop.png> <./img/optimizers.png>]
-LaTeX Info: Redefining \. on input line 859.
-LaTeX Info: Redefining \% on input line 859.
-LaTeX Info: Redefining \. on input line 859.
-LaTeX Info: Redefining \% on input line 859.
+LaTeX Info: Redefining \. on input line 863.
+LaTeX Info: Redefining \% on input line 863.
+LaTeX Info: Redefining \. on input line 863.
+LaTeX Info: Redefining \% on input line 863.
  [25] [26
 
 ]
 Cap\'{\i }tulo 5.
-<img/resultado_entrenamiento_v1.png, id=637, 998.73125pt x 491.8375pt>
+<img/resultado_entrenamiento_v1.png, id=640, 998.73125pt x 491.8375pt>
 File: img/resultado_entrenamiento_v1.png Graphic file (type png)
 <use img/resultado_entrenamiento_v1.png>
-Package pdftex.def Info: img/resultado_entrenamiento_v1.png  used on input line 884.
+Package pdftex.def Info: img/resultado_entrenamiento_v1.png  used on input line 888.
 (pdftex.def)             Requested size: 227.62206pt x 112.09207pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1674,112 +1677,112 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [27
 
 ]
-<img/resultado_entrenamiento_v2.png, id=648, 851.18pt x 456.70625pt>
+<img/resultado_entrenamiento_v2.png, id=651, 851.18pt x 456.70625pt>
 File: img/resultado_entrenamiento_v2.png Graphic file (type png)
 <use img/resultado_entrenamiento_v2.png>
-Package pdftex.def Info: img/resultado_entrenamiento_v2.png  used on input line 908.
+Package pdftex.def Info: img/resultado_entrenamiento_v2.png  used on input line 912.
 (pdftex.def)             Requested size: 227.62206pt x 122.12764pt.
-LaTeX Info: Redefining \. on input line 915.
-LaTeX Info: Redefining \% on input line 915.
-LaTeX Info: Redefining \. on input line 915.
-LaTeX Info: Redefining \% on input line 915.
+LaTeX Info: Redefining \. on input line 919.
+LaTeX Info: Redefining \% on input line 919.
+LaTeX Info: Redefining \. on input line 919.
+LaTeX Info: Redefining \% on input line 919.
  [28 <./img/resultado_entrenamiento_v1.png> <./img/resultado_entrenamiento_v2.png>]
-LaTeX Info: Redefining \. on input line 942.
-LaTeX Info: Redefining \% on input line 942.
-LaTeX Info: Redefining \. on input line 942.
-LaTeX Info: Redefining \% on input line 942.
+LaTeX Info: Redefining \. on input line 946.
+LaTeX Info: Redefining \% on input line 946.
+LaTeX Info: Redefining \. on input line 946.
+LaTeX Info: Redefining \% on input line 946.
  [29]
 
-LaTeX Warning: Reference `tab:resultados_validación_shakespeare' on page 30 undefined on input line 945.
+LaTeX Warning: Reference `tab:resultados_validación_shakespeare' on page 30 undefined on input line 949.
 
 
-Overfull \hbox (92.3603pt too wide) in alignment at lines 947--954
+Overfull \hbox (92.3603pt too wide) in alignment at lines 951--958
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (92.3603pt too wide) in alignment at lines 954--961
+Overfull \hbox (92.3603pt too wide) in alignment at lines 958--965
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (92.3603pt too wide) in alignment at lines 961--965
+Overfull \hbox (92.3603pt too wide) in alignment at lines 965--969
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (92.3603pt too wide) in alignment at lines 965--968
+Overfull \hbox (92.3603pt too wide) in alignment at lines 969--972
  [] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 1158--1166
+Underfull \hbox (badness 1231) in paragraph at lines 1162--1170
 \T1/ptm/m/n/10.95 (+20) 'reus father meet vows; the-re-fo-re scorn's
  []
 
 
-Overfull \hbox (92.3603pt too wide) in alignment at lines 968--1225
+Overfull \hbox (92.3603pt too wide) in alignment at lines 972--1229
  [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
 [30]
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
  [31]
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
  [32]
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
  [33]
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
  [34]
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
-LaTeX Info: Redefining \. on input line 1225.
-LaTeX Info: Redefining \% on input line 1225.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
  [35]
-LaTeX Info: Redefining \. on input line 1228.
-LaTeX Info: Redefining \% on input line 1228.
-LaTeX Info: Redefining \. on input line 1228.
-LaTeX Info: Redefining \% on input line 1228.
+LaTeX Info: Redefining \. on input line 1232.
+LaTeX Info: Redefining \% on input line 1232.
+LaTeX Info: Redefining \. on input line 1232.
+LaTeX Info: Redefining \% on input line 1232.
  [36]
-<img/api_curl.png, id=702, 606.265pt x 247.92625pt>
+<img/api_curl.png, id=705, 606.265pt x 247.92625pt>
 File: img/api_curl.png Graphic file (type png)
 <use img/api_curl.png>
-Package pdftex.def Info: img/api_curl.png  used on input line 1251.
+Package pdftex.def Info: img/api_curl.png  used on input line 1255.
 (pdftex.def)             Requested size: 227.62206pt x 93.0856pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/api_res.png, id=703, 801.99625pt x 195.73125pt>
+<img/api_res.png, id=706, 801.99625pt x 195.73125pt>
 File: img/api_res.png Graphic file (type png)
 <use img/api_res.png>
-Package pdftex.def Info: img/api_res.png  used on input line 1258.
+Package pdftex.def Info: img/api_res.png  used on input line 1262.
 (pdftex.def)             Requested size: 227.62206pt x 55.55103pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 1265.
-LaTeX Info: Redefining \% on input line 1265.
-LaTeX Info: Redefining \. on input line 1265.
-LaTeX Info: Redefining \% on input line 1265.
+LaTeX Info: Redefining \. on input line 1269.
+LaTeX Info: Redefining \% on input line 1269.
+LaTeX Info: Redefining \. on input line 1269.
+LaTeX Info: Redefining \% on input line 1269.
 [37] [38 <./img/api_curl.png> <./img/api_res.png>]
-Overfull \hbox (9.11932pt too wide) in paragraph at lines 1267--1267
+Overfull \hbox (9.11932pt too wide) in paragraph at lines 1271--1271
 [][]\T1/ptm/m/n/10.95 (-20) GeeksforGeeks. (2025b). \T1/ptm/m/it/10.95 (-20) What Is Cross-Entropy Loss Fun-ction? \T1/ptm/m/n/10.95 (-20) Geeks-for-Geeks. [][]$https : / / www . geeksforgeeks .
  []
 
@@ -1787,29 +1790,29 @@ Overfull \hbox (9.11932pt too wide) in paragraph at lines 1267--1267
 
 
 ]
-Overfull \hbox (41.87163pt too wide) in paragraph at lines 1267--1267
+Overfull \hbox (41.87163pt too wide) in paragraph at lines 1271--1271
 \T1/ptm/m/n/10.95 (-20) Py-Torch de top-k y top-p fil-tra-do]. [][]$https : / / gist . github . com / bsantraigi / 5752667525d88d375207f099bd78818b$[][] 
  []
 
 
-Overfull \hbox (46.35709pt too wide) in paragraph at lines 1267--1267
+Overfull \hbox (46.35709pt too wide) in paragraph at lines 1271--1271
 \T1/ptm/m/n/10.95 (-20) 5998[]6008. [][]$https : / / proceedings . neurips . cc / paper _ ^^\les / paper / 2017 / ^^\le / 3f5ee243547dee91fbd053c1c4a845aa -[]
  []
 
-LaTeX Info: Redefining \. on input line 1267.
-LaTeX Info: Redefining \% on input line 1267.
-LaTeX Info: Redefining \. on input line 1267.
-LaTeX Info: Redefining \% on input line 1267.
+LaTeX Info: Redefining \. on input line 1271.
+LaTeX Info: Redefining \% on input line 1271.
+LaTeX Info: Redefining \. on input line 1271.
+LaTeX Info: Redefining \% on input line 1271.
 [40]
-LaTeX Info: Redefining \. on input line 1270.
-LaTeX Info: Redefining \% on input line 1270.
-LaTeX Info: Redefining \. on input line 1270.
-LaTeX Info: Redefining \% on input line 1270.
+LaTeX Info: Redefining \. on input line 1274.
+LaTeX Info: Redefining \% on input line 1274.
+LaTeX Info: Redefining \. on input line 1274.
+LaTeX Info: Redefining \% on input line 1274.
  [41]
-LaTeX Info: Redefining \. on input line 1270.
-LaTeX Info: Redefining \% on input line 1270.
-LaTeX Info: Redefining \. on input line 1270.
-LaTeX Info: Redefining \% on input line 1270.
+LaTeX Info: Redefining \. on input line 1274.
+LaTeX Info: Redefining \% on input line 1274.
+LaTeX Info: Redefining \. on input line 1274.
+LaTeX Info: Redefining \% on input line 1274.
  [42
 
 ]
@@ -1836,18 +1839,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58335 strings out of 474222
- 1334081 string characters out of 5748733
+ 58338 strings out of 474222
+ 1334123 string characters out of 5748733
  2358048 words of memory out of 5000000
  79142 multiletter control sequences out of 15000+600000
  669166 words of font info for 412 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,12n,107p,1718b,3679s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (52 pages, 1592630 bytes).
+Output written on main.pdf (52 pages, 1592939 bytes).
 PDF statistics:
- 943 PDF objects out of 1000 (max. 8388607)
- 771 compressed objects within 8 object streams
- 203 named destinations out of 1000 (max. 500000)
+ 947 PDF objects out of 1000 (max. 8388607)
+ 775 compressed objects within 8 object streams
+ 206 named destinations out of 1000 (max. 500000)
  112801 words of extra memory for PDF output out of 128383 (max. 10000000)
 
