@@ -64,6 +64,14 @@
 % Tabla 
 \usepackage{booktabs} % Para líneas más elegantes en la tabla
 \usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[most]{tcolorbox}
+
+
+
+
 
 %--------------------------------------------------------------------------- 
 % Definición de estilos de página
@@ -216,6 +224,11 @@ modelos NLP (LSTM).
 
 %--- CAPÍTULO 3 DEL TFM
 \chapter{Material y métodos}
+\section{PyTorch y Tensorflow}
+\section{BPE}
+\section{Flask}
+
+
 \section{Arquitectura Transformer} \label{Arquitectura Transformer}
 
 Se va a implementar una arquitectura Transformer para la generación de texto en un contexto reducido; por ello, se desarrollará únicamente el Decoder, ya que no se necesita una entrada previa que transformar, como sería el caso de un traductor.
@@ -373,13 +386,17 @@ El primer punto es montar un entorno virtual donde se instalarán las librerías
 python3 -m venv .venv
 source .venv/bin/activate
 \end{lstlisting}
-El segundo punto consiste en instalar \texttt{CUDA} y \texttt{Pytorch} y verificar que la GPU es detectada
+El segundo punto consiste en instalar \texttt{CUDA}, \texttt{Pytorch} y \texttt{Tensorflow} y verificar que la GPU es detectada
 \begin{lstlisting}[language=bash]
 # Verificar CUDA, en mi caso tengo la version 12.9.
 nvidia-smi
 
 #Instalar torch para esa version de CUDA
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu129
+
+#Instalar tensorflow
+pip install "tensorflow[and-cuda]"
+
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -782,18 +799,18 @@ A través de esta función de pérdida, se calcula la perplejidad \parencite{kee
 Una perplejidad baja indica que el modelo es bueno prediciendo la siguiente palabra, mientras que una alta sugiere que el modelo está confundido. Durante el entrenamiento, se monitoriza la perplejidad en los conjuntos de validación para evaluar el progreso del modelo y ajustar hiperparámetros si es necesario.
 
 \begin{figure}[h]
-    \centering´
+    \centering
     \includegraphics[width=0.5\linewidth]{img/perplexity.png}
     \caption{Calculo de perplejidad en PyTorch \parencite{stackoverflow_perplexity_pytorch}}
     \label{fig:placeholder21}
 \end{figure}
 
-El problema de la perplejidad \parencite{singh2024perplexitymatters} es que depende altamante del vocabulario, con lo que puede llegar a darse que un modelo bueno parezca malo debido a palabras poco comunes en vocabularios extensos. En este caso, el vocabulario no es muy extenso y al usar \texttt{BPE} se reduce el nñumero de palabras poco comunes o desconocidas, con lo que se ha considerado una métrica adecuada. Por otro lado, no valida la corrección semántica o contextual, por lo que a la hora de validar el modelo se han planteado otras técnicas como \texttt{MAUVE} \parencite{krishnap25_mauve_github} (ver sección \ref{sec:mauve} del Anexo) y \texttt{Distinct-n} (ver sección \ref{sec:distinct-n} del Anexo), además de la validación humana configurando la temperatura, como se explicará en la sección \ref{subsec:validacion}.
+El problema de la perplejidad \parencite{singh2024perplexitymatters} es que depende altamante del vocabulario, con lo que puede llegar a darse que un modelo bueno parezca malo debido a palabras poco comunes en vocabularios extensos. En este caso, el vocabulario no es muy extenso y al usar \texttt{BPE} se reduce el número de palabras poco comunes o desconocidas, con lo que se ha considerado una métrica adecuada. Por otro lado, no valida la corrección semántica o contextual, por lo que a la hora de validar el modelo se han planteado otras técnicas como \texttt{MAUVE} \parencite{krishnap25_mauve_github} (ver sección \ref{sec:mauve} del Anexo) y \texttt{Distinct-n} (ver sección \ref{sec:distinct-n} del Anexo), además de la validación humana configurando la temperatura, como se explicará en la sección \ref{subsec:validacion}.
 
 Por último, se ha implementado un mencanismo del tipo \textit{Early Stopping} por el cual si la perplejidad en los datos de validación no mejora durante un periodo consecutivo se finaliza el entrenamiento. Con esto se pretende evitar sobreajuste y que el modelo se ajuste demasiado bien a los datos de entrenamiento respecto a los de validación.
 
 \begin{figure}[h]
-    \centering´
+    \centering
     \includegraphics[width=0.5\linewidth]{img/early_stop.png}
     \caption{Calculo de perplejidad en PyTorch \parencite{stackoverflow_perplexity_pytorch}}
     \label{fig:placeholder23}
@@ -811,7 +828,7 @@ La implementación es muy simple y la dificultad reside más en ajustar los hipe
 
 
 \begin{figure}[h]
-    \centering´
+    \centering
     \includegraphics[width=0.5\linewidth]{img/optimizers.png}
     \caption{Optimizadores \parencite{stackoverflow_sgd_optimizer}}
     \label{fig:placeholder22}
@@ -834,8 +851,9 @@ Finalmente, tras salir del bloque principal, la salida pasa de nuevo por una cap
 El proceso se repite el número de épocas mencionado y se valida con datos de validación y \textit{CrossEntropy}, utilizando la perplejidad para determinar si el modelo aprende o no.
 
 
-\subsection{Validación} \label{subsec:validacion}
+\section{LSTM}
 
+Se ha implementado un modelo LSTM sencillo utilizando \texttt{Tensorflow} y entrenado con los mismos datos que el Transformer para contratar los resultados. 
 
 
 
@@ -866,7 +884,7 @@ Se ha realizado un primer entrenamiento con $20$ épocas y un \textit{Early Stop
 Con ello, se han entrenado $11$ épocas antes del \textit{Early Stopping}, comenzando en la primera época con una pérdida de $6.23$ y una perplejidad de  $509.94$ para datos de entrenamiento y de $586.34$, para datos de validación y finalizando con una périda de $6.2226$ y perplejidad de $504.00$ y $598.18$ respectivamente. Se ve un descenso en los datos de entrenamiento, frente a un incremento en validación lo que suscita un sobreajuste, además no se aprecia un cambio significativo de los valores a lo largo de las épocas lo que hace intuir que el modelo no está aprendiendo nada significativo.
 
 \begin{figure}[h]
-    \centering´
+    \centering
     \includegraphics[width=0.5\linewidth]{img/resultado_entrenamiento_v1.png}
     \caption{Resultado primer entrenamiento}
     \label{fig:placeholder24}
@@ -890,7 +908,7 @@ Con ello, manteniendo el \textit{Early Stopping} se ha logrado un decaimiento pr
 
 
 \begin{figure}[h]
-    \centering´
+    \centering
     \includegraphics[width=0.5\linewidth]{img/resultado_entrenamiento_v2.png}
     \caption{Resultado primer entrenamiento}
     \label{fig:placeholder25}
@@ -903,7 +921,7 @@ Además de una validación con el conjunto de test, se ha implementado un métod
 
 \begin{itemize}
     \item Temperatura.
-La temperatura ajusta la aleatoriedad en las respuestas del modelo al generar texto. Una temperatura baja hace que el modelo sea más determinista, eligiendo las palabras con mayor probabilidad, lo que puede resultar en respuestas repetitivas o predecibles. Por otro lado, una temperatura alta introduce más aleatoriedad, permitiendo al modelo explorar opciones menos probables y generando respuestas más variadas y creativas. En sí lo que hace es escalar los logits antes de calcular la distribución de probabilidades con la función \textit{softmax} del siguiente token. Matemáticamente, se expresa como:
+La temperatura ajusta la aleatoriedad en las respuestas del modelo al generar texto. Una temperatura baja hace que el modelo sea más determinista, eligiendo las palabras con mayor probabilidad, pues al dividir por un número menor a $1$ se amplifican las diferencias entre los valores, lo que puede resultar en respuestas repetitivas o predecibles. Por otro lado, una temperatura alta introduce más aleatoriedad, permitiendo al modelo explorar opciones menos probables y generando respuestas más variadas y creativas. En sí lo que hace es escalar los logits antes de calcular la distribución de probabilidades con la función \textit{softmax} del siguiente token. Matemáticamente, se expresa como:
     \[
         P(z_i) = \frac{e^{(z_i / T)}}{\sum_{j} e^{(w_j/ T)}}
     \]
@@ -925,28 +943,326 @@ Se trata de dos métodos para reduucir o evitar la repetición de frases o token
 
     donde $\alpha$ y $\beta$ son los coeficientes de penalización para presencia y frecuencia respectivamente.
 A la hora de implementarlo se calcula esa expresión con tensores, $\alpha$ es un tensor binario que indica si el token ha aparecido o no y $\beta$ es un tensor con el número de veces que ha aparecido cada token obtenido a través del método \textit{bincount} que cuenta el número de ocurrencias de cada valor en un tensor de enteros no negativo.
-
+\end{itemize}
 \subsection{Resultados}
 
 Se ha probado a generar texto con distintas combinaciones, partiendo de unos mismos tokens iniciales: \textit{"KING RICHARD:"} y un número máximo de tokens a generar igual a $100$. En la tabla \ref{tab:resultados_validación_shakespeare} se muestran los resultados.
-\begin{table}[h!]
-    \centering
+
+\begin{longtable}{ccccc >{\raggedright\arraybackslash}p{8cm}}
     \caption{Hiperparámetros}
-    \label{tab:resultados_validación_shakespeare}
-    \begin{tabular}{cccccc}
+    \label{tab:resultados_validacion_shakespeare} \\
     \toprule
-    \textbf{Temperatura} & \textbf{Top-k} & \textbf{Top-p} & \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado}  \\
+    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} &
+    \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado} \\
     \midrule
-    0.2 & 50 & 0.90 & 0.0 & 0.0 \\
-    0.5 & 100 & 0.95 & 0.2 & 0.1 \\
-    0.8 & 150 & 0.98 & 0.5 & 0.3 \\
-    1.0 & 200 & 1.00 & 1.0 & 0.5 \\
+    \endfirsthead
+    
+    \multicolumn{6}{c}{{\tablename\ \thetable{} -- continuación}} \\
+    \toprule
+    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} &
+    \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado} \\
+    \midrule
+    \endhead
+    
     \bottomrule
-\end{tabular}
-\end{table}
+    \multicolumn{6}{r}{{Continúa en la siguiente página}} \\
+    \endfoot
+    
+    \bottomrule
+    \endlastfoot
+    
+    0.5 & None & None & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    PETRUCHIO:\\
+    My brother, a thousand crowns,\\
+    And by the sun of my lord,\\
+    Iney’s the king,\\
+    And make the king’s wife,\\
+    And from the king,\\
+    You are sent for your brother.\\
+    In the day to be not, I am not say ’tis blood,\\
+    With all the right, and to be,\\
+    And in the wind of his,\\
+    Purder to the.
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    A issue richer?\\
+    BRUTUS:\\
+    ired, poor high a\\
+    Thou art thou that a better man, girl?\\
+    'tis nothing but a squorn's wife, we'll thunder, and,\\
+    Come news?\\
+    Theirrah!\\
+    Less'd this outrage, Kate, sweet sir, the fished hath for the third our marks kines in estimation,\\
+    Ofigeia\\
+    There is no other tribute yet\\
+    What Eished
+    \end{tcolorbox} \\
+    
+    1.5 & None & None & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    Never charged thee other mistress repealll prove fair stateiness, slay?\\
+    LOUCESTER:\\
+    For your own thirst, father conclusion dead my sons;\\
+    And, shout: like from his mortal a piece Peter,\\
+    For night and leave report;\\
+    Pompey counsels amid treaty in myself lovely and favour runs within!\\
+    A below me confines nor doth depow tell thee less?\\
+    Imagine pates encothing
+    \end{tcolorbox} \\
+    
+    1.0 & 10 & None & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    Is to be\\
+    Madam with her:\\
+    To see your honour,\\
+    And I know not be a word.\\
+    That you\\
+    As my lord.\\
+    On if we must be gone, to do not a man, I am not a man,\\
+    MENENIUS:\\
+    That I will I am I\\
+    On this land's name,\\
+    I have I\\
+    When thou dost thou art a man of you, my father'
+    \end{tcolorbox} \\
+    
+    1.0 & 90 & None & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    Having the cause on'd the state:\\
+    KING RICHARD II:\\
+    'em of our enemies?\\
+    Their, do not to the same\\
+    Yea, then 'such;\\
+    ISABELLA:\\
+    With bag,\\
+    PETRUCHIO:\\
+    SICINIUS:\\
+    Could be your crown:\\
+    CORIOLANUS:\\
+    Fetch thy death hath been accused, my state and mine?\\
+    I's children should the world to live and good nurse
+    \end{tcolorbox} \\
+    
+    1.0 & 200 & None & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    But now must be the law,\\
+    Thou hast you:\\
+    Nay not be he were not?\\
+    Or I's mine enemy in good lady't not in one and here.\\
+    Whose repetition:\\
+    Unations, sir, no\\
+    So you: I will have no harm is my father's departure,\\
+    As, well; and they joy\\
+    YORK:\\
+    I know to his fortunes of the time so I pray
+    \end{tcolorbox} \\
+    
+    1.0 & None & 0.05 & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    And, and I have\\
+    And I have been\\
+    And I have been\\
+    And I have been\\
+    And I have been\\
+    And I have been\\
+    And, I have been\\
+    And I have been\\
+    And I have been\\
+    And I have been\\
+    And I'd, I have been a man, I have been\\
+    And I am a man, I have been\\
+    And I have you, I have done,
+    \end{tcolorbox} \\
+    
+    1.0 & None & 0.30 & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    If I have you to the way.\\
+    Which I am I am the poor soul,\\
+    And all the Capitol, and,\\
+    Within, sir,\\
+    And then I will not?\\
+    Why, the loss of the world'd,\\
+    To hear me.\\
+    Which he'd in the best of this,\\
+    I'd with the field\\
+    And all the king'd, and so far off.\\
+    If you
+    \end{tcolorbox} \\
+    
+    1.0 & None & 0.90 & 0.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    I' the realm? they else to see'd: but this vial,\\
+    Your brother's to see her thanks.\\
+    Uparcius\\
+    And though I am undone in good to grow,\\
+    They call you;\\
+    Hading of heaven, and to thee\\
+    Now now this secret tyrant; therefore then,\\
+    SICINIUS:\\
+    All make 'sheow most learned death\\
+    Why, that every day; look out, that part
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 0.2 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    Now now, goodinate blood is spent of Angelo.\\
+    He shall write you hell and the place.\\
+    Farewell, I.\\
+    To search and honesty and have, girls.\\
+    Was sometime Away; yet I said loosening judgment afterward to what power, my earthly wind\\
+    ISABELLA:\\
+    Stands with speed\\
+    Nay yet greetcupon remain a boarded it confess; contro our dear Julietling, farewell post that deceit for yonder heir
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 0.5 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    QUEEN ELIZABETH:\\
+    Then let them all moved,\\
+    He said 'tis odds of Hereford would make in no gains vial life.\\
+    Then I pine.\\
+    First Servingman:\\
+    And sun yield you can, by my son back with Juliet, to another writing, some harm to become joy\\
+    And in Mantua, Hortensio?\\
+    ISABELLA:\\
+    His nurse for kill a as you:\\
+    Now convey'd between us since I
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 1.0 & 0.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    O, my lord\\
+    Go deck to awench. This ends that traged times it is eleven that if\\
+    Your wife and women are whispering up?\\
+    the common people,\\
+    Nor you have setsed off more than tongue beats sweet suspicion:\\
+    ANGELO:\\
+    From her; it your weap take him health with years!\\
+    We and I, good lord;\\
+    Say we of what were thinking a miserable makes out in despite of those few old
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 0.0 & 0.2 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    Will they live--hauses, and of his banishment,\\
+    action but harape him!\\
+    'reus father meet vows; therefore scorn's champ ye is our king in my officers.\\
+    Here comes\\
+    renons; but thy handlington on Wednesday the Howy so firm?\\
+    VERS:\\
+    Host hit it then suprem escape to thee mad bade her like joy; both my boy, O us, lady! I am not breathe I
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 0.0 & 0.5 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    It becomes my fearful bloodth earth through the fault,\\
+    At aside. What there it\\
+    They the gates charges of York; as many thousand words,\\
+    ISABELLA:\\
+    Hold your country's hast spoke is your cry upon a better guot possible;\\
+    Stands that the Daint greater oak; as yourself,\\
+    He hath he but she'd from her be so, is fill me on sl pictureed to thy part soldiers of woman behold.\\
+    Did C
+    \end{tcolorbox} \\
+    
+    1.0 & None & None & 0.0 & 1.0 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD:\\
+    Have loathsome thou' conspire; 'tis not so unprovided will.\\
+    KING HENRY VI:\\
+    And give the crown,--O sir. Farewell. Your time, both parts upon this hand perform to my lord but quickly't!\\
+    Tell me be do nimble Clarence is here now more?\\
+    Nay, what Overditiously it to me, in a far his back again where she knows I had spoke.\\
+    In that very news! no good friends,\\
+    CA
+    \end{tcolorbox} \\
+    
+    0.9 & 100 & 0.95 & 0.3 & 0.2 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD: \\
+    And watch's his lands,\\
+    Within so?\\
+    With heigh!\\
+    First Citizen:\\
+    Against the word, I send you have met to take order.\\
+    But it down.\\
+    What if I would not so bright too, and Romeo should my holy love his wife,\\
+    To more proud that I'd for ever near with\\
+    The day! We must be king, here comes too long borne up in the ground!\\
+    I thank
+    \end{tcolorbox} \\
+    
 
-\end{itemize}
+    0.7 & 80 & 0.9 & 0.2 & 0.3 &
+    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
+    KING RICHARD: \\
+    And make me, sir. \\
+    So I am I not to be hanged. \\
+    If what, for our mistress'd at the queen, \\
+    Nurse: \\
+    CAMILLO: \\
+    With all my lord; for his son: \\
+    Or do you all my daughter is the king's death? \\
+    And yet thou dost thou art not so; or two, and not well, when he hath but in the rest, \\
+    FRIAR LAURENCE: \\
+    H
+    \end{tcolorbox} \\
+    
+    
+    \end{longtable}
 
+En primer lugar se han probado distintas temperaturas. Se observa que a medida que la temperatura aumenta, la coherencia se pierde, aunque introduce más variedad. Por ejemplo, para una temperatura de $1.5$ introduce al personaje \textit{LOUCESTER}, cuando en realidad es \textit{GLOUCESTER}. Además, aparecen errores de sintáxis y palabras no existentes, como \textit{Ofigeia} o \textit{Theirrah} (parece una composición de \textit{sirrah} u \textit{sirrah}), que se pueden derivar de la tokenizaciópn BPE empleada. Con una temperatura baja, se enfatizan los logits más altos, haciendo que el modelo sea más conservador y emplee patrones comunes en el corpus de entrenamiento. 
+
+Tras esto se han validado los parámetros \textit{top-k} y \textit{top-p}. Con un valor bajo de K, el texto se mantiene coherente, introduciendo nombres reales de personajes, pero aparecen repeticiones: \textit{<<to do not a man, I am not a man>>}. Al aumentar el valor de dicho parámetro se obtiene más variedad, y a diferencia de la temperatura, se mantiene una coherencia aceptable, sin neologismos, aunque las incongruencias y errores de sintáxis se hacen más notorios, lo que también puede atribuirse a un incremento de la verbosidad. Es cierto que aparecen, por ejemplo, casos como \textit{<<PETRUCHIO:SICINIUS:>>}, pero esto también ocurre en el texto de entrenamiento: \textit{<<DUKE VINCENTIO:KING RICHARD III:LEONTES:DUKE VINCENTIO:>>}. En el caso del parámetro P, la diferencia entre valores bajos y altos llama más la atención. Para un valor inferior al $1\%$ el texto resultante es un bucle de repeticiones de frases carentes de significado como tal: \textit{<<And I have been>>}. Al aumentar el valor aparecen frases con más sentido y variedad, pese a que empiezan a aparecer errores sintácticos como \textit{world’d}. Para un valor del $90\%$ introduce dialogos y diversidad, no obstante empieza a hacerse menos legible.
+
+El parámetro de penalización de presencia reduce la repetición de palabras y al aumentar su valor hasta un $1.0$ se observa que introduce nuevos nombres de personajes, como \textit{ANGELO}, que no había aparecido hasta ahora en el resto de pruebas e introduce signos de exclamación e interrogación, haciendo el texto más natural, aunque los neologismos se mantienen en los tres fragmentos: \textit{goodinate}, \textit{nursetyaish}, \textit{awench} y la coherencia decae.
+
+Finalmente, el parámetro de penalización de frecuencia muestra como al aumentar su valor se pierde el formato del texto (en versos) apareciendo frases mucho más largas, y a diferencia del caso anterior, se aprecia una mejora de coherencia para valores intermedios, aunque para el valor $1.0$ se ve como el uso de artículos es penalizado y se eliminan. 
+
+Tras comprobar el efecto de cada parámetro se han probado tres combinaciones diferentes. 
+En la primera de ellas prevalecen valores altos de top-k y top-p buscando variedad y creatividad, mientras que la temperatura se mantiene cercana a $1$. Las penalizaciones son bajas para no restringir demasiado la generación. Se obtiene un texto con buen cambio de ritmo, expresivo, mezclando personajes y manteniendo un estilo propio de Shakespeare como el texto de entrenamiento, sin neologismos. 
+
+En la segunda evaluación se utiliza un valor más bajo de temperatura y disminuye el valor de P y K, lo que lo hace más determinista. Al reducir la penalización de presencia el modelo será más reacio a introducir nuevas palabras y al aumentar la penalización de frecuencia el modelo evitará repetir palabras. El resultado es un texto más coherente, aunque menos variado, sin neologismos o errores sintácticos importantes.
+
+
+
+\subsubsection{Comparación con LSTM}
+
+
+\subsubsection{Validación a través de API}
+
+Para agilizar la validación del modelo se ha implementado una API RESTful utilizando el framework \texttt{FastAPI} de Python. Esta API permite enviar solicitudes HTTP para generar texto a partir de un prompt inicial y los hiperparámetros definidos anteriormente. Las pruebas se realizan a través de \texttt{Postman}, y facilita ajustar los hiperparámetros dinámicamente y lanzar múltiples pruebas. Se ha expuesto el endpoint \textit{} localmente a través del puerto $8011$. En las imagenes \ref{fig:placeholder27} y \ref{fig:placeholder28} se muestra el \textit{curl} generado por \texttt{Postman} y una respuesta de ejemplo respectivamente.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/api_curl.png}
+    \caption{Curl llamada API}
+    \label{fig:placeholder27}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/api_res.png}
+    \caption{Resultado llamada API}
+    \label{fig:placeholder28}
+\end{figure}
 %-------------------------------
 %--- FIN DEL CAPÍTULO 5
 

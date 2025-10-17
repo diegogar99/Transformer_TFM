@@ -70,7 +70,7 @@ def generate_text(model, sp, init_text, top_k, top_p, presence_penalty,frequency
                     logits = logits - presence_penalty * appeared - frequency_penalty * counts.float()
 
                 # Temperatura https://medium.com/@madasuvishnuraj/mathematics-behind-the-temperature-in-llm-cfb23120ac62
-                if temperature != 0.0: # Se comporta como argmax
+                if temperature != 0.0: # Si es 0.0 comporta como argmax
                     logits = logits / temperature
                     #logits = torch.argmax(logits[:, -1, :], dim=-1, keepdim=True) # Al ser multidim, del ultimo token coge de la ultima dim que son los scores del next token               
                 

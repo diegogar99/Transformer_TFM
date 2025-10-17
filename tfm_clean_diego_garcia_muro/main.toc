@@ -5,17 +5,20 @@
 \contentsline {section}{\numberline {1.1}De modelos secuenciales a mecanismos de atención}{1}{section.1.1}%
 \contentsline {chapter}{\numberline {2}Objetivos del proyecto}{3}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Material y métodos}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Arquitectura Transformer}{5}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Positional encoding}{5}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Masked Multi-head Attention}{5}{subsection.3.1.2}%
-\contentsline {subsubsection}{Query (Q)}{5}{section*.4}%
+\contentsline {section}{\numberline {3.1}PyTorch y Tensorflow}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}BPE}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Flask}{5}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Arquitectura Transformer}{5}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Positional encoding}{5}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Masked Multi-head Attention}{5}{subsection.3.4.2}%
+\contentsline {subsubsection}{Query (Q)}{6}{section*.4}%
 \contentsline {subsubsection}{Key (K)}{6}{section*.5}%
 \contentsline {subsubsection}{Value (V)}{6}{section*.6}%
-\contentsline {subsection}{\numberline {3.1.3}Add \& Norm \blx@tocontentsinit {0}\parencite {sharma2024addnorm}}{6}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.4.3}Add \& Norm \blx@tocontentsinit {0}\parencite {sharma2024addnorm}}{7}{subsection.3.4.3}%
 \contentsline {subsubsection}{Conexión Residual (\textit {Add})}{7}{section*.7}%
 \contentsline {subsubsection}{Normalización (\textit {Layer Norm})}{8}{section*.8}%
-\contentsline {subsection}{\numberline {3.1.4}Feed Forward}{8}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Linear y softmax}{9}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.4.4}Feed Forward}{9}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Linear y softmax}{9}{subsection.3.4.5}%
 \contentsline {chapter}{\numberline {4}Resultados}{11}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Preparación del entorno}{11}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Análisis de los dataset}{11}{section.4.2}%
@@ -39,15 +42,17 @@
 \contentsline {subsection}{\numberline {4.8.3}Función de pérdida}{22}{subsection.4.8.3}%
 \contentsline {subsection}{\numberline {4.8.4}Optimizadores}{24}{subsection.4.8.4}%
 \contentsline {subsection}{\numberline {4.8.5}Resumen del modelo para Tiny Shakespeare}{24}{subsection.4.8.5}%
-\contentsline {subsection}{\numberline {4.8.6}Validación}{25}{subsection.4.8.6}%
+\contentsline {section}{\numberline {4.9}LSTM}{25}{section.4.9}%
 \contentsline {chapter}{\numberline {5}Conclusiones}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{27}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Validación}{29}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Resultados}{30}{subsection.5.2.1}%
-\contentsline {chapter}{\numberline {A}Anexos}{35}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}GELU}{35}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Xavier Uniform}{35}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Normal uniform}{35}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Entropía}{35}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}MAUVE}{35}{section.Alph1.5}%
-\contentsline {section}{\numberline {A.6}Distinct-n}{35}{section.Alph1.6}%
+\contentsline {subsubsection}{Comparación con LSTM}{37}{section*.12}%
+\contentsline {subsubsection}{Validación a través de API}{37}{section*.13}%
+\contentsline {chapter}{\numberline {A}Anexos}{43}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}GELU}{43}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Xavier Uniform}{43}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Normal uniform}{43}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Entropía}{43}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}MAUVE}{43}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Distinct-n}{43}{section.Alph1.6}%

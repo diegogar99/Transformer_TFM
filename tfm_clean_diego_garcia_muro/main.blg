@@ -1,24 +1,24 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'main.blg'
-[68] biber:340> INFO - === mié oct 15, 2025, 23:51:45
-[84] Biber.pm:419> INFO - Reading 'main.bcf'
-[153] Biber.pm:979> INFO - Found 44 citekeys in bib section 0
-[169] Biber.pm:4419> INFO - Processing section 0
-[179] Biber.pm:4610> INFO - Looking for bibtex file 'refs.bib' for section 0
-[182] bibtex.pm:1713> INFO - LaTeX decoding ...
-[214] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
-[402] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[402] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[402] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[441] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[441] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[441] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[461] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[475] bbl.pm:763> INFO - Output to main.bbl
-[475] Biber.pm:131> WARN - legacy year field '2025, May 8' in entry 'keerthanams2025evaluating' is not an integer - this will probably not sort properly.
-[475] Biber.pm:131> WARN - legacy year field '2024, Nov 2' in entry 'kashyap2024rmsprop' is not an integer - this will probably not sort properly.
-[475] Biber.pm:131> WARN - legacy year field '2024, Nov 8' in entry 'yassin2024adamvsadamw' is not an integer - this will probably not sort properly.
-[475] Biber.pm:131> WARN - legacy year field '2024, Nov 7' in entry 'doherty2024_hownot' is not an integer - this will probably not sort properly.
-[475] Biber.pm:131> WARN - legacy year field '2025-04-16' in entry 'vyas2025transformer_decoder_part3' is not an integer - this will probably not sort properly.
-[475] Biber.pm:131> WARN - legacy year field '2025, Jul 27' in entry 'vishnuraj2025temperature' is not an integer - this will probably not sort properly.
-[475] Biber.pm:133> INFO - WARNINGS: 6
+[65] biber:340> INFO - === vie oct 17, 2025, 14:41:05
+[80] Biber.pm:419> INFO - Reading 'main.bcf'
+[135] Biber.pm:979> INFO - Found 44 citekeys in bib section 0
+[147] Biber.pm:4419> INFO - Processing section 0
+[154] Biber.pm:4610> INFO - Looking for bibtex file 'refs.bib' for section 0
+[155] bibtex.pm:1713> INFO - LaTeX decoding ...
+[176] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[296] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[296] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[296] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[328] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[328] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[328] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[346] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[359] bbl.pm:763> INFO - Output to main.bbl
+[359] Biber.pm:131> WARN - legacy year field '2025, May 8' in entry 'keerthanams2025evaluating' is not an integer - this will probably not sort properly.
+[359] Biber.pm:131> WARN - legacy year field '2024, Nov 2' in entry 'kashyap2024rmsprop' is not an integer - this will probably not sort properly.
+[359] Biber.pm:131> WARN - legacy year field '2024, Nov 8' in entry 'yassin2024adamvsadamw' is not an integer - this will probably not sort properly.
+[359] Biber.pm:131> WARN - legacy year field '2024, Nov 7' in entry 'doherty2024_hownot' is not an integer - this will probably not sort properly.
+[359] Biber.pm:131> WARN - legacy year field '2025-04-16' in entry 'vyas2025transformer_decoder_part3' is not an integer - this will probably not sort properly.
+[359] Biber.pm:131> WARN - legacy year field '2025, Jul 27' in entry 'vishnuraj2025temperature' is not an integer - this will probably not sort properly.
+[359] Biber.pm:133> INFO - WARNINGS: 6
