@@ -23,11 +23,18 @@
 \usepackage[T1]{fontenc}           % gestión de fuentes con acentos
 \usepackage{csquotes}              % citas (necesario con biblatex)
 
+% Interlineado
+\usepackage{setspace}
+\onehalfspacing
+
+% Espaciado entre párrafos
+\setlength{\parskip}{6pt}
+
 % Matemáticas y teoremas
 \usepackage{amssymb}               
 \usepackage{amsmath}               
 \usepackage{amsthm}                
-\usepackage{mathptmx}              % fuente Times
+\usepackage{newtxtext,newtxmath}             % fuente Times
 
 % Gráficos y figuras
 \usepackage{tikz}                  
@@ -69,7 +76,7 @@
 \usepackage{longtable}
 \usepackage[most]{tcolorbox}
 
-
+\usepackage[font=small,labelfont=bf,labelsep=colon,justification=centering]{caption}
 
 
 
@@ -78,43 +85,18 @@
 %---------------------------------------------------------------------------
 
 \newpagestyle{miestilo}{
-\sethead[\thepage][][\textsl{\chaptername\ \thechapter. \chaptertitle}]
-{\textsl{Transfomer pequeño para generación de texto \ - \ Diego García Muro}}{}{\thepage}
+  \sethead{}{}{}
+  \setfoot{}{}{\thepage}
 }
+\pagestyle{miestilo}
 
-\newpagestyle{primeraparte}{
-\sethead[\thepage][][\textsl{\chaptertitle}]
-{\textsl{Transfomer pequeño para generación de texto \ - \ Diego García Muro}}{}{\thepage}
-}
+
 
 \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
 \newcommand{\sectionmarkwithoutsections}[1]{\markright{#1}}
 
 \makeindex
 
-%--------------------------------------------------------------------------- 
-% Definición de entornos tipo teorema
-%---------------------------------------------------------------------------
-
-\theoremstyle{plain}
-\newtheorem{teorema}{Teorema}[chapter]
-\newtheorem{prop}[teorema]{Proposición}
-\newtheorem{corolario}[teorema]{Corolario}
-\newtheorem{lema}[teorema]{Lema}
-
-\theoremstyle{definition}
-\newtheorem*{defin}{Definición}
-\newtheorem{ejemplo}{Ejemplo}
-\newtheorem{nota}{Nota}[chapter]
-
-%--------------------------------------------------------------------------- 
-% Atajos matemáticos
-%---------------------------------------------------------------------------
-
-\newcommand\N{\mathbb{N}}
-\newcommand\Z{\mathbb{Z}}
-\newcommand\R{\mathbb{R}}
-\newcommand\C{\mathbb{C}}
 
 \renewcommand{\spanishoperators}{Re}
 
@@ -124,7 +106,7 @@
 
 \begin{document}
 \frontmatter
-\pagestyle{primeraparte}
+\pagestyle{miestilo}
 
 
 %\pagenumbering{roman} % Incluido en \frontmatter
@@ -164,13 +146,34 @@
 %--- RESUMEN
 
 \chapter{Resumen}
- Explicación de la arquitectura Transformer, importancia y lo que contiene el documento
+
+La arquitectura Transformer es un modelo que ha revolucionado el campo del procesamiento del lenguaje natural, impulsando avances significativos en tareas como la traducción automática, la generación de texto y la comprensión del lenguaje, siendo la base de los modelos Bert y GPT. A diferencia de los modelos pre-exsistentes como las redes neuronales recurrentes (RNN), basadas en secuencias, los Transformers se basan en mecanismos de atención que permiten procesar las palabras en paralelo, mejorando la eficiencia y la capacidad de capturar relaciones contextuales a largo plazo.
+
+A lo largo de esta memoria se detalla el proceso de implementación y validación de una arquitectura Transformer Decoder Only orientada a la generación de texto en dos contextos concretos que son las obras de Shakespeare y artículos de Wikipedia. No se busca competir con los modelos de última generación, sino comprender los fundamentos teóricos y prácticos de los Transformers y explorar, de manera didáctica, su funcionamiento en tareas de procesamiento de lenguaje natural.
+
+En un primer capítulo se explica que es el Procesamiento de Lenguaje Natural (NLP), abordando arquitecturas previas como RNN y LSTM, para posteriormente introducir la arquitectura Transformer y fijar el alcance y limitaciones de este proyecto.
+
+Posteriormente, se describen los materiales y métodos empleados, comenzando con un análisis y descripción de los componentes que forman parte de la arquitectura, para comprender su funcionamiento a bajo nivel. Aquí se detalla como el texto es procesado, desde la tokenización y generación de embeddings, hasta los distintos bloques que componen el Transformer, como los mecanismos de atención, capas feed-forward y normalización. Se incluyen las librerías y el lenguaje de programación utilizado, hiperparámetros y características del sistema.
+
+A continuación, en el capítulo de Resultados se detalla el proceso completo de desarrollo, desde la obtención, análisis y preparación de los datos hasta la implementación y entrenamiento del modelo, incluyendo resultados obtenidos, así como mejoras llevadas a cabo. Se incluye la implementación de un modelo LSTM y las distintas técnicas de validación cuantitativas y cualitativas llevadas a cabo. Finalmente, se presentan las conclusiones obtenidas y posibles líneas futuras de trabajo.
+
+
+
 %--- FIN DEL RESUMEN
 
 \clearemptydoublepage
 
 \chapter{Abstract}
- Lo mismo pero en inglés
+The Transformer architecture is a model that has revolutionized the field of natural language processing, driving significant advances in tasks such as machine translation, text generation, and language understanding, and serving as the foundation for models such as BERT and GPT. Unlike pre-existing sequence-based models such as recurrent neural networks (RNNs), Transformers rely on attention mechanisms that enable words to be processed in parallel, improving efficiency and the ability to capture long-range contextual relationships.
+
+Throughout this thesis, the implementation and validation process of a Transformer Decoder Only architecture focused on text generation is described, applied to two specific contexts: the works of Shakespeare and Wikipedia articles. The aim is not to compete with state of the art models but to understand the theoretical and practical foundations of Transformers and to explore, in a didactic manner, their functioning in natural language processing tasks.
+
+The first chapter introduces the concept of Natural Language Processing (NLP), addressing earlier architectures such as RNNs and LSTMs, before introducing the Transformer architecture and defining the scope and limitations of this project.
+
+Subsequently, the materials and methods used are described, beginning with an analysis and explanation of the components that make up the architecture to understand its low level functioning. This includes how the text is processed, from tokenization and embedding generation to the various blocks that compose the Transformer, such as attention mechanisms, feed-forward layers, and normalization. The programming language, libraries used, hyperparameters, and system specifications are also detailed.
+
+Next, in the Results chapter, the complete development process is presented, from data acquisition, analysis, and preparation to model implementation and training, including the results obtained and the improvements made. The implementation of an LSTM model and the various quantitative and qualitative validation techniques carried out are also included. Finally, the conclusions and possible future lines of work are presented.
+
 \clearemptydoublepage
 
 \tableofcontents
@@ -178,16 +181,26 @@
 \clearemptydoublepage
 
 %-------------
-\mainmatter                      % Parte principal del texto
+\mainmatter             % Parte principal del texto
 \pagestyle{miestilo}    % Estilo de cabeceras para la parte principal del texto
 
 %--- CAPÍTULO 1 DEL TFM
 \chapter{Introducción y antecedentes}
+
 En los últimos años, el auge de la inteligencia artificial ha estado impulsado por los llamados Large Language Models (LLMs), que han supuesto una revolución, transformando sectores enteros. Estos modelos están presentes tanto como herramientas que poco a poco reemplazan a los buscadores tradicionales, usadas por el público en general, como herramientas open source o de pago por uso, accesibles localmente o a través de la nube, que han dado un giro al negocio en general, originando nuevas oportunidades, automatizando tareas y ofreciendo soluciones a problemas que, o no existían o no se podían abordar con tanta efectividad.
 
+Este tipo de modelos se construyen haciendo uso de enormes recursos computacionales y pueden llegar a tener billones de parámetros, lo que dificulta enormemente su implementación. Es por ello, que en este anteproyecto se propone el desarrollo de un modelo reducido basado en la arquitectura Transformer, con un número reducido de parámetros capaz de entrenarse usando una GPU de propósito general en unas horas. El objetivo principal no es competir con modelos de última generación, sino comprender los fundamentos teóricos y prácticos de los Transformers y explorar, de manera didáctica, su funcionamiento en tareas de procesamiento de lenguaje natural.
 
-Este tipo de modelos se construyen haciendo uso de enormes recursos computacionales y pueden llegar a tener billones de parámetros, lo que dificulta enormemente su implementación. Es por ello, que en este anteproyecto se propone el desarrollo de un modelo reducido basado en la arquitectura Transformer, con un número reducido de parámetros capaz de entrenarse usando una GPU de propósito
-general en unas horas. El objetivo principal no es competir con modelos de última generación, sino comprender los fundamentos teóricos y prácticos de los Transformers y explorar, de manera didáctica, su funcionamiento en tareas de procesamiento de lenguaje natural.
+\section{Procesamiento del lenguaje natural}
+
+El procesamiento de lenguaje natural (NLP) es una tecnología que permite a los cordenadores interpretar, manipular y comprender el lenguaje humano Surgió en la década de 1950, derivado de los primeros experimentos sobre traducción automática, ganando popularidad en las décadas siguientes con aplicaciones como el filtrado de correo no deseado, la clasificación de documentos y los chatbots básicos. En 2020 se dió el punto de inflexión, con el auge de los modelos de aprendizaje profundo, que utilizaban arquitecturas de redes neuronales para analizar secuencias de datos, lo que permitió analizar bloques de texto más grandes.
+
+El NLP está presente en la mayoría de las aplicaciones que usamos a diario, desde los asistentes de voz como Siri o Alexa, hasta los sistemas de traducción automática como Google Translate. En el ámbito empresarial los casos de uso aumentan cada día, entre los más comunes se encuentran: clasificación de documentos, análisis de sentimientos, chatbots y asistentes virtuales, motores de recomendación y análisis de tendencias en redes sociales.
+
+\section{Modelos previos: RNN y LSTM}
+
+Las redes neuronales recurrentes (RNN) y redes de memoria a largo plazo (LSTM) son arquitecturas de redes neuronales capaces de procesar datos secuenciales, datos donde el orden cronológico es importante.
+TODOOO
 
 \section{De modelos secuenciales a mecanismos de atención}
 Antes de la aparición de esta arquitectura, los modelos existentes procesaban las palabras de forma secuencial con el fin de entender el lenguaje. Esto implica una complejidad [O(n²)] de forma que para procesar 3 palabras se tenían que ejecutar 6 operaciones secuenciales (para la tercera palabra necesita recordar la primera y segunda y procesar la tercera, para la segunda tendría que recordar la primera y procesar la segunda y para la primera se debía procesar esa palabra), esto, para 10 palabras aumenta a 45 operaciones, y para 100, 4950. Computacionalmente es muy ineficiente. 
@@ -200,23 +213,28 @@ Todo este proceso no se ejecuta una única vez, sino que se apila en capas, de f
 
 Todo lo explicado hasta ahora no es más que operaciones matemáticas que permiten al modelo encontrar patrones, pero por si solo, un transformer no es inteligente, para que exista creatividad, razonamiento y abstracción debe cumplir con las llamadas \textit{Scaling Laws} \parencite{wolfe_llm_scaling}. Estas sostienen que el rendimiento del modelo mejora de forma predecible al escalar estas 3 dimensiones: número de parámetros (más de 100B ya conllevan al pensamiento abstracto), datos diversos y cómputo masivo. Es por ello, que no se espera como resultado de este proyecto un modelo capaz de razonar como lo hacen los modelos SOTA del mercado.
 
-Pese a los grandes avances y la repercusión que están teniendo los modelos LLM hoy en día, basados en este tipo de arquitectura, hay que decir que presentan varios problemas. Por un lado la atención es [O(n²)], pues para 10.000 palabras hay 10.000 x 10.000 relaciones posibles, por otro lado, las infraestructuras son fijas y, además, todos los parámetros se activasn siempre, lo que es ineficiente. Es por ello que están surgiendo soluciones como la atención dispersa (el modelo no atiende a todas las posiciones), arquitecturas capaces de modificarse a sí mismas de forma autónoma y técnicas como \textit{mixture of experts} que permiten usar una fracción de los parámetros en cada paso \parencite{plainenglish2021gpt}.
+Pese a los grandes avances y la repercusión que están teniendo los modelos LLM hoy en día, basados en este tipo de arquitectura, hay que decir que presentan varios problemas. Por un lado la atención es [O(n²)], pues para $10.000$ palabras hay $10.000 x 10.000$ relaciones posibles, por otro lado, las infraestructuras son fijas y, además, todos los parámetros se activasn siempre, lo que es ineficiente. Es por ello que están surgiendo soluciones como la atención dispersa (el modelo no atiende a todas las posiciones), arquitecturas capaces de modificarse a sí mismas de forma autónoma y técnicas como \textit{mixture of experts} que permiten usar una fracción de los parámetros en cada paso \parencite{plainenglish2021gpt}.
+
 %--- FIN DEL CAPÍTULO 1
 
 \clearemptydoublepage
 
 %--- CAPÍTULO 2 DEL TFM
 \chapter{Objetivos del proyecto}
-Implementar una arquitectura Transformer funcional que no busque competir
-con los modelo SOTA, sino comprenderla a bajo nivel y probarla con un corpus
-reducido.
 
+El proyecto tiene como objetivo implementar y analizar una arquitectura Transformer funcional que no busque competir con los modelo SOTA, sino con el propósito de comprender en profundidad su funcionamiento a bajo nivel y evaluar su desempeño en un corpus de texto reducido, siendo capaz de generar texto con cierta coherencia en contextos limitados, como las obras de Shakespeare o fragmentos de artículos de Wikipedia.
 
-Lo que se persigue en este proyecto es desarrollar un pequeño transformer capaz
-de generar texto en un contexto reducido como son las obras de Shakespeare. Con
-ello se consigue comprender la arquitectura, técnicas de tokenización y embedding
-(procesamiento de texto en general) y algoritmos de redes neuronales (Linear) y
-modelos NLP (LSTM).
+\section{Objetivos específicos}
+
+\begin{itemize}
+    \item Analizar los principios teóricos que sustentan la arquitectura \textit{Transformer} y sus diferencias con modelos secuenciales como RNN y LSTM.
+    \item Implementar desde cero una versión reducida de un \textit{Transformer Decoder Only} utilizando librerías de Python.
+    \item Diseñar y aplicar un proceso de tokenización y generación de \textit{embeddings} adecuado al corpus utilizado.
+    \item Entrenar y evaluar el modelo con un conjunto de datos reducido, analizando su capacidad para generar texto coherente con técnicas cualitativas y cuantitativas.
+    \item Comparación de los resultados obtenidos frente a los producidos por un modelo LSTM, también implementado en este proyecto.
+    \item Realizar un análisis exploratorio de los resultados obtenidos y proponer posibles mejoras o líneas futuras de trabajo.
+\end{itemize}
+
 
 %--- FIN DEL CAPÍTULO 2
 
