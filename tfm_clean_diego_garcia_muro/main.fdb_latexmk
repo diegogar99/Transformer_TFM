@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1760860623.00281 "main.bcf" "main.bbl" "main" 1760865999.26969 0
-  "main.bcf" 1760865999.16136 137453 3ceb48f80aacf41352bf4224c68e8d5b "pdflatex"
-  "refs.bib" 1760704864.8835 20826 d2b3bab5a3ebc444903cd414cd0a7a0f ""
+["biber main"] 1760901109.60449 "main.bcf" "main.bbl" "main" 1760901376.92478 0
+  "main.bcf" 1760901376.80942 137459 2b6fc1cced217f0dda14293b86160ce9 "pdflatex"
+  "refs.bib" 1760892472.76887 21147 25ab745eeb56db23b839b83d5a76efd4 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1760860619.17155 "main.idx" "main.ind" "main" 1760865999.26961 0
-  "main.idx" 1760865996.6174 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1760901104.69779 "main.idx" "main.ind" "main" 1760901376.92466 0
+  "main.idx" 1760901374.14037 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1760865995.61055 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760865999.2699 0
+["pdflatex"] 1760901372.83453 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1760901376.92501 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760865995.43455 97170 0a0f16512555d1609f78771bed0f1972 ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1760901372.56502 95156 5ba8451aece16dd30f57ccc965b21d51 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1698694482 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -366,9 +366,10 @@
   "img/embeddings1.png" 1759355495.62599 88006 2b1febaa67c6d9dc5b5ab45a8ccc0d92 ""
   "img/esquema1.png" 1759255473.81302 19213 7f39c54ae9e6cd83156e62afb4fd04a8 ""
   "img/ffnn.png" 1759354810.33764 184001 0dc967bef17f6ce4bd3b7320543f9fae ""
-  "img/gpt2.png" 1759855423.21501 304963 59ef0bd1db6f17f4b262c271007f6112 ""
+  "img/gpt2.png" 1760898623.48583 334747 98dd4b9f6d96968120092c7a1f623540 ""
   "img/heads.png" 1759054079.88703 55123 567f851565c221ed2336f38a05cef5eb ""
   "img/heads2.png" 1759054087.77066 50052 2606c4eaa25c2d1ecbfa2e67649f3024 ""
+  "img/limpieza_tokeniz_train.png" 1760897296.07143 137164 ea40033177a6340b59a55233d7b5a96a ""
   "img/logo_imf.png" 1759045582 4640 8f49add8f12b4837bc4126f48ab5435e ""
   "img/masked.png" 1759045582 45516 7906a09c682ca088c7b0f910803f9a61 ""
   "img/normal_init.png" 1759355510.72814 21709 836e7d5da7fcbdd273daf532271f1214 ""
@@ -377,18 +378,16 @@
   "img/preclean.png" 1759045582 113796 a5df96910c224420f8dd66e5b6003817 ""
   "img/resultado_entrenamiento_v1.png" 1760286708.34395 42305 4d715044a4d4598ea3c0b5c13216b1f2 ""
   "img/resultado_entrenamiento_v2.png" 1760380258.05189 32660 5cb73dc38d1dfc9b058ad432af12e8ea ""
-  "img/sentence_trainer.png" 1759045582 146929 446a9104e6f8c7b306e877e806cd420d ""
-  "img/test_tok.png" 1759045582 81947 19b510c3619ec07dc6c8b32f3c0cf559 ""
-  "img/tiny_shakespeare.png" 1759045582 104113 3098618de7d081a063133e32b4c8a229 ""
-  "img/train_tok.png" 1759045584 107017 749cdaac6dcdec83c954cf74fc5dd7a8 ""
+  "img/sentence_trainer.png" 1760897091.66767 287532 792c8bc08db326bdd1ca727ce8943109 ""
+  "img/tiny_shakespeare.png" 1760895984.4097 121319 c6d78efee792fe831aab4c5863cbec7e ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
-  "main.aux" 1760865999.15385 33461 69e413fd74e057af6211d8681e4b0de2 "pdflatex"
-  "main.bbl" 1760860623.70772 122942 f829ce89fdbc0f6449073c378772f68f "biber main"
-  "main.ind" 1760860619.26478 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1760865999.15936 8095 72bd46557dbf4b3907a43bf6902df7d8 "pdflatex"
-  "main.run.xml" 1760865999.16347 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
-  "main.tex" 1760865995.43455 97170 0a0f16512555d1609f78771bed0f1972 ""
-  "main.toc" 1760865999.16347 4986 74a2ddc0ba885d50eaf697e9ae2710cf "pdflatex"
+  "main.aux" 1760901376.80042 34978 1834e8e216e85c0ab13be5bbff5cb4d8 "pdflatex"
+  "main.bbl" 1760901110.28867 125640 fe140cea67b6c72f02ba7861be45a2aa "biber main"
+  "main.ind" 1760901104.89233 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1760901376.80742 8662 716f8dad356b130551a4f26158b101af "pdflatex"
+  "main.run.xml" 1760901376.81191 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
+  "main.tex" 1760901372.56502 95156 5ba8451aece16dd30f57ccc965b21d51 ""
+  "main.toc" 1760901376.81191 5090 0b6fb956658e9a6b8601d95132f260b8 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

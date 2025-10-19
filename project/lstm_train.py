@@ -3,9 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Embedding
+from tensorflow.keras.layers import LSTM, Dense, Embedding,Conv1D, Dropout,BatchNormalization
 from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam,AdamW
+from tensorflow.keras.activations import gelu
+
 from tokenization import *
 
 print("GPU disponible:", tf.config.list_physical_devices('GPU'))
@@ -25,14 +27,51 @@ def windowed_dataset(tokens, context_len, batch_size=64, shuffle=True):
     dataset = dataset.batch(batch_size, drop_remainder=True)
     return dataset
 
+''' Si el otro consume mucho este lo hace lazy: bajo demanda
+def windowed_dataset(tokens, context_len, batch_size=64, shuffle=True):
+    ds = tf.data.Dataset.from_tensor_slices(tokens)
+    ds = ds.window(context_len + 1, shift=1, drop_remainder=True)
+    ds = ds.flat_map(lambda w: w.batch(context_len + 1))
+    ds = ds.map(lambda w: (w[:-1], w[-1]))
+    if shuffle:
+        ds = ds.shuffle(10000)
+    ds = ds.batch(batch_size, drop_remainder=True)
+    return ds
+
+'''
 def lstm_model(vocab_size, embedding_dim, context_len):
-    model = Sequential([
+    '''model = Sequential([
         Embedding(vocab_size, embedding_dim, input_length=context_len),
-        #Conv1D(filters=128, kernel_size=3, activation='relu', padding='same'),
-        # Dropout(0.2),
-        LSTM(100,return_sequences=False),
+        Conv1D(filters=512, kernel_size=3, activation='relu', padding='same'),
+        Dropout(0.2),
+        LSTM(512,return_sequences=True),
+        Dropout(0.2),
+        LSTM(64,return_sequences=False),
+        Dense(vocab_size, activation='softmax')
+    ])'''
+    model = Sequential([
+        Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=context_len),
+        Conv1D(filters=512, kernel_size=3, activation='relu', padding='same'),
+        Dropout(0.2),
+        LSTM(512, return_sequences=True, dropout=0.3, recurrent_dropout=0.2),
+        LSTM(256, return_sequences=False, dropout=0.3, recurrent_dropout=0.2),
+        Dense(512, activation=gelu),
+        BatchNormalization(),
+        Dropout(0.3),
         Dense(vocab_size, activation='softmax')
     ])
+    '''model = Sequential() Esta iba bien para 20 epochs
+    model.add(Embedding(input_dim=vocab_size, output_dim=128))
+    model.add(LSTM(128, return_sequences=True))
+    model.add(BatchNormalization())
+    model.add(Dropout(0.3))
+    model.add(LSTM(128))
+    model.add(BatchNormalization())
+    model.add(Dropout(0.3))
+    model.add(Dense(128, activation='relu'))
+    model.add(BatchNormalization())
+    model.add(Dropout(0.3))
+    model.add(Dense(units=vocab_size, activation='softmax'))'''
     return model
 
 def validar_train(history):
@@ -77,12 +116,20 @@ def validar_train(history):
 
 def train_lstm(model,train_ds,val_ds):
     print("Comienza entrenamiento")
-    early_stopping = EarlyStopping(monitor='val_loss',patience=10,restore_best_weights=True)
-    optimizer = Adam(learning_rate=0.001)
+    early_stopping = EarlyStopping(monitor='val_loss',patience=5,restore_best_weights=True)
+    #optimizer = Adam(learning_rate=0.001)
+    optimizer = tf.keras.optimizers.AdamW(
+        learning_rate=1e-4,
+        beta_1=0.9,
+        beta_2=0.98,
+        epsilon=1e-9
+    )
+
     model.compile(loss="sparse_categorical_crossentropy", optimizer=optimizer, metrics=['accuracy'])
     history = model.fit(
         train_ds,
         epochs=50,
+        batch_size = 32,
         validation_data=val_ds,
         verbose=2,
         callbacks=[early_stopping]

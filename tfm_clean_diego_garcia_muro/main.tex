@@ -157,11 +157,7 @@ Posteriormente, se describen los materiales y métodos empleados, comenzando con
 
 A continuación, en el capítulo de Resultados se detalla el proceso completo de desarrollo, desde la obtención, análisis y preparación de los datos hasta la implementación y entrenamiento del modelo, incluyendo resultados obtenidos, así como mejoras llevadas a cabo. Se incluye la implementación de un modelo LSTM y las distintas técnicas de validación cuantitativas y cualitativas llevadas a cabo. Finalmente, se presentan las conclusiones obtenidas y posibles líneas futuras de trabajo.
 
-
-
 %--- FIN DEL RESUMEN
-
-\clearemptydoublepage
 
 \chapter{Abstract}
 The Transformer architecture is a model that has revolutionized the field of natural language processing, driving significant advances in tasks such as machine translation, text generation, and language understanding, and serving as the foundation for models such as BERT and GPT. Unlike pre-existing sequence-based models such as recurrent neural networks (RNNs), Transformers rely on attention mechanisms that enable words to be processed in parallel, improving efficiency and the ability to capture long-range contextual relationships.
@@ -199,13 +195,12 @@ El NLP está presente en la mayoría de las aplicaciones que usamos a diario, de
 
 \section{Modelos previos: RNN y LSTM}
 
-Las redes neuronales recurrentes (RNN) y redes de memoria a largo plazo (LSTM) son arquitecturas de redes neuronales capaces de procesar datos secuenciales, datos donde el orden cronológico es importante.
-TODOOO
+Las redes neuronales recurrentes (RNN) y redes de memoria a largo plazo (LSTM) son arquitecturas de redes neuronales capaces de procesar datos secuenciales donde el orden cronológico es importante. Una neurona recurrente, en cada instante de tiempo, recibe como entrada tanto la entrada actual como la salida del instante de tiempo anterior, lo que le permite mantener una memoria, a corto plazo, de estados previos. Por otro lado, LSTM es capaz de recordar dependencias entre los términos a lo largo de tiempos más largos, gracias a su estructura de celdas de memoria y puertas que regulan el flujo de información. En sí, manteniene información en memoria que cada neurona es capaz de borrar, escribir o leer. 
 
 \section{De modelos secuenciales a mecanismos de atención}
-Antes de la aparición de esta arquitectura, los modelos existentes procesaban las palabras de forma secuencial con el fin de entender el lenguaje. Esto implica una complejidad [O(n²)] de forma que para procesar 3 palabras se tenían que ejecutar 6 operaciones secuenciales (para la tercera palabra necesita recordar la primera y segunda y procesar la tercera, para la segunda tendría que recordar la primera y procesar la segunda y para la primera se debía procesar esa palabra), esto, para 10 palabras aumenta a 45 operaciones, y para 100, 4950. Computacionalmente es muy ineficiente. 
+Antes de la aparición de esta arquitectura, los modelos existentes procesaban las palabras de forma secuencial con el fin de entender el lenguaje. Esto implica una complejidad [$O(n^2)$] de forma que para procesar 3 palabras se tenían que ejecutar 6 operaciones secuenciales (para la tercera palabra necesita recordar la primera y segunda y procesar la tercera, para la segunda tendría que recordar la primera y procesar la segunda y para la primera se debía procesar esa palabra), esto, para $10$ palabras aumenta a $45$ operaciones, y para $100$, $4950$. Computacionalmente es muy ineficiente. 
 
-Gracias al paper \textit{"Attention is ALl you Need"} publicado en 2017 \parencite{vaswani2017attention}, donde se presentan los \textit{mecanismos de atención} y se logra optimizar el proceso a una complejidad [O(n)]. Esto es porque plantean la posibilidad de que cada palabra mire simultáneamente a las demás, es decir, ya no hay un procesamiento secuencial, sino paralelo. 
+Gracias al paper \textit{"Attention is ALl you Need"} publicado en 2017 \parencite{vaswani2017attention}, donde se presentan los \texttt{mecanismos de atención} y se logra optimizar el proceso a una complejidad [$O(n)$]. Esto es porque plantean la posibilidad de que cada palabra mire simultáneamente a las demás, es decir, ya no hay un procesamiento secuencial, sino paralelo. 
 
 Estos mecanismos constan de 8 operaciones. En primer lugar trabajan con \textit{embeddings} \parencite{neuraforge2023guide}, esto es, vectores densos que recogen, tras el entrenamiento, información sobre cada token en relación con el resto, ya sea información semántica, relaciones sintácticas, etc. Estas representaciones, se proyectan a 3 matrices, también entrenables, que son la base de los mecanismos de atención: Q (¿Qué busco?), K (¿Qué aporto?), V (La información real aportada) \parencite{epichka2023qkv}. A partir de ellas, se calcula una métrica de atención, que indicaría para cada token o palabra, como de relevante es. Esta métrica se convierte a una distribución de probabilidad a través de la función \textit{softmax}, de forma que simula una conciencia humana, pues los seres humanos nos enfocamos en aquella información relevante mientras que el resto queda en la periferia. Por último, se integra la información, dando a la información real (V) un peso, dado por esos pesos de atención calculados previamente.
 
@@ -213,7 +208,7 @@ Todo este proceso no se ejecuta una única vez, sino que se apila en capas, de f
 
 Todo lo explicado hasta ahora no es más que operaciones matemáticas que permiten al modelo encontrar patrones, pero por si solo, un transformer no es inteligente, para que exista creatividad, razonamiento y abstracción debe cumplir con las llamadas \textit{Scaling Laws} \parencite{wolfe_llm_scaling}. Estas sostienen que el rendimiento del modelo mejora de forma predecible al escalar estas 3 dimensiones: número de parámetros (más de 100B ya conllevan al pensamiento abstracto), datos diversos y cómputo masivo. Es por ello, que no se espera como resultado de este proyecto un modelo capaz de razonar como lo hacen los modelos SOTA del mercado.
 
-Pese a los grandes avances y la repercusión que están teniendo los modelos LLM hoy en día, basados en este tipo de arquitectura, hay que decir que presentan varios problemas. Por un lado la atención es [O(n²)], pues para $10.000$ palabras hay $10.000 x 10.000$ relaciones posibles, por otro lado, las infraestructuras son fijas y, además, todos los parámetros se activasn siempre, lo que es ineficiente. Es por ello que están surgiendo soluciones como la atención dispersa (el modelo no atiende a todas las posiciones), arquitecturas capaces de modificarse a sí mismas de forma autónoma y técnicas como \textit{mixture of experts} que permiten usar una fracción de los parámetros en cada paso \parencite{plainenglish2021gpt}.
+Pese a los grandes avances y la repercusión que están teniendo los modelos LLM hoy en día, basados en este tipo de arquitectura, hay que decir que presentan varios problemas. Por un lado la atención es [O(n²)], pues para $10.000$ palabras hay $10.000 x 10.000$ relaciones posibles, por otro lado, las infraestructuras son fijas y, además, todos los parámetros se activan siempre, lo que es ineficiente. Es por ello que están surgiendo soluciones como la atención dispersa (el modelo no atiende a todas las posiciones), arquitecturas capaces de modificarse a sí mismas de forma autónoma y técnicas como \textit{mixture of experts} que permiten usar una fracción de los parámetros en cada paso \parencite{plainenglish2021gpt}.
 
 %--- FIN DEL CAPÍTULO 1
 
@@ -243,26 +238,121 @@ El proyecto tiene como objetivo implementar y analizar una arquitectura Transfor
 %--- CAPÍTULO 3 DEL TFM
 \chapter{Material y métodos}
 \section{PyTorch y Tensorflow}
-\section{BPE}
-\section{Flask}
+Ambos son frameworks de aprendizaje profundo y de código abierto para gestionar e implementar los procesos de aprendizaje automático. Sin embargo, TensorFlow se basa en un gráfico computacional estático, esto es, que antes de la ejecución se definen todas las operaciones y la estructura del modelo, mientras que PyTorch utiliza un gráfico computacional dinámico, lo que permite modificar el modelo sobre la marcha durante la ejecución.
+En este proyecto se emplea mayormente PyTorch para implementar la arquitectura Transformer, quedando Tensorflow reservado para el desarrollo del modelo LSTM utilizado para comparar los resultados obtenidos.
 
+\section{Flask}
+Flask es un framework web escrito en Python que facilita la creación y despliegue de aplicaciones web. En este proyecto se utiliza para desplegar una API capaz de recibir un texto inicial junto con una serie de hiperparámetros que invoca al método de generación de texto en base al modelo entrenado.
+
+\section{Librerías y entorno utilizado}
+El proyecto se implementa íntegramente en Python 3.12, montado en un entorno virtual donde se instalarán las librerías necesarias a través de pip3. 
+El ordenador utilizado cuenta con una GPU NVIDIA GeForce RTX 4090 con $15943$ MB de memoria total. 
+La versión de CUDA es la 12.9 y las librerías utilizadas se recogen en la siguiente tabla:
+
+\begin{table}[h]
+\centering
+\caption{Librerías principales utilizadas en el proyecto}
+\label{tab:librerias_principales}
+\begin{tabular}{l c}
+\toprule
+\textbf{Librería} & \textbf{Versión} \\
+\midrule
+Flask & 3.1.2 \\
+Torch (PyTorch) & 2.9.0 \\
+Datasets (HuggingFace) & 4.1.0 \\
+TensorFlow & 2.20.0 \\
+NumPy & 2.3.3 \\
+Pandas & 2.3.2 \\
+Matplotlib & 3.10.7 \\
+Scikit-learn & 1.5.2 \\
+NLTK & 3.9.1 \\
+SentencePiece & 0.2.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+En el anexo \ref{sec:entorno} se incluyen los pasos de preparación del entorno.
+
+\section{Tokenización Byte Pair Encoding}
+Para que el modelo sea capaz de identificar patrones y llegar a "comprender" un texto, es necesario su conversión a valores numéricos. Para ello, el texto, ya limpio, se descompone en unidades mínimas denominadas tokens. Un \texttt{token} se puede entender como un fragmento de un texto, por ejemplo, un carácter, una palabra o una subpalabra dentro de un vocabulario. Estos tokens se transforman a un valor numérico, que corresponde con el índice de ese fragmento en el vocabulario obtenido. Sin embargo, esto no es sufiente para que el modelo comprenda el texto, para ello cada token se representa como un vector que captura el contexto de las palabras y otra información importante, son los llamados \texttt{embeddings}, que se explicarán más adelante.
+
+Existen diferentes técnicas de tokenización, pudiento clasificarse como tokenización en caracteres, en palabras y en subpalabras. La primera tiene la ventaja de disminuir la complejidad, sin embargo, el modelo está más limitado a la hora de aprender representaciones significativas. Puede ser útil para idiomas como el chino, donde la morfología es compleja y no existen los espacios. La segunda es la tokenización por espacio y puntuación, es decir, la frase \textit{"Mi perro come mucho."} no se descompone en los tokens: \textit{"Mi", "perro", "come", "mucho."}, que es a lo que equivaldría hacer un split por espacios, sino que se tokenizaría como: \textit{"Mi", "perro", "come", "mucho", "."}. El problema de este método es la complejidad en memoria y tiempo, pues genera un vocabulario muy grande y con ellos una matriz de embeddings también demasiado grande. A esto hay que sumar que aparece el problema de palabras no vistas o \textit{UNK}. 
+
+La tokenización de subpalabras resuelve estos problemas. Se basa en la idea de que las palabras que se usan con frecuencia no deberían dividirse, mientras que las más raras sí, manteniendo así palabras más frecuentes. Por ejemplo, en un texto en inglés, la palabra \textit{"annoyingly"} no es una palabra común, mientras que las subpalabras \textit{"annoying"} y \textit{"ly"} sí. Permite, con ello, ver más vocabulario, sin perder significado de las palabras menos frecuentes \parencite{lmpo2020bpe}
+
+En este proyecto, dado que son textos en inglés y las limitaciones técnicas que existen, se ha decidido utilizar un tokenizador de subpalabras. Entre estos, destacan dos: \texttt{Byte Pair Encoding (BPE)} y \texttt{WordPiece} \parencite{huggingface_tokenizer_summary}. 
+
+Ambos funcionan de forma similar, la principal diferencia radica en cómo realizan las "uniones" a partir del vocabulario base. BPE lo que hace es primeramente una pre-tokenización de los datos de entrenamiento por espacios o basada en reglas (por ejemplo, Moses \ref{sec:moses}). Con ello, obtiene un conjunto de palabras únicas y su frecuencia. Tras ello, crea un vocabulario base con los distintos símbolos que aparecen en las palabras únicas. La idea ahora es aprender reglas de unión para crear nuevos símbolos a partir de otros dos en base a la frecuencia. El proceso se repite hasta alcanzar el tamaño deseado, que se configura como hiperparámetro. En GPT-3 el tamaño es de $50000$ tokens aproximadamente \parencite{paul2025vocabsize}. Para evitar un vocabulario base muy extenso si se quiere tener todos los caracteres con el fin de evitar palabras o tokens no vistos, se pueden usar bytes, así se tiene un tamaño fijo de $256$, utilizando reglas para los caracteres de puntuación que no se puedan representar.
+
+WordPiece, en lugar de escoger simplemente los pares de símbolos más frecuentes, utiliza probabilidades. Para cada par de símbolos, calcula la probabilidad combinada entre la individual de cada uno. El par con el valor de $\text{score}(A,B)$ más alto es el que se añade al vocabulario, ya que indica que ambos símbolos aparecen juntos con más probabilidad de la esperada si fueran independientes.
+
+\[
+\text{puntuación}(A,B) = \frac{P(AB)}{P(A) \cdot P(B)}
+\]
+
+Donde:
+\begin{itemize}
+    \item $P(AB)$ es la probabilidad estimada de que aparezca el token combinado $AB$
+    \item $P(A)$ y $P(B)$ son las probabilidades de cada símbolo por separado.
+\end{itemize}
+
+Dado que los \textit{datasets} que utilizo no son muy grandes, voy a emplear BPE con SentencePiece \parencite{google_sentencepiece}. Además, este método ha sido utilizado en modelos como GPT \parencite{reddit2021tokenizers}. 
+
+SentencePiece es un framework de tokenización y detokenización desarrollado por Google que facilita la implementación de BPE. Entre sus características principales destaca el hecho de que no depende del idioma, ya que trabaja directamente con caracteres crudos, permite entrenar sin preprocesamiento previo y sin precisar librerías externas como NLTK o SpaCy, y trata los espacios en blanco como caracteres independientes, lo que resuelve problemas en lenguas sin segmentación explícita como el chino. El resultado es un modelo portable y eficiente. 
+
+Asimismo, SentencePiece incluye mecanismos avanzados que mejoran la robustez de los modelos: 
+\begin{itemize}
+    \item \textbf{Byte fallback}, hace que si aparece cualquier caracter desconocido no genere un \textit{"UNK"}, sino que lo descompone en bytes.
+    \item \textbf{BPE-dropout}, que introduce aleatoriedad en el proceso de segmentación durante el entrenamiento para mejorar la generalización, en sí lo que hace es omitir uniones aleatoriamente durante la tokenización.
+    \item \textbf{Regularización por subpalabras}, que permite generar múltiples segmentaciones posibles de una misma secuencia, actuando como técnica de \textit{data augmentation}.
+\end{itemize}
+
+\section{Embeddings}
+La tokenización permite convertir palabras o fragmentos de texto en números enteros, pero estos números no capturan el significado o contexto de las palabras. Hay técnicas como  \textit{One-Hot Encoding} que representan cada palabra como un vector binario en el que solo una posición es 1 y el resto son ceros. Esto presenta varias desventajas: genera vectores de alta dimensionalidad, dispersos y no capturan ningún tipo de información sobre el significado, el contexto o la similitud entre palabras.
+
+Es por ello que se utilizan ampliamente los \textit{embeddings}. Se trata de vectores densos, de números reales, capaces de capturar el significado de las palabras, sus relaciones semánticas y su contexto dentro del lenguaje. Los embeddings se obtienen mediante entrenamiento, de manera que palabras con contextos similares tienden a tener vectores cercanos entre sí en el espacio vectorial \parencite{geeksforgeeks_embedding}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/ejemplo_embedding.png}
+    \caption{Ejemplo similitud vectorial embeddings}
+    \label{fig:placeholder6}
+\end{figure}
+
+Internamente, un embedding se representa como una matriz de pesos $E \in \mathbb{R}^{V \times d}$, donde $V$ es el tamaño del vocabulario y $d$ la dimensión del embedding. Cada fila de $E$ contiene el vector asociado a un token. Durante el entrenamiento, solo se actualizan los vectores correspondientes a los tokens presentes en cada lote, lo que permite un aprendizaje eficiente.
+
+Otra ventaja de estos vectores multidimensionales es la posibilidad de operar con ellos, así un ejemplo clásico a la hora de hablar de embeddings, demuestra cómo capturan el contexto: 
+\[
+\text{vec}(\text{``rey''}) - \text{vec}(\text{``hombre''}) + \text{vec}(\text{``mujer''}) \approx \text{vec}(\text{``reina''})
+\]
+
+En este tipo de arquitecturas, los embeddings se combinan con codificaciones posicionales para incorporar la información del orden de las palabras en la secuencia. Con ello se consigue que el modelo tenga acceso tanto al significado individual de las palabras como a su posición relativa dentro de la frase. Así puede capturar diferencias según dónde aparezca la palabra, no es lo mismo "un banco de peces" que "dinero en el banco" \parencite{perez_embeddings}.
 
 \section{Arquitectura Transformer} \label{Arquitectura Transformer}
 
-Se va a implementar una arquitectura Transformer para la generación de texto en un contexto reducido; por ello, se desarrollará únicamente el Decoder, ya que no se necesita una entrada previa que transformar, como sería el caso de un traductor.
+En este proyecto, como ya se ha explicado, se va a implementar una arquitectura Transformer para la generación de texto en un contexto reducido, por lo que se ha decidido desarrollar una arquitectura del tipo Decoder Only, ya que no es necesario un proceso de codificación previo, como sería el caso de un traductor, el cual requeriría de un encoder.
 
+A continuación, se describen los distintos bloques que componen esta arquitectura.
 
-Este elemento consta de los siguientes módulos en su composición fundamental:
 \subsection{Positional encoding}
-Un transformer, a diferencia de otros modelos como los LSTM, no son secuenciales y procesan los datos en paralelo, esto hace que desconozcan en que orden aparecen los distintos tokens. Es por ello que se realiza esta codificación, que provee una posición relativa a cada token o palabra en la secuencia \parencite{phillips2019positional}. Es un factor importante pues en una frase, cada palabra depende del resto y según la posición en la que aparezcan pueden tener distintos significados: "Me senté en el banco" es distinto a "El banco de peces". En el paper "Attention is All You Need", se utiliza el seno o coseno para dar a cada posición una representación única, ya que cada palabra se representa con un vector numérico. Esto es debido a que la salida está normalizada, pues estos valores comprenden entre [-1 ,1] y no requiere de entrenamiento adicional pues son valores únicos. 
+Un transformer, a diferencia de otros modelos, procesa los datos en paralelo, lo que hace que desconozcan en que orden aparecen los distintos tokens. Por este motivo se realiza una codificación posicional, que asigna una posición relativa a cada token o palabra en la secuencia \parencite{phillips2019positional}. 
+
+Este aspecto es fundamental, ya que en una frase el significado de cada palabra depende del contexto y la posición en la que aparece. Por ejemplo, "Me senté en el banco" es distinto a "El banco de peces". En el artículo original "Attention is All You Need", se propone la utilización de funciones seno y coseno para dar a cada posición una representación única, ya que cada palabra se representa con un vector numérico. Esto permite que la salida esté normalizada, pues estos valores se encuentran en el rango [-1 ,1] y no requiere de entrenamiento adicional ya que los valores posicionales son determinados de forma fija y única. 
+
     \[
     PE_{(pos, 2i)} = \sin\!\left(\frac{pos}{10000^{\tfrac{2i}{d}}}\right), 
     \qquad
     PE_{(pos, 2i+1)} = \cos\!\left(\frac{pos}{10000^{\tfrac{2i}{d}}}\right)
     \]
+En este proyecto, se ha optado por utilizar una codificación posicional aprendida, donde el modelo aprende durante el entrenamiento una representación vectorial para cada posición dentro del contexto definido. Este método ofrece mayor flexibilidad y capacidad de adaptación a los datos, aunque limita la generalización a secuencias de longitud distinta a la utilizada durante el entrenamiento.
+
 \subsection{Masked Multi-head Attention}\label{subsec:multihead}
-En esta arquitectura, como se ha comentado, no se procesan secuencialmente los datos, sino que se hace en paralelo. Para ello se utilizan los llamados \textbf{mecanismos de atención}. Estos sopesan la importancia de distintos tokens en la secuencia de entrada. En sí, se puede decir que cada palabra mira al resto para ver cuáles tienen mayor importancia a la hora de entender el contexto. Por ejemplo, "El perro ladra en el prado", la palabra "ladra" tendrá un peso mayor en "perro" que "prado". Lo que se hace es calcular múltiples de estos mecanismos en paralelo, de forma que cada uno aprende una proyección diferente (dependencias sintácticas, semánticas,etc.) y a continuación, se concatenan. 
-En sí, el proceso de calcular esos valores de importancia requiere de 3 elementos: los vectores Q,K y V. Donde cada W asociada a esos elementos son una matriz de pesos entrenables \parencite{analytics2020qkv}.
+
+El componente principal de esta arquitectura son los llamados \texttt{mecanismos de atención}. Estos sopesan la importancia de distintos tokens en la secuencia de entrada. En sí, se puede decir que cada palabra mira al resto para ver cuáles tienen mayor importancia a la hora de entender el contexto. Por ejemplo, "El perro ladra en el prado", la palabra "ladra" tendrá un peso mayor en "perro" que "prado". 
+
+En la práctica, se emplean múltiples mecanismos de atención en paralelo, es lo que se conoce como \texttt{multi-head attention}. Cada una de estas cabezas aprende una proyección distinta del espacio de representaciones, lo que permite capturar diferentes tipos de dependencias(sintácticas, semánticas,etc.) entre las palabras. Finalmente, las salidas de todas las cabezas se concatenan y combinan, proporcionando una representación más rica y completa del contexto.
+
+El proceso de calcular esos valores de importancia requiere de 3 elementos: los vectores Q,K y V. Donde cada W asociada a esos elementos son una matriz de pesos entrenables \parencite{analytics2020qkv}.
 
 \subsubsection{Query (Q)}
 Refieren a los embeddings de los tokens de la secuencia de entrada y puede entenderse como lo que se está buscando. Siguiendo con el ejemplo de la frase anterior, para el vector correspondiente con el token "El", este valor se calcula: \[W_{El} * W_{Q}\]
@@ -273,8 +363,9 @@ Se entiende como lo que ofrece cada token. Por ejemplo, el token "perro" puede o
 \subsubsection{Value (V)}
 La información real que se transmite, si es relevante. Siguiendo con el ejemplo de la frase anterior, para el vector correspondiente con el token "El", este valor se calcula: \[W_{El} * W_{V}\]
 
-El proceso de atención se puede comparar con la búsqueda de un video en YouTube. Esta plataforma almacena sus videos en un diccionario Key-Value, siendo la clave el nombre. Cuando se realiza una búsqueda (Query) se calcula la similitud con esas claves (Key) para devolver el resultado. \\
-Como punto de partida se usa el vector de embeddings calculado previamente, y en base a este se calcularían los vectores anteriores, que se pueden entender como 3 versiones de dicho embedding. Para su cálculo, se aplican transformaciones lineales que encuentran la mejor combinación de pesos y tras esto se aplica la siguiente fórmula:
+El proceso de atención se puede comparar con la búsqueda de un video en YouTube. Esta plataforma almacena sus videos en un diccionario clave-valor, siendo la clave el nombre. Cuando se realiza una búsqueda (Query) se calcula la similitud con esas claves (Key) para devolver el resultado.
+
+Como punto de partida se usa el vector de embeddings calculado previamente, y en base a este se calcularían los vectores anteriores, que se pueden entender como 3 versiones de dicho embedding. Para su cálculo, se aplican transformaciones lineales que encuentran la mejor combinación de pesos y tras esto se calcula la atención en base a la siguiente expresión:
 \[
 \text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^{T}}{\sqrt{d_k}}\right)V
 \]
@@ -290,7 +381,7 @@ Matriz de similitudes. Con \emph{dot product}, el valor es grande si los vectore
 \mathrm{softmax}\!\left(\frac{QK^{T}}{\sqrt{d_k}}\right)V
 \]
 \noindent\makebox[\linewidth][c]{\parbox{.9\linewidth}{\small
-Como el \emph{dot product} puede dar valores grandes, que hagan que softmax se concentre en ellos,  se normaliza con $\sqrt{d_k}$ para estabilizar; \textit{softmax} produce una distribución de probabilidades y, al multiplicar por $V$, se obtiene una combinación ponderada que añade contexto a los embeddings.
+Como el \emph{dot product} puede dar valores grandes, que hagan que softmax se concentre en ellos, se normaliza con $\sqrt{d_k}$ para estabilizar. La función \textit{softmax} produce una distribución de probabilidades y, al multiplicar por $V$, se obtiene una combinación ponderada que añade contexto a los embeddings.
 }}
 
 En estos mecanismos de atención se incluye habitualmente el término \textit{masked}, ya que se emplean máscaras con el fin de restringir la información a la que tiene acceso el modelo durante el cálculo de la atención. Estas máscaras permiten, por ejemplo, impedir que el modelo considere tokens futuros que aún no deberían ser visibles en una tarea de generación autoregresiva, o bien ignorar tokens que no contienen información semántica relevante. 
@@ -300,11 +391,10 @@ Entre los tipos de máscaras más comunes se encuentra la \textit{Padding Mask},
 
 \subsection{Add \& Norm \parencite{sharma2024addnorm}} \label{subsec:addnorm}
 
-En la arquitectura Transformer aparece reiteradamente una capa denominada \textit{Add \& Norm}. La principal finalidad de esta capa es estabilizar y mejorar el entrenamiento y se divide en dos procesos, que se explican a continaución.
-\subsubsection{Conexión Residual (\textit{Add})}
-En redes profundas con arquitecturas complejas los pesos pueden tomar valores muy pequeños, hasta el punto de desaparer (\textit{vanishing gradients}) o demasiado grandes (\textit{exploding gradients}) al retropropagar hacia atrás, lo que conlleva que la red deje de aprender o sea muy inestable. 
+En la arquitectura Transformer aparece reiteradamente una capa denominada \textit{Add \& Norm}. La principal finalidad de esta capa es estabilizar y mejorar el entrenamiento y se divide en los dos procesos siguientes:
 
-Para solucionar estos problemas, en 2015 nace ResNet una arquitectura en la que la entrada de una capa, pasa a su salida directamente, saltándose las operciones intermedias. Es decir, a nivel simplificado se tendría: 
+\subsubsection{Conexión Residual (\textit{Add})}
+En redes profundas con arquitecturas complejas los pesos pueden tomar valores muy pequeños, hasta el punto de desaparer (\textit{vanishing gradients}) o demasiado grandes (\textit{exploding gradients}) al retropropagar hacia atrás, lo que conlleva que la red deje de aprender o sea muy inestable. Para solucionar estos problemas, en 2015 nace ResNet una arquitectura en la que la entrada de una capa, pasa a su salida directamente, saltándose las operciones intermedias. Es decir, a nivel simplificado se tendría: 
 
 \[
 y = F(x) + x
@@ -321,7 +411,7 @@ Con ello, la capa ya no tiene que aprender la función completa $F(x)$, sino sol
     \label{fig:placeholder13}
 \end{figure}
 
-Esto se entiende mejor al calcular las derivadas parciales para actualizar los pesos en \textit{basckpropagation}. Como se observa en la siguiente expresión, el gradiente nunca se anula completamente gracias al término de identidad: 
+Se entiende mejor al calcular las derivadas parciales para actualizar los pesos en \textit{backpropagation}. Como se observa en la siguiente expresión, el gradiente nunca se anula completamente gracias al término de identidad: 
 
 \[
 \frac{\partial \mathcal{E}}{\partial x}
@@ -363,14 +453,12 @@ Mientras que la normalización por capa se aplica dentro de cada secuencia consi
 \sigma_{\text{seq2}} = \sqrt{\frac{(4-4.5)^2 + (5-4.5)^2}{2}} = 0.5
 \]
 
-
 Con ello, en base a estas dos operaciones, de media y varianza, se realzia la normalización de los valores de entrada en cada capa aplicando la siguiente expresión: 
 
 \begin{equation}
     \hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta
     \label{eq:normalization_sigma}
 \end{equation}
-
 
 En dicha expresión se observan dos parámetros entrenables, $\gamma$ y $\beta$, que permiten al modelo aprender la escala y el desplazamiento óptimos para cada característica. Sin estos parámetros, la normalización es demasiado restrictiva, pues los resultados se aplanan siempre a un mismo rango. El término $\epsilon$ es un valor pequeño añadido para evitar divisiones por cero y garantizar la estabilidad numérica.
 
@@ -384,7 +472,6 @@ Se define como una capa o bloque que toma la salida de la capa de atención y la
 
 Pese a que originalmente se usaban 2 capas lineales con ReLU, en la actualidad se ha demostrado una mejora significativa al aumentar el número de capas, obteniendo un entrenamiento más estable, pues se vió que el aprendizaje al inicio era mayor, y reduciendo el problema por la desaparición del gradiente. Además, se ha demostrado ampliamente que es un bloque fundamental, pues en varios experimentos, al eliminar esta capa, el rendimiento del modelo disminuye drásticamente \parencite{gerber2025ffn}.
 
-
 \subsection{Linear y softmax}
 Las últimas capas del modelo son una capa lineal y softmax. A través de la primera se obtienen los denominados \textit{logits}, que son puntuaciones sin normalizar sobre que tan probable es cada token para el modelo. La función de esta capa es transformar los embeddings de alta dimensión en una representación que pueda ser interpretada como una distribución de probabilidad sobre el vocabulario.
 
@@ -396,60 +483,39 @@ A través de \textit{softmax}, se transforman estas puntuaciones en una distribu
 
 %--- CAPÍTULO 4 DEL TFM
 \chapter{Resultados}
-\section{Preparación del entorno}
-El proyecto se implementa íntegramente en Python 3.12. 
-El primer punto es montar un entorno virtual donde se instalarán las librerías necesarias.
 
-\begin{lstlisting}[language=bash]
-python3 -m venv .venv
-source .venv/bin/activate
-\end{lstlisting}
-El segundo punto consiste en instalar \texttt{CUDA}, \texttt{Pytorch} y \texttt{Tensorflow} y verificar que la GPU es detectada
-\begin{lstlisting}[language=bash]
-# Verificar CUDA, en mi caso tengo la version 12.9.
-nvidia-smi
+% FUENTES DE DATOS
+\section{Adquisión y análisis de las fuentes de datos}
+En este proyecto se han seleccionado dos datasets distintos: Tiny Shakespeare y WikiText2.
 
-#Instalar torch para esa version de CUDA
-pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu129
-
-#Instalar tensorflow
-pip install "tensorflow[and-cuda]"
-
-\end{lstlisting}
-
-\begin{lstlisting}[language=Python]
-import torch
-print(torch.cuda.is_available())
-print(torch.version.cuda)
-print(torch.cuda.device_count())
-\end{lstlisting}
-En este caso, la GPU utilizada es: NVIDIA GeForce RTX 4090 Laptop GPU con memoria total (MB): 15943
-
-\section{Análisis de los dataset}
 \subsection{Tiny Shakespeare}
-Se trata de un dataset creado por Andrej Karpathy compuesto por 40.000 líneas con las obras de Shakespeare. El dataset está disponible en HuggingFace \parencite{huggingface_tinyshakespeare}.
+Se trata de un dataset creado por Andrej Karpathy compuesto por $40.000$ líneas con las obras de Shakespeare. El dataset está disponible en HuggingFace \parencite{huggingface_tinyshakespeare} y puede obtenerse con el comando \textit{wget} de la siguiente forma:
 
-\begin{lstlisting}[language=bash]
-wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt -O tinyshakespeare.txt
-\end{lstlisting}
+\texttt{wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt -O tinyshakespeare.txt}
+A continuación se adjunta una porción del dataset original: 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{img/tiny_shakespeare.png}
     \caption{Fragmento del dataset Tiny Shakespeare}
     \label{fig:placeholder1}
 \end{figure}
-\subsection{WikiText2}
-Este dataset se puede descargar de Salesforce en Huggingface y consta de más de 2 millones de tokens de datos, divididos en 4358 ejemplos para test, 36718 para entrenamiento y 3760 para validación. Este contiene una colección de textos seleccionados de Wikipedia \parencite{huggingface_wikitext} \parencite{autonlp2020linkedwikitext}
 
-\begin{lstlisting}[language=Python]
-wikitext2 = load_dataset("Salesforce/wikitext", "wikitext-2-raw-v1")
-\end{lstlisting}
+\subsubsection{EDA}
+
+
+\subsection{WikiText2}
+Este dataset contiene una colección de textos seleccionados de Wikipedia \parencite{huggingface_wikitext} \parencite{autonlp2020linkedwikitext}. Se puede descargar de Salesforce en Huggingface y consta de más de 2 millones de tokens de datos, divididos en $4358$ ejemplos para test, $36718$ para entrenamiento y $3760$ para validación. 
+
+
+\texttt{wikitext2 = load\_dataset("Salesforce/wikitext", "wikitext-2-raw-v1")}
+
+\subsubsection{EDA}
+
+% LIMPIEZA Y TOKENIZACIÓN
 
 \section{Limpieza y tokenización}
-Para que el modelo sea capaz de encontrar patrones y llegar a "comprender" un texto, es necesario estructurarlo previamente. En sí, el proceso de estructuración consiste en aplicar una serie de reglas al texto para normalizarlo, limpiarlo y extraer los llamados "tokens". Un token se puede entender como un fragmento de un texto; puede ser, por ejemplo, un carácter, una palabra o una subpalabra. Estos tokens se transforman a un valor numérico, con lo que ya se tendría una representación numérica del texto, pero para que el modelo lo comprenda, cada token se representa como un vector o tensor, son los llamados embeddings, que capturan el contexto de las palabras y otra información importante. \parencite{lmpo2020bpe}
 
-
-En lo referido a la limpieza del texto existen diversas técnicas, como limpiar etiquetas HTML, caracteres especiales, \textbf{stop words}, duplicados, convertir a minúsculas, solucionar problemas de encoding, lematización o corrección de palabras (librerías de Python como SpellChecker permiten realizar esta tarea) \parencite{shabbir2021cleaning}. En este proyecto, dado que los datasets empleados ya están correctamente procesados y se va a utilizar un tokenizador Byte-Pair encoding (BPE) a través de SentencePiece, no es necesario un pre-procesamiento demasiado exhaustivo, se limita a corrección de posibles problemas de codificación utilizando \textbf{ftfy}, espacios en blanco y normalización de comillas y guiones usando unicode.
+En lo referido a la limpieza del texto existen diversas técnicas, como limpiar etiquetas HTML, caracteres especiales, stop words, duplicados, convertir a minúsculas, solucionar problemas de encoding, lematización o corrección de palabras (librerías de Python como SpellChecker permiten realizar esta tarea) \parencite{shabbir2021cleaning}. En este proyecto, dado que los datasets empleados ya están correctamente procesados y se va a utilizar un tokenizador Byte-Pair encoding (BPE) a través de SentencePiece, no es necesario un pre-procesamiento demasiado exhaustivo, se limita a corrección de posibles problemas de codificación utilizando ftfy, espacios en blanco y normalización de comillas y guiones usando unicode.
 
 \begin{figure}[h]
     \centering
@@ -457,40 +523,9 @@ En lo referido a la limpieza del texto existen diversas técnicas, como limpiar 
     \caption{Limpieza antes de tokenizar}
     \label{fig:placeholder2}
 \end{figure}
-Como se ha mencionado, existen distintas técnicas de tokenización. A nivel más simple está la tokenización en caracteres, en palabras y en subpalabras. La primera tiene la ventaja de disminuir la complejidad, sin embargo, el modelo está más limitado a la hora de aprender representaciones significativas. Puede ser útil para idiomas como el chino, donde la morfología es compleja y no existen los espacios. La segunda es la tokenización por espacio y puntuación, es decir, la frase \textit{"Mi perro come mucho."} no se descompone en los tokens: \textit{"Mi", "perro", "come", "mucho."}, que es a lo que equivaldría hacer un split por espacios, sino que se tokenizaría como: \textit{"Mi", "perro", "come", "mucho", "."}. El problema de este método es la complejidad en memoria y tiempo, pues genera un vocabulario muy grande y con ellos una matriz de embeddings también demasiado grande. A esto hay que sumar que aparece el problema de palabras no vistas o \textit{UNK}. 
-Estos problemas se resuelven con la tokenización de subpalabras. Este método se basa en la idea de que las palabras que se usan con frecuencia no deberían dividirse, mientras que las más raras sí, manteniendo así palabras más frecuentes. Por ejemplo, en un texto en inglés, la palabra \textit{"annoyingly"} no es una palabra común, mientras que las subpalabras \textit{"annoying"} y \textit{"ly"} sí. Permite, con ello, ver más vocabulario, sin perder significado de las palabras menos frecuentes \parencite{lmpo2020bpe}
-
-En este proyecto, dado que son textos en inglés y las limitaciones técnicas que existen, se ha decidido utilizar un tokenizador de subpalabras. Entre estos, destacan dos: BPE y WordPiece \parencite{huggingface_tokenizer_summary}. Ambos funcionan de forma similar, la principal diferencia radica en cómo realizan las "uniones" a partir del vocabulario base. BPE lo que hace es primeramente una pre-tokenización de los datos de entrenamiento por espacios o basada en reglas (por ejemplo, \textbf{Moses}). Con ello, obtiene un conjunto de palabras únicas y su frecuencia. Tras ello, crea un vocabulario base con los distintos símbolos que aparecen en las palabras únicas. La idea ahora es aprender reglas de unión para crear nuevos símbolos a partir de otros dos en base a la frecuencia. El proceso se repite hasta alcanzar el tamaño deseado, que se configura como hiperparámetro. \textbf{En GPT el tamaño es de 40478 tokens.} Para evitar un vocabulario base muy extenso si se quiere tener todos los caracteres con el fin de evitar palabras o tokens no vistos, se pueden usar bytes, así se tiene un tamaño fijo de 256, utilizando reglas para los caracteres de puntuación que no se puedan representar. \\
-\\
-\textbf{METER EJEMPLO}\\
-
-WordPiece, en lugar de escoger simplemente los pares de símbolos más frecuentes, utiliza probabilidades. En sí, para cada par de símbolos, calcula la probabilidad combinada entre la individual de cada uno. El par con el valor de $\text{score}(A,B)$ más alto es el que se añade al vocabulario, ya que indica que ambos símbolos aparecen juntos con más probabilidad de la esperada si fueran independientes.\\
-
-Dado que los \textit{datasets} que utilizo no son muy grandes, voy a emplear BPE con SentencePiece \parencite{google_sentencepiece}. Además, este método ha sido utilizado en modelos como GPT \parencite{reddit2021tokenizers}. 
-
-SentencePiece es un framework de tokenización y detokenización desarrollado por Google que facilita la implementación de BPE. Entre sus características principales destaca el hecho de que no depende del idioma, ya que trabaja directamente con caracteres crudos, permite entrenar sin preprocesamiento previo y sin precisar librerías externas como NLTK o SpaCy, y trata los espacios en blanco como caracteres independientes, lo que resuelve problemas en lenguas sin segmentación explícita como el chino. El resultado es un modelo portable y eficiente. 
-
-Asimismo, SentencePiece incluye mecanismos avanzados que mejoran la robustez de los modelos: 
-\begin{itemize}
-    \item \textbf{Byte fallback}, hace que si aparece cualquier caracter desconocido no genere un \textit{"UNK"}, sino que lo descompone en bytes.
-    \item \textbf{BPE-dropout}, que introduce aleatoriedad en el proceso de segmentación durante el entrenamiento para mejorar la generalización, en sí lo que hace es omitir uniones aleatoriamente durante la tokenización.
-    \item \textbf{Regularización por subpalabras}, que permite generar múltiples segmentaciones posibles de una misma secuencia, actuando como técnica de \textit{data augmentation}.
-\end{itemize}
-
-
-\[
-\text{puntuación}(A,B) = \frac{P(AB)}{P(A) \cdot P(B)}
-\]
-
-donde:
-\begin{itemize}
-    \item $P(AB)$ es la probabilidad estimada de que aparezca el token combinado $AB$
-    \item $P(A)$ y $P(B)$ son las probabilidades de cada símbolo por separado.
-\end{itemize}
-\text{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
 
 \subsection{Implementación del tokenizador BPE}
-El primer paso es entrenar el tokenizador, de forma que aprenda el vocabulario y a dividir en subpalabras. Se establece el tipo de modelo, "bpe" en este caso, el tamaño del vocabulario final, la porción de caracteres del corpus que debe cubrir el modelo (1 para cubrir todos) y el número de hilos de CPU a usar durante el entrenamiento. Además, se utiliza el parámetro \textit{byte\_fallback} para controlar los caracteres desconocidos, tal y como se ha explicado previamente.Se aplica una normalización NFKC (descompone los caracteres en formas básicas y los recompone siguiendo una forma estándar) antes de entrenar donde se estandarizan caracteres y eliminan espacios innecesarios o múltiples. Esto es algo que conviene usar con lenguajes como el japonés que utilizan caracteres desnormalizados o textos sucios y desnormalizados; sin embargo, en este caso, los datasets empleados ya están listos para usarse y se podría evitar. Por último, se asignan los IDs especiales:
+Una vez el texto está preparado se inicia la implementación del proceso de tokenización. El primer paso es entrenar el tokenizador, de forma que aprenda el vocabulario y a dividir en subpalabras. Se establece el tipo de modelo, "bpe" en este caso, el tamaño del vocabulario final, la porción de caracteres del corpus que debe cubrir el modelo (1 para cubrir todos) y el número de hilos de CPU a usar durante el entrenamiento. Además, se utiliza el parámetro \textit{byte\_fallback} para controlar los caracteres desconocidos, tal y como se ha explicado previamente. Se aplica una normalización NFKC (descompone los caracteres en formas básicas y los recompone siguiendo una forma estándar) antes de entrenar donde se estandarizan caracteres y eliminan espacios innecesarios o múltiples. Esto es algo que conviene usar con lenguajes como el japonés que utilizan caracteres desnormalizados o textos sucios y desnormalizados, sin embargo, en este caso, los datasets empleados son en inglés y ya están listos para usarse y se podría evitar. Por último, se asignan los IDs especiales:
 
  \begin{itemize}
      \item pad: token de padding para rellenar secuencias de distinta longitud.
@@ -498,6 +533,7 @@ El primer paso es entrenar el tokenizador, de forma que aprenda el vocabulario y
      \item bos: Token de inicio de secuencia, para dar consistencia.
      \item eos: Token de fin de secuencia. Permite al modelo a aprender a parar.
  \end{itemize}
+ 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{img/sentence_trainer.png}
@@ -505,120 +541,24 @@ El primer paso es entrenar el tokenizador, de forma que aprenda el vocabulario y
     \label{fig:placeholder3}
 \end{figure}
  
-Una vez entrenado el tokenizador, se procede a tokenizar los conjuntos de datos (\textit{train}, \textit{validation} y \textit{test}) utilizando dicho modelo. Para ello, se definen las siguientes funciones:
 
-\begin{itemize}
-    \item \textbf{\texttt{sp\_encode\_batch\_train}}: utilizada para tokenizar los datos de entrenamiento. Esta función habilita el muestreo probabilístico de segmentaciones (\textit{subword regularization}) mediante los parámetros \texttt{enable\_sampling=True}, \texttt{nbest\_size=-1} y \texttt{alpha=0.1}. Esta técnica introduce pequeñas variaciones en las secuencias tokenizadas para un mismo texto, lo que actúa como regularización durante el entrenamiento del modelo de lenguaje.
+El entrenamiento genera dos archivos que contienen el modelo de segmentación y el vocabulario aprendido. Posteriormente, se inicializa un objeto \texttt{SentencePieceProcessor} a partir del modelo entrenado, y se procede a tokenizar los conjuntos de datos (entrenamiento, validación y prueba) mediante el método \texttt{sp.encode}, que devuelve una lista de identificadores numéricos correspondientes a las subpalabras detectadas en el texto. 
+
+Finalmente, la función imprime el número total de tokens generados y devuelve tanto la secuencia de identificadores (\texttt{tok\_ids}) como el objeto \texttt{SentencePieceProcessor}, que permitirá revertir la tokenización o aplicarla en futuros conjuntos de datos.
+
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/train_tok.png}
+    \includegraphics[width=0.5\linewidth]{img/limpieza_tokeniz_train.png}
     \caption{Enter Caption}
-    \label{fig:placeholder4}
+    \label{fig:placeholder30}
 \end{figure}
-    \item \textbf{\texttt{sp\_encode\_batch\_eval}}: usada para tokenizar los conjuntos de validación y prueba. Aquí se desactiva el muestreo para que la tokenización sea determinista y reproducible.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.5\linewidth]{img/test_tok.png}
-        \caption{Enter Caption}
-        \label{fig:placeholder5}
-    \end{figure}
-\end{itemize}
-
-En ambos casos, a cada secuencia tokenizada se le añaden explícitamente los tokens especiales de inicio (\texttt{<bos>}) y fin (\texttt{<eos>}) de secuencia, cuyos IDs fueron definidos durante el entrenamiento del modelo SentencePiece. Además, se genera una máscara de atención (\texttt{attention\_mask}) compuesta inicialmente por unos, ya que en este punto todavía no se ha aplicado \textit{padding}.
-
-\paragraph{Ejemplo:}
-
-Considerando la frase:
-
-\begin{quote}
-\texttt{El perro ladra en el prado}
-\end{quote}
-
-La función \texttt{sp.encode(...)} devuelve una secuencia de IDs correspondiente a las subpalabras identificadas por SentencePiece. Por ejemplo:
-
-\begin{center}
-\texttt{[120, 457, 98, 14, 120, 892]}
-\end{center}
-
-donde los números representan los IDs de tokens correspondientes a subpalabras como:
-
-\begin{quote}
-\texttt{["\_El", "\_perro", "\_ladra", "\_en", "\_el", "\_prado"]}
-\end{quote}
-
-Si los IDs de los tokens especiales son \texttt{<bos> = 1} y \texttt{<eos> = 2}, entonces la secuencia final de entrada (\texttt{input\_ids}) será:
-
-\begin{center}
-\texttt{[1, 120, 457, 98, 14, 120, 892, 2]}
-\end{center}
-
-La correspondiente máscara de atención generada será:
-
-\begin{center}
-\texttt{[1, 1, 1, 1, 1, 1, 1, 1]}
-\end{center}
-
-\paragraph{Agrupación en lotes y padding:}
-
-Supongamos ahora que otra frase más corta, como:
-
-\begin{quote}
-\texttt{El perro ladra}
-\end{quote}
-
-es tokenizada como:
-
-\begin{center}
-\texttt{[1, 120, 457, 98, 2]}
-\end{center}
-
-con la máscara:
-
-\begin{center}
-\texttt{[1, 1, 1, 1, 1]}
-\end{center}
-
-Al agrupar ambas secuencias en un mismo lote (\textit{batch}), se aplica \textit{padding} con un token especial (por ejemplo, \texttt{<pad> = 3}) para igualar su longitud. Las secuencias quedarían así:
-
-\begin{itemize}
-    \item \texttt{input\_ids}: \texttt{[1, 120, 457, 98, 14, 120, 892, 2]} \\
-    \texttt{[1, 120, 457, 98, 2, 3, 3, 3]}
-    \item \texttt{attention\_mask}: \texttt{[1, 1, 1, 1, 1, 1, 1, 1]} \\
-    \texttt{[1, 1, 1, 1, 1, 0, 0, 0]}
-\end{itemize}
-
-Esta máscara de atención es utilizada por el modelo Transformer para ignorar las posiciones de padding durante el cálculo de las atenciones.
-
-\text{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+% EMBEDDINGS 
 
 \section{Embeddings y Positional Encodding}
-Cualquier modelo basado en redes neuronales requiere que sus entradas sean valores numéricos, no arbitrarios, para poder trabajar con el lenguaje humano. Es cierto que los tokens del texto ya se han convertido a índices enteros usando técnicas de tokenización; no obstante, estos valores no son suficientes para que el modelo sea capaz de inferir relaciones semánticas entre las palabras y llegar a entender su significado.
+Cualquier modelo basado en redes neuronales requiere que sus entradas sean valores numéricos, no arbitrarios, para poder trabajar con el lenguaje humano. Es cierto que los tokens del texto ya se han convertido a índices enteros usando técnicas de tokenización, no obstante, estos valores no son suficientes para que el modelo sea capaz de inferir relaciones semánticas entre las palabras y llegar a entender su significado, es por ello que cada token se representa mediante un vector denso de características, conocido como \textit{embedding}.
 
-Hay técnicas como  \textit{One-Hot Encoding} que representan cada palabra como un vector binario en el que solo una posición es 1 y el resto son ceros. Esto presenta varias desventajas: genera vectores de alta dimensionalidad, dispersos y no capturan ningún tipo de información sobre el significado, el contexto o la similitud entre palabras.
-
-Es por ello que se utilizan ampliamente los \textit{embeddings}. En sí, se trata de vectores densos, de números reales, capaces de capturar el significado de las palabras, sus relaciones semánticas y su contexto dentro del lenguaje. Los embeddings se obtienen mediante entrenamiento, de manera que palabras con contextos similares tienden a tener vectores cercanos entre sí en el espacio vectorial \parencite{geeksforgeeks_embedding}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\linewidth]{img/ejemplo_embedding.png}
-    \caption{Ejemplo similitud vectorial embeddings}
-    \label{fig:placeholder6}
-\end{figure}
-
-Internamente, un embedding se representa como una matriz de pesos $E \in \mathbb{R}^{V \times d}$, donde $V$ es el tamaño del vocabulario y $d$ la dimensión del embedding. Cada fila de $E$ contiene el vector asociado a un token. Durante el entrenamiento, solo se actualizan los vectores correspondientes a los tokens presentes en cada lote, lo que permite un aprendizaje eficiente.\\
-
-Otra ventaja de estos vectores multidimensionales es la posibilidad de operar con ellos, así un ejemplo clásico a la hora de hablar de embeddings, demuestra cómo capturan el contexto: 
-\[
-\text{vec}(\text{``rey''}) - \text{vec}(\text{``hombre''}) + \text{vec}(\text{``mujer''}) \approx \text{vec}(\text{``reina''})
-\]
-
-En modelos avanzados como los Transformers, los embeddings se combinan con codificaciones posicionales para incorporar la información del orden de las palabras en la secuencia. Esta suma permite que el modelo tenga acceso tanto al significado individual de las palabras como a su posición relativa dentro de la frase. Así puede capturar diferencias según dónde aparezca la palabra, no es lo mismo "un banco de peces" que "dinero en el banco".\parencite{perez_embeddings}
-
-Esta matriz contiene información semántica de las palabras, pero dado que este tipo de arquitecturas procesan las secuencias en paralelo,  falta información sobre la posición de dichas palabras. A continuación se presenta una solución a este problema, es lo que se conoce como Positional Encoding. 
-
-\subsubsection{Implementación embeddings}
-Para mapear los índices resultantes de la tokenización a una matriz de \textit{embeddings}, se implementará una capa de embedding utilizando \texttt{PyTorch}. Esta capa actúa como una tabla de búsqueda que asocia cada índice con un vector de características. Internamente, se trata de una matriz de pesos que se optimiza durante el proceso de entrenamiento del modelo.
+Para mapear los índices resultantes de la tokenización a una matriz de \textit{embeddings}, se implementa una capa de embedding utilizando \texttt{PyTorch}. Esta capa actúa como una tabla de búsqueda que asocia cada índice con un vector de características. Internamente, se trata de una matriz de pesos que se optimiza durante el proceso de entrenamiento del modelo.
 
 \begin{figure}[h]
     \centering
@@ -627,7 +567,7 @@ Para mapear los índices resultantes de la tokenización a una matriz de \textit
     \label{fig:placeholder17}
 \end{figure}
 
-Cabe destacar que inicialmente la matriz de embeddings se encuentra aleatorizada. A medida que se entrena el modelo, estos vectores se ajustan mediante retropropagación, lo que reduce la función de pérdida y permite que los embeddings capturen mejor la semántica, el contexto y otras relaciones relevantes entre los tokens. El resultado final es un tensor en el que cada fila representa un vector denso asociado a un token del vocabulario, adaptado a la tarea específica \parencite{bao2022embedding}. Se ha decidido inicializar los pesos siguiendo una inicialización Normal (ver sección \ref{sec:normal} del Anexo), lo que permite que inicialmente sean valores cercanos a 0, evitando que algunos tokens tengan valores demasiado grandes. 
+Cabe destacar que inicialmente la matriz de embeddings es aleatoria. A medida que se entrena el modelo, estos vectores se ajustan mediante retropropagación, lo que reduce la función de pérdida y permite que los embeddings capturen mejor la semántica, el contexto y otras relaciones relevantes entre los tokens. El resultado final es un tensor en el que cada fila representa un vector denso asociado a un token del vocabulario, adaptado a la tarea específica \parencite{bao2022embedding}. Se ha decidido inicializar los pesos siguiendo una inicialización Normal (ver sección \ref{sec:normal} del Anexo), lo que permite que inicialmente sean valores cercanos a 0, evitando que algunos tokens tengan valores demasiado grandes. 
 
 \begin{figure}[h]
     \centering
@@ -636,22 +576,21 @@ Cabe destacar que inicialmente la matriz de embeddings se encuentra aleatorizada
     \label{fig:placeholder18}
 \end{figure}
 
+% ATENCION
 
 \section{Mecanismos de atención}
 La base de la arquitectura Transformer es la atención. A través de la atención, cada palabra mira simultáneamente al resto y calcula una métrica de relevancia a través de la cual, se determina que fracción de la información real es relavante para cada token y cpor tanto, para el modelo. 
 
 Como se ha mencionado previamente, se basa en 3 matrices entrenables, inicializadas originalmente con valores aleatorios, y una operación, softmax, que calcula una distribución de probabilidad para cada token (ver \cref{subsec:multihead}).
 
-
-\subsection{Implementación mecanismo de atención}
 Usando \texttt{PyTorch} es posible trabajar de forma sencilla con tensores y replicar toda la lógica operacional. En primer lugar, se implementa un mecanismo de atención aplicando una máscara causal, a continuación se desarrolla la lógica de múltiples cabezas para capturar distintas relaciones entre los tokens.
 
-El primer punto es crear las matrices de pesos \[W_Q, W_K, W_V\]. Aquí, \texttt{PyTorch} ofrece el módulo \texttt{nn.Linear}, que lo que hace es aplicar una transformación lineal (\[y = xW^T + b\]) a los datos de entrada \parencite{kanaries_nnlinear}, incializando aleatoriamente una matriz de pesos y un vector de sesgos, el cual, en este caso, no se va a inicializar pues no interesa que los vectores se desplacen en el espacio. Este módulo, toma dos parámetros: \textit{in\_features} y \textit{out\_features}, y la matriz resultante tiene un tamaño: \[\textit{in\_features} * \textit{out\_features}\]
+El primer punto es crear las matrices de pesos: 
+\[W_Q, W_K, W_V\]
 
+Aquí, PyTorch ofrece el módulo \texttt{nn.Linear}, que lo que hace es aplicar una transformación lineal a los datos de entrada \parencite{kanaries_nnlinear}, incializando aleatoriamente una matriz de pesos y un vector de sesgos, el cual, en este caso, no se va a inicializar pues no interesa que los vectores se desplacen en el espacio. Este módulo, toma dos parámetros: \textit{in\_features} y \textit{out\_features}, y la matriz resultante tiene un tamaño: $\textit{in\_features} * \textit{out\_features}$.
 
-De este modo, a partir de la misma entrada $x \in \mathbb{R}^{B \times T \times d_{model}}$ 
-(secuencia de embeddings), se obtienen tres vistas distintas que serán usadas 
-posteriormente en el cálculo de la atención.
+De este modo, a partir de la misma entrada $x \in \mathbb{R}^{B \times T \times d_{model}}$ (secuencia de embeddings), se obtienen tres vistas distintas que serán usadas posteriormente en el cálculo de la atención.
 
 \begin{figure}[h]
     \centering
@@ -660,7 +599,7 @@ posteriormente en el cálculo de la atención.
     \label{fig:Proyeccion8}
 \end{figure}
 
-Los siguientes pasos son crear la métrica de atención, normalizar con softmax y aplicar los \textit{scores} a la información real. Con PytTorch es muy sencillo de realizar a través de las funciones \textit{matmul}, que permite multiplicar tensores, y \textbf{softmax}. 
+Los siguientes pasos son crear la métrica de atención, normalizar con softmax y aplicar los \textit{scores} a la información real. Con PyTorch es muy sencillo de realizar a través de las funciones \textit{matmul}, que permite multiplicar tensores, y \textbf{softmax}. 
 
 \begin{figure}[h]
     \centering
@@ -669,7 +608,7 @@ Los siguientes pasos son crear la métrica de atención, normalizar con softmax 
     \label{fig:placeholder9}
 \end{figure}
 
-Por último, queda aplicar la máscara de atención. Dado que el modelo implementado es de carácter autorregresivo y emplea ventanas de tamaño fijo sin añadir \textit{padding}, únicamente es necesaria la \textbf{máscara causal}. Su implementación resulta sencilla: se construye una matriz triangular superior de unos, cuyos valores se reemplazan por $-\infty$. Esta operación se aplica antes de la normalización con la función \textit{softmax}, de manera que las posiciones enmascaradas reciben una probabilidad prácticamente nula y, en la práctica, el modelo las ignora.  
+Por último, queda aplicar la máscara de atención. Dado que el modelo implementado es de carácter autorregresivo y emplea ventanas de tamaño fijo sin añadir \textit{padding}, únicamente es necesaria la máscara causal. Su implementación resulta sencilla: se construye una matriz triangular superior de unos, cuyos valores se reemplazan por $-\infty$. Esta operación se aplica antes de la normalización con la función \textit{softmax}, de manera que las posiciones enmascaradas reciben una probabilidad prácticamente nula y, en la práctica, el modelo las ignora.  
 
 Por ejemplo, para una secuencia de longitud $T=4$, la matriz de \textit{metrica\_atencion} $S$ se transforma en:  
 
@@ -693,6 +632,7 @@ De este modo, cada token únicamente puede atenderse a sí mismo y a los anterio
 \end{figure}
 
 \subsection{Implementación de las múltiples cabezas de atención}
+
 Para poder aplicar la atención múltiple las matrices originales Q, K, V se reorganizan en múltiples cabezas. Para ello, se emplea la función \texttt{view} de \texttt{PyTorch}, que permite reorganizar el tensor sin modificar sus datos en memoria. En este caso, se pasa de una estructura de tamaño $(B, T, d_{model})$ a otra de tamaño $(B, \textit{num\_heads}, T, d_k)$, donde $d_k = d_{model} / \textit{num\_heads}$ es la dimensión de cada cabeza. Posteriormente, se aplica una transposición para situar la dimensión de las cabezas en la segunda posición:
 
 \begin{figure}[h]
@@ -702,7 +642,7 @@ Para poder aplicar la atención múltiple las matrices originales Q, K, V se reo
     \label{fig:placeholder11}
 \end{figure}
 
-De este modo, cada cabeza de atención opera de manera independiente sobre un subespacio de dimensión $d_k$, calculando sus propios valores de similitud ($QK^T$) y generando una salida parcial. Finalmente, las salidas de todas las cabezas se concatenan de nuevo y se proyectan mediante una capa lineal adicional:
+De este modo, cada cabeza de atención opera de manera independiente sobre un subespacio de dimensión $d_k$, calculando sus propios valores de similitud ($QK^T$) y generando una salida parcial. Finalmente, las salidas de todas las cabezas se concatenan de nuevo y se proyectan mediante una capa lineal adicional, como se puede ver en la imagen \ref{fig:placeholder12}.
 
 \begin{figure}[h]
     \centering
@@ -713,8 +653,9 @@ De este modo, cada cabeza de atención opera de manera independiente sobre un su
 
 Por último, mencionar que la inicialización de los pesos se realiza mediante el método \textit{Xavier Uniform} (ver sección \ref{sec:xavier} del Anexo), que estabiliza el entrenamiento en capas profundas. 
 
+% Add & Norm
 \section{Normalización \texttt{(Add \& Norm)}}
-Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos. Primero, una conexión residual que suma la entrada original a la salida del bloque de atención múltiple. En segundo lugar, una capa de normalización por capas que estabiliza y acelera el entrenamiento. En el siguiente esquema se visualiza mejor el flujo: 
+Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos. Primero, una conexión residual que suma la entrada original a la salida del bloque de atención múltiple. En segundo lugar, una capa de normalización por capas que estabiliza y acelera el entrenamiento. En la imagen \ref{fig:placeholder14} se visualiza mejor el flujo.
 
 \begin{figure}[h]
     \centering
@@ -722,8 +663,6 @@ Como se ha explicado en \ref{subsec:addnorm}, esta capa consta de dos elementos.
     \caption{Flujo capa Add \& Norm}
     \label{fig:placeholder14}
 \end{figure}
-
-\subsection{Implementación Add \& Norm}
 
 Como se puede ver en la imagen \ref{fig:placeholder26}, la conexión residual se realiza mediante una simple suma de tensores. La capa de normalización se ha implementado de cero, aunque \texttt{PyTorch} ofrece el módulo \texttt{nn.LayerNorm}, que realiza la misma función. En la implementación se calcula la media y la varianza por posición y devuelve el resultado de la expresión \eqref{eq:normalization_sigma}. 
 
@@ -746,7 +685,7 @@ Tal y como se ha explicado en la sección \ref{subsec:feedforward}, el rendimien
     \label{fig:placeholder15}
 \end{figure}
 
-La implementación es relativamente sencilla, se haría como si se tratara de un perceptrón multicapa \parencite{kyeg_feedforward_demystified}, donde se incluyen 3 capas lineales y dos funciones de activación GELU entre ellas. Además, se introduce \textit{dropout} para evitar sobreajuste, "apagando" aleatoriamente algunas neuronas durante el entrenamiento.
+La implementación es relativamente sencilla, se haría como si se tratara de un perceptrón multicapa \parencite{kyeg_feedforward_demystified}, donde se incluyen 3 capas lineales y dos funciones de activación GELU entre ellas. Además, se introduce \textit{dropout} para evitar sobreajuste, apagando aleatoriamente algunas neuronas durante el entrenamiento.
 
 \begin{figure}[h]
     \centering
@@ -759,7 +698,7 @@ La implementación es relativamente sencilla, se haría como si se tratara de un
 
 \section{Entrenamiento}
 
-Tras añadir la capa lineal de salida, tras el bloque \textit{transformer}, se finaliza las bases de la arquitectura Transformer \textit{decoder-only}. El siguiente paso es configurar los parámetros e implementar la infraestructura de entrenamiento del modelo. 
+Tras añadir la capa lineal de salida al final del bloque Transformer, se completan los componentes fundamentales de la arquitectura. El siguiente paso consiste en definir los parámetros y establecer la infraestructura necesaria para el entrenamiento del modelo.
 
 \begin{figure}[h]
     \centering
@@ -770,22 +709,23 @@ Tras añadir la capa lineal de salida, tras el bloque \textit{transformer}, se f
 
 \subsection{Configuración de parámetros de entrenamiento}
 
-En lo referido a la configuración de parámetros se han seguido las recomendaciones dadas en el \textit{paper: Attention Is Not All You Need} \parencite{gerber2025ffn}, teniendo en cuenta las características de este proyecto, tanto a nivel de  \textit{hardware} como de la arquitectura implementada.
+En lo referido a la configuración de parámetros se han seguido inicialmente las recomendaciones dadas en el \textit{paper: Attention Is Not All You Need} \parencite{gerber2025ffn}, teniendo en cuenta las características de este proyecto, tanto a nivel de \textit{hardware} como de la arquitectura implementada. No obstante, como se explicará en la sección \ref{subsec:fine-tuning}, se han realizado ciertos ajustes para mejorar el entrenamiento.
 
 Para el prototipo inicial, entrenado con el dataset \textit{Tiny Shakespeare}, se ha definido un vocabulario compuesto por $16000$ tokens, el tamaño de los embeddings es de $512$ tokens y la ventana de contexto de $256$. Se han utilizado $8$ cabezas de atención, para capturar bien distintos patrones y el número de capas del \textit{transformer} es de $6$, un número no muy elevado por las limitaciones técnicas del proyecto. En cuanto al bloque \textit{FeedForward}, se define la dimensión \textit{d\_ff} con un valor de $2048$, expandiendo cada vector de $512$ a $2048$ dimensiones. Para no saturar la memoria de la GPU el número de batches se ha mantenido en $64$, pese a incluir ciertos elementos regulatorios que se explicarán a continuación. Por último, se ha entrenado para $20$ épocas.
 
 
-\subsection{Regulaciones}
+\subsection{Elementos regulatorios}
 
-Para el entrenamiento del modelo se sigue la técnica \texttt{Mixed Precision Training}. Esto es porque se ha visto que reduce el uso de memoria y acelera el entrenamiento sin comprometer la precisión del modelo, lo que permite aumentar el tamaño de los batches y no desbordar la memoria de la GPU. En esencia, se utilizan tipos de datos de menor precisión (como \texttt{float16}) para las operaciones que no requieren alta precisión, mientras que las operaciones críticas se mantienen en \texttt{float32}. 
+Para el entrenamiento del modelo se ha planteado inicialmente la técnica \texttt{Mixed Precision Training}. Esto es porque se ha visto que reduce el uso de memoria y acelera el entrenamiento sin comprometer la precisión del modelo, lo que permite aumentar el tamaño de los batches y no desbordar la memoria de la GPU. En esencia, se utilizan tipos de datos de menor precisión (como \texttt{float16}) para las operaciones que no requieren alta precisión, mientras que las operaciones críticas se mantienen en \texttt{float32}. 
 
 Para una primera implementación se utilizan dos elementos clave. Por un lado \texttt{GradScaler}, que escala los valores de la función de pérdida dinámicamente para prevenir el desbordamiento de los gradientes cuando se usan tipos de datos de menor precisión. Lo que hace es multiplicar la pérdida por un factor grande antes de calcular los gradientes. En cada iteración se decide si ese factor fue bueno o malo, en base a si ha habido desbordamiento o no. Si no hubo desbordamiento, se aumenta ligeramente el factor para incrementar la precisión. En caso contrario, se reduce el factor para la próxima iteración \parencite{amit2024mixedprecision}. Por otro lado, \texttt{autocast}, que permite especificar bloques de código donde se desea utilizar precisión mixta \parencite{stack_overflow_gradscaler}. Dentro de estos bloques, las operaciones se ejecutan automáticamente en la precisión más adecuada según el hardware y la operación específica. No obstante, hay casos en los que se debe indicar a \texttt{autocast} de forma manual que no modifique la precisión de los datos, por ejemplo, en la capa de normalización, donde al no ser nativa de \texttt{PyTorch}, pues se ha implementado desde 0, quizá no lo detecta automáticamente \parencite{amit2024mixedprecision}. También se ha desactivado en la capa de \texttt{Softmax} pues son capas donde escalar puede introducir inestabilidad al modelo.
 
 En combinación con estas técnicas, se ha aplicado \texttt{Gradient Clipping} para evitar que los gradientes se vuelvan demasiado grandes y provoquen actualizaciones inestables de los pesos. Lo que hace es reducir su magnitud, sin alterar la dirección. 
-===========================================================================================
-COMPLETAR
 
-No obstante, al ejecutar el entrenamiento, se han obtenido valores nulos en la función de pérdida, por lo que se ha decidido prescindir de \texttt{GradScaler} y \texttt{autocast}, haciendo ajustes en los hiperparámetros del optimizador e implementando \texttt{CosineAnnealingLR} \parencite{pytorch_cosineannealinglr}, con ello lo que se logra es reducir el ratio de aprendizaje por época y lote de entrenamiento. 
+
+No obstante, al entrenar el modelo, se han obtenido valores nulos en la función de pérdida, por lo que se ha decidido prescindir de \texttt{GradScaler} y \texttt{autocast}, haciendo ajustes en los hiperparámetros del optimizador e implementando \texttt{CosineAnnealingLR} \parencite{pytorch_cosineannealinglr}, con ello lo que se logra es reducir el ratio de aprendizaje por época y lote de entrenamiento. Pese a ello, no se ha observado una mejora significativa en los datos de validación, por lo que se ha decidido implementar un proceso de \textit{warm-up} empleando la clase de PyTorch \texttt{LambdaLR}. Todo este proceso de ajuste de hiperparámetros se presenta mejor en la sección \ref{subsec:fine-tuning}.
+
+
 
 \subsection{Función de pérdida}
 
@@ -855,7 +795,7 @@ La implementación es muy simple y la dificultad reside más en ajustar los hipe
 
 \subsection{Resumen del modelo para Tiny Shakespeare}
 
-En primer lugar se tokeniza el dataset de entrenamiento, que contiene $896.135$ caracteres. Para ello se utiliza un tokenizador \textit{BPE} a través de \textit{SentencePiece}, que es entrenado con estos datos y aprende una reglas de segmentación y un vocabulario. A través de este tokenizador ya entrenado, se tokenizan los datos de entrenamiento, validación y test. Como el tamaño definido para el vocabulario es de $16000$ elementos, se obtiene un conjunto de números enteros que representan valores (índices) dentro de ese vocabulario con valores comprendidos entre $0$ y $15999$. En total se generan $265566$ índices para el dataset de entrenamiento. 
+En primer lugar se tokeniza el dataset de entrenamiento, que contiene $896135$ caracteres. Para ello se utiliza un tokenizador \textit{BPE} a través de \textit{SentencePiece}, que es entrenado con estos datos y aprende una reglas de segmentación y un vocabulario. A través de este tokenizador ya entrenado, se tokenizan los datos de entrenamiento, validación y test. Como el tamaño definido para el vocabulario es de $16000$ elementos, se obtiene un conjunto de números enteros que representan valores (índices) dentro de ese vocabulario con valores comprendidos entre $0$ y $15999$. En total se generan $265566$ índices para el dataset de entrenamiento. 
 
 La función del modelo es dado cada token, predecir el siguiente. Es por ello que un paso previo a transformar este vector a embeddings se crea un dataset de \texttt{PyTorch} que, junto con \textit{DataLoader} genera ejemplos de secuencias de entrada y objetivos (se desplaza una posición la de entrada) y se agrupan en batches, que irán alimentando las capas de Embedding del modelo. Aquí cabe resaltar que, como el tamaño del batch es de $64$, el modelo recibe como entrada tensores con tamaño $(64,256)$. Para verlo mejor, es como si el modelo recibe: \textit{[El, perro, ladra, en, el]} y busca predecir \textit{[perro, ladra, en, el,prado]}, para cada token.
 
@@ -873,8 +813,14 @@ El proceso se repite el número de épocas mencionado y se valida con datos de v
 
 Se ha implementado un modelo LSTM sencillo utilizando \texttt{Tensorflow} y entrenado con los mismos datos que el Transformer para contratar los resultados. 
 
+Utilizo \textit{sparse_categorical_crossentropy}, pues los datos de salida son enteros que representan las clases (tokens) y no vectores one-hot. Por otro lado, no es necesario introducir ningún tipo de \textit{padding} o \textit{bucketing} pues se crean ventanas de longitud fija, por lo que todas las secuencias de entrada tienen la misma longitud. El LSTM recibe como entrada secuencias de tamaño $(batch\_size, context\_len)$, donde \textit{context\_len} es el tamaño de la ventana de contexto definida.
 
-
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/window_lstm.png}
+    \caption{Ventanas de contexto LSTM}
+    \label{fig:placeholder24}
+\end{figure}
 
 %--- FIN DEL CAPÍTULO 4
 
@@ -883,7 +829,7 @@ Se ha implementado un modelo LSTM sencillo utilizando \texttt{Tensorflow} y entr
 %--- CAPÍTULO 5 DEL TFM
 \chapter{Conclusiones}
 
-\section{Primera aproximación con Tiny Shakespeare}
+\section{Primera aproximación con Tiny Shakespeare} \label{subsec:fine-tuning}
 
 Se ha realizado un primer entrenamiento con $20$ épocas y un \textit{Early Stopping} con paciencia igual a 10. El optimizador utilizado es \texttt{AdamW} con un ratio de aprendizaje de $1.5*10^-3$ y \textit{weight decay} igual a $0.01$. Además se ha aplicado \texttt{CosineAnnealingLR} para ir ajustando durante el entrenamiento el ratio de aprendizaje, no solo a nivel de época, sino de batch. El resto de parámetros del modelo son: 
 
@@ -935,7 +881,7 @@ Con ello, manteniendo el \textit{Early Stopping} se ha logrado un decaimiento pr
 \section{Validación}
 Para validar se utiliza el conjunto de datos reservados para tal fin ($35327$ tokens), los cuales no han sido vistos por el modelo durante el entrenamiento. Se obtiene una pérdida de $4.5039$ y una perplejidad de $90.37$, de media para un total de 550 lotes. Es buena señal pues indica que el modelo ha aprendido patrones generales y no se ha sobreajustado a los datos de entrenamiento.
 
-Además de una validación con el conjunto de test, se ha implementado un método que consta de distintos hioerparámetros ajustables para generar texto a partir de unos tokens dados, como por ejemplo: "King Charles". Estos hiperparámetros son los siguientes \parencite{vyas2025transformer_decoder_part3}: 
+Además de una validación con el conjunto de test, se ha implementado un método que consta de distintos hioerparámetros ajustables para generar texto a partir de unos tokens dados, como por ejemplo: <<King Charles>>. Estos hiperparámetros son los siguientes \parencite{vyas2025transformer_decoder_part3}: 
 
 \begin{itemize}
     \item Temperatura.
@@ -964,289 +910,39 @@ A la hora de implementarlo se calcula esa expresión con tensores, $\alpha$ es u
 \end{itemize}
 \subsection{Resultados}
 
-Se ha probado a generar texto con distintas combinaciones, partiendo de unos mismos tokens iniciales: \textit{"KING RICHARD:"} y un número máximo de tokens a generar igual a $100$. En la tabla \ref{tab:resultados_validación_shakespeare} se muestran los resultados.
+Se ha probado a generar texto con distintas combinaciones \ref{tab-combinaciones-tiny}, partiendo de unos mismos tokens iniciales: \textit{<<KING RICHARD:>>} y un número máximo de tokens a generar igual a $100$. En la tabla \ref{tab:resultados_validación_shakespeare} de la sección del anexo \ref{sec:res-tiny} se muestran los resultados.
 
-\begin{longtable}{ccccc >{\raggedright\arraybackslash}p{8cm}}
-    \caption{Hiperparámetros}
-    \label{tab:resultados_validacion_shakespeare} \\
+\begin{table}[h]
+    \centering
+    \caption{Combinaciones de hiperparámetros para la generación de texto con Tiny Shakespeare}
+    \label{tab:combinaciones-tiny}
+    \begin{tabular}{l c c c c}
     \toprule
-    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} &
-    \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado} \\
+    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} & \textbf{Presence Penalty} & \textbf{Frequency Penalty} \\
     \midrule
-    \endfirsthead
-    
-    \multicolumn{6}{c}{{\tablename\ \thetable{} -- continuación}} \\
-    \toprule
-    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} &
-    \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado} \\
-    \midrule
-    \endhead
-    
+    0.5 & None & None & 0.0 & 0.0 \\
+    1.0 & None & None & 0.0 & 0.0 \\
+    1.5 & None & None & 0.0 & 0.0 \\
+    1.0 & 10 & None & 0.0 & 0.0 \\
+    1.0 & 90 & None & 0.0 & 0.0 \\
+    1.0 & 200 & None & 0.0 & 0.0 \\
+    1.0 & None & 0.05 & 0.0 & 0.0 \\
+    1.0 & None & 0.30 & 0.0 & 0.0 \\
+    1.0 & None & 0.90 & 0.0 & 0.0 \\
+    1.0 & None & None & 0.2 & 0.0 \\
+    1.0 & None & None & 0.5 & 0.0 \\
+    1.0 & None & None & 1.0 & 0.0 \\
+    1.0 & None & None & 0.0 & 0.2 \\
+    1.0 & None & None & 0.0 & 0.5 \\
+    1.0 & None & None & 0.0 & 1.0 \\
+    0.9 & 100 & 0.95 & 0.3 & 0.2 \\
+    0.7 & 80 & 0.9 & 0.2 & 0.3 \\
     \bottomrule
-    \multicolumn{6}{r}{{Continúa en la siguiente página}} \\
-    \endfoot
-    
-    \bottomrule
-    \endlastfoot
-    
-    0.5 & None & None & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    PETRUCHIO:\\
-    My brother, a thousand crowns,\\
-    And by the sun of my lord,\\
-    Iney’s the king,\\
-    And make the king’s wife,\\
-    And from the king,\\
-    You are sent for your brother.\\
-    In the day to be not, I am not say ’tis blood,\\
-    With all the right, and to be,\\
-    And in the wind of his,\\
-    Purder to the.
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    A issue richer?\\
-    BRUTUS:\\
-    ired, poor high a\\
-    Thou art thou that a better man, girl?\\
-    'tis nothing but a squorn's wife, we'll thunder, and,\\
-    Come news?\\
-    Theirrah!\\
-    Less'd this outrage, Kate, sweet sir, the fished hath for the third our marks kines in estimation,\\
-    Ofigeia\\
-    There is no other tribute yet\\
-    What Eished
-    \end{tcolorbox} \\
-    
-    1.5 & None & None & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    Never charged thee other mistress repealll prove fair stateiness, slay?\\
-    LOUCESTER:\\
-    For your own thirst, father conclusion dead my sons;\\
-    And, shout: like from his mortal a piece Peter,\\
-    For night and leave report;\\
-    Pompey counsels amid treaty in myself lovely and favour runs within!\\
-    A below me confines nor doth depow tell thee less?\\
-    Imagine pates encothing
-    \end{tcolorbox} \\
-    
-    1.0 & 10 & None & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    Is to be\\
-    Madam with her:\\
-    To see your honour,\\
-    And I know not be a word.\\
-    That you\\
-    As my lord.\\
-    On if we must be gone, to do not a man, I am not a man,\\
-    MENENIUS:\\
-    That I will I am I\\
-    On this land's name,\\
-    I have I\\
-    When thou dost thou art a man of you, my father'
-    \end{tcolorbox} \\
-    
-    1.0 & 90 & None & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    Having the cause on'd the state:\\
-    KING RICHARD II:\\
-    'em of our enemies?\\
-    Their, do not to the same\\
-    Yea, then 'such;\\
-    ISABELLA:\\
-    With bag,\\
-    PETRUCHIO:\\
-    SICINIUS:\\
-    Could be your crown:\\
-    CORIOLANUS:\\
-    Fetch thy death hath been accused, my state and mine?\\
-    I's children should the world to live and good nurse
-    \end{tcolorbox} \\
-    
-    1.0 & 200 & None & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    But now must be the law,\\
-    Thou hast you:\\
-    Nay not be he were not?\\
-    Or I's mine enemy in good lady't not in one and here.\\
-    Whose repetition:\\
-    Unations, sir, no\\
-    So you: I will have no harm is my father's departure,\\
-    As, well; and they joy\\
-    YORK:\\
-    I know to his fortunes of the time so I pray
-    \end{tcolorbox} \\
-    
-    1.0 & None & 0.05 & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    And, and I have\\
-    And I have been\\
-    And I have been\\
-    And I have been\\
-    And I have been\\
-    And I have been\\
-    And, I have been\\
-    And I have been\\
-    And I have been\\
-    And I have been\\
-    And I'd, I have been a man, I have been\\
-    And I am a man, I have been\\
-    And I have you, I have done,
-    \end{tcolorbox} \\
-    
-    1.0 & None & 0.30 & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    If I have you to the way.\\
-    Which I am I am the poor soul,\\
-    And all the Capitol, and,\\
-    Within, sir,\\
-    And then I will not?\\
-    Why, the loss of the world'd,\\
-    To hear me.\\
-    Which he'd in the best of this,\\
-    I'd with the field\\
-    And all the king'd, and so far off.\\
-    If you
-    \end{tcolorbox} \\
-    
-    1.0 & None & 0.90 & 0.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    I' the realm? they else to see'd: but this vial,\\
-    Your brother's to see her thanks.\\
-    Uparcius\\
-    And though I am undone in good to grow,\\
-    They call you;\\
-    Hading of heaven, and to thee\\
-    Now now this secret tyrant; therefore then,\\
-    SICINIUS:\\
-    All make 'sheow most learned death\\
-    Why, that every day; look out, that part
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 0.2 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    Now now, goodinate blood is spent of Angelo.\\
-    He shall write you hell and the place.\\
-    Farewell, I.\\
-    To search and honesty and have, girls.\\
-    Was sometime Away; yet I said loosening judgment afterward to what power, my earthly wind\\
-    ISABELLA:\\
-    Stands with speed\\
-    Nay yet greetcupon remain a boarded it confess; contro our dear Julietling, farewell post that deceit for yonder heir
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 0.5 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    QUEEN ELIZABETH:\\
-    Then let them all moved,\\
-    He said 'tis odds of Hereford would make in no gains vial life.\\
-    Then I pine.\\
-    First Servingman:\\
-    And sun yield you can, by my son back with Juliet, to another writing, some harm to become joy\\
-    And in Mantua, Hortensio?\\
-    ISABELLA:\\
-    His nurse for kill a as you:\\
-    Now convey'd between us since I
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 1.0 & 0.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    O, my lord\\
-    Go deck to awench. This ends that traged times it is eleven that if\\
-    Your wife and women are whispering up?\\
-    the common people,\\
-    Nor you have setsed off more than tongue beats sweet suspicion:\\
-    ANGELO:\\
-    From her; it your weap take him health with years!\\
-    We and I, good lord;\\
-    Say we of what were thinking a miserable makes out in despite of those few old
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 0.0 & 0.2 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    Will they live--hauses, and of his banishment,\\
-    action but harape him!\\
-    'reus father meet vows; therefore scorn's champ ye is our king in my officers.\\
-    Here comes\\
-    renons; but thy handlington on Wednesday the Howy so firm?\\
-    VERS:\\
-    Host hit it then suprem escape to thee mad bade her like joy; both my boy, O us, lady! I am not breathe I
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 0.0 & 0.5 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    It becomes my fearful bloodth earth through the fault,\\
-    At aside. What there it\\
-    They the gates charges of York; as many thousand words,\\
-    ISABELLA:\\
-    Hold your country's hast spoke is your cry upon a better guot possible;\\
-    Stands that the Daint greater oak; as yourself,\\
-    He hath he but she'd from her be so, is fill me on sl pictureed to thy part soldiers of woman behold.\\
-    Did C
-    \end{tcolorbox} \\
-    
-    1.0 & None & None & 0.0 & 1.0 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD:\\
-    Have loathsome thou' conspire; 'tis not so unprovided will.\\
-    KING HENRY VI:\\
-    And give the crown,--O sir. Farewell. Your time, both parts upon this hand perform to my lord but quickly't!\\
-    Tell me be do nimble Clarence is here now more?\\
-    Nay, what Overditiously it to me, in a far his back again where she knows I had spoke.\\
-    In that very news! no good friends,\\
-    CA
-    \end{tcolorbox} \\
-    
-    0.9 & 100 & 0.95 & 0.3 & 0.2 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD: \\
-    And watch's his lands,\\
-    Within so?\\
-    With heigh!\\
-    First Citizen:\\
-    Against the word, I send you have met to take order.\\
-    But it down.\\
-    What if I would not so bright too, and Romeo should my holy love his wife,\\
-    To more proud that I'd for ever near with\\
-    The day! We must be king, here comes too long borne up in the ground!\\
-    I thank
-    \end{tcolorbox} \\
-    
+    \end{tabular}
+\end{table}
 
-    0.7 & 80 & 0.9 & 0.2 & 0.3 &
-    \begin{tcolorbox}[breakable, enhanced jigsaw, frame hidden, colback=white, boxrule=0pt]
-    KING RICHARD: \\
-    And make me, sir. \\
-    So I am I not to be hanged. \\
-    If what, for our mistress'd at the queen, \\
-    Nurse: \\
-    CAMILLO: \\
-    With all my lord; for his son: \\
-    Or do you all my daughter is the king's death? \\
-    And yet thou dost thou art not so; or two, and not well, when he hath but in the rest, \\
-    FRIAR LAURENCE: \\
-    H
-    \end{tcolorbox} \\
-    
-    
-    \end{longtable}
 
-En primer lugar se han probado distintas temperaturas. Se observa que a medida que la temperatura aumenta, la coherencia se pierde, aunque introduce más variedad. Por ejemplo, para una temperatura de $1.5$ introduce al personaje \textit{LOUCESTER}, cuando en realidad es \textit{GLOUCESTER}. Además, aparecen errores de sintáxis y palabras no existentes, como \textit{Ofigeia} o \textit{Theirrah} (parece una composición de \textit{sirrah} u \textit{sirrah}), que se pueden derivar de la tokenizaciópn BPE empleada. Con una temperatura baja, se enfatizan los logits más altos, haciendo que el modelo sea más conservador y emplee patrones comunes en el corpus de entrenamiento. 
+En primer lugar se han probado distintas temperaturas. Se observa que a medida que la temperatura aumenta, la coherencia se pierde, aunque introduce más variedad. Por ejemplo, para una temperatura de $1.5$ introduce al personaje \textit{LOUCESTER}, cuando en realidad es \textit{GLOUCESTER}. Además, aparecen errores de sintáxis y palabras no existentes, como \textit{Ofigeia} o \textit{Theirrah} (parece una composición de \textit{sirrah} u \textit{sirrah}), que se pueden derivar de la tokenización BPE empleada. Con una temperatura baja, se enfatizan los logits más altos, haciendo que el modelo sea más conservador y emplee patrones comunes en el corpus de entrenamiento. 
 
 Tras esto se han validado los parámetros \textit{top-k} y \textit{top-p}. Con un valor bajo de K, el texto se mantiene coherente, introduciendo nombres reales de personajes, pero aparecen repeticiones: \textit{<<to do not a man, I am not a man>>}. Al aumentar el valor de dicho parámetro se obtiene más variedad, y a diferencia de la temperatura, se mantiene una coherencia aceptable, sin neologismos, aunque las incongruencias y errores de sintáxis se hacen más notorios, lo que también puede atribuirse a un incremento de la verbosidad. Es cierto que aparecen, por ejemplo, casos como \textit{<<PETRUCHIO:SICINIUS:>>}, pero esto también ocurre en el texto de entrenamiento: \textit{<<DUKE VINCENTIO:KING RICHARD III:LEONTES:DUKE VINCENTIO:>>}. En el caso del parámetro P, la diferencia entre valores bajos y altos llama más la atención. Para un valor inferior al $1\%$ el texto resultante es un bucle de repeticiones de frases carentes de significado como tal: \textit{<<And I have been>>}. Al aumentar el valor aparecen frases con más sentido y variedad, pese a que empiezan a aparecer errores sintácticos como \textit{world’d}. Para un valor del $90\%$ introduce dialogos y diversidad, no obstante empieza a hacerse menos legible.
 
@@ -1291,6 +987,37 @@ Para agilizar la validación del modelo se ha implementado una API RESTful utili
 \appendix 
 \chapter{Anexos}
 
+\section{Preparación del entorno} \label{sec:entorno}
+
+El primer paso es crear el entorno virtual para trabajar con las librerías de Python:
+\begin{lstlisting}[language=bash]
+python3 -m venv .venv
+source .venv/bin/activate
+\end{lstlisting}
+
+El segundo punto consiste en instalar \texttt{CUDA}, \texttt{Pytorch} y \texttt{Tensorflow} y verificar que la GPU es detectada
+\begin{lstlisting}[language=bash]
+# Verificar CUDA, en mi caso tengo la version 12.9.
+nvidia-smi
+
+#Instalar torch para esa version de CUDA
+pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu129
+
+#Instalar tensorflow
+pip3 install "tensorflow[and-cuda]"
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+import torch
+print(torch.cuda.is_available())
+print(torch.version.cuda)
+print(torch.cuda.device_count())
+\end{lstlisting}
+
+Finalmente, se instalan el resto de librerías necesarias con el comando pip3.
+
+\section{Moses} \label{sec:moses}
 \section{GELU} \label{sec:gelu}
 \section{Xavier Uniform} \label{sec:xavier}
 \section{Normal uniform} \label{sec:normal}
@@ -1301,6 +1028,175 @@ Para agilizar la validación del modelo se ha implementado una API RESTful utili
 
 
 \section{Distinct-n} \label{sec:distinct-n}
+
+\section{Resultados obtenidos para Tiny Shakespeare} \label{sec:res-tiny}
+
+A continuación se recogen los resultados obtenidos al validar el modelo entrenado con Tiny Shakespeare, partiendo del mismo prompt inicial: \textit{<<KING RICHARD:>>} y un máximo de $100$ tokens a generar.
+
+\begin{longtable}{ccccc p{12cm}}
+    \caption{Hiperparámetros y resultados de generación con Tiny Shakespeare}
+    \label{tab:resultados_validacion_shakespeare} \\
+    \toprule
+    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} &
+    \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado} \\
+    \midrule
+    \endfirsthead
+    
+    \multicolumn{6}{c}{{\tablename\ \thetable{} -- continuación}} \\
+    \toprule
+    \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} &
+    \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Resultado} \\
+    \midrule
+    \endhead
+    
+    \bottomrule
+    \multicolumn{6}{r}{} \\
+    \endfoot
+    
+    \bottomrule
+    \endlastfoot
+    
+    0.5 & None & None & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    PETRUCHIO:\newline
+    My brother, a thousand crowns,\newline
+    And by the sun of my lord,\newline
+    Iney’s the king,\newline
+    And make the king’s wife,\newline
+    And from the king,\newline
+    You are sent for your brother.\newline
+    In the day to be not, I am not say ’tis blood,\newline
+    With all the right, and to be,\newline
+    And in the wind of his,\newline
+    Purder to the.\\
+    
+    1.0 & None & None & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    A issue richer?\newline
+    BRUTUS:\newline
+    ired, poor high a\newline
+    Thou art thou that a better man, girl?\newline
+    'tis nothing but a squorn's wife, we'll thunder, and,\newline
+    Come news?\newline
+    Theirrah!\newline
+    Less'd this outrage, Kate, sweet sir, the fished hath for the third our marks kines in estimation,\newline
+    Ofigeia\newline
+    There is no other tribute yet\newline
+    What Eished\\
+    
+    1.5 & None & None & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    Never charged thee other mistress repealll prove fair stateiness, slay?\newline
+    LOUCESTER:\newline
+    For your own thirst, father conclusion dead my sons;\newline
+    And, shout: like from his mortal a piece Peter,\newline
+    For night and leave report;\newline
+    Pompey counsels amid treaty in myself lovely and favour runs within!\newline
+    A below me confines nor doth depow tell thee less?\newline
+    Imagine pates encothing\\
+    
+    1.0 & 10 & None & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    Is to be\newline
+    Madam with her:\newline
+    To see your honour,\newline
+    And I know not be a word.\newline
+    That you\newline
+    As my lord.\newline
+    On if we must be gone, to do not a man, I am not a man,\newline
+    MENENIUS:\newline
+    That I will I am I\newline
+    On this land's name,\newline
+    I have I\newline
+    When thou dost thou art a man of you, my father'\\
+    
+    1.0 & 90 & None & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    Having the cause on'd the state:\newline
+    KING RICHARD II:\newline
+    'em of our enemies?\newline
+    Their, do not to the same\newline
+    Yea, then 'such;\newline
+    ISABELLA:\newline
+    With bag,\newline
+    PETRUCHIO:\newline
+    SICINIUS:\newline
+    Could be your crown:\newline
+    CORIOLANUS:\newline
+    Fetch thy death hath been accused, my state and mine?\newline
+    I's children should the world to live and good nurse\\
+    
+    1.0 & 200 & None & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    But now must be the law,\newline
+    Thou hast you:\newline
+    Nay not be he were not?\newline
+    Or I's mine enemy in good lady't not in one and here.\newline
+    Whose repetition:\newline
+    Unations, sir, no\newline
+    So you: I will have no harm is my father's departure,\newline
+    As, well; and they joy\newline
+    YORK:\newline
+    I know to his fortunes of the time so I pray\\
+    
+    1.0 & None & 0.05 & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    And, and I have\newline
+    And I have been\newline
+    And I have been\newline
+    And I have been\newline
+    And I have been\newline
+    And I have been\newline
+    And, I have been\newline
+    And I have been\newline
+    And I have been\newline
+    And I have been\newline
+    And I'd, I have been a man, I have been\newline
+    And I am a man, I have been\newline
+    And I have you, I have done,\\
+    
+    1.0 & None & 0.30 & 0.0 & 0.0 &
+    KING RICHARD:\newline
+    If I have you to the way.\newline
+    Which I am I am the poor soul,\newline
+    And all the Capitol, and,\newline
+    Within, sir,\newline
+    And then I will not?\newline
+    Why, the loss of the world'd,\newline
+    To hear me.\newline
+    Which he'd in the best of this,\newline
+    I'd with the field\newline
+    And all the king'd, and so far off.\newline
+    If you\\
+    
+    0.9 & 100 & 0.95 & 0.3 & 0.2 &
+    KING RICHARD:\newline
+    And watch's his lands,\newline
+    Within so?\newline
+    With heigh!\newline
+    First Citizen:\newline
+    Against the word, I send you have met to take order.\newline
+    But it down.\newline
+    What if I would not so bright too, and Romeo should my holy love his wife,\newline
+    To more proud that I'd for ever near with\newline
+    The day! We must be king, here comes too long borne up in the ground!\newline
+    I thank\\
+    
+    0.7 & 80 & 0.9 & 0.2 & 0.3 &
+    KING RICHARD:\newline
+    And make me, sir.\newline
+    So I am I not to be hanged.\newline
+    If what, for our mistress'd at the queen,\newline
+    Nurse:\newline
+    CAMILLO:\newline
+    With all my lord; for his son:\newline
+    Or do you all my daughter is the king's death?\newline
+    And yet thou dost thou art not so; or two, and not well, when he hath but in the rest,\newline
+    FRIAR LAURENCE:\newline
+    H\\
+    
+    \end{longtable}
+    
 
 %--- FIN DE ANEXOS
 

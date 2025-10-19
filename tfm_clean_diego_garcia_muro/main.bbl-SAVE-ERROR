@@ -698,6 +698,40 @@
       \verb https://neuraforge.substack.com/p/the-ultimate-guide-to-preparing-text
       \endverb
     \endentry
+    \entry{paul2025vocabsize}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f887951661e535cfece032c7cc08f740}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Rohan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Rohan Paul Blog}%
+      }
+      \strng{namehash}{f887951661e535cfece032c7cc08f740}
+      \strng{fullhash}{f887951661e535cfece032c7cc08f740}
+      \strng{bibnamehash}{f887951661e535cfece032c7cc08f740}
+      \strng{authorbibnamehash}{f887951661e535cfece032c7cc08f740}
+      \strng{authornamehash}{f887951661e535cfece032c7cc08f740}
+      \strng{authorfullhash}{f887951661e535cfece032c7cc08f740}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Balancing Vocabulary Size in Modern LLMs (GPT-4, LLaMA, Mistral)}
+      \field{year}{2025, Mar 2}
+      \verb{urlraw}
+      \verb https://www.rohan-paul.com/p/tutorial-balancing-vocabulary-size
+      \endverb
+      \verb{url}
+      \verb https://www.rohan-paul.com/p/tutorial-balancing-vocabulary-size
+      \endverb
+    \endentry
     \entry{perez_embeddings}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=00642ae9a613f136372b373de1536de6}{%
@@ -2180,6 +2214,40 @@
       \endverb
       \verb{url}
       \verb https://neuraforge.substack.com/p/the-ultimate-guide-to-preparing-text
+      \endverb
+    \endentry
+    \entry{paul2025vocabsize}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f887951661e535cfece032c7cc08f740}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Rohan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Rohan Paul Blog}%
+      }
+      \strng{namehash}{f887951661e535cfece032c7cc08f740}
+      \strng{fullhash}{f887951661e535cfece032c7cc08f740}
+      \strng{bibnamehash}{f887951661e535cfece032c7cc08f740}
+      \strng{authorbibnamehash}{f887951661e535cfece032c7cc08f740}
+      \strng{authornamehash}{f887951661e535cfece032c7cc08f740}
+      \strng{authorfullhash}{f887951661e535cfece032c7cc08f740}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Balancing Vocabulary Size in Modern LLMs (GPT-4, LLaMA, Mistral)}
+      \field{year}{2025, Mar 2}
+      \verb{urlraw}
+      \verb https://www.rohan-paul.com/p/tutorial-balancing-vocabulary-size
+      \endverb
+      \verb{url}
+      \verb https://www.rohan-paul.com/p/tutorial-balancing-vocabulary-size
       \endverb
     \endentry
     \entry{perez_embeddings}{online}{}
