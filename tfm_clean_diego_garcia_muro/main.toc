@@ -48,8 +48,8 @@
 \contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{31}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Validación}{33}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Resultados}{34}{subsection.5.2.1}%
-\contentsline {subsubsection}{Comparación con LSTM}{36}{section*.38}%
-\contentsline {subsubsection}{Validación a través de API}{36}{section*.39}%
+\contentsline {subsubsection}{Comparación con LSTM}{36}{section*.39}%
+\contentsline {subsubsection}{Validación a través de API}{36}{section*.40}%
 \contentsline {chapter}{\numberline {A}Anexos}{41}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Preparación del entorno}{41}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Moses}{42}{section.Alph1.2}%

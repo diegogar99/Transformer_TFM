@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from model.transformer_block import *
 
-class miniGPT2(nn.Module):
+class miniLLM(nn.Module):
     def __init__(self, vocab_size, d_model=512, num_heads=8, d_ff=2048, num_layers=6, context_len=256, dropout=0.1):
         super().__init__()
         self.tok_emb = nn.Embedding(vocab_size, d_model)
