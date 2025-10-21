@@ -181,6 +181,71 @@
       \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
       \endverb
     \endentry
+    \entry{carr2025gelu}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d901f0cede237d18589c4e170fa2dd3}{%
+           family={Carr},
+           familyi={C\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Baeldung on Computer Science}%
+      }
+      \strng{namehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{fullhash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{bibnamehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{authorbibnamehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{authornamehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{authorfullhash}{5d901f0cede237d18589c4e170fa2dd3}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GELU Explained – Gaussian Error Linear Unit}
+      \field{year}{2025, Mar 26}
+      \verb{urlraw}
+      \verb https://www.baeldung.com/cs/gelu-activation-function
+      \endverb
+      \verb{url}
+      \verb https://www.baeldung.com/cs/gelu-activation-function
+      \endverb
+    \endentry
+    \entry{codesignal_xavier_uniform_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7de3c01c26f0b98c7a32fbadae14b438}{%
+           family={{CodeSignal}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {CodeSignal Learn}%
+      }
+      \strng{namehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{fullhash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{bibnamehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{authorbibnamehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{authornamehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{authorfullhash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Weight Initialization with Xavier Uniform in PyTorch}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://codesignal.com/learn/courses/advanced-neural-tuning/lessons/weight-initialization-with-xavier-uniform-in-pytorch
+      \endverb
+      \verb{url}
+      \verb https://codesignal.com/learn/courses/advanced-neural-tuning/lessons/weight-initialization-with-xavier-uniform-in-pytorch
+      \endverb
+    \endentry
     \entry{datacamp_adamw_pytorch}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5f469db1ec04b5fb8ad05902538a7b27}{%
@@ -831,6 +896,88 @@
       \field{title}{mauve: Package to compute MAUVE, a similarity score between neural text and human text}
       \field{year}{2025}
     \endentry
+    \entry{pillutla2021mauve_software}{online}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=7f6963d7d855b337412bcf9c0597fa7f}{%
+           family={Pillutla},
+           familyi={P\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=773a208882920aa116b39c727746a736}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Lang},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=11d5867db91c6990564760738ec17d64}{%
+           family={Thickstun},
+           familyi={T\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4620e8e97b692ec362ed49b4c1b30d42}{%
+           family={Welleck},
+           familyi={W\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17a53fd167ccca7245cb9e8082ccb3a7}{%
+           family={Swayamdipta},
+           familyi={S\bibinitperiod},
+           given={Swabha},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=560f431bda2e90c8056046656d2b7f8b}{%
+           family={Zellers},
+           familyi={Z\bibinitperiod},
+           given={Rowan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a708b0573da1c8e751ef081a44490b9}{%
+           family={Oh},
+           familyi={O\bibinitperiod},
+           given={Sewoong},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64d48b2f4b0370b6692c87cfc65f19b9}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Yejin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93f7c37f41abcababec1f53b76184ef8}{%
+           family={Harchaoui},
+           familyi={H\bibinitperiod},
+           given={Zaid},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {MAUVE Project}%
+      }
+      \strng{namehash}{5839b61822391c0b7f9cf56bbb979449}
+      \strng{fullhash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \strng{bibnamehash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \strng{authorbibnamehash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \strng{authornamehash}{5839b61822391c0b7f9cf56bbb979449}
+      \strng{authorfullhash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MAUVE: Statistical Evaluation of LLMs and Generative AI — software documentation}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://krishnap25.github.io/mauve/
+      \endverb
+      \verb{url}
+      \verb https://krishnap25.github.io/mauve/
+      \endverb
+    \endentry
     \entry{plainenglish2021gpt}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=c24c404c8c27a30fc189d31289a303fa}{%
@@ -1287,6 +1434,37 @@
       \endverb
       \verb{url}
       \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+    \endentry
+    \entry{365datascience_xavier_init}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c564e8d495f61f369645aef749729d66}{%
+           family={{The 365 Team}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {365 Data Science}%
+      }
+      \strng{namehash}{c564e8d495f61f369645aef749729d66}
+      \strng{fullhash}{c564e8d495f61f369645aef749729d66}
+      \strng{bibnamehash}{c564e8d495f61f369645aef749729d66}
+      \strng{authorbibnamehash}{c564e8d495f61f369645aef749729d66}
+      \strng{authornamehash}{c564e8d495f61f369645aef749729d66}
+      \strng{authorfullhash}{c564e8d495f61f369645aef749729d66}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is Xavier Initialization?}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://365datascience.com/tutorials/machine-learning-tutorials/what-is-xavier-initialization/
+      \endverb
+      \verb{url}
+      \verb https://365datascience.com/tutorials/machine-learning-tutorials/what-is-xavier-initialization/
       \endverb
     \endentry
     \entry{ultralytics_adam_glossary}{online}{}
@@ -1699,6 +1877,71 @@
       \verb https://medium.com/@garybao/how-to-use-pytorchs-nn-embedding-a-comprehensive-guide-with-examples-da00ea42e952
       \endverb
     \endentry
+    \entry{carr2025gelu}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d901f0cede237d18589c4e170fa2dd3}{%
+           family={Carr},
+           familyi={C\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Baeldung on Computer Science}%
+      }
+      \strng{namehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{fullhash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{bibnamehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{authorbibnamehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{authornamehash}{5d901f0cede237d18589c4e170fa2dd3}
+      \strng{authorfullhash}{5d901f0cede237d18589c4e170fa2dd3}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GELU Explained – Gaussian Error Linear Unit}
+      \field{year}{2025, Mar 26}
+      \verb{urlraw}
+      \verb https://www.baeldung.com/cs/gelu-activation-function
+      \endverb
+      \verb{url}
+      \verb https://www.baeldung.com/cs/gelu-activation-function
+      \endverb
+    \endentry
+    \entry{codesignal_xavier_uniform_pytorch}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7de3c01c26f0b98c7a32fbadae14b438}{%
+           family={{CodeSignal}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {CodeSignal Learn}%
+      }
+      \strng{namehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{fullhash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{bibnamehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{authorbibnamehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{authornamehash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \strng{authorfullhash}{7de3c01c26f0b98c7a32fbadae14b438}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Weight Initialization with Xavier Uniform in PyTorch}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://codesignal.com/learn/courses/advanced-neural-tuning/lessons/weight-initialization-with-xavier-uniform-in-pytorch
+      \endverb
+      \verb{url}
+      \verb https://codesignal.com/learn/courses/advanced-neural-tuning/lessons/weight-initialization-with-xavier-uniform-in-pytorch
+      \endverb
+    \endentry
     \entry{datacamp_adamw_pytorch}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=5f469db1ec04b5fb8ad05902538a7b27}{%
@@ -2349,6 +2592,88 @@
       \field{title}{mauve: Package to compute MAUVE, a similarity score between neural text and human text}
       \field{year}{2025}
     \endentry
+    \entry{pillutla2021mauve_software}{online}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=7f6963d7d855b337412bcf9c0597fa7f}{%
+           family={Pillutla},
+           familyi={P\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=773a208882920aa116b39c727746a736}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Lang},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=11d5867db91c6990564760738ec17d64}{%
+           family={Thickstun},
+           familyi={T\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4620e8e97b692ec362ed49b4c1b30d42}{%
+           family={Welleck},
+           familyi={W\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17a53fd167ccca7245cb9e8082ccb3a7}{%
+           family={Swayamdipta},
+           familyi={S\bibinitperiod},
+           given={Swabha},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=560f431bda2e90c8056046656d2b7f8b}{%
+           family={Zellers},
+           familyi={Z\bibinitperiod},
+           given={Rowan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a708b0573da1c8e751ef081a44490b9}{%
+           family={Oh},
+           familyi={O\bibinitperiod},
+           given={Sewoong},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64d48b2f4b0370b6692c87cfc65f19b9}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Yejin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93f7c37f41abcababec1f53b76184ef8}{%
+           family={Harchaoui},
+           familyi={H\bibinitperiod},
+           given={Zaid},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {MAUVE Project}%
+      }
+      \strng{namehash}{5839b61822391c0b7f9cf56bbb979449}
+      \strng{fullhash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \strng{bibnamehash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \strng{authorbibnamehash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \strng{authornamehash}{5839b61822391c0b7f9cf56bbb979449}
+      \strng{authorfullhash}{b8438643f99bf2bdf9b2d54ed5df2372}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MAUVE: Statistical Evaluation of LLMs and Generative AI — software documentation}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://krishnap25.github.io/mauve/
+      \endverb
+      \verb{url}
+      \verb https://krishnap25.github.io/mauve/
+      \endverb
+    \endentry
     \entry{plainenglish2021gpt}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=c24c404c8c27a30fc189d31289a303fa}{%
@@ -2805,6 +3130,37 @@
       \endverb
       \verb{url}
       \verb https://medium.com/@swarms/understanding-masking-in-pytorch-for-attention-mechanisms-e725059fd49f
+      \endverb
+    \endentry
+    \entry{365datascience_xavier_init}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c564e8d495f61f369645aef749729d66}{%
+           family={{The 365 Team}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {365 Data Science}%
+      }
+      \strng{namehash}{c564e8d495f61f369645aef749729d66}
+      \strng{fullhash}{c564e8d495f61f369645aef749729d66}
+      \strng{bibnamehash}{c564e8d495f61f369645aef749729d66}
+      \strng{authorbibnamehash}{c564e8d495f61f369645aef749729d66}
+      \strng{authornamehash}{c564e8d495f61f369645aef749729d66}
+      \strng{authorfullhash}{c564e8d495f61f369645aef749729d66}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is Xavier Initialization?}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://365datascience.com/tutorials/machine-learning-tutorials/what-is-xavier-initialization/
+      \endverb
+      \verb{url}
+      \verb https://365datascience.com/tutorials/machine-learning-tutorials/what-is-xavier-initialization/
       \endverb
     \endentry
     \entry{ultralytics_adam_glossary}{online}{}

@@ -282,7 +282,7 @@ La tokenización de subpalabras resuelve estos problemas. Se basa en la idea de 
 
 En este proyecto, dado que son textos en inglés y las limitaciones técnicas que existen, se ha decidido utilizar un tokenizador de subpalabras. Entre estos, destacan dos: \texttt{Byte Pair Encoding (BPE)} y \texttt{WordPiece} \parencite{huggingface_tokenizer_summary}. 
 
-Ambos funcionan de forma similar, la principal diferencia radica en cómo realizan las "uniones" a partir del vocabulario base. BPE lo que hace es primeramente una pre-tokenización de los datos de entrenamiento por espacios o basada en reglas (por ejemplo, Moses \ref{sec:moses}). Con ello, obtiene un conjunto de palabras únicas y su frecuencia. Tras ello, crea un vocabulario base con los distintos símbolos que aparecen en las palabras únicas. La idea ahora es aprender reglas de unión para crear nuevos símbolos a partir de otros dos en base a la frecuencia. El proceso se repite hasta alcanzar el tamaño deseado, que se configura como hiperparámetro. En GPT-3 el tamaño es de $50000$ tokens aproximadamente \parencite{paul2025vocabsize}. Para evitar un vocabulario base muy extenso si se quiere tener todos los caracteres con el fin de evitar palabras o tokens no vistos, se pueden usar bytes, así se tiene un tamaño fijo de $256$, utilizando reglas para los caracteres de puntuación que no se puedan representar.
+Ambos funcionan de forma similar, la principal diferencia radica en cómo realizan las "uniones" a partir del vocabulario base. BPE lo que hace es primeramente una pre-tokenización de los datos de entrenamiento por espacios o basada en reglas. Con ello, obtiene un conjunto de palabras únicas y su frecuencia. Tras ello, crea un vocabulario base con los distintos símbolos que aparecen en las palabras únicas. La idea ahora es aprender reglas de unión para crear nuevos símbolos a partir de otros dos en base a la frecuencia. El proceso se repite hasta alcanzar el tamaño deseado, que se configura como hiperparámetro. En GPT-3 el tamaño es de $50000$ tokens aproximadamente \parencite{paul2025vocabsize}. Para evitar un vocabulario base muy extenso si se quiere tener todos los caracteres con el fin de evitar palabras o tokens no vistos, se pueden usar bytes, así se tiene un tamaño fijo de $256$, utilizando reglas para los caracteres de puntuación que no se puedan representar.
 
 WordPiece, en lugar de escoger simplemente los pares de símbolos más frecuentes, utiliza probabilidades. Para cada par de símbolos, calcula la probabilidad combinada entre la individual de cada uno. El par con el valor de $\text{score}(A,B)$ más alto es el que se añade al vocabulario, ya que indica que ambos símbolos aparecen juntos con más probabilidad de la esperada si fueran independientes.
 
@@ -813,7 +813,7 @@ El proceso se repite el número de épocas mencionado y se valida con datos de v
 
 Se ha implementado un modelo LSTM sencillo utilizando \texttt{Tensorflow} y entrenado con los mismos datos que el Transformer para contratar los resultados. 
 
-Utilizo \textit{sparse_categorical_crossentropy}, pues los datos de salida son enteros que representan las clases (tokens) y no vectores one-hot. Por otro lado, no es necesario introducir ningún tipo de \textit{padding} o \textit{bucketing} pues se crean ventanas de longitud fija, por lo que todas las secuencias de entrada tienen la misma longitud. El LSTM recibe como entrada secuencias de tamaño $(batch\_size, context\_len)$, donde \textit{context\_len} es el tamaño de la ventana de contexto definida.
+Se ha utilizado \textit{sparse categorical crossentropy}, pues los datos de salida son enteros que representan las clases (tokens) y no vectores one-hot. Por otro lado, no es necesario introducir ningún tipo de \textit{padding} o \textit{bucketing} ya que se crean ventanas de longitud fija, por lo que todas las secuencias de entrada tienen la misma longitud. El LSTM recibe como entrada secuencias de tamaño $(batch\_size, context\_len)$, donde \textit{context\_len} es el tamaño de la ventana de contexto definida.
 
 \begin{figure}[h]
     \centering
@@ -821,6 +821,17 @@ Utilizo \textit{sparse_categorical_crossentropy}, pues los datos de salida son e
     \caption{Ventanas de contexto LSTM}
     \label{fig:placeholder24}
 \end{figure}
+
+El modelo implementado consta de dos capas LSTM de 512 y 256 neuronas respectivamente, seguidas de una capa densa con activación GELU (ver anexo \ref{sec:gelu}) y una capa de salida densa con activación \textit{softmax} para obtener las probabilidades de cada token en el vocabulario. Se ha combinado con una capa de convolución para capturar patrones locales en las secuencias de texto antes de que entren en las capas LSTM. Para evitar sobreajuste y mantener un entrenamiento estable se ha incluido \textit{dropout} entre las capas y normalización por lotes. Se ha empleado el mismo optimizador AdamW con un ratio de aprendizaje de $1e-4$ utilizado para el Transformer y un \textit{Early Stopping} igual a 5. El modelo ha sido entrenado durante 21 épocas con un tamaño de batch de $32$ y una ventana de contexto de $128$ tokens. Se ha observado un descenso de la perplejidad desde $195.79$ hasta $108.22$, valores peores que los obtenidos con el Transformer. Las curvas de pérdida se muestran en la imagen \ref{fig:placeholder33}:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/perplexity_lstm.png}
+    \caption{Perplejidad LSTM durante el entrenamiento}
+    \label{fig:placeholder24}
+\end{figure}
+
+Como se puede observar, no se aprecia sobreajuste y el entrenamiento se detuvo antes de que la perplejidad en los datos de validación empezase a aumentar respecto a los de entrenamiento. 
 
 %--- FIN DEL CAPÍTULO 4
 
@@ -955,7 +966,7 @@ En la primera de ellas prevalecen valores altos de top-k y top-p buscando varied
 
 En la segunda evaluación se utiliza un valor más bajo de temperatura y disminuye el valor de P y K, lo que lo hace más determinista. Al reducir la penalización de presencia el modelo será más reacio a introducir nuevas palabras y al aumentar la penalización de frecuencia el modelo evitará repetir palabras. El resultado es un texto más coherente, aunque menos variado, sin neologismos o errores sintácticos importantes.
 
-
+\subsubsection{Validación con MAUVE y Distinct-n}
 
 \subsubsection{Comparación con LSTM}
 
@@ -1017,17 +1028,53 @@ print(torch.cuda.device_count())
 
 Finalmente, se instalan el resto de librerías necesarias con el comando pip3.
 
-\section{Moses} \label{sec:moses}
-\section{GELU} \label{sec:gelu}
-\section{Xavier Uniform} \label{sec:xavier}
-\section{Normal uniform} \label{sec:normal}
 
-\section{Entropía} \label{sec:entropia}
+\section{Gaussian Error Linear Unit (GELU)} \label{sec:gelu}
+GELU es una función de activación introducida en 2016 que ha ganado popularidad por su capacidad para aumentar la capacidad de aprendizaje de las redes neuronales profundas. A diferencia de funciones tradicionales como ReLU o Sigmoid, GELU combina propiedades de ambas, permitiendo una activación suave y no lineal. 
+
+En la imagen \ref{fig:placeholder32} se puede observar la comparación entre GELU y ReLU. Como se aprecia, la segunda tiene un corte abrupto en 0 y produce un resultado lineal para números negativos. A su vez, GELU, es no monótica, es decir, no siempre aumenta o disminuye, lo que puede ayudar a capturar relaciones complejas en los datos.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/gelu.png}
+    \caption{GELU vs RELU \parencite{carr2025gelu}}
+    \label{fig:placeholder32}
+\end{figure}
+
+
+\section{Xavier Uniform} \label{sec:xavier}
+
+La inicialización Xvier o Glorot tiene como objetivo mantener la varianza de las activaciones y los gradientes a lo largo de las capas de una red neuronal, evitando problemas como el desvanecimiento o explosión del gradiente. Considera el número de neuronas en las capas de entrada y salida para determinar el rango adecuado para inicializar los pesos. Existen dos variantes de esta incialización, por un lado la uniforme y por otro lado la normal. En este caso se ha empleado la uniforme, que inicializa los pesos con valores muestreados de una distribución uniforme, frente a la normal que lo hace con una distribución Gaussiana, lo que conlleva más diversidad y puede ser menos estable. Mátematicamente lo que hace es:
+
+\[
+\text{x} = \sqrt{\frac{6}{\text{fan\_in} + \text{fan\_out}}}
+\]
+
+Donde $\text{fan\_in}$ es el número de neuronas en la capa de entrada y $\text{fan\_out}$ es el número de neuronas en la capa de salida \parencite{codesignal_xavier_uniform_pytorch}. El valor constante $6$ se obtiene al igualar la varianza de una distribución uniforme, $\frac{a^2}{3}$, con la varianza objetivo de la inicialización Xavier, $\frac{2}{\text{fan\_in} + \text{fan\_out}}$, de modo que:
+
+\[
+\frac{x^2}{3} = \frac{2}{\text{fan\_in} + \text{fan\_out}} \quad \Rightarrow \quad x^2 = \frac{6}{\text{fan\_in} + \text{fan\_out}}
+\]
+
+Por lo tanto, los pesos se inicializan como $W \sim U(-x, x)$ con $x = \sqrt{\frac{6}{\text{fan\_in} + \text{fan\_out}}}$ \parencite{365datascience_xavier_init}.
+
+
+\section{Inicialización Normal} \label{sec:normal}
+
+Este tipo de iniciallización inicializa los pesos con valores muestreados de una distribución Gaussiana (normal) con media cero y una desviación estándar específica. Esto significa que los valores de los pesos son aleatorios centrados en $0$ y la desviación controla que tan lejos peuden estar de dicho valor. Se ha empleado un valor de desviación estándar de $0.02$ pues es comunmente empleado en arquitecturas Transformer y permite mantener las activaciones estables en redes profundas.
 
 \section{MAUVE} \label{sec:mauve}
 
-
+Consiste en una librería de Python y Hugging Face que permite comparar la similitud o diferencia entre un texto generado por el LLM y el humano, capturando la calidad global y diversidad del texto generado. Lo que hace es representar los textos en un espacio de embeddings, los cuales se agrupan y se estiman sus distribuciones de probabilidad. Por último, utiliza divergencias de Kullback-Leibler para medir la similitud entre ambas distribuciones. Se tiene un valor de MAUVE alto si los textos generados son similares a los humanos en términos de coherencia, naturalidad y diversidad \parencite{pillutla2021mauve_software}.
 \section{Distinct-n} \label{sec:distinct-n}
+
+Se trata de una métrica que empleada para medir la diversidad de una frase. Se centra en el número de n-gramas únicos en relación con el número total de n-gramas en una secuencia, penalizando aquellas frases que contienen muchas palabras repetidas. Matemáticamente, se define como:
+\[
+\text{Distinct-n} = \frac{\text{Número de n-gramas únicos}}{\text{Número total de n-gramas}}
+\]
+
+Así, por ejemplo, en la frase "Mi perro come come mucho", para $n=2$, los bigramas son: "Mi perro", "perro come", "come come", "come mucho". Aquí, hay 4 bigramas en total, de los cuales 3 son únicos ("Mi perro", "perro come", "come mucho"). Por lo tanto, la métrica sería $\frac{3}{4} = 0.75$.
+
 
 \section{Resultados obtenidos para Tiny Shakespeare} \label{sec:res-tiny}
 
@@ -1212,7 +1259,7 @@ https://discuss.pytorch.org/t/how-to-use-collate-fn/27181
 https://plainenglish.io/blog/understanding-collate-fn-in-pytorch-f9d1742647d3
 https://blog.lukesalamone.com/posts/custom-pytorch-collate/
 
-https://www.kaggle.com/code/shreydan/bpe-tokenizer-lstm-embeddings -> IMplementación
+https://www.kaggle.com/code/shreydan/bpe-tokenizer-lstm-embeddings -> Implementación
 \begin{lstlisting}[language=Python]
 
 for batch_x, batch_y in loader:

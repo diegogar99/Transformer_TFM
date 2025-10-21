@@ -48,15 +48,14 @@
 \contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{31}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Validación}{33}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Resultados}{34}{subsection.5.2.1}%
-\contentsline {subsubsection}{Comparación con LSTM}{36}{section*.39}%
-\contentsline {subsubsection}{Validación a través de API}{36}{section*.40}%
+\contentsline {subsubsection}{Validación con MAUVE y Distinct-n}{36}{section*.40}%
+\contentsline {subsubsection}{Comparación con LSTM}{36}{section*.41}%
+\contentsline {subsubsection}{Validación a través de API}{36}{section*.42}%
 \contentsline {chapter}{\numberline {A}Anexos}{41}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Preparación del entorno}{41}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Moses}{42}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}GELU}{42}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Xavier Uniform}{42}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}Normal uniform}{42}{section.Alph1.5}%
-\contentsline {section}{\numberline {A.6}Entropía}{42}{section.Alph1.6}%
-\contentsline {section}{\numberline {A.7}MAUVE}{42}{section.Alph1.7}%
-\contentsline {section}{\numberline {A.8}Distinct-n}{42}{section.Alph1.8}%
-\contentsline {section}{\numberline {A.9}Resultados obtenidos para Tiny Shakespeare}{42}{section.Alph1.9}%
+\contentsline {section}{\numberline {A.2}Gaussian Error Linear Unit (GELU)}{41}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Xavier Uniform}{42}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Inicialización Normal}{42}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}MAUVE}{43}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Distinct-n}{43}{section.Alph1.6}%
+\contentsline {section}{\numberline {A.7}Resultados obtenidos para Tiny Shakespeare}{43}{section.Alph1.7}%
