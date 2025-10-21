@@ -1,0 +1,80 @@
+GPU disponible: [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+Longitud corpus train: 896135 caracteres
+Longitud corpus valid: 100448 caracteres
+Longitud corpus test: 111570 caracteres
+Número total de tokens: 279585
+Número total de tokens: 31654
+Creando ventanas deslizantes...
+Comienza entrenamiento
+Epoch 1/50
+4366/4366 - 876s - 201ms/step - accuracy: 0.1523 - loss: 5.9731 - val_accuracy: 0.1799 - val_loss: 5.2770
+Epoch 2/50
+4366/4366 - 882s - 202ms/step - accuracy: 0.1934 - loss: 5.2119 - val_accuracy: 0.2058 - val_loss: 5.0701
+Epoch 3/50
+4366/4366 - 880s - 202ms/step - accuracy: 0.2135 - loss: 5.0378 - val_accuracy: 0.2201 - val_loss: 4.9425
+Epoch 4/50
+4366/4366 - 908s - 208ms/step - accuracy: 0.2263 - loss: 4.9191 - val_accuracy: 0.2255 - val_loss: 4.8642
+Epoch 5/50
+4366/4366 - 915s - 210ms/step - accuracy: 0.2339 - loss: 4.8459 - val_accuracy: 0.2288 - val_loss: 4.8259
+Epoch 6/50
+4366/4366 - 871s - 199ms/step - accuracy: 0.2390 - loss: 4.7907 - val_accuracy: 0.2367 - val_loss: 4.7832
+Epoch 7/50
+4366/4366 - 866s - 198ms/step - accuracy: 0.2438 - loss: 4.7456 - val_accuracy: 0.2383 - val_loss: 4.7446
+Epoch 8/50
+4366/4366 - 866s - 198ms/step - accuracy: 0.2467 - loss: 4.7039 - val_accuracy: 0.2400 - val_loss: 4.7425
+Epoch 9/50
+4366/4366 - 870s - 199ms/step - accuracy: 0.2497 - loss: 4.6681 - val_accuracy: 0.2424 - val_loss: 4.7161
+Epoch 10/50
+4366/4366 - 877s - 201ms/step - accuracy: 0.2536 - loss: 4.6313 - val_accuracy: 0.2442 - val_loss: 4.6833
+Epoch 11/50
+4366/4366 - 868s - 199ms/step - accuracy: 0.2564 - loss: 4.5991 - val_accuracy: 0.2451 - val_loss: 4.6657
+Epoch 12/50
+4366/4366 - 867s - 199ms/step - accuracy: 0.2587 - loss: 4.5721 - val_accuracy: 0.2457 - val_loss: 4.6660
+Epoch 13/50
+4366/4366 - 846s - 194ms/step - accuracy: 0.2615 - loss: 4.5437 - val_accuracy: 0.2482 - val_loss: 4.6579
+Epoch 14/50
+4366/4366 - 838s - 192ms/step - accuracy: 0.2643 - loss: 4.5223 - val_accuracy: 0.2472 - val_loss: 4.6578
+Epoch 15/50
+4366/4366 - 859s - 197ms/step - accuracy: 0.2661 - loss: 4.5002 - val_accuracy: 0.2494 - val_loss: 4.6560
+Epoch 16/50
+4366/4366 - 850s - 195ms/step - accuracy: 0.2686 - loss: 4.4763 - val_accuracy: 0.2505 - val_loss: 4.6421
+Epoch 17/50
+4366/4366 - 850s - 195ms/step - accuracy: 0.2713 - loss: 4.4544 - val_accuracy: 0.2497 - val_loss: 4.6488
+Epoch 18/50
+4366/4366 - 851s - 195ms/step - accuracy: 0.2728 - loss: 4.4403 - val_accuracy: 0.2503 - val_loss: 4.6527
+Epoch 19/50
+4366/4366 - 851s - 195ms/step - accuracy: 0.2755 - loss: 4.4287 - val_accuracy: 0.2508 - val_loss: 4.6749
+Epoch 20/50
+4366/4366 - 850s - 195ms/step - accuracy: 0.2768 - loss: 4.4221 - val_accuracy: 0.2518 - val_loss: 4.6763
+Epoch 21/50
+4366/4366 - 852s - 195ms/step - accuracy: 0.2795 - loss: 4.4146 - val_accuracy: 0.2525 - val_loss: 4.6842
+Entrenamiento finalizado
+Validación del entrenamiento
+=== Resultados del entrenamiento LSTM ===
+Época 001: Loss=5.9731 | Val_Loss=5.2770 | PPL=392.72 | Val_PPL=195.79
+Época 002: Loss=5.2119 | Val_Loss=5.0701 | PPL=183.44 | Val_PPL=159.19
+Época 003: Loss=5.0378 | Val_Loss=4.9425 | PPL=154.13 | Val_PPL=140.11
+Época 004: Loss=4.9191 | Val_Loss=4.8642 | PPL=136.88 | Val_PPL=129.57
+Época 005: Loss=4.8459 | Val_Loss=4.8259 | PPL=127.22 | Val_PPL=124.70
+Época 006: Loss=4.7907 | Val_Loss=4.7832 | PPL=120.39 | Val_PPL=119.49
+Época 007: Loss=4.7456 | Val_Loss=4.7446 | PPL=115.08 | Val_PPL=114.96
+Época 008: Loss=4.7039 | Val_Loss=4.7425 | PPL=110.37 | Val_PPL=114.73
+Época 009: Loss=4.6681 | Val_Loss=4.7161 | PPL=106.50 | Val_PPL=111.73
+Época 010: Loss=4.6313 | Val_Loss=4.6833 | PPL=102.65 | Val_PPL=108.12
+Época 011: Loss=4.5991 | Val_Loss=4.6657 | PPL=99.40 | Val_PPL=106.24
+Época 012: Loss=4.5721 | Val_Loss=4.6660 | PPL=96.75 | Val_PPL=106.27
+Época 013: Loss=4.5437 | Val_Loss=4.6579 | PPL=94.04 | Val_PPL=105.41
+Época 014: Loss=4.5223 | Val_Loss=4.6578 | PPL=92.04 | Val_PPL=105.40
+Época 015: Loss=4.5002 | Val_Loss=4.6560 | PPL=90.04 | Val_PPL=105.22
+Época 016: Loss=4.4763 | Val_Loss=4.6421 | PPL=87.91 | Val_PPL=103.76
+Época 017: Loss=4.4544 | Val_Loss=4.6488 | PPL=86.00 | Val_PPL=104.46
+Época 018: Loss=4.4403 | Val_Loss=4.6527 | PPL=84.80 | Val_PPL=104.87
+Época 019: Loss=4.4287 | Val_Loss=4.6749 | PPL=83.83 | Val_PPL=107.22
+Época 020: Loss=4.4221 | Val_Loss=4.6763 | PPL=83.27 | Val_PPL=107.38
+Época 021: Loss=4.4146 | Val_Loss=4.6842 | PPL=82.65 | Val_PPL=108.22
+
+=== Promedios ===
+Media Train Loss: 4.7096
+Media Val Loss:   4.7587
+Media Train PPL:  111.01
+Media Val PPL:    116.59
