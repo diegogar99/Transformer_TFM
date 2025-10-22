@@ -1713,6 +1713,40 @@
       \verb https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1
       \endverb
     \endentry
+    \entry{zhou2024zipf_nlp}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d92ecff9c6f07605ac36e38b11f65c17}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Connie},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{fullhash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{bibnamehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{authorbibnamehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{authornamehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{authorfullhash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mastering Natural Language Processing – Part 5: Understanding Word Frequencies and Zipf’s Law in NLP}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://medium.com/@conniezhou678/mastering-natural-language-processing-part-5-understanding-word-frequencies-and-zipfs-law-in-nlp-bbce1dd3d47d
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@conniezhou678/mastering-natural-language-processing-part-5-understanding-word-frequencies-and-zipfs-law-in-nlp-bbce1dd3d47d
+      \endverb
+    \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global}
     \entry{amit2024mixedprecision}{online}{}
@@ -3407,6 +3441,40 @@
       \endverb
       \verb{url}
       \verb https://yassin01.medium.com/adam-vs-adamw-understanding-weight-decay-and-its-impact-on-model-performance-b7414f0af8a1
+      \endverb
+    \endentry
+    \entry{zhou2024zipf_nlp}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d92ecff9c6f07605ac36e38b11f65c17}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Connie},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Medium}%
+      }
+      \strng{namehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{fullhash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{bibnamehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{authorbibnamehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{authornamehash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \strng{authorfullhash}{d92ecff9c6f07605ac36e38b11f65c17}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mastering Natural Language Processing – Part 5: Understanding Word Frequencies and Zipf’s Law in NLP}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://medium.com/@conniezhou678/mastering-natural-language-processing-part-5-understanding-word-frequencies-and-zipfs-law-in-nlp-bbce1dd3d47d
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@conniezhou678/mastering-natural-language-processing-part-5-understanding-word-frequencies-and-zipfs-law-in-nlp-bbce1dd3d47d
       \endverb
     \endentry
   \enddatalist

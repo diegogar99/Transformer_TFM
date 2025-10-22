@@ -3082,47 +3082,48 @@
     <bcf:citekey order="22" intorder="1">kyeg_feedforward_demystified</bcf:citekey>
     <bcf:citekey order="23" intorder="1">gerber2025ffn</bcf:citekey>
     <bcf:citekey order="24" intorder="1">huggingface_tinyshakespeare</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">huggingface_wikitext</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">autonlp2020linkedwikitext</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">shabbir2021cleaning</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">bao2022embedding</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">kanaries_nnlinear</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">gerber2025ffn</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">kyeg_feedforward_demystified</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">gerber2025ffn</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">amit2024mixedprecision</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">stack_overflow_gradscaler</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">amit2024mixedprecision</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">pytorch_cosineannealinglr</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">geeksforgeeks_crossentropy</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">zhou2024zipf_nlp</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">huggingface_wikitext</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">autonlp2020linkedwikitext</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">shabbir2021cleaning</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">bao2022embedding</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">kanaries_nnlinear</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">gerber2025ffn</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">kyeg_feedforward_demystified</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">gerber2025ffn</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">amit2024mixedprecision</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">stack_overflow_gradscaler</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">amit2024mixedprecision</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">pytorch_cosineannealinglr</bcf:citekey>
     <bcf:citekey order="38" intorder="1">geeksforgeeks_crossentropy</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">keerthanams2025evaluating</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">geeksforgeeks_crossentropy</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">keerthanams2025evaluating</bcf:citekey>
     <bcf:citekey order="41" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">singh2024perplexitymatters</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">krishnap25_mauve_github</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">singh2024perplexitymatters</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">krishnap25_mauve_github</bcf:citekey>
     <bcf:citekey order="45" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">geeksforgeeks_sgd</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">ultralytics_adam_glossary</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">kashyap2024rmsprop</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">yassin2024adamvsadamw</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">stackoverflow_sgd_optimizer</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">stackoverflow_perplexity_pytorch</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">geeksforgeeks_sgd</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">ultralytics_adam_glossary</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">kashyap2024rmsprop</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">yassin2024adamvsadamw</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">datacamp_adamw_pytorch</bcf:citekey>
     <bcf:citekey order="53" intorder="1">stackoverflow_sgd_optimizer</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">reddit_transformer_not_learning</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">pytorch_adjust_lr</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">doherty2024_hownot</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">vyas2025transformer_decoder_part3</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">vishnuraj2025temperature</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">bsantraigi_topk_topp_batched</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">vyas2025transformer_decoder_part3</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">carr2025gelu</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">stackoverflow_sgd_optimizer</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">reddit_transformer_not_learning</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">pytorch_adjust_lr</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">doherty2024_hownot</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">vyas2025transformer_decoder_part3</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">vishnuraj2025temperature</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">bsantraigi_topk_topp_batched</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">vyas2025transformer_decoder_part3</bcf:citekey>
     <bcf:citekey order="62" intorder="1">carr2025gelu</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">codesignal_xavier_uniform_pytorch</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">365datascience_xavier_init</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">pillutla2021mauve_software</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">carr2025gelu</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">codesignal_xavier_uniform_pytorch</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">365datascience_xavier_init</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">pillutla2021mauve_software</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

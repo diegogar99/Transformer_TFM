@@ -266,7 +266,8 @@ Pandas & 2.3.2 \\
 Matplotlib & 3.10.7 \\
 Scikit-learn & 1.5.2 \\
 NLTK & 3.9.1 \\
-SentencePiece & 0.2.1 \\
+wordcloud & 1.9.4\\
+mauve-text & 0.4.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -500,8 +501,43 @@ A continuación se adjunta una porción del dataset original:
     \label{fig:placeholder1}
 \end{figure}
 
-\subsubsection{EDA}
+\subsubsection{Análisis exploratorio de datos (EDA)}
+En este análisis se extrae información estadística del número de caracteres, palabras, oraciones y líneas, así como longitud de las mismas. Además, se realiza un análisis sobre como se distribuyen las palabras en el corpus y se comprueba si se cumple la ley Zipf \parencite{zhou2024zipf_nlp} que indicaría si tiene una estructura típica del lenguaje natural. Los resultados obtenidos se indican a continuación.
 
+El texto original consta de $40000$ líneas, $12449$ oraciones, $200837$ palabras y $1115394$ caracteres. La longitug media de palabras de es $4.13$ caracteres y de las oraciones de $20.46$. Del total de palabras del corpus se ha identificado un $48.42$\% de \textit{stop words} y un $71.86$\% de las palabras se repiten menos de 5 veces. No se ha identificado ningún caracter raro que no perteneciese a caracteres alfanuméricos o signos de puntuación. A continuación se presentan dos histogramas de como se distribuyen las longitudes de las palabras y las oraciones. Como se puede observar, la mayoría de los términos constan entre tres y seis caracteres, un comportamiento que concuerda con los textos en lenguaje natural y en concreto, con la naturaleza de este texto, pues son obras de Shakespeare escritas en un inglés de finales del siglo XVI y comienzos del XVI. Por otro lado, en las oraciones predominan estructuras breves, lo que se corresponde con la naturaleza de diálogos cortos que componen las obras de Shakespeare.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/hist_long_w_shake.png}
+    \caption{Distribución de frecuencias longitud de palabras}
+    \label{fig:placeholder34}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/hist_long_s_shake.png}
+    \caption{Distribución de frecuencias longitud de oraciones}
+    \label{fig:placeholder35}
+\end{figure}
+
+Se ha utilizado \textit{wordcloud} para visualizar las palabras más frecuentes. Tal y como muestra la siguiente imagen predominan palabras cortas como \textit{Thy, thou o thee} que son pronombres antiguos del inglés, hoy en día reemplazados por \textit{you o your}. tambiñen aparecen palabras típicas de la literatura de William Shakespeare, como \textit{love, king o death} y personajes principales de las obras: \textit{king richard o angelo}. Por último, varios verbos aparecen con frecuencia: \textit{hath (hash), make o say}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/word_count_shake.png}
+    \caption{Wordcounter}
+    \label{fig:placeholder36}
+\end{figure}
+
+Por último, la siguiente gráfica muestra que se cumple la ley Zipf. En ella se muestra la relación entre la frecuencia de las palabras y su posición en el ranking de uso. Se observa como la frecuencia de las palabras disminuye de manera inversamente proporcional a su rango, lo cual cumple con la Ley de Zipf y por tanto, con el comportamiento estadístico del lenguaje natural, donde las palabras más comunes aparecen con mucha más frecuencia que las menos comunes. Como las palabras que se repiten con alta frecuencia no son numerosas y se observa un rápido decaimiento en la gráfica se justifica el uso de la tokenización Byte Pair Encoding (BPE) para tratar el problema de los tokens desconocidos.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/zipf_shake.png}
+    \caption{Ley Zipf}
+    \label{fig:placeholder37}
+\end{figure}
 
 \subsection{WikiText2}
 Este dataset contiene una colección de textos seleccionados de Wikipedia \parencite{huggingface_wikitext} \parencite{autonlp2020linkedwikitext}. Se puede descargar de Salesforce en Huggingface y consta de más de 2 millones de tokens de datos, divididos en $4358$ ejemplos para test, $36718$ para entrenamiento y $3760$ para validación. 
@@ -509,7 +545,7 @@ Este dataset contiene una colección de textos seleccionados de Wikipedia \paren
 
 \texttt{wikitext2 = load\_dataset("Salesforce/wikitext", "wikitext-2-raw-v1")}
 
-\subsubsection{EDA}
+\subsubsection{Análisis exploratorio de datos (EDA)}
 
 % LIMPIEZA Y TOKENIZACIÓN
 
@@ -967,13 +1003,61 @@ En la primera de ellas prevalecen valores altos de top-k y top-p buscando varied
 En la segunda evaluación se utiliza un valor más bajo de temperatura y disminuye el valor de P y K, lo que lo hace más determinista. Al reducir la penalización de presencia el modelo será más reacio a introducir nuevas palabras y al aumentar la penalización de frecuencia el modelo evitará repetir palabras. El resultado es un texto más coherente, aunque menos variado, sin neologismos o errores sintácticos importantes.
 
 \subsubsection{Validación con MAUVE y Distinct-n}
+Para validar la calidad y diversidad global del texto generado se han empleado las herramientas MAUVE y Distinct-n, de las que se recoge más información en el anexo. La primera, mide la coherencia, variedad y naturalidad del texto en base a una serie de ejemplos reales que son fragmentos del corpus de test. Se han hecho las pruebas inicialmente con cuatro fragmentos extraidos de manera aletoria compuestos por más de 14 frase cada uno. Para las prubas realizadas con Distinct-n se han obtenido los resultados para los valores $1$, $2$ y $3$ de \textit{n}, estos miden la diversidad de los textos, a mayor valor, mayor diversidad. Los resultados obtenidos se recogen en la siguiente tabla.
+\begin{table}[h]
+    \centering
+    \caption{Combinaciones de hiperparámetros para la generación de texto con Tiny Shakespeare}
+    \label{tab:res_mauve}
+    \begin{tabular}{l c c c c c c c c c}
+    \toprule
+    \textbf{Fila} & \textbf{Temp} & \textbf{Top-k} & \textbf{Top-p} & \textbf{Presence Penalty} & \textbf{Frequency Penalty} & \textbf{Distinct-1} & \textbf{Distinct-2} & \textbf{Distinct-3} & \textbf{MAUVE}\\
+    \midrule
+    1 & 0.5 & None & None & 0.0 & 0.0 & 0.7541 & 0.9667 & 1.0000 & 0.974 \\
+    2 & 1.0 & None & None & 0.0 & 0.0 & 0.9464 & 1.0000 & 1.0000 & 0.962\\
+    3 & 1.5 & None & None & 0.0 & 0.0 & 0.9516 & 1.0000 & 1.0000 & 0.948\\
+    4 & 1.0 & 10 & None & 0.0 & 0.0 & 0.6923 & 0.9531 & 0.9841 & 0.962 \\
+    5 & 1.0 & 90 & None & 0.0 & 0.0 & 0.8889 & 1.0000 & 1.0000 & 0.948\\
+    6 & 1.0 & 200 & None & 0.0 & 0.0 & 0.8548 & 1.0000 & 1.0000 & 0.980\\
+    7 & 1.0 & None & 0.05 & 0.0 & 0.0 & 0.2090 & 0.3182 & 0.4154 & 0.392\\
+    8 & 1.0 & None & 0.30 & 0.0 & 0.0 & 0.6949 & 0.9483 & 0.9825 & 0.958\\
+    9 & 1.0 & None & 0.90 & 0.0 & 0.0 & 0.9153 & 1.0000 & 1.0000 & 0.975\\
+    10 & 1.0 & None & None & 0.2 & 0.0 & 0.9538 & 1.0000 & 1.0000 & 0.971\\
+    11 & 1.0 & None & None & 0.5 & 0.0 & 0.9219 & 1.0000 & 1.0000 & 0.975\\
+    12 & 1.0 & None & None & 1.0 & 0.0 & 0.9324 & 1.0000 & 1.0000 & 0.971\\
+    13 & 1.0 & None & None & 0.0 & 0.2 & 0.9672 & 1.0000 & 1.0000 & 0.973\\
+    14 & 1.0 & None & None & 0.0 & 0.5 & 0.9167 & 1.0000 & 1.0000 & 0.962\\
+    15 & 1.0 & None & None & 0.0 & 1.0 & 0.9710 & 1.0000 & 1.0000 & 0.977\\
+    16 & 0.9 & 100 & 0.95 & 0.3 & 0.2 & 0.9412 & 1.0000 & 1.0000 & 0.977\\
+    17 & 0.7 & 80 & 0.9 & 0.2 & 0.3 & 0.8438 & 0.9841 & 1.0000 & 0.979\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Por lo general la mayoría de los textos tienen un valor de MAUVE superior al $0.95$, lo que indica una alta similitud con los textos reales. Destaca el caso $7$, donde se aplica un valor de \textit{p} de $0.05$, con un valor de $0.392$. Se puede comprobar en la tabla \ref{tab:resultados_validacion_shakespeare} del anexo que es debido a que cada frase es una repetición casi idéntica de la anterior, careciendo de ningú ntipo de coherencia. Esto también se refleja en los valores de los n-gramas, que no superan el $0.5$. 
+
+Los mejores resultados se han obtenido para las pruebas con un valor de \textit{k} de $200$, donde apenas se observa repetición y la similitud con los textos reales es alta, y para los últimos casos: temperatura constante y penalización de frecuencia igual a $1.0$ y los dos últimos casos donde se combinan hiperparámetros. El primero de esto tres últimos destaca, no solo por una alta similitud con los originales, sino que es el texto más fluido en base a las pruebas realizadas con Distinct-n. 
+
+De estos resultados, se ha seleccionado los tres mejores, que se corresponderían con las filas 6, 15 y 17 de la tabla y se ha vuelto a calcular la métrica MAUVE incrementando el número de ejemplos reales a $10$, aumentando también la diversidad de los mismos. Se observa un ligero descenso del valor obtenido para el primer caso y último caso ($0.979$ y $0.974$ respectivamente), mientras que el segundo texto generado el valor aumenta a $0.978$. Los textos generados se pueden observar en la sección \ref{sec:res-tiny} del anexo, siendo el de mayor puntuación obtenida: 
+
+\textit{KING RICHARD:}
+\textit{But now must be the law,}
+\textit{Thou hast you:}
+\textit{Nay not be he were not?}
+\textit{Or I's mine enemy in good lady't not in one and here.}
+\textit{Whose repetition:}
+\textit{Unations, sir, no}
+\textit{So you: I will have no harm is my father's departure,}
+\textit{As, well; and they joy}
+\textit{YORK:}
+\textit{I know to his fortunes of the time so I pray}
+
 
 \subsubsection{Comparación con LSTM}
 
 
 \subsubsection{Validación a través de API}
 
-Para agilizar la validación del modelo se ha implementado una API RESTful utilizando el framework \texttt{FastAPI} de Python. Esta API permite enviar solicitudes HTTP para generar texto a partir de un prompt inicial y los hiperparámetros definidos anteriormente. Las pruebas se realizan a través de \texttt{Postman}, y facilita ajustar los hiperparámetros dinámicamente y lanzar múltiples pruebas. Se ha expuesto el endpoint \textit{} localmente a través del puerto $8011$. En las imagenes \ref{fig:placeholder27} y \ref{fig:placeholder28} se muestra el \textit{curl} generado por \texttt{Postman} y una respuesta de ejemplo respectivamente.
+Para agilizar la validación del modelo se ha implementado una API RESTful utilizando el framework \texttt{FastAPI} de Python. Esta API permite enviar solicitudes HTTP para generar texto a partir de un prompt inicial y los hiperparámetros definidos anteriormente. Las pruebas se realizan a través de \texttt{Postman}, y facilita ajustar los hiperparámetros dinámicamente y lanzar múltiples pruebas. Se ha expuesto el endpoint \textit{http://localhost:8011/LLM/api/v1/generar\_texto} localmente a través del puerto $8011$. En las imagenes \ref{fig:placeholder27} y \ref{fig:placeholder28} se muestra el \textit{curl} generado por \texttt{Postman} y una respuesta de ejemplo respectivamente.
 
 \begin{figure}[h]
     \centering

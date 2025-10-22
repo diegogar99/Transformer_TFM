@@ -1,20 +1,20 @@
 # Fdb version 4
-["biber main"] 1761082395.88939 "main.bcf" "main.bbl" "main" 1761082465.31971 0
-  "main.bcf" 1761082465.21058 137848 075f9b692a231b04ccb430a404c9f2f6 "pdflatex"
-  "refs.bib" 1761081255.3197 22827 574aa99027aa0e27831a5caf039ff862 ""
+["biber main"] 1761171135.71004 "main.bcf" "main.bbl" "main" 1761174926.74342 0
+  "main.bcf" 1761174926.56052 137920 363bc4de6aae9d2ce1eecdeaf3b595d6 "pdflatex"
+  "refs.bib" 1761171126.44933 23236 3a7eac1436796c5159792a639e889888 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1761081332.03854 "main.idx" "main.ind" "main" 1761082465.31962 0
-  "main.idx" 1761082462.50961 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1761169199.80083 "main.idx" "main.ind" "main" 1761174926.74319 0
+  "main.idx" 1761174923.69958 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1761082461.48213 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1761082465.31992 0
+["pdflatex"] 1761174922.3018 "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" "main.pdf" "main" 1761174926.74381 0
   "/etc/texmf/web2c/texmf.cnf" 1759053441.78647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1761082461.30828 101437 0744748431e6a73433cc66b0b81f2ff5 ""
+  "/home/dgarciamur/root/TFM/Transformer_TFM/tfm_clean_diego_garcia_muro/main.tex" 1761174913.1188 109497 cb80e04c2f99458f843f3a737f22b86d ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1698694482 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1698694482 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -370,6 +370,8 @@
   "img/gpt2.png" 1760898623.48583 334747 98dd4b9f6d96968120092c7a1f623540 ""
   "img/heads.png" 1759054079.88703 55123 567f851565c221ed2336f38a05cef5eb ""
   "img/heads2.png" 1759054087.77066 50052 2606c4eaa25c2d1ecbfa2e67649f3024 ""
+  "img/hist_long_s_shake.png" 1761174872.84062 22226 637d13b0ce5dbe9f0d9fb1058a5a8f4c ""
+  "img/hist_long_w_shake.png" 1761174898.79309 19762 b04d804a20fe76fad992b86eed078c53 ""
   "img/limpieza_tokeniz_train.png" 1760897296.07143 137164 ea40033177a6340b59a55233d7b5a96a ""
   "img/logo_imf.png" 1759045582 4640 8f49add8f12b4837bc4126f48ab5435e ""
   "img/masked.png" 1759045582 45516 7906a09c682ca088c7b0f910803f9a61 ""
@@ -383,14 +385,16 @@
   "img/sentence_trainer.png" 1760897091.66767 287532 792c8bc08db326bdd1ca727ce8943109 ""
   "img/tiny_shakespeare.png" 1760895984.4097 121319 c6d78efee792fe831aab4c5863cbec7e ""
   "img/window_lstm.png" 1760906149.57147 166513 2618dc217dce0138a86f922f3bfebb0f ""
+  "img/word_count_shake.png" 1761174835.35839 225257 1d89df5b406de7472e37221696fe8e1e ""
   "img/xavier_init.png" 1759355523.56317 14588 d18ea69e7bdca3f544bff4e0e982a5d8 ""
-  "main.aux" 1761082465.20058 36862 84516592a98bc710744065e7911d9845 "pdflatex"
-  "main.bbl" 1761082396.5607 139894 901c249630d48966665fa03075600897 "biber main"
-  "main.ind" 1761081332.13155 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1761082465.20758 8667 9e1364b6a2de297c416bf3b2bfb4acce "pdflatex"
-  "main.run.xml" 1761082465.21136 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
-  "main.tex" 1761082461.30828 101437 0744748431e6a73433cc66b0b81f2ff5 ""
-  "main.toc" 1761082465.21136 5067 4720f02dbd09fcb63d39b9a2fbcac730 "pdflatex"
+  "img/zipf_shake.png" 1761174799.60212 29878 ec5d3b453a92d998ec7877eb010af4bb ""
+  "main.aux" 1761174926.55052 38852 e3ff58a65a06ac397a36228e92f4bdc9 "pdflatex"
+  "main.bbl" 1761171136.9466 142960 a3fa57dae4d4fdb42769bc6fa965ea79 "biber main"
+  "main.ind" 1761169199.96342 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1761174926.55752 8667 9e1364b6a2de297c416bf3b2bfb4acce "pdflatex"
+  "main.run.xml" 1761174926.56218 2353 9e5bf8649959f284d8dcb1b0ded85d4b "pdflatex"
+  "main.tex" 1761174913.1188 109497 cb80e04c2f99458f843f3a737f22b86d ""
+  "main.toc" 1761174926.56218 5135 d8129cadc832a7d8391a39278f9d5cad "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"
