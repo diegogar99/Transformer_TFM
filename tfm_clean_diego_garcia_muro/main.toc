@@ -29,33 +29,33 @@
 \contentsline {subsection}{\numberline {4.1.1}Tiny Shakespeare}{17}{subsection.4.1.1}%
 \contentsline {subsubsection}{Análisis exploratorio de datos (EDA)}{18}{section*.14}%
 \contentsline {subsection}{\numberline {4.1.2}WikiText2}{19}{subsection.4.1.2}%
-\contentsline {subsubsection}{Análisis exploratorio de datos (EDA)}{19}{section*.19}%
-\contentsline {section}{\numberline {4.2}Limpieza y tokenización}{20}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Implementación del tokenizador BPE}{20}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Embeddings y Positional Encodding}{21}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Mecanismos de atención}{22}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Implementación de las múltiples cabezas de atención}{24}{subsection.4.4.1}%
-\contentsline {section}{\numberline {4.5}Normalización \texttt {(Add \& Norm)}}{25}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Feed Forward}{25}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Entrenamiento}{26}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Configuración de parámetros de entrenamiento}{26}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Elementos regulatorios}{27}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Función de pérdida}{28}{subsection.4.7.3}%
-\contentsline {subsection}{\numberline {4.7.4}Optimizadores}{29}{subsection.4.7.4}%
-\contentsline {subsection}{\numberline {4.7.5}Resumen del modelo para Tiny Shakespeare}{30}{subsection.4.7.5}%
-\contentsline {section}{\numberline {4.8}LSTM}{31}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Validación}{35}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Resultados}{36}{subsection.5.2.1}%
-\contentsline {subsubsection}{Validación con MAUVE y Distinct-n}{38}{section*.44}%
-\contentsline {subsubsection}{Comparación con LSTM}{39}{section*.46}%
-\contentsline {subsubsection}{Validación a través de API}{39}{section*.47}%
-\contentsline {chapter}{\numberline {A}Anexos}{45}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Preparación del entorno}{45}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Gaussian Error Linear Unit (GELU)}{45}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Xavier Uniform}{46}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Inicialización Normal}{46}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}MAUVE}{47}{section.Alph1.5}%
-\contentsline {section}{\numberline {A.6}Distinct-n}{47}{section.Alph1.6}%
-\contentsline {section}{\numberline {A.7}Resultados obtenidos para Tiny Shakespeare}{47}{section.Alph1.7}%
+\contentsline {subsubsection}{Análisis exploratorio de datos (EDA)}{20}{section*.19}%
+\contentsline {section}{\numberline {4.2}Limpieza y tokenización}{21}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Implementación del tokenizador BPE}{21}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Embeddings y Positional Encodding}{23}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Mecanismos de atención}{24}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Implementación de las múltiples cabezas de atención}{26}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Normalización \texttt {(Add \& Norm)}}{26}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Feed Forward}{27}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Entrenamiento}{28}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Configuración de parámetros de entrenamiento}{28}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Elementos regulatorios}{29}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Función de pérdida}{30}{subsection.4.7.3}%
+\contentsline {subsection}{\numberline {4.7.4}Optimizadores}{31}{subsection.4.7.4}%
+\contentsline {subsection}{\numberline {4.7.5}Resumen del modelo para Tiny Shakespeare}{32}{subsection.4.7.5}%
+\contentsline {section}{\numberline {4.8}LSTM}{33}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{35}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Primera aproximación con Tiny Shakespeare}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Validación}{37}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Resultados}{38}{subsection.5.2.1}%
+\contentsline {subsubsection}{Validación con MAUVE y Distinct-n}{40}{section*.50}%
+\contentsline {subsubsection}{Comparación con LSTM}{41}{section*.52}%
+\contentsline {subsubsection}{Validación a través de API}{41}{section*.53}%
+\contentsline {chapter}{\numberline {A}Anexos}{47}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Preparación del entorno}{47}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Gaussian Error Linear Unit (GELU)}{47}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Xavier Uniform}{48}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Inicialización Normal}{48}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}MAUVE}{49}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Distinct-n}{49}{section.Alph1.6}%
+\contentsline {section}{\numberline {A.7}Resultados obtenidos para Tiny Shakespeare}{49}{section.Alph1.7}%

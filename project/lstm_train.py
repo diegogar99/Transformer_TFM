@@ -7,7 +7,7 @@ from tensorflow.keras.layers import LSTM, Dense, Embedding,Conv1D, Dropout,Batch
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.optimizers import Adam,AdamW
 from tensorflow.keras.activations import gelu
-
+from utils import windowed_dataset
 from tokenization import *
 
 print("GPU disponible:", tf.config.list_physical_devices('GPU'))
@@ -16,16 +16,7 @@ context_len = 128
 embedding_dim = 256              
 
 # https://sharmasaravanan.medium.com/text-generation-using-lstm-a-step-by-step-guide-9b787467f9de
-def windowed_dataset(tokens, context_len, batch_size=64, shuffle=True): 
-    n_windows = len(tokens) - context_len
-    X = [tokens[i:i+context_len] for i in range(n_windows)]
-    y = [tokens[i+context_len] for i in range(n_windows)] # LSTM recibe X: ["a","b","c"] y predice ["d"]
 
-    dataset = tf.data.Dataset.from_tensor_slices((X, y))
-    if shuffle:
-        dataset = dataset.shuffle(10000)
-    dataset = dataset.batch(batch_size, drop_remainder=True)
-    return dataset
 
 ''' Si el otro consume mucho este lo hace lazy: bajo demanda
 def windowed_dataset(tokens, context_len, batch_size=64, shuffle=True):

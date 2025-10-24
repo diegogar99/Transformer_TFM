@@ -520,7 +520,7 @@ El texto original consta de $40000$ líneas, $12449$ oraciones, $200837$ palabra
     \label{fig:placeholder35}
 \end{figure}
 
-Se ha utilizado \textit{wordcloud} para visualizar las palabras más frecuentes. Tal y como muestra la siguiente imagen predominan palabras cortas como \textit{Thy, thou o thee} que son pronombres antiguos del inglés, hoy en día reemplazados por \textit{you o your}. tambiñen aparecen palabras típicas de la literatura de William Shakespeare, como \textit{love, king o death} y personajes principales de las obras: \textit{king richard o angelo}. Por último, varios verbos aparecen con frecuencia: \textit{hath (hash), make o say}
+Se ha utilizado \textit{wordcloud} para visualizar las palabras más frecuentes. Tal y como muestra la siguiente imagen predominan palabras cortas como \textit{Thy, thou o thee} que son pronombres antiguos del inglés, hoy en día reemplazados por \textit{you o your}. También aparecen palabras típicas de la literatura de William Shakespeare, como \textit{love, king o death} y personajes principales de las obras: \textit{king richard o angelo}. Por último, varios verbos aparecen con frecuencia: \textit{hath (hash), make o say}.
 
 \begin{figure}[h]
     \centering
@@ -542,10 +542,59 @@ Por último, la siguiente gráfica muestra que se cumple la ley Zipf. En ella se
 \subsection{WikiText2}
 Este dataset contiene una colección de textos seleccionados de Wikipedia \parencite{huggingface_wikitext} \parencite{autonlp2020linkedwikitext}. Se puede descargar de Salesforce en Huggingface y consta de más de 2 millones de tokens de datos, divididos en $4358$ ejemplos para test, $36718$ para entrenamiento y $3760$ para validación. 
 
-
-\texttt{wikitext2 = load\_dataset("Salesforce/wikitext", "wikitext-2-raw-v1")}
-
 \subsubsection{Análisis exploratorio de datos (EDA)}
+
+Se ha seguido el mismo patrón de análisis que para el dataset anterior. En este caso, la información es completamente diferente, tanto en contenido como estructura. Ya no se organiza en versos con una estructura de conversación y en un inglés antiguo, sino que se trata de párrafos agrupados en secciones de artículos indicadas con el siguiente formato: \textit{= = = Título = = =}, donde cada "=" representa un nivel jerárquico o sección para el tema principal. En el siguiente ejemplo se entiende mejor este detalle. Se tiene un tema principal que es el videojuego "Valkyria Chronicles III" y a continuación comienza la sección "Gameplay" que explica que tipo de videojuego es. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/wikitext2.png}
+    \caption{Sección extraída de Wikitext-2}
+    \label{fig:placeholder43}
+\end{figure}
+
+El dataset consta de $58238$ líneas, $96046$ oraciones, $2034076$ palabras y $13349882$ caracteres. La longitud promedio de palabras y oraciones es similar al dataset Tiny Shakespeare, siendo un poco mayor estas últimas con un valor de $4.94$ caracteres para las palabras y $26.71$ para las oraciones. Del total de palabras del corpus se ha identificado un $41.74$\% de \textit{stop words} y un $67.58$\% de las palabras se repiten menos de 5 veces. Se han identificado caracteres denominados raros, esto es, que no se trata de caracteres alfanuméricos o signos de puntuación en el inglés. Estos suponen un $0.1248$\% del total. Algunos de ellos se incluyen en la siguiente imagen:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/caracteres_raros.png}
+    \caption{Caracteres detectados no alfanuméricos en el idioma inglés}
+    \label{fig:placeholder38}
+\end{figure}
+
+A continuación se presentan dos histogramas de como se distribuyen las longitudes de las palabras y las oraciones. Se observa un sesgo claro hacia la izquierda con una disminución progresiva a medida que la longitud de las palabras se incrementa, identificandose palabras de más de $15$ caracteres. Las palabras de entre $3$ y $6$ caracteres son las más comunes, alcanzando frecuencias superiores a $400000$. En el caso de las oraciones también existe un sesgo hacia la izquierda, concentrándose la mayoría entre $1$ y $30$ caracteres.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/hist_long_w_wiki.png}
+    \caption{Distribución de frecuencias longitud de palabras}
+    \label{fig:placeholder40}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/hist_long_s_wiki.png}
+    \caption{Distribución de frecuencias longitud de oraciones}
+    \label{fig:placeholder41}
+\end{figure}
+
+Como palabras más frecuentes, tal y como muestra la siguiente imagen predominan palabras cortas como \textit{two, one o new}. Estas palabras son muy generales, sin reflejar un tema específico, lo que representa la naturaleza de este tipo de datasets. Además, confirman lo visto hasta ahora, pues las palabras más frecuentes contienen pocos caracteres, lo cual es común en el lenguaje natural.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/word_count_wiki.png}
+    \caption{Wordcounter}
+    \label{fig:placeholder39}
+\end{figure}
+
+Se ha realizado también un análisis de la leu Zipz. Como se comprueba en la imagen \ref{fig:placeholder42}, sigue un patrón típico del lenguaje natural, con una cola larga que indica un elevado número de palabras poco frecuentes.
+\begin{figure}[h]
+
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/zipz_wiki.png}
+    \caption{Wordcounter}
+    \label{fig:placeholder42}
+\end{figure}
 
 % LIMPIEZA Y TOKENIZACIÓN
 
@@ -928,7 +977,7 @@ Con ello, manteniendo el \textit{Early Stopping} se ha logrado un decaimiento pr
 \section{Validación}
 Para validar se utiliza el conjunto de datos reservados para tal fin ($35327$ tokens), los cuales no han sido vistos por el modelo durante el entrenamiento. Se obtiene una pérdida de $4.5039$ y una perplejidad de $90.37$, de media para un total de 550 lotes. Es buena señal pues indica que el modelo ha aprendido patrones generales y no se ha sobreajustado a los datos de entrenamiento.
 
-Además de una validación con el conjunto de test, se ha implementado un método que consta de distintos hioerparámetros ajustables para generar texto a partir de unos tokens dados, como por ejemplo: <<King Charles>>. Estos hiperparámetros son los siguientes \parencite{vyas2025transformer_decoder_part3}: 
+Además de una validación con el conjunto de test, se ha implementado un método que consta de distintos hiperparámetros ajustables para generar texto a partir de unos tokens dados, como por ejemplo: "King Charles". Estos hiperparámetros son los siguientes \parencite{vyas2025transformer_decoder_part3}: 
 
 \begin{itemize}
     \item Temperatura.
@@ -1054,6 +1103,20 @@ De estos resultados, se ha seleccionado los tres mejores, que se correspondería
 
 \subsubsection{Comparación con LSTM}
 
+Para una primera validación se ha utilizado el mismo conjunto de test empleado en la arquitectura Transformer de Tiny Shakespeare. Los resultados obtenidos son peores que los que se obtuvieron para el modelo mencionado, con una périda de $4.62$ y un valor de $102.07$ de perplejidad, frente a los $4.5$ y $90.37$ obtenidos para el Transformer respectivamente.
+
+Tras esto se ha generado texto ha partir del mismo prompt utilizado anteriormente: "KING RICHARD:", para un máximo de $100$ tokens. El resultado muestra una repetición de palabras continua, lo que se puede asociar a que se está escogiendo el mayor valor de los predichos como siguiente token: 
+
+\textit{KING RICHARD:}
+\textit{And I am not to be a man, and I have}
+\textit{And, as I am, and I have not so much}
+\textit{And, as I am, and I have not so much}
+\textit{And, as I am, and I have not so much}
+\textit{And, as I am, and I have not so much}
+\textit{And, as I am, and I have not so much}
+\textit{And, as I am, and I have not so much}
+
+Se ha probado también a utilizar \texttt{Top-k} y ajustar la temperatura pero el resultado no ha mejorado.
 
 \subsubsection{Validación a través de API}
 

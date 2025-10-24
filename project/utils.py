@@ -2,6 +2,9 @@ import torch
 import math 
 from torch.optim.lr_scheduler import LambdaLR
 import torch.nn.functional as F
+from tokenization import tokenizador
+import numpy as np
+import tensorflow as tf
 
 def evaluate_ppl(model, dataloader, loss_fn, device):
     model.eval() # Le dice al modelo que se comporte como inferencia
@@ -49,6 +52,18 @@ def generate_text_test(model, sp, prompt, max_new_tokens=50, temperature=1.0, to
     
     return sp.decode(tokens[0].tolist())
 
+
+    
+def windowed_dataset(tokens, context_len, batch_size=64, shuffle=True): 
+    n_windows = len(tokens) - context_len
+    X = [tokens[i:i+context_len] for i in range(n_windows)]
+    y = [tokens[i+context_len] for i in range(n_windows)] # LSTM recibe X: ["a","b","c"] y predice ["d"]
+
+    dataset = tf.data.Dataset.from_tensor_slices((X, y))
+    if shuffle:
+        dataset = dataset.shuffle(10000)
+    dataset = dataset.batch(batch_size, drop_remainder=True)
+    return dataset
 
 def generate_text(model, sp, init_text, top_k, top_p, presence_penalty,frequency_penalty, temperature, max_new_tokens,context_len,device):
         model.eval()
