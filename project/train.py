@@ -10,20 +10,39 @@ from model.final_model import *
 from utils import * 
 print("GPU available:", torch.cuda.is_available())
 
-embedding_dim = 256              
-context_len = 128
-num_epochs = 40
-patience_limit = 10 # Para early stopping
-num_layers = 3
-num_heads = 8
-d_ff = 1024
-dropout = 0.3
+DATASET = "wikitext2"
 
+if DATASET != "wikitext2":
+    embedding_dim = 256              
+    context_len = 128
+    num_epochs = 40
+    patience_limit = 10 # Para early stopping
+    num_layers = 3
+    num_heads = 8
+    d_ff = 1024
+    dropout = 0.3
+    vocab_size = 8000
+else:
+    embedding_dim = 256              
+    context_len = 128
+    num_epochs = 40
+    patience_limit = 10 # Para early stopping
+    num_layers = 3
+    num_heads = 8
+    d_ff = 1024
+    dropout = 0.3
+    vocab_size = 10000
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-MODEL_PATH = "./resources/models/gpt_model.pth"
-BEST_MODEL_PATH = "./resources/models/best_gpt_model.pth"
+
+if DATASET != "wikitext2":
+    MODEL_PATH = "./resources/models/gpt_model.pth"
+    BEST_MODEL_PATH = "./resources/models/best_gpt_model.pth"
+else:
+    MODEL_PATH = "./resources/models/gpt_model_wikitext2.pth"
+    BEST_MODEL_PATH = "./resources/models/best_gpt_model_wikitext2.pth"
+
 ########################
 # Lectura de datasets
 ########################
@@ -33,16 +52,21 @@ tinishakespeare,wikitext2 = load_data()
 #########################
 # Limpieza y tokenización
 ##########################
-pre_clean_dataset(tinishakespeare)
 
-train_text,valid_text,test_text = read_datasets()
+if DATASET != "wikitext2":
+    pre_clean_dataset(tinishakespeare,DATASET)
+else:
+    pre_clean_dataset(wikitext2)
+
+train_text,valid_text,test_text = read_datasets(data_name = DATASET)
 
 print(f"Longitud corpus train: {len(train_text)} caracteres")
 print(f"Longitud corpus valid: {len(valid_text)} caracteres")
 print(f"Longitud corpus test: {len(test_text)} caracteres")
 
-train_ids,sp = tokenizador(train_text)
-val_ids,_ = tokenizador(valid_text)
+train_ids,sp = tokenizador(dataset=train_text, vocabsize=vocab_size)
+
+val_ids,_ = tokenizador(valid_text, vocab_size, DATASET)
 
 vocab_size = sp.vocab_size()
 
@@ -66,7 +90,7 @@ val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=Fal
 ########################
 
 print("Se invoca el modelo")
-model = miniGPT2(
+model = miniLLM(
     vocab_size=vocab_size,
     d_model=embedding_dim,
     num_heads=num_heads,
@@ -92,13 +116,17 @@ loss_fn = nn.CrossEntropyLoss()
 
 #optimizer = torch.optim.AdamW(model.parameters(), lr=5e-4, weight_decay=0.1)
 #scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs*len(loader))
-optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
+
+if DATASET != "wikitext2":
+    optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
+else:
+    optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
+
 scheduler = LambdaLR(optimizer, lr_lambda)
 
 
-
 patience_counter = 0
-best_val_loss = float("inf")
+best_val_loss = float("inf") 
 
 train_losses, val_losses = [], []
 train_ppls, val_ppls = [], []
@@ -151,7 +179,7 @@ for epoch in range(num_epochs):
         #scaler.update() # Se encarga de ajustar el factor de escalado de la pérdida para la próxima iteración.
 
         total_loss += loss.item()
-
+   
         if num_batch % 100 == 0:
             #current_lr = scheduler.get_last_lr()[0]
             print(f"  [Batch {num_batch}] Loss: {loss.item():.4f}") # | LR: {current_lr:.6e}
@@ -181,7 +209,6 @@ for epoch in range(num_epochs):
             print(f"Early stopping en epoch: {epoch+1}")
             break
 
-
 print("Entrenamiento finalizado.")
 torch.save(model, MODEL_PATH)
 
@@ -195,4 +222,4 @@ plt.ylabel("Perplexity")
 plt.title("Evolución de Perplexity durante entrenamiento")
 plt.legend()
 plt.grid(True)
-plt.savefig('./resources/imagenes/resultado_entrenamiento_v6.pdf')
+plt.savefig('./resources/imagenes/resultado_entrenamiento_wikitext2.pdf')

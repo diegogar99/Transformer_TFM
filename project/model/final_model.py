@@ -3,7 +3,7 @@ import torch.nn as nn
 from model.transformer_block import *
 
 class miniLLM(nn.Module):
-    def __init__(self, vocab_size, d_model=512, num_heads=8, d_ff=2048, num_layers=6, context_len=256, dropout=0.1):
+    def __init__(self, vocab_size, d_model, num_heads, d_ff, num_layers, context_len, dropout):
         super().__init__()
         self.tok_emb = nn.Embedding(vocab_size, d_model)
         self.pos_emb = nn.Embedding(context_len, d_model)
@@ -23,7 +23,6 @@ class miniLLM(nn.Module):
         x = self.tok_emb(idx) * math.sqrt(self.tok_emb.embedding_dim)
         x = x + self.pos_emb(pos)
 
-        #x = self.tok_emb(idx) + self.pos_emb(pos)
         for block in self.blocks:
             x = block(x)
         x = self.norm(x)
