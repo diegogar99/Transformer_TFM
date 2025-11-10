@@ -170,32 +170,3 @@ class TransformerDecoderOnlyBlock(nn.Module):
 
         return x
     
-class TransformerDecoderOnlyBlock(nn.Module):
-    def __init__(self, num_heads, d_model, d_ff, dropout):
-        super().__init__()
-        self.mha = MultiHeadAttention(num_heads, d_model)
-        self.ffn = FeedForward(d_model, d_ff, dropout)
-        self.ln1 = NormLayer(d_model)
-        self.ln2 = NormLayer(d_model)
-        self.dropout = nn.Dropout(dropout)  
-        self.apply(self._init_weights)
-    
-    def _init_weights(self, m):
-        if isinstance(m, nn.Linear):
-            nn.init.xavier_uniform_(m.weight)
-            if m.bias is not None:
-                nn.init.zeros_(m.bias)
-        elif isinstance(m, nn.Embedding):
-            nn.init.normal_(m.weight, mean=0.0, std=0.02)
-
-    def forward(self, x):
-        residual = x
-        x = self.ln1(x)
-        attention = self.mha(x)
-        x = residual + self.dropout(attention)
-
-        residual = x
-        x = self.ln2(x)
-        ffn_out = self.ffn(x)
-        x = residual + self.dropout(ffn_out)
-        return x

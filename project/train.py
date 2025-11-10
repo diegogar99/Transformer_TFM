@@ -22,17 +22,34 @@ if DATASET != "wikitext2":
     d_ff = 1024
     dropout = 0.3
     vocab_size = 8000
+    batchSize = 64
 else:
-    embedding_dim = 256              
-    context_len = 128
+    embedding_dim = 512               
+    context_len = 256
     num_epochs = 40
     patience_limit = 10 # Para early stopping
-    num_layers = 3
-    num_heads = 8
-    d_ff = 1024
-    dropout = 0.3
+    num_layers = 6
+    num_heads = 16
+    d_ff = 2048
+    dropout = 0.2
     vocab_size = 10000
+    batchSize = 64
 
+
+'''
+V1 Wikitext2
+embedding_dim = 256               
+context_len = 128
+num_epochs = 40
+patience_limit = 10 # Para early stopping
+num_layers = 3
+num_heads = 8
+d_ff = 1024
+dropout = 0.3
+vocab_size = 10000
+batchSize = 64
+
+'''
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
@@ -40,8 +57,8 @@ if DATASET != "wikitext2":
     MODEL_PATH = "./resources/models/gpt_model.pth"
     BEST_MODEL_PATH = "./resources/models/best_gpt_model.pth"
 else:
-    MODEL_PATH = "./resources/models/gpt_model_wikitext2.pth"
-    BEST_MODEL_PATH = "./resources/models/best_gpt_model_wikitext2.pth"
+    MODEL_PATH = "./resources/models/gpt_model_wikitext2_v2.pth"
+    BEST_MODEL_PATH = "./resources/models/best_gpt_model_wikitext2_v2.pth"
 
 ########################
 # Lectura de datasets
@@ -80,9 +97,9 @@ print("Preparando DataLoader")
 dataset = LMWindowDataset(train_ids, context_len=context_len)  # o 256
 val_dataset = LMWindowDataset(val_ids, context_len=context_len)  # o 256
 
-loader = torch.utils.data.DataLoader(dataset, batch_size=64, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+loader = torch.utils.data.DataLoader(dataset, batch_size=batchSize, shuffle=True,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
-val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=False,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batchSize, shuffle=False,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
 
 
 ########################
@@ -120,7 +137,19 @@ loss_fn = nn.CrossEntropyLoss()
 if DATASET != "wikitext2":
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
 else:
-    optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9)
+    #optimizer = torch.optim.AdamW(model.parameters(), lr=0.0001, betas=(0.9, 0.98), eps=1e-9) v1
+    optimizer = torch.optim.RMSprop(model.parameters(),lr=1e-3, alpha=0.9,momentum=0.98,eps=1e-9) # v2
+
+'''
+- betas: Explica como se calculan los promedios moviles (de los valores recientes) de los gradientes y sus cuadrados. 
+    - beta1: Promedio movil de los gradientes: cuanta memoria tiene de los grad anteriores. Al bajarlo, responde mas rapido a cambios. Lo que hace es mezclar un poco del gradiente actual con los anteriores (memoria), para que el cambio no sea tan brusco.
+    - beta2: Promedio movil de los cuadrados de los gradientes. Como se ajusta el tamaño del lr. Lo que ahce es recordar como suelen ser los gradientes: si la pendiente es fuerte, reduce el lr para no saltar demasiado.Es al cuadrado para que no se anulen.
+- eps: es un pequeño número que se añade al denominador para evitar divisiones por cero o números muy pequeños que causen inestabilidad numérica.
+- weight_decay: Técnica de regulación para que no aprenda valores de pesos demasiado grandes. Es el valor que el optimizador reduce el peso en cada paso.
+- momemtum: cuando los gradientes apuntan en la misma dirección varias veces el movimiento se acelera. En adam y adamW es beta1.
+- alpha en RMSprop es como beta2 en adam.
+
+'''
 
 scheduler = LambdaLR(optimizer, lr_lambda)
 
@@ -222,4 +251,4 @@ plt.ylabel("Perplexity")
 plt.title("Evolución de Perplexity durante entrenamiento")
 plt.legend()
 plt.grid(True)
-plt.savefig('./resources/imagenes/resultado_entrenamiento_wikitext2.pdf')
+plt.savefig('./resources/imagenes/resultado_entrenamiento_wikitext2_v2.pdf')

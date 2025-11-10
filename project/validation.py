@@ -6,24 +6,40 @@ import pandas as pd
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-MODEL_PATH = "./resources/models/gpt_model.pth"
+DATASET = "wikitext2"
+
+if DATASET != "wikitext2":
+    MODEL_PATH = "./resources/models/gpt_model.pth"
+    RES_PATH = "./resources/results/resultados_validacion_test_set_shakespeare2.csv"
+    TOK_PATH = "./resources/models/bpe_model_shakespeare.model"
+    prompt = "KING RICHARD:"
+    VOCABSIZE = 8000
+    batch_size = 64
+else:
+    MODEL_PATH = "./resources/models/gpt_model_wikitext2.pth"
+    RES_PATH = "./resources/results/resultados_validacion_test_set_wikitext2.csv"
+    prompt = "When Japan began the Pacific War" #"The actress Jacqueline Fernandez was born"
+    TOK_PATH = "./resources/models/bpe_model_wikitext.model"
+    VOCABSIZE = 10000
+    batch_size = 64 # 32 para la v2
+
 TEST_SET = False
 PRUEBA_SIMPLE = False
 
 loss_fn = nn.CrossEntropyLoss()
 context_len = 128
-
+ 
 if TEST_SET:
-    _,_,test_text = read_datasets(True)
+    _,_,test_text = read_datasets(True, DATASET)
 
 
     print(f"Longitud corpus test: {len(test_text)} caracteres")
 
-    test_ids,vocab_size = tokenizador(test_text)
+    test_ids,vocab_size = tokenizador(dataset=test_text, vocabsize = VOCABSIZE, data_name=DATASET)
 
     test_dataset = LMWindowDataset(test_ids, context_len=context_len)
 
-    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=64, shuffle=False,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
+    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers=os.cpu_count(),pin_memory=torch.cuda.is_available(),prefetch_factor=2)
     print(f"Iteracciones: {len(test_loader)}")
     model = torch.load(MODEL_PATH, map_location=device,weights_only=False)
 
@@ -31,16 +47,16 @@ if TEST_SET:
     print(f"Test Loss: {test_loss:.4f} | Test Perplexity: {test_ppl:.2f}")
 
 else:
-    sp = spm.SentencePieceProcessor(model_file="./resources/models/bpe_model_shakespeare.model")
+    sp = spm.SentencePieceProcessor(model_file=TOK_PATH)
 
     model = torch.load(MODEL_PATH, map_location=device,weights_only=False)
     model.to(device)
     model.eval()
 
-    prompt = "KING RICHARD:"
-
     if PRUEBA_SIMPLE: 
         generated = generate_text_test(model, sp, prompt, max_new_tokens=100, temperature=0.8, device=device)
+        print("RESULTADO:")
+        print("================")
         print(generated)
     else:
         test_set = [ # temperature, top_k, top_p, presence_penalty, frequency_penalty
@@ -87,6 +103,6 @@ else:
             })
         df = pd.DataFrame(results)
         print(df)
-        df.to_csv("./resources/results/resultados_validacion_test_set_shakespeare2.csv", index=False)
+        df.to_csv(RES_PATH, index=False)
 
 
